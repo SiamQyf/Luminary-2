@@ -1,0 +1,47 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="32" height="32" fill="#5B5B5B"/>
+<g id="Media player">
+<path d="M-120 -604.2C-120 -620.106 -107.106 -633 -91.2 -633H1267.2C1283.11 -633 1296 -620.106 1296 -604.2V22.2C1296 38.1058 1283.11 51 1267.2 51H-91.2C-107.106 51 -120 38.1058 -120 22.2V-604.2Z" fill="#0F0F0F"/>
+<g id="Group 4">
+<g id="Play / Pause" filter="url(#filter0_ii_0_1)">
+<g clip-path="url(#clip0_0_1)">
+<foreignObject x="-21.6892" y="-21.689" width="75.3777" height="75.3777"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(1px);clip-path:url(#bgblur_1_0_1_clip_path);height:100%;width:100%"></div></foreignObject><g id="Liquid Glass" filter="url(#filter1_g_0_1)" data-figma-bg-blur-radius="2">
+<rect x="-5.68921" y="-5.68896" width="43.3778" height="43.3778" fill="white" fill-opacity="0.6" style="mix-blend-mode:soft-light"/>
+</g>
+<path id="&#244;&#128;&#138;&#134;" d="M11.6854 24.0731C11.2213 24.0731 10.87 23.9539 10.6315 23.7154C10.3995 23.4834 10.2867 23.1354 10.2932 22.6713V9.36816C10.2932 8.91055 10.4092 8.56572 10.6412 8.33369C10.8732 8.09522 11.2213 7.97598 11.6854 7.97598H13.967C14.4182 7.98242 14.7598 8.09844 14.9918 8.32402C15.2303 8.54961 15.3495 8.89766 15.3495 9.36816V22.6713C15.3495 23.1354 15.2303 23.4834 14.9918 23.7154C14.7598 23.9539 14.4182 24.0731 13.967 24.0731H11.6854ZM19.0427 24.0731C18.5722 24.0731 18.2209 23.9539 17.9889 23.7154C17.7568 23.4834 17.6408 23.1354 17.6408 22.6713V9.36816C17.6408 8.91055 17.7568 8.56572 17.9889 8.33369C18.2273 8.09522 18.5786 7.97598 19.0427 7.97598H21.305C21.769 7.97598 22.1171 8.09199 22.3491 8.32402C22.5812 8.54961 22.6972 8.89766 22.6972 9.36816V22.6713C22.6972 23.1354 22.5812 23.4834 22.3491 23.7154C22.1171 23.9539 21.769 24.0731 21.305 24.0731H19.0427Z" fill="white"/>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_ii_0_1" x="-0.375" y="-0.375" width="32.75" height="32.75" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="-0.375" dy="-0.375"/>
+<feGaussianBlur stdDeviation="0.1875"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.65 0"/>
+<feBlend mode="overlay" in2="shape" result="effect1_innerShadow_0_1"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="0.375" dy="0.375"/>
+<feGaussianBlur stdDeviation="0.1875"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.65 0"/>
+<feBlend mode="overlay" in2="effect1_innerShadow_0_1" result="effect2_innerShadow_0_1"/>
+</filter>
+<filter id="filter1_g_0_1" x="-21.6892" y="-21.689" width="75.3777" height="75.3777" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.02500000037252903 0.02500000037252903" numOctaves="3" seed="9055" />
+<feDisplacementMap in="shape" scale="32" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="100%" height="100%" />
+<feMerge result="effect1_texture_0_1">
+<feMergeNode in="displacedImage"/>
+</feMerge>
+</filter>
+<clipPath id="bgblur_1_0_1_clip_path" transform="translate(21.6892 21.689)"><rect x="-5.68921" y="-5.68896" width="43.3778" height="43.3778"/>
+</clipPath><clipPath id="clip0_0_1">
+<rect width="32" height="32" rx="16" fill="white"/>
+</clipPath>
+</defs>
+</svg>

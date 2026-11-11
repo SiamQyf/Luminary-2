@@ -1,0 +1,140 @@
+@layer base.theme, base.preset, base.preferences;
+
+@layer base.preset {
+  .media-skin[data-theme="scaffold"] {
+    --media-background: transparent;
+    --media-foreground: white;
+    --media-accent: var(--media-accent-color, var(--media-default-accent-color));
+    --media-accent-foreground: var(--media-accent-text-color, black);
+    --media-primary: var(--media-accent);
+    --media-primary-foreground: var(--media-accent-text-color, black);
+    --media-muted: #404040;
+    --media-popover: black;
+    --media-popover-boundary-offset: calc(var(--media-spacing) * 3);
+    --media-tooltip-boundary-offset: var(--media-popover-boundary-offset);
+    --media-popover-foreground: white;
+    --media-ring: var(--media-accent);
+    --media-button-highlight: rgb(255 255 255 / 0.2);
+    --media-video-border-radius: var(--media-border-radius, 0px);
+    --media-control-radius: 0px;
+    --media-controls-radius: 0px;
+    --media-menu-item-radius: 0px;
+    --media-popup-radius: 0px;
+    --media-dialog-radius: 0px;
+    --media-scrollbar-thumb-color: #808080;
+    --media-shadow-surface: none;
+    --media-shadow-surface-inset: none;
+    --media-shadow-thumb: none;
+    --media-backdrop-filter-surface: none;
+    --media-backdrop-filter-indicator: none;
+    --media-backdrop-filter-dialog: none;
+  }
+
+  .media-skin[data-theme="scaffold"][data-preset$="audio"] {
+    --media-foreground: black;
+    --media-muted: #e5e5e5;
+  }
+
+  @supports (color: light-dark(red, red)) {
+    .media-skin[data-theme="scaffold"][data-preset$="audio"] {
+      --media-foreground: light-dark(black, white);
+      --media-muted: light-dark(#e5e5e5, #404040);
+    }
+  }
+
+  @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+    .media-skin[data-theme="scaffold"]:where([data-preset$="video"]) {
+      --media-background: black;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .media-skin[data-theme="scaffold"] {
+      --media-background: Canvas;
+      --media-popover: Canvas;
+      --media-popover-foreground: CanvasText;
+      --media-foreground: CanvasText;
+      --media-accent: Highlight;
+      --media-primary: Highlight;
+      --media-primary-foreground: HighlightText;
+      --media-ring: Highlight;
+    }
+  }
+}
+
+/* Smooth container and controls transition between fullscreen and windowed mode */
+.media-skin {
+  transition: border-radius 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:fullscreen.media-skin,
+.media-skin:fullscreen,
+:root:fullscreen .media-skin,
+[data-fullscreen] .media-skin,
+.media-skin[data-fullscreen],
+.media-skin[data-fullscreen="true"] {
+  border-radius: 0px !important;
+  box-shadow: none !important;
+}
+
+/** Responsive icon scaling: refined for balanced breathing room in both windowed and fullscreen */
+.player-icon-scale {
+  transform: scale(1.08);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:fullscreen .player-icon-scale,
+.media-skin:fullscreen .player-icon-scale,
+[data-fullscreen] .player-icon-scale,
+[data-fullscreen="true"] .player-icon-scale,
+:root:fullscreen .player-icon-scale {
+  transform: scale(1.05) !important;
+}
+
+/** Fullscreen icon switching between enter and exit states */
+.media-fullscreen-button:not([data-fullscreen]) .media-fullscreen-button-enter-icon {
+  display: block !important;
+}
+.media-fullscreen-button:not([data-fullscreen]) .media-fullscreen-button-exit-icon {
+  display: none !important;
+}
+.media-fullscreen-button[data-fullscreen] .media-fullscreen-button-enter-icon,
+:fullscreen .media-fullscreen-button-enter-icon,
+[data-fullscreen] .media-fullscreen-button-enter-icon {
+  display: none !important;
+}
+.media-fullscreen-button[data-fullscreen] .media-fullscreen-button-exit-icon,
+:fullscreen .media-fullscreen-button-exit-icon,
+[data-fullscreen] .media-fullscreen-button-exit-icon {
+  display: block !important;
+}
+
+/** Smooth 60fps progress bar interpolation between time updates */
+.media-slider-smooth {
+  transition: --media-slider-fill 250ms linear, --media-slider-buffer 300ms ease-out;
+}
+
+/* Disable progress interpolation immediately while dragging/scrubbing for zero-latency response */
+[data-dragging] .media-slider-smooth,
+[data-pointing] .media-slider-smooth,
+.group-data-dragging\/slider .media-slider-smooth,
+.group-data-pointing\/slider .media-slider-smooth {
+  transition: none !important;
+}
+
+.media-thumb-smooth {
+  transition: opacity 150ms ease-out, left 250ms linear;
+}
+
+[data-dragging] .media-thumb-smooth,
+[data-pointing] .media-thumb-smooth,
+.group-data-dragging\/slider .media-thumb-smooth,
+.group-data-pointing\/slider .media-thumb-smooth {
+  transition: opacity 150ms ease-out, left 0s !important;
+}
+
+/* Prevent inactive/closed submenus from expanding the root settings popup height */
+.media-menu-popup [data-submenu]:not([data-open]),
+[data-submenu]:not([data-open]) {
+  display: none !important;
+}

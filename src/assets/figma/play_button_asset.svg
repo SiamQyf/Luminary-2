@@ -1,0 +1,17 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="75.3778" height="75.3778" viewBox="0 0 75.3778 75.3778" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="0" y="0" width="75.3778" height="75.3778"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(1px);clip-path:url(#bgblur_0_0_4_clip_path);height:100%;width:100%"></div></foreignObject><g id="Liquid Glass" filter="url(#filter0)" data-figma-bg-blur-radius="2">
+<rect x="16" y="16" width="43.3778" height="43.3778" fill="white" fill-opacity="0.6" style="mix-blend-mode:soft-light"/>
+</g>
+<defs>
+<filter id="filter0" x="-8" y="-8"  width="75.3778" height="75.3778" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.02500000037252903 0.02500000037252903" numOctaves="3" seed="9055" />
+<feDisplacementMap in="shape" scale="32" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="200%" height="200%" />
+<feMerge result="effect1_texture_0_4">
+<feMergeNode in="displacedImage"/>
+</feMerge>
+</filter>
+<clipPath id="bgblur_0_0_4_clip_path" transform="translate(0 0)"><rect x="16" y="16" width="43.3778" height="43.3778"/>
+</clipPath></defs>
+</svg>

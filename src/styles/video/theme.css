@@ -1,0 +1,92 @@
+@layer base.theme, base.preset, base.preferences;
+
+@layer base.preset {
+  .media-skin:is([data-preset="video"], [data-preset="live-video"]) {
+    /* Light border for browsers without `light-dark()`; see the `@supports` block below. */
+    --media-frame-border: var(--media-border-color, rgb(0 0 0 / 0.1));
+    /* Zero scrims to guarantee zero color shift when mouse enters during playback */
+    --media-controls-gradient-height: 0px;
+    --media-controls-bottom-gradient-height: 0px;
+    --media-controls-gradient: none;
+    --media-controls-top-gradient: none;
+    --media-thumbnail-gradient: none;
+    --media-indicator-gradient: none;
+    --media-caption-controls-y: calc(var(--media-spacing) * -16);
+    --media-slider-preview-offset: calc(var(--media-spacing) * 9);
+  }
+
+  /*
+   * Scrims neutralized for all skins and browser feature queries
+   */
+  @supports (color: color-mix(in oklab, red, red)) {
+    .media-skin:is([data-preset="video"], [data-preset="live-video"]) {
+      --media-controls-gradient: none;
+      --media-controls-top-gradient: none;
+      --media-thumbnail-gradient: none;
+    }
+
+    .media-skin:is([data-preset="video"], [data-preset="live-video"])[data-theme="neutral"] {
+      --media-controls-gradient: none;
+      --media-controls-top-gradient: none;
+      --media-indicator-gradient: none;
+    }
+  }
+
+  @supports (color: oklch(from red l c h)) and (background-image: linear-gradient(in oklab, red, red)) {
+    .media-skin:is([data-preset="video"], [data-preset="live-video"]) {
+      --media-controls-gradient: none;
+      --media-controls-top-gradient: none;
+    }
+  }
+
+  @supports (color: oklch(from red l c h)) {
+    .media-skin:is([data-preset="video"], [data-preset="live-video"]) {
+      --media-thumbnail-gradient: none;
+    }
+  }
+
+  .media-skin:is([data-preset="video"], [data-preset="live-video"])[data-theme="neutral"] {
+    --media-frame-border: var(--media-border-color, rgb(0 0 0 / 0.15));
+    --media-controls-gradient-height: 0px;
+    --media-controls-bottom-gradient-height: 0px;
+    --media-controls-gradient: none;
+    --media-controls-top-gradient: none;
+    --media-caption-controls-y: calc(var(--media-spacing) * -14);
+    --media-slider-preview-offset: calc(var(--media-spacing) * 11);
+  }
+
+  .media-skin:is([data-preset="video"], [data-preset="live-video"])[data-theme="compat"] {
+    --media-controls-gradient: none;
+    --media-caption-controls-y: calc(var(--media-spacing) * -18);
+  }
+
+  .media-skin:is([data-preset="video"], [data-preset="live-video"])[data-theme="scaffold"] {
+    --media-controls-gradient: none;
+    --media-controls-top-gradient: none;
+    --media-caption-controls-y: calc(var(--media-spacing) * -20);
+  }
+
+  @supports (color: oklch(from red l c h)) and (background-image: linear-gradient(in oklab, red, red)) {
+    .media-skin:is([data-preset="video"], [data-preset="live-video"])[data-theme="neutral"] {
+      --media-controls-gradient: none;
+      --media-controls-top-gradient: none;
+    }
+  }
+
+  @supports (color: oklch(from red l c h)) {
+    .media-skin:is([data-preset="video"], [data-preset="live-video"])[data-theme="neutral"] {
+      --media-indicator-gradient: none;
+    }
+  }
+
+  /* Keep `light-dark()` behind this check so a build that lowers it cannot rewrite it; see `audio/theme.css`. */
+  @supports (color: light-dark(red, red)) {
+    .media-skin:is([data-preset="video"], [data-preset="live-video"]) {
+      --media-frame-border: var(--media-border-color, light-dark(rgb(0 0 0 / 0.1), rgb(255 255 255 / 0.15)));
+    }
+
+    .media-skin:is([data-preset="video"], [data-preset="live-video"])[data-theme="neutral"] {
+      --media-frame-border: var(--media-border-color, light-dark(rgb(0 0 0 / 0.15), rgb(255 255 255 / 0.15)));
+    }
+  }
+}
