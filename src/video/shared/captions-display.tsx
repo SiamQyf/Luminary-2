@@ -88,7 +88,17 @@ function parseWebVTT(vttText: string): ParsedCue[] {
       if (!isNaN(start) && !isNaN(end) && textLines.length > 0) {
         const cleaned = cleanCueText(textLines.join('\n'));
         if (cleaned) {
-          cues.push({ start, end, text: cleaned });
+          // Merge / deduplicate identical consecutive or overlapping cues
+          const prev = cues[cues.length - 1];
+          if (
+            prev &&
+            prev.text.trim().toLowerCase() === cleaned.trim().toLowerCase() &&
+            Math.abs(prev.start - start) < 1.0
+          ) {
+            prev.end = Math.max(prev.end, end);
+          } else {
+            cues.push({ start, end, text: cleaned });
+          }
         }
       }
     } else {
@@ -167,7 +177,18 @@ function formatCueContent(text: string) {
     );
   }
 
-  const lines = text.split('\n').filter(Boolean);
+  const rawLines = text.split('\n').map((l) => l.trim()).filter(Boolean);
+  // Deduplicate consecutive or identical lines so captions never repeat within a single pill
+  const seenLines = new Set<string>();
+  const lines: string[] = [];
+  for (const l of rawLines) {
+    const norm = l.toLowerCase();
+    if (!seenLines.has(norm)) {
+      seenLines.add(norm);
+      lines.push(l);
+    }
+  }
+
   if (lines.length > 1) {
     return (
       <span className="flex flex-col items-center gap-0.5">
@@ -180,7 +201,7 @@ function formatCueContent(text: string) {
     );
   }
 
-  return <span className="leading-[1.3] text-center">{text}</span>;
+  return <span className="leading-[1.3] text-center">{lines[0] || text}</span>;
 }
 
 /**
@@ -228,22 +249,25 @@ export function CaptionsDisplay() {
     const parseCuesFromNativeTrack = (track: TextTrack) => {
       if (!track.cues || track.cues.length === 0) return;
       const existing = cuesRef.current;
-      const existingKeys = new Set(existing.map((c) => `${c.start.toFixed(2)}-${c.end.toFixed(2)}`));
 
       let hasNew = false;
       for (let i = 0; i < track.cues.length; i++) {
         const cue = track.cues[i] as any;
         if (cue && typeof cue.startTime === 'number' && typeof cue.endTime === 'number') {
-          const key = `${cue.startTime.toFixed(2)}-${cue.endTime.toFixed(2)}`;
-          if (!existingKeys.has(key)) {
-            const cleaned = cleanCueText(cue.text || '');
-            if (cleaned) {
+          const cleaned = cleanCueText(cue.text || '');
+          if (cleaned) {
+            // Check if already in existing by text and overlapping time (within 0.8s)
+            const exists = existing.some(
+              (c) =>
+                c.text.trim().toLowerCase() === cleaned.trim().toLowerCase() &&
+                Math.abs(c.start - cue.startTime) < 0.8
+            );
+            if (!exists) {
               existing.push({
                 start: cue.startTime,
                 end: cue.endTime,
                 text: cleaned,
               });
-              existingKeys.add(key);
               hasNew = true;
             }
           }
@@ -269,25 +293,38 @@ export function CaptionsDisplay() {
       const currentTime = media.currentTime;
       const cues = cuesRef.current;
 
-      // Instant scan for matching cue at currentTime
-      let matchedText = '';
+      // Scan for matching cues at currentTime with strict deduplication
+      const matchedTexts: string[] = [];
+      const seenTexts = new Set<string>();
+
       for (let i = 0; i < cues.length; i++) {
         const c = cues[i];
         if (c.start <= currentTime && currentTime <= c.end) {
-          matchedText = matchedText ? `${matchedText}\n${c.text}` : c.text;
+          const normalized = c.text.trim().toLowerCase();
+          if (!seenTexts.has(normalized)) {
+            seenTexts.add(normalized);
+            matchedTexts.push(c.text);
+          }
         }
       }
 
       // Fallback to activeCues if cuesRef was somehow empty
-      if (!matchedText && activeTrack.activeCues && activeTrack.activeCues.length > 0) {
+      if (matchedTexts.length === 0 && activeTrack.activeCues && activeTrack.activeCues.length > 0) {
         const activeList = Array.from(activeTrack.activeCues);
-        matchedText = activeList
-          .map((c: any) => cleanCueText(c.text || ''))
-          .filter(Boolean)
-          .join('\n');
+        for (const cue of activeList as any[]) {
+          const cleaned = cleanCueText(cue?.text || '');
+          if (cleaned) {
+            const normalized = cleaned.trim().toLowerCase();
+            if (!seenTexts.has(normalized)) {
+              seenTexts.add(normalized);
+              matchedTexts.push(cleaned);
+            }
+          }
+        }
       }
 
-      setActiveText(matchedText || null);
+      const finalText = matchedTexts.join('\n');
+      setActiveText(finalText || null);
     };
 
     const handleTracksChange = () => {
