@@ -622,7 +622,7 @@ export const THEME_PALETTES: Record<string, { dark: ThemePalette; light: ThemePa
       iconGlow: 'rgba(82, 82, 91, 0.18)',
     },
   },
-  'coco-glass': {
+  'crystal': {
     dark: {
       primary: '#ffffff',
       secondary: '#f0ede6',

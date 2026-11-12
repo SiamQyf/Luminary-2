@@ -139,30 +139,33 @@ function LiquidGlassFilter() {
           <feBlend in2="displacedB" mode="screen" />
         </filter>
 
-        {/* Organic texture filter */}
+        {/* Optical glass refraction distortion filter (Coco Max exact math) */}
         <filter
           id="glass-distortion"
           x="0%"
           y="0%"
           width="100%"
           height="100%"
-          filterUnits="objectBoundingBox"
+          colorInterpolationFilters="sRGB"
         >
           <feTurbulence
             type="fractalNoise"
-            baseFrequency="0.008 0.008"
+            baseFrequency="0.05 0.05"
             numOctaves={1}
-            seed={5}
+            seed={1}
             result="turbulence"
           />
-          <feGaussianBlur in="turbulence" stdDeviation={3} result="softMap" />
+          <feGaussianBlur in="turbulence" stdDeviation={2} result="blurredNoise" />
           <feDisplacementMap
             in="SourceGraphic"
-            in2="softMap"
-            scale={40}
+            in2="blurredNoise"
+            scale={70}
             xChannelSelector="R"
-            yChannelSelector="G"
+            yChannelSelector="B"
+            result="displaced"
           />
+          <feGaussianBlur in="displaced" stdDeviation={4} result="finalBlur" />
+          <feComposite in="finalBlur" in2="finalBlur" operator="over" />
         </filter>
       </defs>
     </svg>

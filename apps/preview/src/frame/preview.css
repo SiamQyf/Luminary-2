@@ -640,18 +640,18 @@ live-audio-player {
     0 22px 52px rgba(0, 0, 0, 0.88) !important;
 }
 
-.preview-player[data-theme="coco-glass"],
-.preview-player[data-theme="coco-glass"] .media-skin {
+.preview-player[data-theme="crystal"],
+.preview-player[data-theme="crystal"] .media-skin {
   border-radius: 18px !important;
 }
-.preview-player[data-theme="coco-glass"] .media-skin {
+.preview-player[data-theme="crystal"] .media-skin {
   border: 1.5px solid rgba(255, 255, 255, 0.3333) !important;
   outline: none !important;
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.15),
-    inset 1.5px 1.5px 0 0 rgba(255, 255, 255, 0.4),
-    inset 0 0 16px rgba(255, 255, 255, 0.08),
-    0 16px 44px rgba(0, 0, 0, 0.55) !important;
+    inset 0 0 0 1px #ffffff2e,
+    inset 1px 1px #fff6,
+    inset 0 0 16px #ffffff1f,
+    0 16px 44px #00000047 !important;
 }
 
 /* ==========================================================================
@@ -6269,89 +6269,95 @@ div[role="menu"]:not([data-child-open]) {
 }
 
 /* ==========================================================================
-   35. COCO GLASS — Squircle Glass Deck Cards with 4-Layer Specular Bevel
-   Inspired by Coco Max (coco-max.vercel.app):
-   - Squircle 12px rounded-rectangular cards
-   - 4-layer specular refraction box-shadow
-   - High-translucency liquid glass (rgba(16, 20, 26, 0.34))
-   - Wide deck slider with linear window ticks & vertical white rounded pill thumb
+   35. CRYSTAL — Squircle Glass Deck Cards with Optical Distortion & 4-Layer Specular Bevel
+   Exact optical refraction & squircle deck cards from Coco Max (coco-max.vercel.app):
+   - SVG distortion filter: #glass-distortion with fractalNoise & feDisplacementMap
+   - Backdrop filter: blur(0px) url(#glass-distortion) blur(0px) saturate(1.6) brightness(1.08)
+   - Deck squircle cards: 12px rounded-rectangular cards with 4-tier specular refraction
+   - Wide deck slider: 38px height with linear periodic ticks & vertical white rounded pill thumb
+   - Snug rounded glass caption card (Image 2)
    ========================================================================== */
-.preview-player[data-theme="coco-glass"] {
+.preview-player[data-theme="crystal"] {
   --media-primary: #ffffff;
+  --vo-liquid: blur(0px) url(#glass-distortion) blur(0px) saturate(1.6) brightness(1.08);
 }
 
-.preview-player[data-theme="coco-glass"] .group\/liquid-btn,
-.preview-player[data-theme="coco-glass"] .group\/center-buffering button,
-.preview-player[data-theme="coco-glass"] [data-slot="control"],
-.preview-player[data-theme="coco-glass"] .media-fullscreen-button {
+.preview-player[data-theme="crystal"] .group\/liquid-btn,
+.preview-player[data-theme="crystal"] .group\/center-buffering button,
+.preview-player[data-theme="crystal"] [data-slot="control"],
+.preview-player[data-theme="crystal"] .media-fullscreen-button {
   border-radius: 12px !important;
-  background-color: rgba(16, 20, 26, 0.34) !important;
-  backdrop-filter: blur(16px) saturate(160%) brightness(1.08) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(160%) brightness(1.08) !important;
+  background-color: #10141a57 !important;
+  -webkit-backdrop-filter: blur(16px) saturate(160%) brightness(1.08);
+  -webkit-backdrop-filter: var(--vo-liquid) !important;
+  backdrop-filter: blur(16px) saturate(160%) brightness(1.08);
+  backdrop-filter: var(--vo-liquid) !important;
   border: 1px solid rgba(255, 255, 255, 0.18) !important;
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.18),
-    inset 1.5px 1.5px 0 0 rgba(255, 255, 255, 0.4),
-    inset 0 0 12px rgba(255, 255, 255, 0.12),
-    0 8px 22px rgba(0, 0, 0, 0.28) !important;
+    inset 0 0 0 1px #ffffff2e,
+    inset 1px 1px #fff6,
+    inset 0 0 12px #ffffff1f,
+    0 8px 22px #00000047 !important;
   color: #ffffff !important;
   transition: transform 0.15s ease-out, background-color 0.2s ease-out, box-shadow 0.2s ease-out !important;
 }
 
-.preview-player[data-theme="coco-glass"] .group\/liquid-btn:hover,
-.preview-player[data-theme="coco-glass"] .group\/center-buffering button:hover,
-.preview-player[data-theme="coco-glass"] [data-slot="control"]:hover,
-.preview-player[data-theme="coco-glass"] .media-fullscreen-button:hover {
-  background-color: rgba(255, 255, 255, 0.18) !important;
+.preview-player[data-theme="crystal"] .group\/liquid-btn:hover,
+.preview-player[data-theme="crystal"] .group\/center-buffering button:hover,
+.preview-player[data-theme="crystal"] [data-slot="control"]:hover,
+.preview-player[data-theme="crystal"] .media-fullscreen-button:hover {
+  background-color: #ffffff29 !important;
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.28),
-    inset 1.5px 1.5px 0 0 rgba(255, 255, 255, 0.65),
-    inset 0 0 16px rgba(255, 255, 255, 0.2),
-    0 8px 24px rgba(0, 0, 0, 0.36) !important;
+    inset 0 0 0 1px #ffffff4d,
+    inset 1px 1px #ffffffe6,
+    inset 0 0 16px #ffffff33,
+    0 8px 26px #00000059 !important;
   transform: scale(1.04) !important;
 }
 
-.preview-player[data-theme="coco-glass"] .group\/liquid-btn:active,
-.preview-player[data-theme="coco-glass"] .group\/center-buffering button:active {
+.preview-player[data-theme="crystal"] .group\/liquid-btn:active,
+.preview-player[data-theme="crystal"] .group\/center-buffering button:active {
   transform: scale(0.95) !important;
 }
 
-.preview-player[data-theme="coco-glass"] .media-md\:flex > .group\/liquid-btn:nth-child(3),
-.preview-player[data-theme="coco-glass"] .group\/liquid-btn.group\/play,
-.preview-player[data-theme="coco-glass"] .group\/center-buffering button:nth-child(2) {
+.preview-player[data-theme="crystal"] .media-md\:flex > .group\/liquid-btn:nth-child(3),
+.preview-player[data-theme="crystal"] .group\/liquid-btn.group\/play,
+.preview-player[data-theme="crystal"] .group\/center-buffering button:nth-child(2) {
   border-radius: 12px !important;
-  background-color: rgba(16, 20, 26, 0.42) !important;
-  border: 1px solid rgba(255, 255, 255, 0.24) !important;
+  background-color: #10141a57 !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.2),
-    inset 1.5px 1.5px 0 0 rgba(255, 255, 255, 0.5),
-    inset 0 0 14px rgba(255, 255, 255, 0.15),
-    0 8px 24px rgba(0, 0, 0, 0.32) !important;
+    inset 0 0 0 1px #ffffff2e,
+    inset 1px 1px #fff6,
+    inset 0 0 14px #ffffff1f,
+    0 8px 22px #00000047 !important;
   color: #ffffff !important;
 }
 
-.preview-player[data-theme="coco-glass"] .player-icon-scale,
-.preview-player[data-theme="coco-glass"] .group\/mute svg,
-.preview-player[data-theme="coco-glass"] .group\/liquid-btn svg,
-.preview-player[data-theme="coco-glass"] .group\/center-buffering svg {
+.preview-player[data-theme="crystal"] .player-icon-scale,
+.preview-player[data-theme="crystal"] .group\/mute svg,
+.preview-player[data-theme="crystal"] .group\/liquid-btn svg,
+.preview-player[data-theme="crystal"] .group\/center-buffering svg {
   color: #ffffff !important;
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
 }
 
-.preview-player[data-theme="coco-glass"] .group\/vol-pill {
+.preview-player[data-theme="crystal"] .group\/vol-pill {
   border-radius: 12px !important;
-  background-color: rgba(16, 20, 26, 0.34) !important;
-  backdrop-filter: blur(16px) saturate(160%) brightness(1.08) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(160%) brightness(1.08) !important;
+  background-color: #10141a57 !important;
+  -webkit-backdrop-filter: blur(16px) saturate(160%) brightness(1.08);
+  -webkit-backdrop-filter: var(--vo-liquid) !important;
+  backdrop-filter: blur(16px) saturate(160%) brightness(1.08);
+  backdrop-filter: var(--vo-liquid) !important;
   border: 1px solid rgba(255, 255, 255, 0.18) !important;
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.18),
-    inset 1.5px 1.5px 0 0 rgba(255, 255, 255, 0.4),
-    inset 0 0 12px rgba(255, 255, 255, 0.12),
-    0 8px 22px rgba(0, 0, 0, 0.28) !important;
+    inset 0 0 0 1px #ffffff2e,
+    inset 1px 1px #fff6,
+    inset 0 0 12px #ffffff1f,
+    0 8px 22px #00000047 !important;
 }
 
-.preview-player[data-theme="coco-glass"] .volume-slider-thumb {
+.preview-player[data-theme="crystal"] .volume-slider-thumb {
   width: 6px !important;
   height: 18px !important;
   border-radius: 3px !important;
@@ -6360,91 +6366,97 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.85) !important;
 }
 
-/* Timeline Scrubber with Coco linear window ticks & vertical pill thumb */
-.preview-player[data-theme="coco-glass"] .group\/slider {
-  height: 36px !important;
+/* Timeline Scrubber Deck Track with periodic ticks & vertical pill thumb */
+.preview-player[data-theme="crystal"] .group\/slider {
+  height: 38px !important;
 }
 
-.preview-player[data-theme="coco-glass"] div[class*="media-slider-smooth"][class*="isolate"] {
-  height: 36px !important;
+.preview-player[data-theme="crystal"] div[class*="media-slider-smooth"][class*="isolate"] {
+  height: 38px !important;
   border-radius: 12px !important;
-  background-color: rgba(16, 20, 26, 0.34) !important;
-  backdrop-filter: blur(16px) saturate(160%) brightness(1.08) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(160%) brightness(1.08) !important;
+  background-color: #10141a57 !important;
+  -webkit-backdrop-filter: blur(16px) saturate(160%) brightness(1.08);
+  -webkit-backdrop-filter: var(--vo-liquid) !important;
+  backdrop-filter: blur(16px) saturate(160%) brightness(1.08);
+  backdrop-filter: var(--vo-liquid) !important;
   border: 1px solid rgba(255, 255, 255, 0.18) !important;
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.18),
-    inset 1.5px 1.5px 0 0 rgba(255, 255, 255, 0.4),
-    inset 0 0 14px rgba(255, 255, 255, 0.12),
-    0 8px 22px rgba(0, 0, 0, 0.28) !important;
-  background-image: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.22) 0 1px, transparent 1px 20px) !important;
+    inset 0 0 0 1px #ffffff2e,
+    inset 1px 1px #fff6,
+    inset 0 0 14px #ffffff1f,
+    0 8px 22px #00000047 !important;
+  background-image: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.24) 0 1px, transparent 1px 20px) !important;
 }
 
-.preview-player[data-theme="coco-glass"] div[class*="clip-media-x-[--media-slider-buffer]"] {
+.preview-player[data-theme="crystal"] div[class*="clip-media-x-[--media-slider-buffer]"] {
   border-radius: 10px !important;
-  background: rgba(255, 255, 255, 0.14) !important;
+  background: rgba(255, 255, 255, 0.16) !important;
 }
 
-.preview-player[data-theme="coco-glass"] div[class*="clip-media-x-[--media-slider-fill]"] {
+.preview-player[data-theme="crystal"] div[class*="clip-media-x-[--media-slider-fill]"] {
   border-radius: 10px !important;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.28) 100%) !important;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.32) 100%) !important;
   box-shadow: none !important;
   opacity: 1 !important;
 }
 
-.preview-player[data-theme="coco-glass"] .group\/slider .media-thumb-smooth {
+.preview-player[data-theme="crystal"] .group\/slider .media-thumb-smooth {
   width: 8px !important;
   height: 26px !important;
   border-radius: 4px !important;
   background: #ffffff !important;
   border: none !important;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.85), 0 2px 6px rgba(0, 0, 0, 0.35) !important;
+  box-shadow: 0 0 10px #ffffffbf, 0 2px 6px rgba(0, 0, 0, 0.35) !important;
 }
 
-.preview-player[data-theme="coco-glass"] time-value,
-.preview-player[data-theme="coco-glass"] div[class*="tabular-nums"] {
+.preview-player[data-theme="crystal"] time-value,
+.preview-player[data-theme="crystal"] div[class*="tabular-nums"] {
   color: #ffffff !important;
   font-weight: 600 !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9) !important;
 }
 
-.preview-player[data-theme="coco-glass"] span:first-child > time,
-.preview-player[data-theme="coco-glass"] span:first-child > time-value {
+.preview-player[data-theme="crystal"] span:first-child > time,
+.preview-player[data-theme="crystal"] span:first-child > time-value {
   color: #ffffff !important;
 }
 
-.preview-player[data-theme="coco-glass"] [role="menu"],
-:root[data-theme="coco-glass"] [role="menu"] {
+/* Settings Popup Single Card per GEMINI.md */
+.preview-player[data-theme="crystal"] [role="menu"],
+:root[data-theme="crystal"] [role="menu"] {
   border-radius: 14px !important;
   padding: 8px !important;
   background: rgba(16, 20, 26, 0.88) !important;
-  backdrop-filter: blur(20px) saturate(1.6) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(1.6) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.6);
+  -webkit-backdrop-filter: var(--vo-liquid) !important;
+  backdrop-filter: blur(20px) saturate(1.6);
+  backdrop-filter: var(--vo-liquid) !important;
   border: 1px solid rgba(255, 255, 255, 0.18) !important;
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.15),
-    inset 1.5px 1.5px rgba(255, 255, 255, 0.35),
+    inset 0 0 0 1px #ffffff2e,
+    inset 1px 1px #fff6,
+    inset 0 0 14px #ffffff1f,
     0 20px 48px rgba(0, 0, 0, 0.75) !important;
   color: #ffffff !important;
 }
 
-.preview-player[data-theme="coco-glass"] .group\/menu-btn:hover,
-.preview-player[data-theme="coco-glass"] .group\/menu-radio:hover,
-:root[data-theme="coco-glass"] [role="menuitem"]:hover,
-:root[data-theme="coco-glass"] [role="menuitemradio"]:hover {
-  background: rgba(255, 255, 255, 0.12) !important;
+.preview-player[data-theme="crystal"] .group\/menu-btn:hover,
+.preview-player[data-theme="crystal"] .group\/menu-radio:hover,
+:root[data-theme="crystal"] [role="menuitem"]:hover,
+:root[data-theme="crystal"] [role="menuitemradio"]:hover {
+  background: rgba(255, 255, 255, 0.14) !important;
   border-radius: 10px !important;
 }
 
-.preview-player[data-theme="coco-glass"] [role="menu"] svg {
+.preview-player[data-theme="crystal"] [role="menu"] svg {
   color: #ffffff !important;
 }
 
-.preview-player[data-theme="coco-glass"] .video-title {
+.preview-player[data-theme="crystal"] .video-title {
   color: #ffffff !important;
 }
 
-.preview-player[data-theme="coco-glass"] .video-subtitle {
+.preview-player[data-theme="crystal"] .video-subtitle {
   color: #e5e5e5 !important;
 }
 
@@ -6896,8 +6908,8 @@ div[role="menu"]:not([data-child-open]) {
   --media-caption-radius: 8px;
 }
 
-.preview-player[data-theme="coco-glass"],
-:root[data-theme="coco-glass"] {
+.preview-player[data-theme="crystal"],
+:root[data-theme="crystal"] {
   --media-caption-bg: rgba(16, 20, 26, 0.74);
   --media-caption-border: rgba(255, 255, 255, 0.18);
   --media-caption-radius: 10px;
@@ -7251,8 +7263,8 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: inset 0 -1px 0 rgba(237, 229, 206, 0.26);
 }
 
-/* 33. Coco Glass — pristine translucent dock vignette + specular hairline */
-.preview-player[data-theme="coco-glass"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
+/* 35. Crystal — pristine translucent dock vignette + specular hairline */
+.preview-player[data-theme="crystal"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
   background-image:
     linear-gradient(180deg, rgba(16, 20, 26, 0) 0%, rgba(16, 20, 26, 0.35) 45%, rgba(16, 20, 26, 0.72) 100%);
   box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.18);
