@@ -197,11 +197,6 @@ export function CaptionsButton({ className, iconClassName, hasTracks: hasTracksP
         )}
         style={{ filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85))' }}
       />
-      {/* Luminous optical active indicator dot */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-[3.5px] left-1/2 -translate-x-1/2 size-[3px] rounded-full bg-white shadow-[0_0_6px_rgba(255,255,255,0.95)] opacity-0 scale-50 group-data-active/captions:opacity-100 group-data-active/captions:scale-100 transition-all duration-200"
-      />
     </CaptionsButtonPrimitive>
   );
 }

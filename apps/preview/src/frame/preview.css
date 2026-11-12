@@ -6282,6 +6282,7 @@ div[role="menu"]:not([data-child-open]) {
   --vo-liquid: blur(0px) url(#glass-distortion) blur(0px) saturate(1.6) brightness(1.08);
 }
 
+/* Borderless squircle deck buttons per user instruction */
 .preview-player[data-theme="crystal"] .group\/liquid-btn,
 .preview-player[data-theme="crystal"] .group\/center-buffering button,
 .preview-player[data-theme="crystal"] [data-slot="control"],
@@ -6292,10 +6293,9 @@ div[role="menu"]:not([data-child-open]) {
   -webkit-backdrop-filter: var(--vo-liquid) !important;
   backdrop-filter: blur(16px) saturate(160%) brightness(1.08);
   backdrop-filter: var(--vo-liquid) !important;
-  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border: none !important;
+  outline: none !important;
   box-shadow:
-    inset 0 0 0 1px #ffffff2e,
-    inset 1px 1px #fff6,
     inset 0 0 12px #ffffff1f,
     0 8px 22px #00000047 !important;
   color: #ffffff !important;
@@ -6307,9 +6307,9 @@ div[role="menu"]:not([data-child-open]) {
 .preview-player[data-theme="crystal"] [data-slot="control"]:hover,
 .preview-player[data-theme="crystal"] .media-fullscreen-button:hover {
   background-color: #ffffff29 !important;
+  border: none !important;
+  outline: none !important;
   box-shadow:
-    inset 0 0 0 1px #ffffff4d,
-    inset 1px 1px #ffffffe6,
     inset 0 0 16px #ffffff33,
     0 8px 26px #00000059 !important;
   transform: scale(1.04) !important;
@@ -6320,28 +6320,37 @@ div[role="menu"]:not([data-child-open]) {
   transform: scale(0.95) !important;
 }
 
+/* Play/Pause Deck Card - Borderless */
 .preview-player[data-theme="crystal"] .media-md\:flex > .group\/liquid-btn:nth-child(3),
 .preview-player[data-theme="crystal"] .group\/liquid-btn.group\/play,
 .preview-player[data-theme="crystal"] .group\/center-buffering button:nth-child(2) {
   border-radius: 12px !important;
   background-color: #10141a57 !important;
-  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  border: none !important;
+  outline: none !important;
   box-shadow:
-    inset 0 0 0 1px #ffffff2e,
-    inset 1px 1px #fff6,
     inset 0 0 14px #ffffff1f,
     0 8px 22px #00000047 !important;
   color: #ffffff !important;
 }
 
+/* Remove icon shadows and icon borders strictly for Crystal style only */
 .preview-player[data-theme="crystal"] .player-icon-scale,
 .preview-player[data-theme="crystal"] .group\/mute svg,
 .preview-player[data-theme="crystal"] .group\/liquid-btn svg,
-.preview-player[data-theme="crystal"] .group\/center-buffering svg {
+.preview-player[data-theme="crystal"] .group\/center-buffering svg,
+.preview-player[data-theme="crystal"] .group\/captions svg,
+.preview-player[data-theme="crystal"] .group\/captions button,
+.preview-player[data-theme="crystal"] svg {
   color: #ffffff !important;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
+  filter: none !important;
+  drop-shadow: none !important;
+  text-shadow: none !important;
+  border: none !important;
+  outline: none !important;
 }
 
+/* Volume Pill Squircle Capsule - Borderless */
 .preview-player[data-theme="crystal"] .group\/vol-pill {
   border-radius: 12px !important;
   background-color: #10141a57 !important;
@@ -6349,10 +6358,9 @@ div[role="menu"]:not([data-child-open]) {
   -webkit-backdrop-filter: var(--vo-liquid) !important;
   backdrop-filter: blur(16px) saturate(160%) brightness(1.08);
   backdrop-filter: var(--vo-liquid) !important;
-  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border: none !important;
+  outline: none !important;
   box-shadow:
-    inset 0 0 0 1px #ffffff2e,
-    inset 1px 1px #fff6,
     inset 0 0 12px #ffffff1f,
     0 8px 22px #00000047 !important;
 }
@@ -6366,47 +6374,43 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.85) !important;
 }
 
-/* Timeline Scrubber Deck Track with periodic ticks & vertical pill thumb */
+/* Timeline Scrubber - Exactly 3px seekbar height per user request */
 .preview-player[data-theme="crystal"] .group\/slider {
-  height: 38px !important;
+  height: 16px !important;
 }
 
 .preview-player[data-theme="crystal"] div[class*="media-slider-smooth"][class*="isolate"] {
-  height: 38px !important;
-  border-radius: 12px !important;
-  background-color: #10141a57 !important;
-  -webkit-backdrop-filter: blur(16px) saturate(160%) brightness(1.08);
+  height: 3px !important;
+  border-radius: 1.5px !important;
+  background-color: rgba(255, 255, 255, 0.22) !important;
   -webkit-backdrop-filter: var(--vo-liquid) !important;
-  backdrop-filter: blur(16px) saturate(160%) brightness(1.08);
   backdrop-filter: var(--vo-liquid) !important;
-  border: 1px solid rgba(255, 255, 255, 0.18) !important;
-  box-shadow:
-    inset 0 0 0 1px #ffffff2e,
-    inset 1px 1px #fff6,
-    inset 0 0 14px #ffffff1f,
-    0 8px 22px #00000047 !important;
-  background-image: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.24) 0 1px, transparent 1px 20px) !important;
+  border: none !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) !important;
+  background-image: none !important;
 }
 
 .preview-player[data-theme="crystal"] div[class*="clip-media-x-[--media-slider-buffer]"] {
-  border-radius: 10px !important;
-  background: rgba(255, 255, 255, 0.16) !important;
+  height: 3px !important;
+  border-radius: 1.5px !important;
+  background: rgba(255, 255, 255, 0.36) !important;
 }
 
 .preview-player[data-theme="crystal"] div[class*="clip-media-x-[--media-slider-fill]"] {
-  border-radius: 10px !important;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.32) 100%) !important;
-  box-shadow: none !important;
+  height: 3px !important;
+  border-radius: 1.5px !important;
+  background: #ffffff !important;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.9) !important;
   opacity: 1 !important;
 }
 
 .preview-player[data-theme="crystal"] .group\/slider .media-thumb-smooth {
-  width: 8px !important;
-  height: 26px !important;
-  border-radius: 4px !important;
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50% !important;
   background: #ffffff !important;
   border: none !important;
-  box-shadow: 0 0 10px #ffffffbf, 0 2px 6px rgba(0, 0, 0, 0.35) !important;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.95), 0 1px 3px rgba(0, 0, 0, 0.5) !important;
 }
 
 .preview-player[data-theme="crystal"] time-value,
