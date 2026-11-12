@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
 export const LAYOUT_OPTIONS = [
-  { id: 'expanded', label: 'Expanded' },
   { id: 'simple', label: 'Simple' },
+  { id: 'expanded', label: 'Expanded' },
 ] as const;
 
 export type PlayerLayout = (typeof LAYOUT_OPTIONS)[number]['id'];
@@ -11,11 +11,11 @@ const STORAGE_KEY = 'luminescence-layout';
 const LAYOUT_EVENT = 'luminescence-layout-change';
 
 function normalizeLayout(raw: string | null | undefined): PlayerLayout {
-  return raw === 'simple' ? 'simple' : 'expanded';
+  return raw === 'expanded' ? 'expanded' : 'simple';
 }
 
 export function readInitialLayout(): PlayerLayout {
-  if (typeof window === 'undefined') return 'expanded';
+  if (typeof window === 'undefined') return 'simple';
   const urlLayout = new URLSearchParams(window.location.search).get('layout');
   if (urlLayout) return normalizeLayout(urlLayout);
   const domLayout = document.documentElement.dataset.layout;
