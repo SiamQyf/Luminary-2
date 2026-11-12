@@ -24,6 +24,7 @@ import { ButtonTooltip } from './tooltip';
 
 export const THEME_STYLES = [
   { id: 'translucent', label: 'Translucent Glass' },
+  { id: 'linear-ticks', label: 'Linear Ticks' },
   { id: 'gta-vi', label: 'GTA VI' },
   { id: 'cyber-neon', label: 'Cyber Neon' },
   { id: 'synthwave-80s', label: '80s Synthwave' },
@@ -55,7 +56,6 @@ export const THEME_STYLES = [
   { id: 'nordic-frost', label: 'Nordic Frost' },
   { id: 'crimson-cinema', label: 'Criterion Cinema' },
   { id: 'pixel-8bit', label: '8-Bit Pixel' },
-  { id: 'linear-ticks', label: 'Linear Ticks' },
   { id: 'plain', label: 'Plain White' },
 ] as const;
 
