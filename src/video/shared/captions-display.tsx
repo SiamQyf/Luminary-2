@@ -147,7 +147,7 @@ function getActiveSubtitleTrack(media: HTMLVideoElement): TextTrack | null {
 /**
  * Format subtitle cue text:
  * - Detects sound effects / music cues (e.g. "[Music]", "[Applause]", "♪ ... ♪")
- * - Formats lines cleanly for optimal typography & contrast
+ * - Formats lines cleanly for optimal compact typography & contrast without bloated empty space
  */
 function formatCueContent(text: string) {
   const isSoundOrMusic =
@@ -159,10 +159,10 @@ function formatCueContent(text: string) {
   if (isSoundOrMusic) {
     const cleanSound = text.replace(/^[\[♪\s]+|[\]♪\s]+$/g, '').trim();
     return (
-      <span className="inline-flex items-center justify-center gap-1.5 italic tracking-wide text-white/95">
-        <span className="text-[12px] opacity-75 font-normal select-none">♪</span>
+      <span className="inline-flex items-center justify-center gap-1 italic tracking-wide text-white/95 leading-tight">
+        <span className="text-[10px] sm:text-[11px] opacity-75 font-normal select-none">♪</span>
         <span>{cleanSound || text}</span>
-        <span className="text-[12px] opacity-75 font-normal select-none">♪</span>
+        <span className="text-[10px] sm:text-[11px] opacity-75 font-normal select-none">♪</span>
       </span>
     );
   }
@@ -172,7 +172,7 @@ function formatCueContent(text: string) {
     return (
       <span className="flex flex-col items-center gap-0.5">
         {lines.map((line, idx) => (
-          <span key={idx} className="block leading-[1.38]">
+          <span key={idx} className="block leading-[1.3] text-center">
             {line}
           </span>
         ))}
@@ -180,16 +180,16 @@ function formatCueContent(text: string) {
     );
   }
 
-  return <span className="leading-[1.38]">{text}</span>;
+  return <span className="leading-[1.3] text-center">{text}</span>;
 }
 
 /**
- * High-Performance Synchronized Captions Display:
- * - Completely solves native browser cue desynchronization during seeking, scrubbing, and pause jumps.
+ * Universal High-Performance Captions Display (Adaptive All-Screen Design):
+ * - Fits all device aspect ratios & screen sizes (mobile portrait, mobile landscape, tablet, desktop, fullscreen).
+ * - Compact text-fitted liquid-glass capsule that never obscures the video scene or dominates the canvas.
+ * - Sits gracefully in the lower third with responsive, lightweight bottom elevation.
  * - Indexes full WebVTT cues into memory with 0ms seek latency.
- * - Synchronously updates active subtitle text on 'seeking', 'seeked', 'timeupdate', 'play', and 'pause'.
- * - Dynamically adapts elevation above the bottom control bar to avoid overlap across desktop and mobile.
- * - Mesmerizing frosted liquid glass pill capsule with uniform drop-shadow adhering to project guidelines.
+ * - Uniform drop-shadow strictly adhering to project guidelines: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)).
  */
 export function CaptionsDisplay() {
   const media = useMedia() as HTMLVideoElement | null;
@@ -351,37 +351,35 @@ export function CaptionsDisplay() {
 
   if (!activeText) return null;
 
-  const isShortCue = activeText.length <= 26 && !activeText.includes('\n');
-
   return (
     <div
       aria-live="polite"
       className={cn(
-        'pointer-events-none absolute inset-x-0 flex justify-center px-4 sm:px-6 z-25',
-        // Responsive dynamic bottom elevation: clearance above controls bar when visible, settling smoothly to bottom third when hidden
-        'bottom-[calc(max(env(safe-area-inset-bottom,0px),16px)+12px)] sm:bottom-7 md:bottom-8',
-        '[[data-controls-visible]_&]:bottom-[calc(max(env(safe-area-inset-bottom,0px),16px)+76px)] sm:[[data-controls-visible]_&]:bottom-[86px]',
-        'transition-[bottom] duration-300 ease-out'
+        'pointer-events-none absolute inset-x-0 flex justify-center px-3 sm:px-6 z-25',
+        // Responsive snug bottom elevation: stays close to lower edge, never jumping into video center
+        'bottom-2 sm:bottom-3 md:bottom-5',
+        '[[data-controls-visible]_&]:bottom-[40px] sm:[[data-controls-visible]_&]:bottom-[54px] md:[[data-controls-visible]_&]:bottom-[72px]',
+        'transition-[bottom] duration-200 ease-out'
       )}
     >
       <div
         key={activeText}
         data-part="caption-pill"
         className={cn(
-          'inline-block max-w-[90%] sm:max-w-[80%] md:max-w-[70%]',
-          isShortCue
-            ? 'px-4.5 py-1.5 sm:px-5 sm:py-2 rounded-full'
-            : 'px-4.5 py-2 sm:px-6 sm:py-2.5 rounded-2xl',
-          'backdrop-blur-[20px] backdrop-saturate-[180%] backdrop-contrast-[105%]',
-          'text-white text-center font-sans font-medium text-[13.5px] sm:text-[15.5px] md:text-[16.5px] tracking-[0.012em]',
-          'select-none transition-all duration-150 animate-in fade-in zoom-in-[0.98]'
+          'inline-block max-w-[94%] sm:max-w-[84%] md:max-w-[72%]',
+          'px-2.5 py-1 sm:px-3.5 sm:py-1.5 md:px-4 md:py-2',
+          'rounded-[7px] sm:rounded-[9px] md:rounded-[11px]',
+          'backdrop-blur-[12px] backdrop-saturate-[160%] backdrop-contrast-[105%]',
+          'text-white text-center font-sans font-medium',
+          'text-[11.5px] sm:text-[13px] md:text-[14.5px] lg:text-[16px] tracking-[0.01em]',
+          'select-none transition-all duration-120 animate-in fade-in zoom-in-[0.98]'
         )}
         style={{
-          background: 'var(--media-caption-bg, rgba(10, 13, 20, 0.78))',
-          border: '1px solid var(--media-caption-border, rgba(255, 255, 255, 0.2))',
+          background: 'var(--media-caption-bg, rgba(8, 10, 15, 0.72))',
+          border: '1px solid var(--media-caption-border, rgba(255, 255, 255, 0.15))',
           boxShadow:
-            'var(--media-caption-shadow, 0 10px 30px -4px rgba(0, 0, 0, 0.7), inset 0 1px 0 0 rgba(255, 255, 255, 0.26), inset 0 -1px 0 0 rgba(0, 0, 0, 0.4))',
-          textShadow: '0 1px 2px rgba(0, 0, 0, 0.95), 0 0 10px rgba(0, 0, 0, 0.65)',
+            'var(--media-caption-shadow, 0 4px 16px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 0 rgba(0, 0, 0, 0.35))',
+          textShadow: '0 1px 2px rgba(0, 0, 0, 0.95), 0 0 8px rgba(0, 0, 0, 0.65)',
           filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85))',
         }}
       >
