@@ -403,6 +403,17 @@ const THEME_PALETTES: Record<string, ThemePalette> = {
     bit2: '#f0ebd8',
     bitGlow: 'rgba(255, 255, 255, 0.65)',
   },
+  'dot-matrix': {
+    bleed1: 'rgba(0, 240, 255, 0.22)',
+    bleed2: 'rgba(34, 211, 238, 0.16)',
+    bleed3: 'rgba(255, 42, 133, 0.12)',
+    bleed4: 'rgba(3, 7, 18, 0.15)',
+    strip1: '#00f0ff',
+    strip2: '#ff2a85',
+    bit1: '#00f0ff',
+    bit2: '#ffffff',
+    bitGlow: 'rgba(0, 240, 255, 0.75)',
+  },
 };
 
 /**

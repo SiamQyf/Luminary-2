@@ -640,6 +640,24 @@ export const THEME_PALETTES: Record<string, { dark: ThemePalette; light: ThemePa
       iconGlow: 'rgba(75, 85, 99, 0.18)',
     },
   },
+  'dot-matrix': {
+    dark: {
+      primary: '#00f0ff',
+      secondary: '#38bdf8',
+      accent: '#ff2a85',
+      gradient: 'linear-gradient(135deg, #00f0ff 10%, #38bdf8 55%, #ff2a85 100%)',
+      glow: 'rgba(0, 240, 255, 0.55)',
+      iconGlow: 'rgba(0, 240, 255, 0.45)',
+    },
+    light: {
+      primary: '#0284c7',
+      secondary: '#0891b2',
+      accent: '#e11d48',
+      gradient: 'linear-gradient(135deg, #0284c7 15%, #0891b2 55%, #e11d48 100%)',
+      glow: 'rgba(2, 132, 199, 0.28)',
+      iconGlow: 'rgba(8, 145, 178, 0.22)',
+    },
+  },
 };
 
 export function getThemePalette(themeName: string, isDark = true): ThemePalette {

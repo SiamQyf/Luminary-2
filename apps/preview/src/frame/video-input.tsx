@@ -128,6 +128,7 @@ export const STYLE_OPTIONS = [
   { id: 'translucent', label: 'Translucent Glass' },
   { id: 'linear-ticks', label: 'Linear Ticks' },
   { id: 'crystal', label: 'Crystal' },
+  { id: 'dot-matrix', label: 'Dot Matrix' },
   { id: 'gta-vi', label: 'GTA VI' },
   { id: 'cyber-neon', label: 'Cyber Neon' },
   { id: 'synthwave-80s', label: '80s Synthwave' },
