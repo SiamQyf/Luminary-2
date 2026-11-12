@@ -100,15 +100,22 @@ function parseWebVTT(vttText: string): ParsedCue[] {
 }
 
 function getVttUrlForVideo(videoEl: HTMLVideoElement): string | null {
-  const trackEl = videoEl.querySelector('track[kind="subtitles"][src], track[kind="captions"][src]') as HTMLTrackElement | null;
+  const hostEl = ((videoEl as unknown as { target?: HTMLElement })?.target ?? videoEl) as HTMLElement | null;
+  const trackEl =
+    typeof hostEl?.querySelector === 'function'
+      ? (hostEl.querySelector('track[kind="subtitles"][src], track[kind="captions"][src]') as HTMLTrackElement | null)
+      : null;
   if (trackEl?.src) {
     return trackEl.src;
   }
 
   // Check poster image, storyboard tracks, video source, or closest media-skin element
-  const skin = videoEl.closest('.media-skin');
+  const skin = typeof hostEl?.closest === 'function' ? hostEl.closest('.media-skin') : null;
   const posterImg = skin?.querySelector('img') as HTMLImageElement | null;
-  const metadataTrack = videoEl.querySelector('track[kind="metadata"]') as HTMLTrackElement | null;
+  const metadataTrack =
+    typeof hostEl?.querySelector === 'function'
+      ? (hostEl.querySelector('track[kind="metadata"]') as HTMLTrackElement | null)
+      : null;
 
   const searchSources = [
     videoEl.currentSrc,
@@ -313,14 +320,17 @@ export function CaptionsDisplay() {
       )}
     >
       <div
+        data-part="caption-pill"
         className={cn(
-          'inline-block max-w-[85%] sm:max-w-[75%] px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl sm:rounded-2xl',
-          'bg-black/80 backdrop-blur-md border border-white/20',
-          'shadow-[0_4px_24px_rgba(0,0,0,0.75)]',
-          'text-white text-center text-[13.5px] sm:text-[15.5px] font-medium leading-snug tracking-wide whitespace-pre-line',
-          'animate-in fade-in zoom-in-95 duration-100 select-none'
+          'inline-block max-w-[85%] sm:max-w-[75%] px-4 py-2 sm:px-5 sm:py-2.5',
+          'backdrop-blur-md text-white text-center text-[13.5px] sm:text-[15.5px] font-medium leading-snug tracking-wide whitespace-pre-line',
+          'animate-in fade-in zoom-in-95 duration-100 select-none transition-[background-color,border-color,border-radius] duration-200'
         )}
         style={{
+          background: 'var(--media-caption-bg, rgba(10, 12, 16, 0.78))',
+          border: '1px solid var(--media-caption-border, rgba(255, 255, 255, 0.2))',
+          borderRadius: 'var(--media-caption-radius, 14px)',
+          boxShadow: 'var(--media-caption-shadow, 0 4px 24px rgba(0, 0, 0, 0.75))',
           filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85))',
         }}
       >

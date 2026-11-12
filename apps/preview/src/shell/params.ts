@@ -40,7 +40,8 @@ function oneOf<const Values extends readonly string[]>(values: Values, value: st
 export function readParams(query: string): WorkbenchParams {
   const params = new URLSearchParams(query);
   const width = Number(params.get('width'));
-  const flag = (name: string) => params.get(name) === '1';
+  const flag = (name: string, fallback = false) =>
+    params.has(name) ? params.get(name) === '1' : fallback;
 
   return {
     width: Number.isFinite(width) && width >= PLAYER_WIDTH.min ? Math.min(width, PLAYER_WIDTH.max) : defaultWidth,
@@ -48,10 +49,10 @@ export function readParams(query: string): WorkbenchParams {
     scheme: oneOf(COLOR_SCHEMES, params.get('scheme'), 'auto'),
     dir: oneOf(TEXT_DIRECTIONS, params.get('dir'), 'auto'),
     locale: oneOf(locales, params.get('locale'), 'en'),
-    autoplay: flag('autoplay'),
-    muted: flag('muted'),
+    autoplay: flag('autoplay', true),
+    muted: flag('muted', true),
     loop: flag('loop'),
-    preload: oneOf(PRELOAD_VALUES, params.get('preload'), 'metadata'),
+    preload: oneOf(PRELOAD_VALUES, params.get('preload'), 'auto'),
   };
 }
 

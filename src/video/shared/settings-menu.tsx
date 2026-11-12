@@ -18,6 +18,7 @@ import { cn } from '@/lib/resolve-class-name';
 
 import { Button } from './button';
 import { RoundedCaptionsOffIcon } from './captions-button';
+import { LAYOUT_OPTIONS, type PlayerLayout, useLayoutMode } from './layout-mode';
 import { RadioItem } from './menu-item';
 import { ButtonTooltip } from './tooltip';
 
@@ -34,6 +35,27 @@ export const THEME_STYLES = [
   { id: 'timber', label: 'Timber' },
   { id: 'molten-magma', label: 'Molten Magma' },
   { id: 'pencil-sketch', label: 'Pencil Sketch' },
+  { id: 'gamepad', label: 'Gamepad' },
+  { id: 'gamepad-white', label: 'Gamepad White' },
+  { id: 'news-magazine', label: 'News Magazine' },
+  { id: 'vinyl-turntable', label: 'Vinyl Turntable' },
+  { id: 'blueprint', label: 'Blueprint' },
+  { id: 'frutiger-aero', label: 'Frutiger Aero' },
+  { id: 'art-deco', label: 'Art Deco' },
+  { id: 'clay-pastel', label: 'Clay Pastel' },
+  { id: 'tactical-hud', label: 'Tactical HUD' },
+  { id: 'matcha-zen', label: 'Matcha Zen' },
+  { id: 'bauhaus', label: 'Bauhaus' },
+  { id: 'swiss-intl', label: 'Swiss Braun' },
+  { id: 'ukiyo-e', label: 'Ukiyo-e Woodblock' },
+  { id: 'bioluminescent', label: 'Bioluminescent' },
+  { id: 'steampunk', label: 'Steampunk Brass' },
+  { id: 'candy-pop', label: 'Candy Pop' },
+  { id: 'polaroid-film', label: '35mm Film' },
+  { id: 'nordic-frost', label: 'Nordic Frost' },
+  { id: 'crimson-cinema', label: 'Criterion Cinema' },
+  { id: 'pixel-8bit', label: '8-Bit Pixel' },
+  { id: 'linear-ticks', label: 'Linear Ticks' },
   { id: 'plain', label: 'Plain White' },
 ] as const;
 
@@ -72,28 +94,46 @@ function PaletteIcon({ className }: { className?: string }) {
 function StylesMenu() {
   const [currentStyle, setCurrentStyle] = useState<string>(() => {
     if (typeof window === 'undefined') return 'translucent';
-    return sessionStorage.getItem('inescence-theme') || document.documentElement.dataset.theme || 'translucent';
+    const urlTheme = new URLSearchParams(window.location.search).get('theme');
+    return (
+      urlTheme ||
+      document.documentElement.dataset.theme ||
+      sessionStorage.getItem('luminescence-theme') ||
+      sessionStorage.getItem('inescence-theme') ||
+      'translucent'
+    );
   });
 
   useEffect(() => {
+    const syncFromDom = () => {
+      const t = document.documentElement.dataset.theme;
+      if (t) setCurrentStyle(t);
+    };
     const handleStyleChange = (e: Event) => {
       const customEvent = e as CustomEvent<{ theme: string }>;
       if (customEvent.detail?.theme) {
         setCurrentStyle(customEvent.detail.theme);
       }
     };
+    syncFromDom();
+    window.addEventListener('luminescence-theme-change', handleStyleChange);
     window.addEventListener('inescence-theme-change', handleStyleChange);
-    return () => window.removeEventListener('inescence-theme-change', handleStyleChange);
+    return () => {
+      window.removeEventListener('luminescence-theme-change', handleStyleChange);
+      window.removeEventListener('inescence-theme-change', handleStyleChange);
+    };
   }, []);
 
   const handleSelectStyle = (styleId: string) => {
     setCurrentStyle(styleId);
     if (typeof window !== 'undefined') {
+      sessionStorage.setItem('luminescence-theme', styleId);
       sessionStorage.setItem('inescence-theme', styleId);
       document.documentElement.dataset.theme = styleId;
       document.querySelectorAll('.preview-player').forEach((el) => {
         el.setAttribute('data-theme', styleId);
       });
+      window.dispatchEvent(new CustomEvent('luminescence-theme-change', { detail: { theme: styleId } }));
       window.dispatchEvent(new CustomEvent('inescence-theme-change', { detail: { theme: styleId } }));
       try {
         window.postMessage({ type: 'THEME_CHANGE', theme: styleId }, '*');
@@ -134,6 +174,66 @@ function StylesMenu() {
           {THEME_STYLES.map((style) => (
             <RadioItem key={style.id} value={style.id}>
               <span>{style.label}</span>
+            </RadioItem>
+          ))}
+        </Menu.RadioGroup>
+      </Menu.Content>
+    </Menu.Root>
+  );
+}
+
+function LayoutIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+      <line x1="3" y1="15" x2="21" y2="15" />
+    </svg>
+  );
+}
+
+function LayoutMenu() {
+  const [currentLayout, setCurrentLayout] = useLayoutMode();
+  const activeLayout = LAYOUT_OPTIONS.find((l) => l.id === currentLayout) || LAYOUT_OPTIONS[0];
+
+  return (
+    <Menu.Root>
+      <Menu.Trigger className={menuItemBtnClass}>
+        <span className="flex size-[20px] shrink-0 items-center justify-center text-white/75 group-hover/menu-btn:text-white group-focus-visible/menu-btn:text-white transition-colors">
+          <LayoutIcon className="size-[15px]" />
+        </span>
+        <span className="text-[13.5px] font-medium tracking-tight text-white/95">
+          Layout
+        </span>
+        <span className="ms-auto inline-flex min-w-0 items-center gap-1.5 ps-3 text-white/50">
+          <span className="max-w-28 truncate text-[13px] text-white/50 group-hover/menu-btn:text-white/70 group-focus-visible/menu-btn:text-white/70 font-normal transition-colors">
+            {activeLayout.label}
+          </span>
+          <MenuChevron />
+        </span>
+      </Menu.Trigger>
+      <Menu.Content className={menuContentClass}>
+        <Menu.Item className={menuBackBtnClass}>
+          <MenuChevron back />
+          <span>Layout</span>
+        </Menu.Item>
+        <Menu.Separator className={'my-1 border-t border-white/[0.08]'} />
+        <Menu.RadioGroup
+          value={currentLayout}
+          onValueChange={(value) => setCurrentLayout(value as PlayerLayout)}
+          className="flex flex-col gap-0.5"
+        >
+          {LAYOUT_OPTIONS.map((opt) => (
+            <RadioItem key={opt.id} value={opt.id}>
+              <span>{opt.label}</span>
             </RadioItem>
           ))}
         </Menu.RadioGroup>
@@ -208,9 +308,6 @@ function QualityMenu() {
                     <sup className={'ps-0.5 pt-px text-media-sm leading-none opacity-70'}>{item.tier}</sup>
                   ) : null}
                 </span>
-                {item.badge ? (
-                  <span className={'rounded-md bg-white/10 px-1.5 py-0.5 text-media-sm'}>{item.badge}</span>
-                ) : null}
               </RadioItem>
             )}
           ></QualityRadioGroup.Options>
@@ -381,6 +478,7 @@ export function SettingsMenu() {
       >
         <Menu.Content className={menuContentClass}>
           <StylesMenu />
+          <LayoutMenu />
           <QualityMenu />
           <AudioTrackMenu />
           <PlaybackRateMenu />

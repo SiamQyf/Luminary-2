@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useId, useRef, useState } from 'react';
 
 export interface ThemePalette {
   primary: string;
@@ -226,6 +226,60 @@ export const THEME_PALETTES: Record<string, { dark: ThemePalette; light: ThemePa
       iconGlow: 'rgba(39, 39, 42, 0.15)',
     },
   },
+  gamepad: {
+    dark: {
+      primary: '#00e5a3',
+      secondary: '#3b82f6',
+      accent: '#f43f5e',
+      gradient: 'linear-gradient(135deg, #e2e8f0 10%, #00e5a3 55%, #3b82f6 100%)',
+      glow: 'rgba(0, 229, 163, 0.5)',
+      iconGlow: 'rgba(0, 229, 163, 0.4)',
+    },
+    light: {
+      primary: '#059669',
+      secondary: '#2563eb',
+      accent: '#e11d48',
+      gradient: 'linear-gradient(135deg, #059669 10%, #2563eb 60%, #1e293b 100%)',
+      glow: 'rgba(5, 150, 105, 0.35)',
+      iconGlow: 'rgba(5, 150, 105, 0.25)',
+    },
+  },
+  'gamepad-white': {
+    dark: {
+      primary: '#86e01a',
+      secondary: '#6366f1',
+      accent: '#fb7185',
+      gradient: 'linear-gradient(135deg, #bef264 10%, #86e01a 55%, #6366f1 100%)',
+      glow: 'rgba(134, 224, 26, 0.5)',
+      iconGlow: 'rgba(134, 224, 26, 0.4)',
+    },
+    light: {
+      primary: '#4d7c0f',
+      secondary: '#4338ca',
+      accent: '#e11d48',
+      gradient: 'linear-gradient(135deg, #65a30d 10%, #4d7c0f 60%, #4338ca 100%)',
+      glow: 'rgba(101, 163, 13, 0.35)',
+      iconGlow: 'rgba(101, 163, 13, 0.25)',
+    },
+  },
+  'news-magazine': {
+    dark: {
+      primary: '#faf7f0',
+      secondary: '#dc2626',
+      accent: '#d6ccb8',
+      gradient: 'linear-gradient(135deg, #faf7f0 15%, #e7dfd0 60%, #dc2626 100%)',
+      glow: 'rgba(220, 38, 38, 0.45)',
+      iconGlow: 'rgba(220, 38, 38, 0.35)',
+    },
+    light: {
+      primary: '#141210',
+      secondary: '#b91c1c',
+      accent: '#57534e',
+      gradient: 'linear-gradient(135deg, #141210 15%, #292524 60%, #b91c1c 100%)',
+      glow: 'rgba(185, 28, 28, 0.28)',
+      iconGlow: 'rgba(185, 28, 28, 0.2)',
+    },
+  },
   plain: {
     dark: {
       primary: '#ffffff',
@@ -242,6 +296,330 @@ export const THEME_PALETTES: Record<string, { dark: ThemePalette; light: ThemePa
       gradient: 'linear-gradient(135deg, #09090b 40%, #27272a 75%, #52525b 100%)',
       glow: 'rgba(9, 9, 11, 0.2)',
       iconGlow: 'rgba(9, 9, 11, 0.15)',
+    },
+  },
+  'vinyl-turntable': {
+    dark: {
+      primary: '#f97316',
+      secondary: '#ea580c',
+      accent: '#fdba74',
+      gradient: 'linear-gradient(135deg, #fdba74 10%, #f97316 55%, #c2410c 100%)',
+      glow: 'rgba(249, 115, 22, 0.45)',
+      iconGlow: 'rgba(249, 115, 22, 0.35)',
+    },
+    light: {
+      primary: '#c2410c',
+      secondary: '#ea580c',
+      accent: '#18181b',
+      gradient: 'linear-gradient(135deg, #ea580c 15%, #c2410c 60%, #18181b 100%)',
+      glow: 'rgba(194, 65, 12, 0.25)',
+      iconGlow: 'rgba(194, 65, 12, 0.2)',
+    },
+  },
+  blueprint: {
+    dark: {
+      primary: '#38bdf8',
+      secondary: '#bae6fd',
+      accent: '#ffffff',
+      gradient: 'linear-gradient(135deg, #ffffff 10%, #bae6fd 50%, #0284c7 100%)',
+      glow: 'rgba(56, 189, 248, 0.48)',
+      iconGlow: 'rgba(56, 189, 248, 0.38)',
+    },
+    light: {
+      primary: '#0369a1',
+      secondary: '#0284c7',
+      accent: '#1e3a8a',
+      gradient: 'linear-gradient(135deg, #0284c7 15%, #0369a1 60%, #1e3a8a 100%)',
+      glow: 'rgba(3, 105, 161, 0.28)',
+      iconGlow: 'rgba(3, 105, 161, 0.2)',
+    },
+  },
+  'frutiger-aero': {
+    dark: {
+      primary: '#38bdf8',
+      secondary: '#4ade80',
+      accent: '#ffffff',
+      gradient: 'linear-gradient(135deg, #ffffff 10%, #38bdf8 55%, #4ade80 100%)',
+      glow: 'rgba(14, 165, 233, 0.48)',
+      iconGlow: 'rgba(14, 165, 233, 0.38)',
+    },
+    light: {
+      primary: '#0284c7',
+      secondary: '#16a34a',
+      accent: '#0ea5e9',
+      gradient: 'linear-gradient(135deg, #0ea5e9 15%, #0284c7 55%, #16a34a 100%)',
+      glow: 'rgba(2, 132, 199, 0.28)',
+      iconGlow: 'rgba(2, 132, 199, 0.2)',
+    },
+  },
+  'art-deco': {
+    dark: {
+      primary: '#e5c17b',
+      secondary: '#10b981',
+      accent: '#fef3c7',
+      gradient: 'linear-gradient(135deg, #fef3c7 10%, #e5c17b 55%, #10b981 100%)',
+      glow: 'rgba(229, 193, 123, 0.45)',
+      iconGlow: 'rgba(229, 193, 123, 0.35)',
+    },
+    light: {
+      primary: '#a16207',
+      secondary: '#065f46',
+      accent: '#ca8a04',
+      gradient: 'linear-gradient(135deg, #ca8a04 15%, #a16207 60%, #065f46 100%)',
+      glow: 'rgba(161, 98, 7, 0.28)',
+      iconGlow: 'rgba(161, 98, 7, 0.2)',
+    },
+  },
+  'clay-pastel': {
+    dark: {
+      primary: '#fb7185',
+      secondary: '#c084fc',
+      accent: '#5eead4',
+      gradient: 'linear-gradient(135deg, #fb7185 10%, #c084fc 55%, #5eead4 100%)',
+      glow: 'rgba(192, 132, 252, 0.45)',
+      iconGlow: 'rgba(192, 132, 252, 0.35)',
+    },
+    light: {
+      primary: '#e11d48',
+      secondary: '#9333ea',
+      accent: '#0d9488',
+      gradient: 'linear-gradient(135deg, #e11d48 15%, #9333ea 55%, #0d9488 100%)',
+      glow: 'rgba(147, 51, 234, 0.25)',
+      iconGlow: 'rgba(147, 51, 234, 0.2)',
+    },
+  },
+  'tactical-hud': {
+    dark: {
+      primary: '#fbbf24',
+      secondary: '#84cc16',
+      accent: '#d6d3c4',
+      gradient: 'linear-gradient(135deg, #fbbf24 15%, #84cc16 60%, #4d7c0f 100%)',
+      glow: 'rgba(245, 158, 11, 0.42)',
+      iconGlow: 'rgba(245, 158, 11, 0.32)',
+    },
+    light: {
+      primary: '#b45309',
+      secondary: '#4d7c0f',
+      accent: '#365314',
+      gradient: 'linear-gradient(135deg, #b45309 15%, #4d7c0f 60%, #365314 100%)',
+      glow: 'rgba(180, 83, 9, 0.25)',
+      iconGlow: 'rgba(180, 83, 9, 0.2)',
+    },
+  },
+  'matcha-zen': {
+    dark: {
+      primary: '#a3c987',
+      secondary: '#84a96c',
+      accent: '#f2efe4',
+      gradient: 'linear-gradient(135deg, #f2efe4 10%, #a3c987 55%, #4f773d 100%)',
+      glow: 'rgba(163, 201, 135, 0.42)',
+      iconGlow: 'rgba(163, 201, 135, 0.32)',
+    },
+    light: {
+      primary: '#3f6212',
+      secondary: '#4d7c3f',
+      accent: '#65a30d',
+      gradient: 'linear-gradient(135deg, #4d7c3f 15%, #3f6212 60%, #365314 100%)',
+      glow: 'rgba(77, 124, 63, 0.25)',
+      iconGlow: 'rgba(77, 124, 63, 0.2)',
+    },
+  },
+  bauhaus: {
+    dark: {
+      primary: '#facc15',
+      secondary: '#dc2626',
+      accent: '#2563eb',
+      gradient: 'linear-gradient(135deg, #dc2626 10%, #facc15 55%, #2563eb 100%)',
+      glow: 'rgba(250, 204, 21, 0.48)',
+      iconGlow: 'rgba(220, 38, 38, 0.4)',
+    },
+    light: {
+      primary: '#dc2626',
+      secondary: '#2563eb',
+      accent: '#ca8a04',
+      gradient: 'linear-gradient(135deg, #dc2626 15%, #ca8a04 55%, #2563eb 100%)',
+      glow: 'rgba(220, 38, 38, 0.28)',
+      iconGlow: 'rgba(37, 99, 235, 0.2)',
+    },
+  },
+  'swiss-intl': {
+    dark: {
+      primary: '#ea580c',
+      secondary: '#e5e5e0',
+      accent: '#fafaf9',
+      gradient: 'linear-gradient(135deg, #fafaf9 10%, #ea580c 60%, #9a3412 100%)',
+      glow: 'rgba(234, 88, 12, 0.45)',
+      iconGlow: 'rgba(234, 88, 12, 0.35)',
+    },
+    light: {
+      primary: '#ea580c',
+      secondary: '#1c1917',
+      accent: '#78716c',
+      gradient: 'linear-gradient(135deg, #1c1917 15%, #ea580c 65%, #c2410c 100%)',
+      glow: 'rgba(234, 88, 12, 0.25)',
+      iconGlow: 'rgba(234, 88, 12, 0.2)',
+    },
+  },
+  'ukiyo-e': {
+    dark: {
+      primary: '#60a5fa',
+      secondary: '#dc2626',
+      accent: '#e8dcc4',
+      gradient: 'linear-gradient(135deg, #e8dcc4 10%, #60a5fa 55%, #dc2626 100%)',
+      glow: 'rgba(96, 165, 250, 0.45)',
+      iconGlow: 'rgba(220, 38, 38, 0.35)',
+    },
+    light: {
+      primary: '#1d4ed8',
+      secondary: '#b91c1c',
+      accent: '#152a45',
+      gradient: 'linear-gradient(135deg, #152a45 15%, #1d4ed8 60%, #b91c1c 100%)',
+      glow: 'rgba(29, 78, 216, 0.25)',
+      iconGlow: 'rgba(185, 28, 28, 0.2)',
+    },
+  },
+  bioluminescent: {
+    dark: {
+      primary: '#2dd4bf',
+      secondary: '#06b6d4',
+      accent: '#a5f3fc',
+      gradient: 'linear-gradient(135deg, #a5f3fc 10%, #2dd4bf 55%, #0284c7 100%)',
+      glow: 'rgba(45, 212, 191, 0.55)',
+      iconGlow: 'rgba(45, 212, 191, 0.45)',
+    },
+    light: {
+      primary: '#0d9488',
+      secondary: '#0891b2',
+      accent: '#0e7490',
+      gradient: 'linear-gradient(135deg, #0d9488 15%, #0891b2 60%, #155e75 100%)',
+      glow: 'rgba(13, 148, 136, 0.3)',
+      iconGlow: 'rgba(8, 145, 178, 0.22)',
+    },
+  },
+  steampunk: {
+    dark: {
+      primary: '#d4a03a',
+      secondary: '#f59e0b',
+      accent: '#fde68a',
+      gradient: 'linear-gradient(135deg, #fde68a 10%, #d4a03a 55%, #92400e 100%)',
+      glow: 'rgba(212, 160, 58, 0.48)',
+      iconGlow: 'rgba(212, 160, 58, 0.38)',
+    },
+    light: {
+      primary: '#b45309',
+      secondary: '#92400e',
+      accent: '#78350f',
+      gradient: 'linear-gradient(135deg, #d97706 15%, #b45309 60%, #78350f 100%)',
+      glow: 'rgba(180, 83, 9, 0.28)',
+      iconGlow: 'rgba(146, 64, 14, 0.22)',
+    },
+  },
+  'candy-pop': {
+    dark: {
+      primary: '#ec4899',
+      secondary: '#f97316',
+      accent: '#facc15',
+      gradient: 'linear-gradient(135deg, #f472b6 10%, #ec4899 50%, #f97316 100%)',
+      glow: 'rgba(236, 72, 153, 0.52)',
+      iconGlow: 'rgba(249, 115, 22, 0.42)',
+    },
+    light: {
+      primary: '#db2777',
+      secondary: '#ea580c',
+      accent: '#7c3aed',
+      gradient: 'linear-gradient(135deg, #db2777 15%, #ea580c 55%, #7c3aed 100%)',
+      glow: 'rgba(219, 39, 119, 0.3)',
+      iconGlow: 'rgba(234, 88, 12, 0.22)',
+    },
+  },
+  'polaroid-film': {
+    dark: {
+      primary: '#fbbf24',
+      secondary: '#dc2626',
+      accent: '#e5e7eb',
+      gradient: 'linear-gradient(135deg, #e5e7eb 15%, #fbbf24 55%, #dc2626 100%)',
+      glow: 'rgba(245, 158, 11, 0.42)',
+      iconGlow: 'rgba(220, 38, 38, 0.32)',
+    },
+    light: {
+      primary: '#b45309',
+      secondary: '#dc2626',
+      accent: '#1c1917',
+      gradient: 'linear-gradient(135deg, #1c1917 15%, #b45309 60%, #dc2626 100%)',
+      glow: 'rgba(180, 83, 9, 0.25)',
+      iconGlow: 'rgba(220, 38, 38, 0.2)',
+    },
+  },
+  'nordic-frost': {
+    dark: {
+      primary: '#bae6fd',
+      secondary: '#2dd4bf',
+      accent: '#ffffff',
+      gradient: 'linear-gradient(135deg, #ffffff 10%, #bae6fd 55%, #2dd4bf 100%)',
+      glow: 'rgba(186, 230, 253, 0.45)',
+      iconGlow: 'rgba(45, 212, 191, 0.35)',
+    },
+    light: {
+      primary: '#0369a1',
+      secondary: '#0d9488',
+      accent: '#0f172a',
+      gradient: 'linear-gradient(135deg, #0369a1 15%, #0284c7 55%, #0d9488 100%)',
+      glow: 'rgba(3, 105, 161, 0.25)',
+      iconGlow: 'rgba(13, 148, 136, 0.2)',
+    },
+  },
+  'crimson-cinema': {
+    dark: {
+      primary: '#fb7185',
+      secondary: '#e11d48',
+      accent: '#fde68a',
+      gradient: 'linear-gradient(135deg, #fde68a 10%, #fb7185 55%, #9f1239 100%)',
+      glow: 'rgba(225, 29, 72, 0.5)',
+      iconGlow: 'rgba(253, 230, 138, 0.38)',
+    },
+    light: {
+      primary: '#be123c',
+      secondary: '#9f1239',
+      accent: '#b45309',
+      gradient: 'linear-gradient(135deg, #be123c 15%, #9f1239 60%, #881337 100%)',
+      glow: 'rgba(190, 18, 60, 0.28)',
+      iconGlow: 'rgba(159, 18, 57, 0.2)',
+    },
+  },
+  'pixel-8bit': {
+    dark: {
+      primary: '#facc15',
+      secondary: '#38bdf8',
+      accent: '#ef4444',
+      gradient: 'linear-gradient(135deg, #facc15 10%, #38bdf8 55%, #ef4444 100%)',
+      glow: 'rgba(250, 204, 21, 0.5)',
+      iconGlow: 'rgba(56, 189, 248, 0.4)',
+    },
+    light: {
+      primary: '#4338ca',
+      secondary: '#0284c7',
+      accent: '#dc2626',
+      gradient: 'linear-gradient(135deg, #4338ca 15%, #0284c7 55%, #dc2626 100%)',
+      glow: 'rgba(67, 56, 202, 0.28)',
+      iconGlow: 'rgba(2, 132, 199, 0.2)',
+    },
+  },
+  'linear-ticks': {
+    dark: {
+      primary: '#ede5ce',
+      secondary: '#a1a1aa',
+      accent: '#ffffff',
+      gradient: 'linear-gradient(135deg, #ffffff 10%, #ede5ce 55%, #a1a1aa 100%)',
+      glow: 'rgba(237, 229, 206, 0.42)',
+      iconGlow: 'rgba(237, 229, 206, 0.3)',
+    },
+    light: {
+      primary: '#18181b',
+      secondary: '#52525b',
+      accent: '#71717a',
+      gradient: 'linear-gradient(135deg, #18181b 15%, #52525b 60%, #71717a 100%)',
+      glow: 'rgba(24, 24, 27, 0.24)',
+      iconGlow: 'rgba(82, 82, 91, 0.18)',
     },
   },
 };
@@ -355,15 +733,189 @@ export function LuminescenceIcon({
   );
 }
 
-/**
- * Complete Luminescence Brand Logo:
- * - Dynamic color synchronization matching the selected theme.
- * - Clean borderless modern icon mark.
- * - Removed "Studio" badge.
- * - Ethereal text typography with radiant theme gradient & glow.
- */
-export function LuminescenceLogo({ className = '', theme: propTheme, isDark: propIsDark }: LogoProps) {
-  // Reactive theme detection if not directly passed as props
+const ORBIT_CX = 16;
+const ORBIT_CY = 16;
+const ORBIT_RX = 11.6;
+const ORBIT_RY = 4.6;
+const ORBIT_TILT_RAD = -Math.PI / 6; // -30 degrees
+const ORBIT_COS = Math.cos(ORBIT_TILT_RAD);
+const ORBIT_SIN = Math.sin(ORBIT_TILT_RAD);
+
+function getTiltedOrbitPoint(theta: number) {
+  const x0 = ORBIT_RX * Math.cos(theta);
+  const y0 = ORBIT_RY * Math.sin(theta);
+  return {
+    x: ORBIT_CX + x0 * ORBIT_COS - y0 * ORBIT_SIN,
+    y: ORBIT_CY + x0 * ORBIT_SIN + y0 * ORBIT_COS,
+  };
+}
+
+function buildOrbitArcPath(startTheta: number, endTheta: number, steps: number): string {
+  const pts: string[] = [];
+  for (let i = 0; i <= steps; i++) {
+    const t = startTheta + ((endTheta - startTheta) * i) / steps;
+    const { x, y } = getTiltedOrbitPoint(t);
+    pts.push(`${i === 0 ? 'M' : 'L'}${x.toFixed(2)} ${y.toFixed(2)}`);
+  }
+  return pts.join(' ');
+}
+
+function LuminaryOrbitalStarIcon({
+  palette,
+  className = 'size-[22px] sm:size-[24px] shrink-0',
+}: {
+  palette: ThemePalette;
+  className?: string;
+}) {
+  const uid = useId().replace(/:/g, '');
+  const trailRefs = useRef<(SVGPathElement | null)[]>([]);
+  const sparkARef = useRef<SVGCircleElement>(null);
+  const sparkBRef = useRef<SVGCircleElement>(null);
+  const starGroupRef = useRef<SVGGElement>(null);
+
+  useEffect(() => {
+    const applyFrame = (theta: number) => {
+      // 5 tapered comet tail segments from tail (oldest) to neck (newest near star)
+      const tailSpan = 2.35;
+      const segRanges: [number, number][] = [
+        [0.0, 0.34],
+        [0.26, 0.56],
+        [0.48, 0.76],
+        [0.7, 0.91],
+        [0.86, 1.0],
+      ];
+      segRanges.forEach(([a, b], idx) => {
+        const el = trailRefs.current[idx];
+        if (!el) return;
+        const t0 = theta - tailSpan * (1 - a);
+        const t1 = theta - tailSpan * (1 - b);
+        el.setAttribute('d', buildOrbitArcPath(t0, t1, 8));
+      });
+
+      const spA = getTiltedOrbitPoint(theta - 0.52);
+      if (sparkARef.current) {
+        sparkARef.current.setAttribute('cx', spA.x.toFixed(2));
+        sparkARef.current.setAttribute('cy', spA.y.toFixed(2));
+      }
+
+      const spB = getTiltedOrbitPoint(theta - 1.12);
+      if (sparkBRef.current) {
+        sparkBRef.current.setAttribute('cx', spB.x.toFixed(2));
+        sparkBRef.current.setAttribute('cy', spB.y.toFixed(2));
+      }
+
+      const head = getTiltedOrbitPoint(theta);
+      // Subtle depth scale as star orbits front/back of the 30-deg tilted ellipse
+      const depthScale = 0.94 + 0.14 * Math.sin(theta);
+      const starSpin = (theta * 18) % 360;
+      if (starGroupRef.current) {
+        starGroupRef.current.setAttribute(
+          'transform',
+          `translate(${head.x.toFixed(2)} ${head.y.toFixed(2)}) scale(${depthScale.toFixed(3)}) rotate(${starSpin.toFixed(1)})`
+        );
+      }
+    };
+
+    const reducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+
+    if (reducedMotion) {
+      applyFrame(-0.45);
+      return;
+    }
+
+    let rafId = 0;
+    const start = performance.now();
+    const orbitMs = 2600;
+    const tick = (now: number) => {
+      const elapsed = now - start;
+      const theta = ((elapsed % orbitMs) / orbitMs) * Math.PI * 2;
+      applyFrame(theta);
+      rafId = requestAnimationFrame(tick);
+    };
+
+    applyFrame(0);
+    rafId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafId);
+  }, []);
+
+  const tailColors = [
+    { stroke: palette.secondary, width: 0.75, opacity: 0.18 },
+    { stroke: palette.secondary, width: 1.05, opacity: 0.34 },
+    { stroke: palette.primary, width: 1.35, opacity: 0.55 },
+    { stroke: palette.primary, width: 1.65, opacity: 0.78 },
+    { stroke: palette.accent, width: 1.9, opacity: 0.94 },
+  ];
+
+  return (
+    <svg
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      shapeRendering="geometricPrecision"
+      className={className}
+      aria-hidden="true"
+      style={{
+        filter: `drop-shadow(0 0 7px ${palette.glow})`,
+      }}
+    >
+      <defs>
+        <radialGradient id={`${uid}-core-glow`} cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor={palette.accent} stopOpacity="0.45" />
+          <stop offset="60%" stopColor={palette.primary} stopOpacity="0.16" />
+          <stop offset="100%" stopColor={palette.primary} stopOpacity="0" />
+        </radialGradient>
+      </defs>
+
+      {/* Subtle soft focal glow at orbit center */}
+      <circle cx={ORBIT_CX} cy={ORBIT_CY} r="5.5" fill={`url(#${uid}-core-glow)`} />
+
+      {/* 30-degree tilted orbital path guide */}
+      <ellipse
+        cx={ORBIT_CX}
+        cy={ORBIT_CY}
+        rx={ORBIT_RX}
+        ry={ORBIT_RY}
+        transform="rotate(-30 16 16)"
+        stroke={palette.primary}
+        strokeWidth="0.75"
+        strokeOpacity="0.22"
+      />
+
+      {/* Tapered animated star trail */}
+      {tailColors.map((cfg, idx) => (
+        <path
+          key={idx}
+          ref={(el) => {
+            trailRefs.current[idx] = el;
+          }}
+          d={buildOrbitArcPath(-2.35 * (1 - idx * 0.2), -2.35 * (1 - (idx + 1) * 0.2), 8)}
+          stroke={cfg.stroke}
+          strokeWidth={cfg.width}
+          strokeOpacity={cfg.opacity}
+          strokeLinecap="round"
+        />
+      ))}
+
+      {/* Wake stardust particles */}
+      <circle ref={sparkARef} cx="24" cy="11" r="0.8" fill={palette.accent} fillOpacity="0.85" />
+      <circle ref={sparkBRef} cx="19" cy="9" r="0.55" fill={palette.primary} fillOpacity="0.65" />
+
+      {/* Orbiting 4-point Luminary Star */}
+      <g ref={starGroupRef} transform="translate(26.05 10.2) scale(0.94)">
+        <circle cx="0" cy="0" r="2.7" fill={palette.primary} fillOpacity="0.32" />
+        <path
+          d="M0 -4.3C0.45 -1.35 1.35 -0.45 4.3 0C1.35 0.45 0.45 1.35 0 4.3C-0.45 1.35 -1.35 0.45 -4.3 0C-1.35 -0.45 -0.45 -1.35 0 -4.3Z"
+          fill="#ffffff"
+        />
+        <circle cx="0" cy="0" r="1.05" fill={palette.accent} />
+      </g>
+    </svg>
+  );
+}
+
+export function useLuminaryPalette(propTheme?: string, propIsDark?: boolean): ThemePalette {
   const [activeTheme, setActiveTheme] = useState<string>(() => {
     if (propTheme) return propTheme;
     if (typeof window !== 'undefined') {
@@ -398,7 +950,6 @@ export function LuminescenceLogo({ className = '', theme: propTheme, isDark: pro
   }, [propIsDark]);
 
   useEffect(() => {
-    // Listen for theme change events from both window & iframe
     const handleThemeChange = (e: any) => {
       const newTheme = e.detail?.theme || e.data?.theme;
       if (newTheme) {
@@ -421,41 +972,46 @@ export function LuminescenceLogo({ className = '', theme: propTheme, isDark: pro
     };
   }, []);
 
-  const palette = getThemePalette(activeTheme, activeDark);
+  return getThemePalette(activeTheme, activeDark);
+}
+
+/**
+ * Complete Luminescence Brand Logo:
+ * - Dynamic color synchronization matching the selected theme.
+ * - Clean borderless orbital star-trail icon on a 30-degree tilted ellipse.
+ * - Compact wordmark where the leading 'L' matches the height of the remaining letters.
+ */
+export function LuminescenceLogo({ className = '', theme: propTheme, isDark: propIsDark }: LogoProps) {
+  const palette = useLuminaryPalette(propTheme, propIsDark);
 
   return (
-    <div className={`flex items-center gap-2 select-none ${className}`}>
-      {/* Radiant Luminary Celestial Star Icon */}
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="size-[20px] shrink-0"
-        aria-hidden="true"
-        style={{
-          filter: `drop-shadow(0 0 9px ${palette.glow})`,
-        }}
-      >
-        <path
-          d="M12 2C12 7.5 7.5 12 2 12C7.5 12 12 16.5 12 22C12 16.5 16.5 12 22 12C16.5 12 12 7.5 12 2Z"
-          fill={palette.primary}
-        />
-        <circle cx="12" cy="12" r="2.2" fill={palette.accent} />
-      </svg>
+    <div className={`flex items-center gap-1.5 select-none ${className}`}>
+      {/* Animated Star Trail on a 30-degree Tilted Oval Orbit */}
+      <LuminaryOrbitalStarIcon palette={palette} />
 
       {/* Dynamic Wordmark matching selected theme */}
       <span
-        className="inline-block text-[22px] sm:text-[24px] font-semibold tracking-[-0.035em] leading-none transition-all duration-300 hover:opacity-95"
+        className="inline-block text-[15px] sm:text-[16.5px] font-semibold tracking-[0.04em] leading-none transition-all duration-300 hover:opacity-95"
         style={{
+          fontFamily: "'Orbitron', 'Space Grotesk', sans-serif",
           color: palette.primary,
           backgroundImage: palette.gradient,
           WebkitBackgroundClip: 'text',
           backgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
-          filter: `drop-shadow(0 0 14px ${palette.glow})`,
+          filter: `drop-shadow(0 0 12px ${palette.glow})`,
         }}
       >
-        Luminary
+        <span
+          style={{
+            fontSize: '0.768em',
+            fontWeight: 700,
+            letterSpacing: '0.02em',
+          }}
+        >
+          L
+        </span>
+        uminary
       </span>
     </div>
   );

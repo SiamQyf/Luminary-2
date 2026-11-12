@@ -1,7 +1,8 @@
 /** @jsxImportSource react */
 
-import { CaptionsButton as CaptionsButtonPrimitive } from '@videojs/react';
+import { CaptionsButton as CaptionsButtonPrimitive, useMedia } from '@videojs/react';
 import type { ClassValue } from 'cn';
+import { useEffect, useState } from 'react';
 
 import { cn, resolveClassName } from '@/lib/resolve-class-name';
 
@@ -63,16 +64,48 @@ export function RoundedCaptionsOnIcon({ className }: { className?: string }) {
   );
 }
 
+function useHasCaptionTracks() {
+  const media = useMedia() as HTMLVideoElement | null;
+  const [hasTracks, setHasTracks] = useState(false);
+
+  useEffect(() => {
+    const textTracks = media?.textTracks;
+    if (!textTracks) {
+      setHasTracks(false);
+      return;
+    }
+
+    const update = () => {
+      const tracks = Array.from(textTracks);
+      setHasTracks(tracks.some((t) => t.kind === 'subtitles' || t.kind === 'captions'));
+    };
+
+    update();
+    textTracks.addEventListener('addtrack', update);
+    textTracks.addEventListener('removetrack', update);
+    textTracks.addEventListener('change', update);
+    return () => {
+      textTracks.removeEventListener('addtrack', update);
+      textTracks.removeEventListener('removetrack', update);
+      textTracks.removeEventListener('change', update);
+    };
+  }, [media]);
+
+  return hasTracks;
+}
+
 export function CaptionsToggle() {
+  const hasTracks = useHasCaptionTracks();
   return (
-    <ButtonTooltip>
-      <CaptionsButton />
+    <ButtonTooltip label={!hasTracks ? 'No captions available' : undefined}>
+      <CaptionsButton hasTracks={hasTracks} />
     </ButtonTooltip>
   );
 }
 
 export type CaptionsButtonProps = Omit<CaptionsButtonPrimitive.Props, 'children'> & {
   iconClassName?: ClassValue;
+  hasTracks?: boolean;
 };
 
 /**
@@ -80,9 +113,30 @@ export type CaptionsButtonProps = Omit<CaptionsButtonPrimitive.Props, 'children'
  * - Shares the exact same translucent liquid glass background as all player buttons
  * - Standardized 14px visual footprint matching Play, Skip, Volume, Fullscreen, and Settings
  * - Strict 2 subtitle lines display
- * - Radiant active indicator jewel dot at the bottom when subtitles are active
+ * - Stays visibly rendered (disabled) when a stream has no subtitle tracks instead of vanishing
  */
-export function CaptionsButton({ className, iconClassName, ...props }: CaptionsButtonProps = {}) {
+export function CaptionsButton({ className, iconClassName, hasTracks: hasTracksProp, ...props }: CaptionsButtonProps = {}) {
+  const detectedTracks = useHasCaptionTracks();
+  const hasTracks = hasTracksProp ?? detectedTracks;
+
+  if (!hasTracks) {
+    return (
+      <Button
+        disabled
+        aria-label="Captions unavailable"
+        className={cn(
+          'group/captions relative transition-all duration-200',
+          typeof className === 'string' ? className : undefined
+        )}
+        {...(props as any)}
+      >
+        <RoundedCaptionsOffIcon
+          className={cn('col-start-1 row-start-1 w-[15.5px] h-[13.1px] text-white', iconClassName)}
+        />
+      </Button>
+    );
+  }
+
   return (
     <CaptionsButtonPrimitive
       render={<Button />}

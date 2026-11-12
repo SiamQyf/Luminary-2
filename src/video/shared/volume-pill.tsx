@@ -3,7 +3,7 @@
 import { VolumeSlider, MuteButton as MuteButtonPrimitive, usePlayer, selectVolume } from '@videojs/react';
 import { selectFullscreen } from '@videojs/core/dom';
 import type { ClassValue } from 'cn';
-import { useEffect, useRef, useState, type CSSProperties } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { cn } from '@/lib/resolve-class-name';
 
@@ -14,6 +14,10 @@ import { cn } from '@/lib/resolve-class-name';
  * - Responsive sound wave: Scales and pulses outward with volume level
  * - Spring-transitioned 'x' icon when muted
  */
+function easeCosine(t: number): number {
+  return 0.5 - 0.5 * Math.cos(Math.PI * Math.max(0, Math.min(1, t)));
+}
+
 function VolumeHornAnimatedIcon({
   className,
   isDancing = false,
@@ -29,47 +33,114 @@ function VolumeHornAnimatedIcon({
   const isMuted = muted || volume === 0;
 
   // Horn scale from 0.88 (min) to 1.00 (max)
-  const hornScale = (0.88 + effectiveVolume * 0.12).toFixed(3);
+  const hornScale = 0.88 + effectiveVolume * 0.12;
   // Sound wave scale from 0.70 to 0.98
-  const waveScale = (0.7 + effectiveVolume * 0.28).toFixed(3);
+  const waveScale = 0.7 + effectiveVolume * 0.28;
   const waveOpacity = isMuted ? 0 : 0.35 + effectiveVolume * 0.65;
+
+  const hornRef = useRef<SVGGElement>(null);
+  const waveRef = useRef<SVGGElement>(null);
+
+  useEffect(() => {
+    const hornEl = hornRef.current;
+    const waveEl = waveRef.current;
+    if (!hornEl || !waveEl) return;
+
+    const applyRest = () => {
+      hornEl.setAttribute(
+        'transform',
+        `translate(10 12) scale(${hornScale.toFixed(4)}) translate(-10 -12)`
+      );
+      waveEl.setAttribute(
+        'transform',
+        `translate(17 12) scale(${waveScale.toFixed(4)}) translate(-17 -12)`
+      );
+      waveEl.style.opacity = isMuted ? '0' : waveOpacity.toFixed(3);
+    };
+
+    if (!isDancing) {
+      applyRest();
+      return;
+    }
+
+    let rafId = 0;
+    const period = 350;
+    const start = performance.now();
+
+    // Drive native SVG transform attributes (instead of CSS @keyframes transform)
+    // so Chromium repaints crisp vector paths every frame rather than caching a
+    // low-res 1x GPU compositor bitmap and blurring while scaling/rotating.
+    const tick = (now: number) => {
+      const u = ((now - start) % period) / period;
+
+      let hSx = 1;
+      let hSy = 1;
+      let hRot = 0;
+      if (u < 0.3) {
+        const k = easeCosine(u / 0.3);
+        hSx = 1 + 0.15 * k;
+        hSy = 1 - 0.08 * k;
+        hRot = -4 * k;
+      } else if (u < 0.7) {
+        const k = easeCosine((u - 0.3) / 0.4);
+        hSx = 1.15 - 0.2 * k;
+        hSy = 0.92 + 0.16 * k;
+        hRot = -4 + 7 * k;
+      } else {
+        const k = easeCosine((u - 0.7) / 0.3);
+        hSx = 0.95 + 0.05 * k;
+        hSy = 1.08 - 0.08 * k;
+        hRot = 3 * (1 - k);
+      }
+
+      hornEl.setAttribute(
+        'transform',
+        `translate(10 12) rotate(${hRot.toFixed(2)}) scale(${(hornScale * hSx).toFixed(4)} ${(hornScale * hSy).toFixed(4)}) translate(-10 -12)`
+      );
+
+      const wavePulse = 0.5 - 0.5 * Math.cos(2 * Math.PI * u);
+      const wDx = 1.5 * wavePulse;
+      const wS = waveScale * (1 + 0.14 * wavePulse);
+      const wOp = isMuted ? 0 : waveOpacity * (0.75 + 0.25 * wavePulse);
+
+      waveEl.setAttribute(
+        'transform',
+        `translate(${(17 + wDx).toFixed(3)} 12) scale(${wS.toFixed(4)}) translate(-17 -12)`
+      );
+      waveEl.style.opacity = wOp.toFixed(3);
+
+      rafId = requestAnimationFrame(tick);
+    };
+
+    rafId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafId);
+  }, [isDancing, isMuted, hornScale, waveScale, waveOpacity]);
 
   return (
     <svg
       viewBox="0 0 24 24"
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
+      shapeRendering="geometricPrecision"
       className={className}
       aria-hidden="true"
     >
-      {/* Speaker Horn Body - pumps/pulses while sliding or on volume change */}
+      {/* Speaker Horn Body - pumps/pulses in vector space while sliding or on volume change */}
       <g
-        className={cn(
-          'origin-[10px_12px] transition-transform duration-150 ease-out',
-          'group-has-[[data-dragging]]/vol-pill:animate-[horn-pulse_0.35s_ease-in-out_infinite]',
-          isDancing && 'animate-[horn-pulse_0.35s_ease-in-out_infinite]!'
-        )}
-        style={{
-          '--horn-scale': hornScale,
-          transform: 'scale(var(--horn-scale, 1))',
-        } as CSSProperties}
+        ref={hornRef}
+        transform={`translate(10 12) scale(${hornScale.toFixed(4)}) translate(-10 -12)`}
       >
         <path d="M12.992 3.976c.686-.528 1.504-.956 2.375-.588.863.365 1.14 1.245 1.26 2.11.123.887.123 2.108.123 3.626v5.755c0 1.519 0 2.74-.123 3.626-.12.865-.397 1.745-1.26 2.11-.871.369-1.689-.06-2.375-.587-.703-.54-1.595-1.451-2.645-2.524-.54-.55-.898-.817-1.26-.967-.365-.15-.808-.214-1.58-.214-.67 0-1.267 0-1.72-.047-.475-.05-.916-.157-1.313-.427-.756-.516-1.045-1.271-1.154-1.965-.082-.518-.073-1.086-.065-1.543v-.678c-.008-.458-.017-1.026.065-1.544.11-.694.398-1.449 1.154-1.964.397-.271.838-.378 1.313-.428.453-.047 1.05-.047 1.72-.047.772 0 1.215-.064 1.58-.214.362-.15.72-.416 1.26-.967 1.05-1.072 1.942-1.984 2.645-2.523" />
       </g>
 
       {/* Sound Waves - radiates outward as volume increases and pulses on slide or volume change */}
       <g
-        className={cn(
-          'origin-[17px_12px] transition-all duration-200 ease-out',
-          'group-has-[[data-dragging]]/vol-pill:animate-[wave-pulse_0.35s_ease-in-out_infinite]',
-          isDancing && 'animate-[wave-pulse_0.35s_ease-in-out_infinite]!'
-        )}
+        ref={waveRef}
+        transform={`translate(17 12) scale(${waveScale.toFixed(4)}) translate(-17 -12)`}
         style={{
-          '--wave-scale': waveScale,
-          transform: `scale(var(--wave-scale, 1))`,
           opacity: waveOpacity,
           pointerEvents: 'none',
-        } as CSSProperties}
+        }}
       >
         <path
           fillRule="evenodd"
@@ -78,12 +149,16 @@ function VolumeHornAnimatedIcon({
         />
       </g>
 
-      {/* Muted 'x' mark - springs in when muted or volume is 0 */}
+      {/* Muted 'x' mark - appears cleanly when muted or volume is 0 */}
       <g
-        className="origin-[19.5px_12px] transition-all duration-200 ease-out"
+        transform={
+          isMuted
+            ? 'translate(19.5 12) scale(1) rotate(0) translate(-19.5 -12)'
+            : 'translate(19.5 12) scale(0.3) rotate(-45) translate(-19.5 -12)'
+        }
         style={{
-          transform: isMuted ? 'scale(1) rotate(0deg)' : 'scale(0.3) rotate(-45deg)',
           opacity: isMuted ? 1 : 0,
+          transition: 'opacity 150ms ease-out',
           pointerEvents: 'none',
         }}
       >
@@ -110,11 +185,41 @@ export function VolumePill({ className }: { className?: ClassValue }) {
   const playerFullscreen = usePlayer(selectFullscreen)?.isFullscreen ?? false;
   const [docFullscreen, setDocFullscreen] = useState(false);
   const [isActive, setIsActive] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
 
+  const isDraggingRef = useRef(false);
+  const lastSliderReleaseRef = useRef(0);
   const prevVolumeRef = useRef<number | null>(null);
   const prevMutedRef = useRef<boolean | null>(null);
   const activeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const releaseLockRef = useRef<(() => void) | null>(null);
+
+  useEffect(() => {
+    isDraggingRef.current = isDragging;
+    if (!isDragging) return;
+    const stopDragging = () => {
+      isDraggingRef.current = false;
+      lastSliderReleaseRef.current = performance.now();
+      setIsDragging(false);
+      setIsActive(false);
+      if (activeTimerRef.current) {
+        clearTimeout(activeTimerRef.current);
+        activeTimerRef.current = null;
+      }
+      if (releaseLockRef.current) {
+        releaseLockRef.current();
+        releaseLockRef.current = null;
+      }
+    };
+    window.addEventListener('pointerup', stopDragging, { capture: true, once: true });
+    window.addEventListener('pointercancel', stopDragging, { capture: true, once: true });
+    window.addEventListener('blur', stopDragging, { once: true });
+    return () => {
+      window.removeEventListener('pointerup', stopDragging, { capture: true });
+      window.removeEventListener('pointercancel', stopDragging, { capture: true });
+      window.removeEventListener('blur', stopDragging);
+    };
+  }, [isDragging]);
 
   useEffect(() => {
     const update = () => {
@@ -144,6 +249,11 @@ export function VolumePill({ className }: { className?: ClassValue }) {
     prevMutedRef.current = currentMuted;
 
     if (volumeChanged || mutedChanged) {
+      // Do not arm the post-change dance timer during or right after a slider release;
+      // slider dragging drives isDragging directly so releasing stops the dance immediately.
+      if (isDraggingRef.current || performance.now() - lastSliderReleaseRef.current < 120) {
+        return;
+      }
       setIsActive(true);
 
       // Acquire controls lock so the controls bar stays visible during volume adjustment
@@ -222,7 +332,7 @@ export function VolumePill({ className }: { className?: ClassValue }) {
           )}
         >
           <VolumeHornAnimatedIcon
-            isDancing={isActive}
+            isDancing={isActive || isDragging}
             className="size-[15px] text-white"
           />
         </span>
@@ -232,6 +342,10 @@ export function VolumePill({ className }: { className?: ClassValue }) {
       <VolumeSlider.Root
         orientation="horizontal"
         thumbAlignment="edge"
+        onPointerDown={() => {
+          isDraggingRef.current = true;
+          setIsDragging(true);
+        }}
         className={cn(
           'relative z-10 flex h-full flex-1 items-center cursor-pointer outline-none origin-left transition-all duration-300 ease-out',
           'w-0 max-w-0 opacity-0 pointer-events-none scale-x-0 flex-none overflow-hidden',

@@ -8,6 +8,8 @@ import {
 } from '@heroicons/react/16/solid';
 import { useEffect, useRef, useState } from 'react';
 
+import { LAYOUT_OPTIONS, type PlayerLayout } from '@/video/shared/layout-mode';
+
 export const DEVICE_OPTIONS = [
   { id: 'desktop', label: 'Desktop', width: 896 },
   { id: 'tablet', label: 'Tablet', width: 768 },
@@ -19,9 +21,11 @@ export type DeviceType = (typeof DEVICE_OPTIONS)[number]['id'];
 export interface VideoBarProps {
   currentSrc?: string;
   currentTheme: string;
+  currentLayout: PlayerLayout;
   currentDevice: DeviceType;
   onVideoChange: (src: string) => void;
   onThemeChange: (theme: string) => void;
+  onLayoutChange: (layout: PlayerLayout) => void;
   onDeviceChange: (device: DeviceType) => void;
 }
 
@@ -133,6 +137,27 @@ export const STYLE_OPTIONS = [
   { id: 'timber', label: 'Timber' },
   { id: 'molten-magma', label: 'Molten Magma' },
   { id: 'pencil-sketch', label: 'Pencil Sketch' },
+  { id: 'gamepad', label: 'Gamepad' },
+  { id: 'gamepad-white', label: 'Gamepad White' },
+  { id: 'news-magazine', label: 'News Magazine' },
+  { id: 'vinyl-turntable', label: 'Vinyl Turntable' },
+  { id: 'blueprint', label: 'Blueprint' },
+  { id: 'frutiger-aero', label: 'Frutiger Aero' },
+  { id: 'art-deco', label: 'Art Deco' },
+  { id: 'clay-pastel', label: 'Clay Pastel' },
+  { id: 'tactical-hud', label: 'Tactical HUD' },
+  { id: 'matcha-zen', label: 'Matcha Zen' },
+  { id: 'bauhaus', label: 'Bauhaus' },
+  { id: 'swiss-intl', label: 'Swiss Braun' },
+  { id: 'ukiyo-e', label: 'Ukiyo-e Woodblock' },
+  { id: 'bioluminescent', label: 'Bioluminescent' },
+  { id: 'steampunk', label: 'Steampunk Brass' },
+  { id: 'candy-pop', label: 'Candy Pop' },
+  { id: 'polaroid-film', label: '35mm Film' },
+  { id: 'nordic-frost', label: 'Nordic Frost' },
+  { id: 'crimson-cinema', label: 'Criterion Cinema' },
+  { id: 'pixel-8bit', label: '8-Bit Pixel' },
+  { id: 'linear-ticks', label: 'Linear Ticks' },
   { id: 'plain', label: 'Plain White' },
 ] as const;
 
@@ -284,9 +309,11 @@ function FlatSelect<T extends string>({
 export function VideoBar({
   currentSrc,
   currentTheme,
+  currentLayout,
   currentDevice,
   onVideoChange,
   onThemeChange,
+  onLayoutChange,
   onDeviceChange,
 }: VideoBarProps) {
   const [openId, setOpenId] = useState<string | null>(null);
@@ -335,7 +362,19 @@ export function VideoBar({
         menuMinWidth="230px"
       />
 
-      {/* 3. Flat dropdown to choose device type */}
+      {/* 3. Flat dropdown to switch between Expanded and Simple bar layouts */}
+      <FlatSelect
+        id="layout-select"
+        label="Layout:"
+        value={currentLayout}
+        options={LAYOUT_OPTIONS}
+        onChange={(val) => onLayoutChange(val as PlayerLayout)}
+        isOpen={openId === 'layout'}
+        onOpenChange={(open) => setOpenId(open ? 'layout' : null)}
+        menuMinWidth="160px"
+      />
+
+      {/* 4. Flat dropdown to choose device type */}
       <FlatSelect
         id="device-select"
         label="Device:"

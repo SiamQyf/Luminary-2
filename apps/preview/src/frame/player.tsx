@@ -6,9 +6,9 @@ import { VideoSkin } from '@/video/skin';
 import type { PlaybackProps } from '../shell/params';
 import { SANDBOX_VIDEOS } from './video-input';
 
-// Default media: source=hls-1 (Big Buck Bunny from videojs-sandbox.vercel.app)
-export const DEFAULT_SRC = 'https://stream.mux.com/VcmKA6aqzIzlg3MayLJDnbF55kX00mds028Z65QxvBYaA.m3u8';
-export const DEFAULT_POSTER = 'https://image.mux.com/VcmKA6aqzIzlg3MayLJDnbF55kX00mds028Z65QxvBYaA/thumbnail.webp';
+// Default media: Mad Max: Fury Road (Official Teaser Trailer • HLS)
+export const DEFAULT_SRC = 'https://stream.mux.com/JX01bG8eB4uaoV3OpDuK602rBfvdSgrMObjwuUOBn4JrQ.m3u8';
+export const DEFAULT_POSTER = 'https://image.mux.com/JX01bG8eB4uaoV3OpDuK602rBfvdSgrMObjwuUOBn4JrQ/thumbnail.webp';
 const COSMIC_DAWN_CHAPTERS = './cosmic-dawn-chapters.vtt';
 
 export const SUBTITLE_TRACKS: Record<string, string> = {

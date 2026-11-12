@@ -6,6 +6,7 @@ import { useRef, useEffect, type ReactNode, type HTMLAttributes } from 'react';
 import { cn } from '@/lib/resolve-class-name';
 
 import { LiveButton } from './live-button';
+import { type PlayerLayout, useLayoutMode } from './layout-mode';
 import { AudioPlayButton, PlayButton } from './play-button';
 import { SeekButton } from './seek-button';
 import { TimeSlider } from './time-slider';
@@ -152,6 +153,7 @@ export function ControlsContent({
   captions,
   center = false,
   fullscreen,
+  layout,
   live = false,
   menu,
   rate,
@@ -159,7 +161,11 @@ export function ControlsContent({
   seekBackward,
   seekForward,
   top,
-}: ControlsSlots & { audio?: boolean; center?: boolean; live?: boolean; menu?: ReactNode; top?: ReactNode } = {}) {
+}: ControlsSlots & { audio?: boolean; center?: boolean; layout?: PlayerLayout; live?: boolean; menu?: ReactNode; top?: ReactNode } = {}) {
+  const [layoutMode] = useLayoutMode();
+  const activeLayout = layout ?? layoutMode;
+  const isSimple = activeLayout === 'simple';
+
   return (
     <Controls.Content
       className={cn('group/controls pointer-events-none absolute inset-0 z-30 bg-transparent! bg-none!', audio && 'relative! inset-auto!')}
@@ -175,7 +181,7 @@ export function ControlsContent({
             {top}
           </div>
         )}
-        {center && (
+        {!isSimple && center && (
           <BufferingIndicator className={'group/center-buffering contents'}>
             <Controls.Group
               className={cn(
@@ -200,32 +206,73 @@ export function ControlsContent({
           </BufferingIndicator>
         )}
         <BottomControlsContainer
+          data-part="bottom-controls-bar"
+          data-layout={activeLayout}
           className={cn(
-            'pointer-events-auto absolute inset-x-0 bottom-0 flex flex-col gap-1 px-6 sm:px-10 pb-2 sm:pb-2.5 pt-12',
-            'bg-transparent! bg-none!',
+            'pointer-events-auto absolute inset-x-0 bottom-0 flex',
+            isSimple
+              ? 'flex-row rtl:flex-row-reverse items-center gap-2.5 sm:gap-3 px-4 sm:px-6 pt-2.5 pb-2 sm:py-2.5'
+              : 'flex-col gap-1 px-6 sm:px-10 pb-2 sm:pb-2.5 pt-12',
+            'bg-transparent',
             'group-not-data-visible/controls:opacity-0 group-not-data-visible/controls:pointer-events-none group-not-data-visible/controls:hover:opacity-100 group-not-data-visible/controls:hover:pointer-events-auto transition-[padding,gap,opacity] duration-500 ease-out',
             audio && 'static! p-3'
           )}
         >
-          {!live && (
-            <div className="flex flex-col gap-1 mb-[3px]">
-              <div className="flex items-center justify-between px-0.5 text-[12px] font-normal leading-tight text-white opacity-75 hover:opacity-100 transition-opacity duration-200 tabular-nums drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] select-none">
-                <span className="cursor-default"><Time.Value type="current" /></span>
-                <span className="cursor-default"><Time.Value type="duration" /></span>
-              </div>
-              <TimeSlider audio={audio} renderThumbnail={renderThumbnail} />
-            </div>
+          {isSimple ? (
+            <>
+              {/* Simple Left: Play + Volume + Compact Elapsed/Duration */}
+              <Controls.Group className={'flex items-center rtl:flex-row-reverse gap-2 sm:gap-[10px] shrink-0'}>
+                {audio ? <AudioPlayButton /> : <PlayButton />}
+                {!audio && <VolumePill />}
+                {live && <LiveButton />}
+                {!live && (
+                  <div className="hidden media-sm:inline-flex items-center gap-1 text-[11.5px] font-normal leading-none text-white opacity-80 hover:opacity-100 transition-opacity duration-200 tabular-nums whitespace-nowrap drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] select-none">
+                    <span className="cursor-default"><Time.Value type="current" /></span>
+                    <span aria-hidden="true" className="opacity-55">/</span>
+                    <span className="cursor-default"><Time.Value type="duration" /></span>
+                  </div>
+                )}
+              </Controls.Group>
+
+              {/* Simple Middle: Progress Bar */}
+              {!live && (
+                <div className="flex-1 min-w-[48px] flex items-center">
+                  <TimeSlider audio={audio} renderThumbnail={renderThumbnail} />
+                </div>
+              )}
+
+              {/* Simple Right: Remains identical to Expanded right side */}
+              <Controls.Group className={'flex items-center rtl:flex-row-reverse gap-2 sm:gap-[12px] shrink-0 ms-auto'}>
+                {audio && <VolumePopover />}
+                {captions}
+                {rate}
+                {menu}
+                {fullscreen}
+              </Controls.Group>
+            </>
+          ) : (
+            <>
+              {!live && (
+                <div className="flex flex-col gap-1 mb-[5px]">
+                  <div className="flex items-center justify-between px-0.5 text-[12px] font-normal leading-tight text-white opacity-75 hover:opacity-100 transition-opacity duration-200 tabular-nums drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] select-none">
+                    <span className="cursor-default"><Time.Value type="current" /></span>
+                    <span className="cursor-default"><Time.Value type="duration" /></span>
+                  </div>
+                  <TimeSlider audio={audio} renderThumbnail={renderThumbnail} />
+                </div>
+              )}
+              <ControlsRow
+                audio={audio}
+                captions={captions}
+                fullscreen={fullscreen}
+                live={live}
+                menu={menu}
+                rate={rate}
+                seekBackward={seekBackward}
+                seekForward={seekForward}
+              />
+            </>
           )}
-          <ControlsRow
-            audio={audio}
-            captions={captions}
-            fullscreen={fullscreen}
-            live={live}
-            menu={menu}
-            rate={rate}
-            seekBackward={seekBackward}
-            seekForward={seekForward}
-          />
         </BottomControlsContainer>
       </Tooltip.Provider>
     </Controls.Content>

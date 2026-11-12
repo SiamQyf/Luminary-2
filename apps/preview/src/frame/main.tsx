@@ -8,6 +8,7 @@ import { playbackProps, playerStyles } from '../shell/params';
 import { initialParams, onParamsChange } from './frame';
 import { DEFAULT_SRC, Player } from './player';
 import { isEditableElement } from '@/video/behaviors/playback-hotkeys';
+import { useLayoutMode } from '@/video/shared/layout-mode';
 import { DEVICE_OPTIONS, type DeviceType, VideoBar } from './video-input';
 import { ControlsGuide } from './controls-guide';
 import { UsageGuide } from './usage-guide';
@@ -24,6 +25,7 @@ function Preview() {
     return DEFAULT_SRC;
   });
   const [currentTheme, setCurrentTheme] = useState<string>(() => searchParams?.get('theme') || sessionStorage.getItem('luminescence-theme') || sessionStorage.getItem('inescence-theme') || 'translucent');
+  const [currentLayout, setCurrentLayout] = useLayoutMode();
   const [currentDevice, setCurrentDevice] = useState<DeviceType>(() => {
     const raw = searchParams?.get('device') || sessionStorage.getItem('luminescence-device');
     if (raw === 'tablet' || raw === 'mobile' || raw === 'desktop') return raw;
@@ -80,8 +82,9 @@ function Preview() {
 
   useEffect(() => {
     document.documentElement.dataset.theme = currentTheme;
+    document.documentElement.dataset.layout = currentLayout;
     document.documentElement.dataset.device = currentDevice;
-  }, [currentTheme, currentDevice]);
+  }, [currentTheme, currentLayout, currentDevice]);
 
   const playerMaxWidth =
     currentDevice === 'mobile'
@@ -104,9 +107,11 @@ function Preview() {
           <VideoBar
             currentSrc={customSrc}
             currentTheme={currentTheme}
+            currentLayout={currentLayout}
             currentDevice={currentDevice}
             onVideoChange={handleVideoChange}
             onThemeChange={handleThemeChange}
+            onLayoutChange={setCurrentLayout}
             onDeviceChange={handleDeviceChange}
           />
         </div>
@@ -115,6 +120,7 @@ function Preview() {
         <div
           className="preview-player w-full transition-[max-width] duration-350 ease-out"
           data-theme={currentTheme}
+          data-layout={currentLayout}
           data-device={currentDevice}
           onPointerEnter={() => {
             if (!isEditableElement(document.activeElement) && !document.querySelector('.flat-select-menu, [role="menu"][data-open]')) {
