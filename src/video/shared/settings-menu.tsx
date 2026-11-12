@@ -395,7 +395,7 @@ function CaptionsMenu() {
       <CaptionsRadioGroup.Root>
         <Menu.Trigger className={menuItemBtnClass}>
           <span className="flex size-[20px] shrink-0 items-center justify-center text-white/75 group-hover/menu-btn:text-white group-focus-visible/menu-btn:text-white transition-colors">
-            <RoundedCaptionsOffIcon className="size-[15px]" />
+            <RoundedCaptionsOffIcon className="size-[15px]" style={{ filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85))' }} />
           </span>
           <TextPrimitive className="text-[13.5px] font-medium tracking-tight text-white/95" token={captionsText.key}>
             {captionsText.text}

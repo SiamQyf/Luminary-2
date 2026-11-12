@@ -12,32 +12,33 @@ import { ButtonTooltip } from './tooltip';
 /**
  * Modern rounded caption off icon matching the smooth liquid glass aesthetic (strict 2 subtitle lines)
  */
-export function RoundedCaptionsOffIcon({ className }: { className?: string }) {
+export function RoundedCaptionsOffIcon({ className, style }: { className?: string; style?: React.CSSProperties }) {
   return (
     <svg
-      viewBox="0.5 1.8 17 14.4"
+      viewBox="0 0 18 14"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
+      style={style}
       aria-hidden="true"
     >
       {/* Smoothly rounded outer badge */}
       <rect
-        x="1.2"
-        y="2.8"
-        width="15.6"
-        height="12.4"
-        rx="3.5"
+        x="1"
+        y="1"
+        width="16"
+        height="12"
+        rx="3.2"
         stroke="currentColor"
-        strokeWidth="1.5"
+        strokeWidth="1.4"
         className="opacity-80"
       />
       {/* Subtitle Line 1 (2 rounded dashes) */}
-      <rect x="4.2" y="6.7" width="4.5" height="1.6" rx="0.8" fill="currentColor" className="opacity-75" />
-      <rect x="9.8" y="6.7" width="4" height="1.6" rx="0.8" fill="currentColor" className="opacity-75" />
+      <rect x="3.8" y="4.5" width="4.4" height="1.6" rx="0.8" fill="currentColor" className="opacity-80" />
+      <rect x="9.2" y="4.5" width="5.0" height="1.6" rx="0.8" fill="currentColor" className="opacity-80" />
       {/* Subtitle Line 2 (2 rounded dashes) */}
-      <rect x="4.2" y="10.1" width="6.8" height="1.6" rx="0.8" fill="currentColor" className="opacity-75" />
-      <rect x="12.2" y="10.1" width="1.6" height="1.6" rx="0.8" fill="currentColor" className="opacity-75" />
+      <rect x="3.8" y="7.9" width="6.6" height="1.6" rx="0.8" fill="currentColor" className="opacity-80" />
+      <rect x="11.4" y="7.9" width="2.8" height="1.6" rx="0.8" fill="currentColor" className="opacity-80" />
     </svg>
   );
 }
@@ -45,26 +46,27 @@ export function RoundedCaptionsOffIcon({ className }: { className?: string }) {
 /**
  * Modern rounded caption on icon (active state: filled badge with transparent 2-line cutouts)
  */
-export function RoundedCaptionsOnIcon({ className }: { className?: string }) {
+export function RoundedCaptionsOnIcon({ className, style }: { className?: string; style?: React.CSSProperties }) {
   return (
     <svg
-      viewBox="0.5 1.8 17 14.4"
+      viewBox="0 0 18 14"
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
+      style={style}
       aria-hidden="true"
     >
       {/* Solid filled badge with transparent 2-line cutouts using evenodd fill rule */}
       <path
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M4.7 2.8C2.77 2.8 1.2 4.37 1.2 6.3V11.7C1.2 13.63 2.77 15.2 4.7 15.2H13.3C15.23 15.2 16.8 13.63 16.8 11.7V6.3C16.8 4.37 15.23 2.8 13.3 2.8H4.7ZM5 6.7C4.56 6.7 4.2 7.06 4.2 7.5C4.2 7.94 4.56 8.3 5 8.3H7.9C8.34 8.3 8.7 7.94 8.7 7.5C8.7 7.06 8.34 6.7 7.9 6.7H5ZM10.6 6.7C10.16 6.7 9.8 7.06 9.8 7.5C9.8 7.94 10.16 8.3 10.6 8.3H13C13.44 8.3 13.8 7.94 13.8 7.5C13.8 7.06 13.44 6.7 13.0 6.7H10.6ZM5 10.1C4.56 10.1 4.2 10.46 4.2 10.9C4.2 11.34 4.56 11.7 5 11.7H10.2C10.64 11.7 11 11.34 11 10.9C11 10.46 10.64 10.1 10.2 10.1H5ZM12.2 10.9C12.2 10.46 12.56 10.1 13 10.1C13.44 10.1 13.8 10.46 13.8 10.9C13.8 11.34 13.44 11.7 13 11.7C12.56 11.7 12.2 11.34 12.2 10.9Z"
+        d="M 4.2 1 C 2.43 1 1 2.43 1 4.2 V 9.8 C 1 11.57 2.43 13 4.2 13 H 13.8 C 15.57 13 17 11.57 17 9.8 V 4.2 C 17 2.43 15.57 1 13.8 1 H 4.2 Z M 3.8 4.5 C 3.8 4.06 4.16 3.7 4.6 3.7 H 7.4 C 7.84 3.7 8.2 4.06 8.2 4.5 V 5.3 C 8.2 5.74 7.84 6.1 7.4 6.1 H 4.6 C 4.16 6.1 3.8 5.74 3.8 5.3 Z M 9.2 4.5 C 9.2 4.06 9.56 3.7 10 3.7 H 13.4 C 13.84 3.7 14.2 4.06 14.2 4.5 V 5.3 C 14.2 5.74 13.84 6.1 13.4 6.1 H 10 C 9.56 6.1 9.2 5.74 9.2 5.3 Z M 3.8 7.9 C 3.8 7.46 4.16 7.1 4.6 7.1 H 9.6 C 10.04 7.1 10.4 7.46 10.4 7.9 V 8.7 C 10.4 9.14 10.04 9.5 9.6 9.5 H 4.6 C 4.16 9.5 3.8 9.14 3.8 8.7 Z M 11.4 7.9 C 11.4 7.46 11.76 7.1 12.2 7.1 H 13.4 C 13.84 7.1 14.2 7.46 14.2 7.9 V 8.7 C 14.2 9.14 13.84 9.5 13.4 9.5 H 12.2 C 11.76 9.5 11.4 9.14 11.4 8.7 Z"
       />
     </svg>
   );
 }
 
-function useHasCaptionTracks() {
+export function useHasCaptionTracks() {
   const media = useMedia() as HTMLVideoElement | null;
   const [hasTracks, setHasTracks] = useState(false);
 
@@ -96,8 +98,37 @@ function useHasCaptionTracks() {
 
 export function CaptionsToggle() {
   const hasTracks = useHasCaptionTracks();
+  const media = useMedia() as HTMLVideoElement | null;
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    const textTracks = media?.textTracks;
+    if (!textTracks) return;
+
+    const update = () => {
+      const tracks = Array.from(textTracks);
+      setIsActive(tracks.some((t) => (t.kind === 'subtitles' || t.kind === 'captions') && t.mode === 'showing'));
+    };
+
+    update();
+    textTracks.addEventListener('change', update);
+    textTracks.addEventListener('addtrack', update);
+    textTracks.addEventListener('removetrack', update);
+    return () => {
+      textTracks.removeEventListener('change', update);
+      textTracks.removeEventListener('addtrack', update);
+      textTracks.removeEventListener('removetrack', update);
+    };
+  }, [media]);
+
+  const tooltipLabel = !hasTracks
+    ? 'Captions unavailable'
+    : isActive
+      ? 'Captions (c) • On'
+      : 'Captions (c) • Off';
+
   return (
-    <ButtonTooltip label={!hasTracks ? 'No captions available' : undefined}>
+    <ButtonTooltip label={tooltipLabel}>
       <CaptionsButton hasTracks={hasTracks} />
     </ButtonTooltip>
   );
@@ -110,9 +141,10 @@ export type CaptionsButtonProps = Omit<CaptionsButtonPrimitive.Props, 'children'
 
 /**
  * Mesmerizing Captions Button:
- * - Shares the exact same translucent liquid glass background as all player buttons
+ * - Shares the exact same translucent liquid glass circular geometry as all player buttons
  * - Standardized 14px visual footprint matching Play, Skip, Volume, Fullscreen, and Settings
- * - Strict 2 subtitle lines display
+ * - Strict 2 subtitle lines display with uniform icon drop shadow per GEMINI.md
+ * - Luminous optical active state indicator dot indicating active caption playback
  * - Stays visibly rendered (disabled) when a stream has no subtitle tracks instead of vanishing
  */
 export function CaptionsButton({ className, iconClassName, hasTracks: hasTracksProp, ...props }: CaptionsButtonProps = {}) {
@@ -125,13 +157,14 @@ export function CaptionsButton({ className, iconClassName, hasTracks: hasTracksP
         disabled
         aria-label="Captions unavailable"
         className={cn(
-          'group/captions relative transition-all duration-200',
+          'group/captions relative opacity-40 cursor-not-allowed transition-all duration-200',
           typeof className === 'string' ? className : undefined
         )}
         {...(props as any)}
       >
         <RoundedCaptionsOffIcon
-          className={cn('col-start-1 row-start-1 w-[15.5px] h-[13.1px] text-white', iconClassName)}
+          className={cn('col-start-1 row-start-1 w-[15.5px] h-[13.1px] text-white/70', iconClassName)}
+          style={{ filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85))' }}
         />
       </Button>
     );
@@ -154,6 +187,7 @@ export function CaptionsButton({ className, iconClassName, hasTracks: hasTracksP
           'group-data-active/captions:hidden',
           iconClassName
         )}
+        style={{ filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85))' }}
       />
       <RoundedCaptionsOnIcon
         className={cn(
@@ -161,6 +195,12 @@ export function CaptionsButton({ className, iconClassName, hasTracks: hasTracksP
           'group-data-active/captions:block',
           iconClassName
         )}
+        style={{ filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85))' }}
+      />
+      {/* Luminous optical active indicator dot */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-[3.5px] left-1/2 -translate-x-1/2 size-[3px] rounded-full bg-white shadow-[0_0_6px_rgba(255,255,255,0.95)] opacity-0 scale-50 group-data-active/captions:opacity-100 group-data-active/captions:scale-100 transition-all duration-200"
       />
     </CaptionsButtonPrimitive>
   );

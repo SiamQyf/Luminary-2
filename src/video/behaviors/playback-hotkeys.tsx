@@ -161,6 +161,7 @@ export function PlaybackHotkeys({ disabled = false }: PlaybackHotkeysProps = {})
   return (
     <>
       <Hotkey target="document" disabled={disabled} keys="m" action="toggleMuted" />
+      <Hotkey target="document" disabled={disabled} keys="c" action="toggleSubtitles" />
       <Hotkey target="document" disabled={disabled} keys="ArrowRight" action="seekStep" />
       <Hotkey target="document" disabled={disabled} keys="ArrowLeft" action="seekStep" />
       <Hotkey target="document" disabled={disabled} keys="l" action="seekStep" />

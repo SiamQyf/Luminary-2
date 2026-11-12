@@ -145,11 +145,50 @@ function getActiveSubtitleTrack(media: HTMLVideoElement): TextTrack | null {
 }
 
 /**
+ * Format subtitle cue text:
+ * - Detects sound effects / music cues (e.g. "[Music]", "[Applause]", "♪ ... ♪")
+ * - Formats lines cleanly for optimal typography & contrast
+ */
+function formatCueContent(text: string) {
+  const isSoundOrMusic =
+    /^\s*\[(.*?)\]\s*$/.test(text) ||
+    /^\s*♪(.*?)♪\s*$/.test(text) ||
+    text.toLowerCase().includes('music') ||
+    text.includes('♪');
+
+  if (isSoundOrMusic) {
+    const cleanSound = text.replace(/^[\[♪\s]+|[\]♪\s]+$/g, '').trim();
+    return (
+      <span className="inline-flex items-center justify-center gap-1.5 italic tracking-wide text-white/95">
+        <span className="text-[12px] opacity-75 font-normal select-none">♪</span>
+        <span>{cleanSound || text}</span>
+        <span className="text-[12px] opacity-75 font-normal select-none">♪</span>
+      </span>
+    );
+  }
+
+  const lines = text.split('\n').filter(Boolean);
+  if (lines.length > 1) {
+    return (
+      <span className="flex flex-col items-center gap-0.5">
+        {lines.map((line, idx) => (
+          <span key={idx} className="block leading-[1.38]">
+            {line}
+          </span>
+        ))}
+      </span>
+    );
+  }
+
+  return <span className="leading-[1.38]">{text}</span>;
+}
+
+/**
  * High-Performance Synchronized Captions Display:
  * - Completely solves native browser cue desynchronization during seeking, scrubbing, and pause jumps.
  * - Indexes full WebVTT cues into memory with 0ms seek latency.
  * - Synchronously updates active subtitle text on 'seeking', 'seeked', 'timeupdate', 'play', and 'pause'.
- * - Dynamically adapts elevation above the bottom control bar to avoid overlap.
+ * - Dynamically adapts elevation above the bottom control bar to avoid overlap across desktop and mobile.
  * - Mesmerizing frosted liquid glass pill capsule with uniform drop-shadow adhering to project guidelines.
  */
 export function CaptionsDisplay() {
@@ -230,7 +269,7 @@ export function CaptionsDisplay() {
       const currentTime = media.currentTime;
       const cues = cuesRef.current;
 
-      // Instant binary or linear scan for matching cue at currentTime
+      // Instant scan for matching cue at currentTime
       let matchedText = '';
       for (let i = 0; i < cues.length; i++) {
         const c = cues[i];
@@ -285,6 +324,7 @@ export function CaptionsDisplay() {
     media.addEventListener('timeupdate', onTimeUpdate);
     media.addEventListener('play', updateActiveCue);
     media.addEventListener('pause', updateActiveCue);
+    media.addEventListener('ratechange', updateActiveCue);
     media.addEventListener('loadeddata', handleTracksChange);
     media.addEventListener('loadstart', () => {
       fetchedUrlRef.current = null;
@@ -304,37 +344,48 @@ export function CaptionsDisplay() {
       media.removeEventListener('timeupdate', onTimeUpdate);
       media.removeEventListener('play', updateActiveCue);
       media.removeEventListener('pause', updateActiveCue);
+      media.removeEventListener('ratechange', updateActiveCue);
       media.removeEventListener('loadeddata', handleTracksChange);
     };
   }, [media]);
 
   if (!activeText) return null;
 
+  const isShortCue = activeText.length <= 26 && !activeText.includes('\n');
+
   return (
     <div
       aria-live="polite"
       className={cn(
-        'pointer-events-none absolute inset-x-0 flex justify-center px-6 z-25',
-        'bottom-5 sm:bottom-6 [[data-controls-visible]_&]:bottom-[76px] sm:[[data-controls-visible]_&]:bottom-[84px]',
+        'pointer-events-none absolute inset-x-0 flex justify-center px-4 sm:px-6 z-25',
+        // Responsive dynamic bottom elevation: clearance above controls bar when visible, settling smoothly to bottom third when hidden
+        'bottom-[calc(max(env(safe-area-inset-bottom,0px),16px)+12px)] sm:bottom-7 md:bottom-8',
+        '[[data-controls-visible]_&]:bottom-[calc(max(env(safe-area-inset-bottom,0px),16px)+76px)] sm:[[data-controls-visible]_&]:bottom-[86px]',
         'transition-[bottom] duration-300 ease-out'
       )}
     >
       <div
+        key={activeText}
         data-part="caption-pill"
         className={cn(
-          'inline-block max-w-[85%] sm:max-w-[75%] px-4 py-2 sm:px-5 sm:py-2.5',
-          'backdrop-blur-md text-white text-center text-[13.5px] sm:text-[15.5px] font-medium leading-snug tracking-wide whitespace-pre-line',
-          'animate-in fade-in zoom-in-95 duration-100 select-none transition-[background-color,border-color,border-radius] duration-200'
+          'inline-block max-w-[90%] sm:max-w-[80%] md:max-w-[70%]',
+          isShortCue
+            ? 'px-4.5 py-1.5 sm:px-5 sm:py-2 rounded-full'
+            : 'px-4.5 py-2 sm:px-6 sm:py-2.5 rounded-2xl',
+          'backdrop-blur-[20px] backdrop-saturate-[180%] backdrop-contrast-[105%]',
+          'text-white text-center font-sans font-medium text-[13.5px] sm:text-[15.5px] md:text-[16.5px] tracking-[0.012em]',
+          'select-none transition-all duration-150 animate-in fade-in zoom-in-[0.98]'
         )}
         style={{
-          background: 'var(--media-caption-bg, rgba(10, 12, 16, 0.78))',
+          background: 'var(--media-caption-bg, rgba(10, 13, 20, 0.78))',
           border: '1px solid var(--media-caption-border, rgba(255, 255, 255, 0.2))',
-          borderRadius: 'var(--media-caption-radius, 14px)',
-          boxShadow: 'var(--media-caption-shadow, 0 4px 24px rgba(0, 0, 0, 0.75))',
+          boxShadow:
+            'var(--media-caption-shadow, 0 10px 30px -4px rgba(0, 0, 0, 0.7), inset 0 1px 0 0 rgba(255, 255, 255, 0.26), inset 0 -1px 0 0 rgba(0, 0, 0, 0.4))',
+          textShadow: '0 1px 2px rgba(0, 0, 0, 0.95), 0 0 10px rgba(0, 0, 0, 0.65)',
           filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85))',
         }}
       >
-        {activeText}
+        {formatCueContent(activeText)}
       </div>
     </div>
   );

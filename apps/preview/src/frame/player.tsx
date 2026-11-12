@@ -26,16 +26,25 @@ const COSMIC_DAWN_CHAPTERS = './cosmic-dawn-chapters.vtt';
 
 export const SUBTITLE_TRACKS: Record<string, string> = {
   // Big Buck Bunny
-  'https://stream.mux.com/VcmKA6aqzIzlg3MayLJDnbF55kX00mds028Z65QxvBYaA.m3u8': './big-buck-bunny-subtitles.vtt',
+  'https://stream.mux.com/VcmKA6aqzIzlg3MayLJDnbF55kX00mds028Z65QxvBYaA.m3u8': '/big-buck-bunny-subtitles.vtt',
   // Elephants Dream
-  'https://stream.mux.com/Sc89iWAyNkhJ3P1rQ02nrEdCFTnfT01CZ2KmaEcxXfB008.m3u8': './elephants-dream-subtitles.vtt',
+  'https://stream.mux.com/Sc89iWAyNkhJ3P1rQ02nrEdCFTnfT01CZ2KmaEcxXfB008.m3u8': '/elephants-dream-subtitles.vtt',
   // Mad Max: Fury Road
-  'https://stream.mux.com/JX01bG8eB4uaoV3OpDuK602rBfvdSgrMObjwuUOBn4JrQ.m3u8': './mad-max-subtitles.vtt',
+  'https://stream.mux.com/JX01bG8eB4uaoV3OpDuK602rBfvdSgrMObjwuUOBn4JrQ.m3u8': '/mad-max-subtitles.vtt',
   // View From A Blue Moon
-  'https://stream.mux.com/lyrKpPcGfqyzeI00jZAfW6MvP6GNPrkML.m3u8': './view-from-blue-moon-subtitles.vtt',
+  'https://stream.mux.com/lyrKpPcGfqyzeI00jZAfW6MvP6GNPrkML.m3u8': '/view-from-blue-moon-subtitles.vtt',
   // Cosmic Dawn
-  'https://stream.mux.com/83EzHOvVzVN01AsrD01BCpiH02Pj3S8mfzBOu101w2nHC5s.m3u8': './cosmic-dawn-subtitles.vtt',
+  'https://stream.mux.com/83EzHOvVzVN01AsrD01BCpiH02Pj3S8mfzBOu101w2nHC5s.m3u8': '/cosmic-dawn-subtitles.vtt',
 };
+
+function getSubtitleTrackForSrc(src: string): string | undefined {
+  if (SUBTITLE_TRACKS[src]) return SUBTITLE_TRACKS[src];
+  for (const [key, vtt] of Object.entries(SUBTITLE_TRACKS)) {
+    const id = key.split('/').pop()?.split('.')[0];
+    if (id && src.includes(id)) return vtt;
+  }
+  return undefined;
+}
 
 function getPosterForSrc(src: string): string | undefined {
   const match = src.match(/stream\.mux\.com\/([a-zA-Z0-9_-]+)(?:\.m3u8|\/|\?|$)/);
@@ -106,6 +115,8 @@ export function Player({ media, customSrc, version }: { media?: PlaybackProps; c
     };
   }, [src]);
 
+  const subtitleTrackSrc = getSubtitleTrackForSrc(src);
+
   // MuxVideo natively supports:
   // - HLS .m3u8 streams (including all official videojs-sandbox streams)
   // - Progressive MP4, WebM, OGG, MOV
@@ -114,6 +125,9 @@ export function Player({ media, customSrc, version }: { media?: PlaybackProps; c
     <VideoPlayer key={src} poster={poster} title={title}>
       <VideoSkin title={title} subtitle={subtitle}>
         <MuxVideo {...media} muted={false} src={src} playsInline crossOrigin="">
+          {subtitleTrackSrc && (
+            <track kind="subtitles" label="English" srcLang="en" src={subtitleTrackSrc} default />
+          )}
           {hasChapters && <track kind="chapters" label="English" srcLang="en" src={COSMIC_DAWN_CHAPTERS} default />}
         </MuxVideo>
       </VideoSkin>
