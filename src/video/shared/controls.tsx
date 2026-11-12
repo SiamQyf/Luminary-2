@@ -8,7 +8,6 @@ import { cn } from '@/lib/resolve-class-name';
 import { LiveButton } from './live-button';
 import { type PlayerLayout, useLayoutMode } from './layout-mode';
 import { AudioPlayButton, PlayButton } from './play-button';
-import { SeekButton } from './seek-button';
 import { TimeSlider } from './time-slider';
 import { type ThumbnailSlot } from './time-slider';
 import { VolumePill } from './volume-pill';
@@ -112,11 +111,9 @@ export function ControlsRow({
 }: ControlsSlots & { audio?: boolean; className?: string; live?: boolean; menu?: ReactNode } = {}) {
   return (
     <Controls.Group className={cn('flex items-center rtl:flex-row-reverse justify-between gap-[12px] mb-[3px]', className)}>
-      {/* Left controls: Rewind 10, Forward 10, Play/Pause (desktop only), Volume Pill */}
+      {/* Left controls: Play/Pause (desktop only), Volume Pill */}
       <Controls.Group className={'flex items-center rtl:flex-row-reverse gap-[12px] min-w-0'}>
         <div className="hidden media-md:flex items-center rtl:flex-row-reverse gap-[12px]">
-          {seekBackward}
-          {seekForward}
           {audio ? <AudioPlayButton /> : <PlayButton />}
         </div>
         {!audio && <VolumePill />}
@@ -173,6 +170,7 @@ export function ControlsContent({
       <Tooltip.Provider>
         {top && (
           <div
+            data-part="top-controls-bar"
             className={cn(
               'pointer-events-none absolute inset-x-0 top-0 px-6 sm:px-10 pt-6 pb-14 flex items-start justify-between z-20',
               'bg-transparent! bg-none!'
@@ -185,23 +183,36 @@ export function ControlsContent({
           <BufferingIndicator className={'group/center-buffering contents'}>
             <Controls.Group
               className={cn(
-                'group-not-data-visible/controls:pointer-events-none pointer-events-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center rtl:flex-row-reverse gap-[12px] z-30',
+                'group-not-data-visible/controls:pointer-events-none pointer-events-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center justify-center z-30',
                 'group-not-data-visible/controls:opacity-0 group-not-data-visible/controls:scale-90 transition-all duration-300 ease-out',
                 'group-data-visible/center-buffering:hidden!',
                 'flex media-md:hidden'
               )}
             >
-              <SeekButton
-                seconds={-10}
-                tooltip={false}
-              />
-              <PlayButton
-                tooltip={false}
-              />
-              <SeekButton
-                seconds={10}
-                tooltip={false}
-              />
+              <div className="mobile-play-btn-wrapper scale-[1.3] origin-center flex items-center justify-center">
+                <PlayButton
+                  tooltip={false}
+                />
+              </div>
+            </Controls.Group>
+          </BufferingIndicator>
+        )}
+        {/* Simple Mode: Play/Pause button centered on mobile portrait (1.3x size) */}
+        {isSimple && center && (
+          <BufferingIndicator className={'group/center-buffering contents'}>
+            <Controls.Group
+              className={cn(
+                'center-play-portrait-simple group-not-data-visible/controls:pointer-events-none pointer-events-auto absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center justify-center z-30',
+                'group-not-data-visible/controls:opacity-0 group-not-data-visible/controls:scale-90 transition-all duration-300 ease-out',
+                'group-data-visible/center-buffering:hidden!',
+                'flex media-md:hidden'
+              )}
+            >
+              <div className="mobile-play-btn-wrapper scale-[1.3] origin-center flex items-center justify-center">
+                <PlayButton
+                  tooltip={false}
+                />
+              </div>
             </Controls.Group>
           </BufferingIndicator>
         )}
@@ -220,9 +231,11 @@ export function ControlsContent({
         >
           {isSimple ? (
             <>
-              {/* Simple Left: Play + Volume + Compact Elapsed/Duration */}
+              {/* Simple Left: Play (desktop/landscape only, centered on mobile portrait) + Volume + Compact Elapsed/Duration */}
               <Controls.Group className={'flex items-center rtl:flex-row-reverse gap-2 sm:gap-[10px] shrink-0'}>
-                {audio ? <AudioPlayButton /> : <PlayButton />}
+                <div className="bottom-play-portrait-simple hidden media-md:flex items-center">
+                  {audio ? <AudioPlayButton /> : <PlayButton />}
+                </div>
                 {!audio && <VolumePill />}
                 {live && <LiveButton />}
                 {!live && (

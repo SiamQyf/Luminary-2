@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { MuxVideo } from '@videojs/react/media/mux-video';
 import { VideoPlayer } from '@videojs/react/video';
 
@@ -5,6 +6,18 @@ import { VideoSkin } from '@/video/skin';
 
 import type { PlaybackProps } from '../shell/params';
 import { SANDBOX_VIDEOS } from './video-input';
+
+function findPlaybackMedia(): HTMLMediaElement | null {
+  const directVideo = document.querySelector('video');
+  if (directVideo) return directVideo;
+  for (const element of document.querySelectorAll('*')) {
+    if (element.localName.startsWith('media-')) continue;
+    if ('paused' in element && 'play' in element && typeof (element as any).play === 'function') {
+      return element as HTMLMediaElement;
+    }
+  }
+  return null;
+}
 
 // Default media: Mad Max: Fury Road (Official Teaser Trailer • HLS)
 export const DEFAULT_SRC = 'https://stream.mux.com/JX01bG8eB4uaoV3OpDuK602rBfvdSgrMObjwuUOBn4JrQ.m3u8';
@@ -42,6 +55,57 @@ export function Player({ media, customSrc, version }: { media?: PlaybackProps; c
   const title = matched ? matched.title : 'Custom Video';
   const subtitle = matched ? matched.subtitle : undefined;
 
+  useEffect(() => {
+    let unmounted = false;
+    const ensureUnmutedSound = () => {
+      const mediaEl = findPlaybackMedia();
+      if (!mediaEl) return false;
+
+      mediaEl.muted = false;
+      mediaEl.volume = 1;
+
+      const promise = mediaEl.play();
+      if (promise && typeof promise.catch === 'function') {
+        promise.catch(() => {
+          // If browser policy blocked unmuted autoplay without prior interaction,
+          // resume with sound on the first user interaction anywhere on the window.
+          const resumeAudioOnGesture = () => {
+            window.removeEventListener('pointerdown', resumeAudioOnGesture, true);
+            window.removeEventListener('keydown', resumeAudioOnGesture, true);
+            window.removeEventListener('touchstart', resumeAudioOnGesture, true);
+            if (unmounted) return;
+            mediaEl.muted = false;
+            mediaEl.volume = 1;
+            if (mediaEl.paused) {
+              mediaEl.play().catch(() => {});
+            }
+          };
+          window.addEventListener('pointerdown', resumeAudioOnGesture, { capture: true, once: true });
+          window.addEventListener('keydown', resumeAudioOnGesture, { capture: true, once: true });
+          window.addEventListener('touchstart', resumeAudioOnGesture, { capture: true, once: true });
+        });
+      }
+      return true;
+    };
+
+    if (!ensureUnmutedSound()) {
+      const observer = new MutationObserver(() => {
+        if (ensureUnmutedSound()) {
+          observer.disconnect();
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+      return () => {
+        unmounted = true;
+        observer.disconnect();
+      };
+    }
+
+    return () => {
+      unmounted = true;
+    };
+  }, [src]);
+
   // MuxVideo natively supports:
   // - HLS .m3u8 streams (including all official videojs-sandbox streams)
   // - Progressive MP4, WebM, OGG, MOV
@@ -49,7 +113,7 @@ export function Player({ media, customSrc, version }: { media?: PlaybackProps; c
   return (
     <VideoPlayer key={src} poster={poster} title={title}>
       <VideoSkin title={title} subtitle={subtitle}>
-        <MuxVideo {...media} src={src} playsInline crossOrigin="">
+        <MuxVideo {...media} muted={false} src={src} playsInline crossOrigin="">
           {hasChapters && <track kind="chapters" label="English" srcLang="en" src={COSMIC_DAWN_CHAPTERS} default />}
         </MuxVideo>
       </VideoSkin>

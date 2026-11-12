@@ -662,6 +662,101 @@ live-audio-player {
 }
 
 /* --------------------------------------------------------------------------
+   MOBILE ICON SCALING: Pause/Play & Forward/Backward icons at 15px
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px), (pointer: coarse) {
+  .preview-player .group\/play svg,
+  .preview-player .group\/seek-btn svg {
+    width: 15px !important;
+    height: auto !important;
+    max-height: 18.5px !important;
+  }
+  .preview-player .group\/play .player-icon-scale,
+  .preview-player .group\/seek-btn .player-icon-scale {
+    transform: scale(1) !important;
+  }
+}
+
+:root[data-device="mobile"] .preview-player .group\/play svg,
+:root[data-device="mobile"] .preview-player .group\/seek-btn svg,
+.preview-player[data-device="mobile"] .group\/play svg,
+.preview-player[data-device="mobile"] .group\/seek-btn svg {
+  width: 15px !important;
+  height: auto !important;
+  max-height: 18.5px !important;
+}
+
+:root[data-device="mobile"] .preview-player .group\/play .player-icon-scale,
+:root[data-device="mobile"] .preview-player .group\/seek-btn .player-icon-scale,
+.preview-player[data-device="mobile"] .group\/play .player-icon-scale,
+.preview-player[data-device="mobile"] .group\/seek-btn .player-icon-scale {
+  transform: scale(1) !important;
+}
+
+
+
+/* --------------------------------------------------------------------------
+   Mobile Portrait: Vertical Volume Popup & Simple Mode Center Play Button
+   -------------------------------------------------------------------------- */
+.preview-player .vertical-volume-popup {
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Mobile version center play button: scaled to 1.3x (45% reduction from 1.75x) */
+.preview-player .mobile-play-btn-wrapper,
+.preview-player .mobile-play-btn-175 {
+  transform: scale(1.3) !important;
+  transform-origin: center center !important;
+}
+
+/* Portrait orientation overrides for simple mode play button */
+@media (orientation: portrait) {
+  .preview-player .center-play-portrait-simple {
+    display: flex !important;
+  }
+  .preview-player .bottom-play-portrait-simple {
+    display: none !important;
+  }
+}
+
+:root[data-device="mobile"] .center-play-portrait-simple {
+  display: flex !important;
+}
+:root[data-device="mobile"] .bottom-play-portrait-simple {
+  display: none !important;
+}
+
+@media (orientation: landscape) and (min-width: 600px) {
+  .preview-player .center-play-portrait-simple {
+    display: none !important;
+  }
+  .preview-player .bottom-play-portrait-simple {
+    display: flex !important;
+  }
+}
+
+.preview-player[data-theme="plain"] .vertical-volume-popup,
+:root[data-theme="plain"] .vertical-volume-popup {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+}
+.preview-player[data-theme="plain"] .vertical-volume-popup div[class*="bg-white/20"],
+:root[data-theme="plain"] .vertical-volume-popup div[class*="bg-white/20"] {
+  background: rgba(0, 0, 0, 0.12) !important;
+}
+.preview-player[data-theme="plain"] .vertical-volume-popup div[class*="bg-white/90"],
+:root[data-theme="plain"] .vertical-volume-popup div[class*="bg-white/90"] {
+  background: #111111 !important;
+}
+.preview-player[data-theme="plain"] .vertical-volume-popup .volume-slider-thumb,
+:root[data-theme="plain"] .vertical-volume-popup .volume-slider-thumb {
+  background: #111111 !important;
+}
+
+/* --------------------------------------------------------------------------
    1. THEME: TRANSLUCENT (Present / Default Liquid Frosted Glass)
    -------------------------------------------------------------------------- */
 .preview-player[data-theme="translucent"] {
@@ -6962,4 +7057,40 @@ div[role="menu"]:not([data-child-open]) {
     linear-gradient(180deg, rgba(9, 9, 11, 0) 0%, rgba(9, 9, 11, 0.52) 40%, rgba(8, 8, 10, 0.94) 76%, #070709 100%);
   background-size: 6px 6px, 100% 100%;
   box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.22);
+}
+
+/* --------------------------------------------------------------------------
+   DOUBLE CLICK / TAP COMPOUNDING SEEK OVERLAY (5s -> 10s -> 15s -> 30s -> 45s -> 60s max)
+   -------------------------------------------------------------------------- */
+@keyframes seek-chevron-wave-1 {
+  0%, 100% { opacity: 0.25; transform: scale(0.85); }
+  33% { opacity: 1; transform: scale(1.15); }
+}
+@keyframes seek-chevron-wave-2 {
+  0%, 100% { opacity: 0.25; transform: scale(0.85); }
+  66% { opacity: 1; transform: scale(1.15); }
+}
+@keyframes seek-chevron-wave-3 {
+  0%, 100% { opacity: 0.25; transform: scale(0.85); }
+  99% { opacity: 1; transform: scale(1.15); }
+}
+
+.seek-wave-chevron-1 {
+  animation: seek-chevron-wave-1 650ms infinite ease-in-out;
+}
+.seek-wave-chevron-2 {
+  animation: seek-chevron-wave-2 650ms infinite ease-in-out 140ms;
+}
+.seek-wave-chevron-3 {
+  animation: seek-chevron-wave-3 650ms infinite ease-in-out 280ms;
+}
+
+@keyframes seek-badge-pulse {
+  0% { transform: scale(0.88); }
+  50% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+.animate-seek-badge-pulse {
+  animation: seek-badge-pulse 220ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }

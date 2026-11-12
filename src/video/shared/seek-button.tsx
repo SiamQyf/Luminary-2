@@ -67,13 +67,13 @@ export function SeekButton({
     <ButtonTooltip disabled={!tooltip}>
       <SeekButtonPrimitive
         render={<Button />}
-        className={(state) => cn(resolveClassName(className, state))}
+        className={(state) => cn('group/seek-btn', resolveClassName(className, state))}
         seconds={seconds}
       >
         {backward ? (
-          <Rewind10FigmaIcon className={cn('w-[13.8px] h-[16.9px] text-white', iconClassName)} />
+          <Rewind10FigmaIcon className={cn('w-[13.8px] h-[16.9px] max-sm:w-[15px] max-sm:h-[18.4px] text-white', iconClassName)} />
         ) : (
-          <Forward10FigmaIcon className={cn('w-[13.8px] h-[16.9px] text-white', iconClassName)} />
+          <Forward10FigmaIcon className={cn('w-[13.8px] h-[16.9px] max-sm:w-[15px] max-sm:h-[18.4px] text-white', iconClassName)} />
         )}
       </SeekButtonPrimitive>
     </ButtonTooltip>

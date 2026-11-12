@@ -3,7 +3,7 @@
 'use client';
 
 import '../styles/video/scaffold.css';
-import { Container as ContainerPrimitive, Poster as PosterPrimitive, Slider as SliderPrimitive, usePlayer } from '@videojs/react';
+import { Container as ContainerPrimitive, Poster as PosterPrimitive, Slider as SliderPrimitive } from '@videojs/react';
 import type { MouseEvent as ReactMouseEvent, ReactNode } from 'react';
 
 import { cn } from '@/lib/resolve-class-name';
@@ -178,26 +178,8 @@ export function VideoSkin({
   subtitle,
   ...props
 }: VideoSkinProps = {}) {
-  const store = usePlayer();
-
-  const handleDoubleClick = (e: ReactMouseEvent<HTMLDivElement>) => {
-    // Ignore double clicks that originate on interactive buttons, inputs, sliders, or menus
-    const target = e.target as HTMLElement | null;
-    if (target?.closest('button, [role="button"], [role="slider"], [role="menuitem"], input, a, [data-interactive]')) {
-      return;
-    }
-    if (!store) return;
-    const player = store as any;
-    if (player.isFullscreen) {
-      player.exitFullscreen?.();
-    } else {
-      player.requestFullscreen?.();
-    }
-  };
-
   return (
     <ContainerPrimitive
-      onDoubleClick={handleDoubleClick}
       className={cn(
         'media-skin',
         'relative block h-full w-full overflow-hidden rounded-[24px] sm:rounded-[28.8px] shadow-2xl [--spacing:var(--media-spacing)] [font-family:var(--media-font-family,inherit)] text-media text-media-foreground @container/media-root',

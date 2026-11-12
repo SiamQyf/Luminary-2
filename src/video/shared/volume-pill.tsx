@@ -6,6 +6,7 @@ import type { ClassValue } from 'cn';
 import { useEffect, useRef, useState } from 'react';
 
 import { cn } from '@/lib/resolve-class-name';
+import { useIsMobilePortrait } from './use-mobile-portrait';
 
 /**
  * Animated Volume Horn Icon:
@@ -181,18 +182,33 @@ export function VolumePill({ className }: { className?: ClassValue }) {
   const volumeState = usePlayer(selectVolume);
   const currentVolume = volumeState?.volume ?? 1;
   const currentMuted = volumeState?.muted ?? false;
+  const isMobilePortrait = useIsMobilePortrait();
 
   const playerFullscreen = usePlayer(selectFullscreen)?.isFullscreen ?? false;
   const [docFullscreen, setDocFullscreen] = useState(false);
   const [isActive, setIsActive] = useState(false);
+  const [isVerticalOpen, setIsVerticalOpen] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
 
+  const containerRef = useRef<HTMLDivElement>(null);
   const isDraggingRef = useRef(false);
   const lastSliderReleaseRef = useRef(0);
   const prevVolumeRef = useRef<number | null>(null);
   const prevMutedRef = useRef<boolean | null>(null);
   const activeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const releaseLockRef = useRef<(() => void) | null>(null);
+
+  const armActiveTimer = () => {
+    if (activeTimerRef.current) clearTimeout(activeTimerRef.current);
+    activeTimerRef.current = setTimeout(() => {
+      setIsActive(false);
+      setIsVerticalOpen(false);
+      if (releaseLockRef.current) {
+        releaseLockRef.current();
+        releaseLockRef.current = null;
+      }
+    }, 2000);
+  };
 
   useEffect(() => {
     isDraggingRef.current = isDragging;
@@ -201,15 +217,7 @@ export function VolumePill({ className }: { className?: ClassValue }) {
       isDraggingRef.current = false;
       lastSliderReleaseRef.current = performance.now();
       setIsDragging(false);
-      setIsActive(false);
-      if (activeTimerRef.current) {
-        clearTimeout(activeTimerRef.current);
-        activeTimerRef.current = null;
-      }
-      if (releaseLockRef.current) {
-        releaseLockRef.current();
-        releaseLockRef.current = null;
-      }
+      armActiveTimer();
     };
     window.addEventListener('pointerup', stopDragging, { capture: true, once: true });
     window.addEventListener('pointercancel', stopDragging, { capture: true, once: true });
@@ -220,6 +228,18 @@ export function VolumePill({ className }: { className?: ClassValue }) {
       window.removeEventListener('blur', stopDragging);
     };
   }, [isDragging]);
+
+  // Close vertical slider on tap outside
+  useEffect(() => {
+    if (!isVerticalOpen) return;
+    const handleOutside = (e: PointerEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setIsVerticalOpen(false);
+      }
+    };
+    window.addEventListener('pointerdown', handleOutside);
+    return () => window.removeEventListener('pointerdown', handleOutside);
+  }, [isVerticalOpen]);
 
   useEffect(() => {
     const update = () => {
@@ -234,7 +254,22 @@ export function VolumePill({ className }: { className?: ClassValue }) {
     };
   }, []);
 
-  // Detect volume changes (ArrowUp, ArrowDown, scroll, etc.) to trigger pill expansion & horn dancing animation
+  const mountTimeRef = useRef(performance.now());
+  const hasUserInteractedRef = useRef(false);
+
+  useEffect(() => {
+    const markInteraction = () => {
+      hasUserInteractedRef.current = true;
+    };
+    window.addEventListener('pointerdown', markInteraction, { capture: true, passive: true });
+    window.addEventListener('keydown', markInteraction, { capture: true, passive: true });
+    return () => {
+      window.removeEventListener('pointerdown', markInteraction, { capture: true });
+      window.removeEventListener('keydown', markInteraction, { capture: true });
+    };
+  }, []);
+
+  // Detect volume changes (ArrowUp, ArrowDown hotkeys) to trigger pill expansion
   useEffect(() => {
     if (prevVolumeRef.current === null) {
       prevVolumeRef.current = currentVolume;
@@ -242,15 +277,18 @@ export function VolumePill({ className }: { className?: ClassValue }) {
       return;
     }
 
-    const volumeChanged = prevVolumeRef.current !== currentVolume;
-    const mutedChanged = prevMutedRef.current !== currentMuted;
-
+    const volumeChanged = Math.abs(prevVolumeRef.current - currentVolume) > 0.001;
     prevVolumeRef.current = currentVolume;
     prevMutedRef.current = currentMuted;
 
-    if (volumeChanged || mutedChanged) {
-      // Do not arm the post-change dance timer during or right after a slider release;
-      // slider dragging drives isDragging directly so releasing stops the dance immediately.
+    // Never expand on reload, initial page mount, or before the user has interacted
+    if (performance.now() - mountTimeRef.current < 2000 || !hasUserInteractedRef.current) {
+      return;
+    }
+
+    // Only active hotkey/sliding volume adjustments expand the horizontal slider on desktop/landscape
+    // Never expand on mute toggles or automatically on mobile portrait (mobile opens strictly on tap)
+    if (volumeChanged && !isMobilePortrait) {
       if (isDraggingRef.current || performance.now() - lastSliderReleaseRef.current < 120) {
         return;
       }
@@ -275,19 +313,9 @@ export function VolumePill({ className }: { className?: ClassValue }) {
         }
       }
 
-      // Reset auto-collapse timer (stay expanded for 1.8 seconds after last volume change)
-      if (activeTimerRef.current) {
-        clearTimeout(activeTimerRef.current);
-      }
-      activeTimerRef.current = setTimeout(() => {
-        setIsActive(false);
-        if (releaseLockRef.current) {
-          releaseLockRef.current();
-          releaseLockRef.current = null;
-        }
-      }, 1800);
+      armActiveTimer();
     }
-  }, [currentVolume, currentMuted, store]);
+  }, [currentVolume, currentMuted, store, isMobilePortrait]);
 
   useEffect(() => {
     return () => {
@@ -299,74 +327,126 @@ export function VolumePill({ className }: { className?: ClassValue }) {
   const isFullscreen = playerFullscreen || docFullscreen;
 
   return (
-    <div
-      className={cn(
-        'relative group/vol-pill flex h-[31.4px] shrink-0 items-center justify-center rounded-full overflow-hidden select-none isolate border-none outline-none',
-        // Collapsed circle by default, expands to full pill when hovered, focused, dragged, or actively changing
-        'w-[31.4px]',
-        'hover:w-[112px] hover:pr-3 hover:justify-start',
-        'focus-within:w-[112px] focus-within:pr-3 focus-within:justify-start',
-        'has-[[data-dragging]]:w-[112px] has-[[data-dragging]]:pr-3 has-[[data-dragging]]:justify-start',
-        isActive && 'w-[112px]! pr-3! justify-start!',
-        // Static high-translucency dark liquid glass base
-        'bg-black/20',
-        // Luminous transparent liquid glass (lets video colors shine through with refraction)
-        'bg-gradient-to-b from-white/[0.14] via-white/[0.04] to-transparent',
-        'hover:from-white/[0.22] hover:via-white/[0.08] hover:to-transparent',
-        // Outer elevation shadow (no border shine)
-        'shadow-[0_2.5px_10px_0_rgba(0,0,0,0.3)]',
-        // Optical backdrop refraction & clarity
-        'backdrop-blur-[12px] backdrop-saturate-[150%] backdrop-brightness-[108%]',
-        // Smooth transition
-        'transition-[width,padding] duration-300 ease-out',
-        className
-      )}
-      data-name="Volume Pill"
-    >
-      {/* Mute button trigger: exact 31.4px circular geometry matching Button, perfectly centering the animated horn */}
-      <MuteButtonPrimitive className="relative z-10 size-[31.4px] shrink-0 grid place-items-center p-0 m-0 border-none bg-transparent cursor-pointer text-white group/mute outline-none">
-        <span
+    <div ref={containerRef} className="relative flex items-center shrink-0">
+      {/* Vertical Volume Slider on Mobile Portrait */}
+      {isMobilePortrait && (
+        <div
+          data-part="vertical-volume-popup"
           className={cn(
-            'player-icon-scale relative z-10 size-full grid grid-cols-1 grid-rows-1 place-items-center text-white pointer-events-none transition-transform duration-500 ease-out',
-            isFullscreen ? 'scale-[0.92]!' : 'scale-[0.86]!'
+            'vertical-volume-popup absolute bottom-[calc(100%+8px)] left-1/2 -translate-x-1/2 z-40',
+            'flex flex-col items-center justify-between w-[32px] h-[114px] py-3 px-1 rounded-full select-none isolate',
+            // Liquid Frosted Glass surface matching player buttons
+            'bg-black/55 backdrop-blur-[16px] backdrop-saturate-[150%] backdrop-brightness-[105%]',
+            'bg-gradient-to-b from-white/[0.16] via-white/[0.04] to-transparent',
+            'border border-white/20 shadow-[0_8px_24px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,255,255,0.3)]',
+            'transition-all duration-200 ease-out origin-bottom',
+            isVerticalOpen || isDragging
+              ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto'
+              : 'opacity-0 scale-90 translate-y-2 pointer-events-none'
           )}
         >
-          <VolumeHornAnimatedIcon
-            isDancing={isActive || isDragging}
-            className="size-[15px] text-white"
-          />
-        </span>
-      </MuteButtonPrimitive>
+          <VolumeSlider.Root
+            orientation="vertical"
+            thumbAlignment="edge"
+            onPointerDown={() => {
+              isDraggingRef.current = true;
+              setIsDragging(true);
+              setIsVerticalOpen(true);
+              if (activeTimerRef.current) clearTimeout(activeTimerRef.current);
+            }}
+            className="relative flex size-full cursor-pointer justify-center outline-none select-none"
+          >
+            <VolumeSlider.Track className="relative h-full w-[3px] rounded-full bg-white/20 overflow-hidden mx-auto">
+              <VolumeSlider.Fill className="absolute bottom-0 left-0 w-full rounded-full bg-white shadow-sm h-[var(--media-slider-fill,100%)]" />
+            </VolumeSlider.Track>
+            <VolumeSlider.Thumb
+              className={cn(
+                'volume-slider-thumb absolute bottom-[var(--media-slider-fill,100%)] left-1/2 -translate-x-1/2 translate-y-1/2 size-[8.5px] rounded-full bg-white shadow-md pointer-events-none',
+                'transition-transform duration-100 ease-out outline-none'
+              )}
+            />
+          </VolumeSlider.Root>
+        </div>
+      )}
 
-      {/* Horizontal slider line: 0 width when collapsed, expands smoothly on hover or when actively changing */}
-      <VolumeSlider.Root
-        orientation="horizontal"
-        thumbAlignment="edge"
-        onPointerDown={() => {
-          isDraggingRef.current = true;
-          setIsDragging(true);
-        }}
+      {/* Main Volume Pill: Collapsed 31.4px circle on mobile portrait, expands horizontally on desktop/landscape */}
+      <div
         className={cn(
-          'relative z-10 flex h-full flex-1 items-center cursor-pointer outline-none origin-left transition-all duration-300 ease-out',
-          'w-0 max-w-0 opacity-0 pointer-events-none scale-x-0 flex-none overflow-hidden',
-          'group-hover/vol-pill:w-full group-hover/vol-pill:max-w-full group-hover/vol-pill:opacity-100 group-hover/vol-pill:pointer-events-auto group-hover/vol-pill:scale-x-100 group-hover/vol-pill:flex-1 group-hover/vol-pill:overflow-visible',
-          'group-focus-within/vol-pill:w-full group-focus-within/vol-pill:max-w-full group-focus-within/vol-pill:opacity-100 group-focus-within/vol-pill:pointer-events-auto group-focus-within/vol-pill:scale-x-100 group-focus-within/vol-pill:flex-1 group-focus-within/vol-pill:overflow-visible',
-          'group-has-[[data-dragging]]/vol-pill:w-full group-has-[[data-dragging]]/vol-pill:max-w-full group-has-[[data-dragging]]/vol-pill:opacity-100 group-has-[[data-dragging]]/vol-pill:pointer-events-auto group-has-[[data-dragging]]/vol-pill:scale-x-100 group-has-[[data-dragging]]/vol-pill:flex-1 group-has-[[data-dragging]]/vol-pill:overflow-visible',
-          isActive && 'w-full! max-w-full! opacity-100! pointer-events-auto! scale-x-100! flex-1! overflow-visible!'
+          'relative group/vol-pill flex h-[31.4px] shrink-0 items-center justify-center rounded-full overflow-hidden select-none isolate border-none outline-none',
+          'w-[31.4px]',
+          !isMobilePortrait && 'hover:w-[112px] hover:pr-3 hover:justify-start focus-within:w-[112px] focus-within:pr-3 focus-within:justify-start has-[[data-dragging]]:w-[112px] has-[[data-dragging]]:pr-3 has-[[data-dragging]]:justify-start',
+          !isMobilePortrait && isActive && 'w-[112px]! pr-3! justify-start!',
+          // Static high-translucency dark liquid glass base
+          'bg-black/20',
+          // Luminous transparent liquid glass (lets video colors shine through with refraction)
+          'bg-gradient-to-b from-white/[0.14] via-white/[0.04] to-transparent',
+          'hover:from-white/[0.22] hover:via-white/[0.08] hover:to-transparent',
+          // Outer elevation shadow (no border shine)
+          'shadow-[0_2.5px_10px_0_rgba(0,0,0,0.3)]',
+          // Optical backdrop refraction & clarity
+          'backdrop-blur-[12px] backdrop-saturate-[150%] backdrop-brightness-[108%]',
+          // Smooth transition
+          'transition-[width,padding] duration-300 ease-out',
+          className
         )}
+        data-name="Volume Pill"
       >
-        <VolumeSlider.Track className="relative h-[2px] w-full rounded-full bg-white/20 overflow-hidden">
-          <VolumeSlider.Fill className="absolute inset-y-0 left-0 rounded-full bg-white/90 w-[var(--media-slider-fill,100%)] shadow-sm" />
-        </VolumeSlider.Track>
-        <VolumeSlider.Thumb
-          className={cn(
-            'volume-slider-thumb absolute top-1/2 -translate-x-1/2 -translate-y-1/2 left-[var(--media-slider-fill,100%)] size-[7px] rounded-full pointer-events-none',
-            'transition-transform duration-150 ease-out',
-            'group-has-[[data-dragging]]/vol-pill:left-(--media-slider-pointer)',
-            'outline-none'
-          )}
-        />
-      </VolumeSlider.Root>
+        {/* Mute button trigger: exact 31.4px circular geometry matching Button, perfectly centering the animated horn */}
+        <MuteButtonPrimitive
+          onClick={() => {
+            if (isMobilePortrait) {
+              setIsVerticalOpen((prev) => !prev);
+              setIsActive(true);
+              armActiveTimer();
+            }
+          }}
+          className="relative z-10 size-[31.4px] shrink-0 grid place-items-center p-0 m-0 border-none bg-transparent cursor-pointer text-white group/mute outline-none"
+        >
+          <span
+            className={cn(
+              'player-icon-scale relative z-10 size-full grid grid-cols-1 grid-rows-1 place-items-center text-white pointer-events-none transition-transform duration-500 ease-out',
+              isFullscreen ? 'scale-[0.92]!' : 'scale-[0.86]!'
+            )}
+          >
+            <VolumeHornAnimatedIcon
+              isDancing={isActive || isDragging || isVerticalOpen}
+              className="size-[15px] text-white"
+            />
+          </span>
+        </MuteButtonPrimitive>
+
+        {/* Horizontal slider line: Desktop & Landscape only, 0 width when collapsed, expands smoothly on hover */}
+        {!isMobilePortrait && (
+          <VolumeSlider.Root
+            orientation="horizontal"
+            thumbAlignment="edge"
+            onPointerDown={() => {
+              isDraggingRef.current = true;
+              setIsDragging(true);
+            }}
+            className={cn(
+              'horizontal-volume-slider relative z-10 flex h-full flex-1 items-center cursor-pointer outline-none origin-left transition-all duration-300 ease-out',
+              'w-0 max-w-0 opacity-0 pointer-events-none scale-x-0 flex-none overflow-hidden',
+              'group-hover/vol-pill:w-full group-hover/vol-pill:max-w-full group-hover/vol-pill:opacity-100 group-hover/vol-pill:pointer-events-auto group-hover/vol-pill:scale-x-100 group-hover/vol-pill:flex-1 group-hover/vol-pill:overflow-visible',
+              'group-focus-within/vol-pill:w-full group-focus-within/vol-pill:max-w-full group-focus-within/vol-pill:opacity-100 group-focus-within/vol-pill:pointer-events-auto group-focus-within/vol-pill:scale-x-100 group-focus-within/vol-pill:flex-1 group-focus-within/vol-pill:overflow-visible',
+              'group-has-[[data-dragging]]/vol-pill:w-full group-has-[[data-dragging]]/vol-pill:max-w-full group-has-[[data-dragging]]/vol-pill:opacity-100 group-has-[[data-dragging]]/vol-pill:pointer-events-auto group-has-[[data-dragging]]/vol-pill:scale-x-100 group-has-[[data-dragging]]/vol-pill:flex-1 group-has-[[data-dragging]]/vol-pill:overflow-visible',
+              isActive && 'w-full! max-w-full! opacity-100! pointer-events-auto! scale-x-100! flex-1! overflow-visible!'
+            )}
+          >
+            <VolumeSlider.Track className="relative h-[2px] w-full rounded-full bg-white/20 overflow-hidden">
+              <VolumeSlider.Fill className="absolute inset-y-0 left-0 rounded-full bg-white/90 w-[var(--media-slider-fill,100%)] shadow-sm" />
+            </VolumeSlider.Track>
+            <VolumeSlider.Thumb
+              className={cn(
+                'volume-slider-thumb absolute top-1/2 -translate-x-1/2 -translate-y-1/2 left-[var(--media-slider-fill,100%)] size-[7px] rounded-full pointer-events-none',
+                'transition-transform duration-150 ease-out',
+                'group-has-[[data-dragging]]/vol-pill:left-(--media-slider-pointer)',
+                'outline-none'
+              )}
+            />
+          </VolumeSlider.Root>
+        )}
+      </div>
     </div>
   );
 }

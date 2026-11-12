@@ -51,7 +51,7 @@ export function PlayButton({
       >
         <ReplayIcon
           className={cn(
-            'col-start-1 row-start-1 hidden w-[12.6px] h-[15px] text-white',
+            'col-start-1 row-start-1 hidden w-[12.6px] h-[15px] max-sm:w-[15px] max-sm:h-[17.5px] text-white',
             'group-data-ended/play:block',
             iconClassName
           )}
@@ -64,7 +64,7 @@ export function PlayButton({
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
           className={cn(
-            'col-start-1 row-start-1 hidden w-[13px] h-[15.6px] text-white translate-x-[0.6px]',
+            'col-start-1 row-start-1 hidden w-[13px] h-[15.6px] max-sm:w-[15px] max-sm:h-[18px] text-white translate-x-[0.6px]',
             'group-not-data-ended/play:group-data-paused/play:block',
             'group-not-data-ended/play:group-not-data-started/play:block',
             iconClassName
@@ -81,7 +81,7 @@ export function PlayButton({
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
           className={cn(
-            'col-start-1 row-start-1 hidden w-[10.8px] h-[14px] text-white',
+            'col-start-1 row-start-1 hidden w-[10.8px] h-[14px] max-sm:w-[13px] max-sm:h-[16.5px] text-white',
             'group-data-started/play:group-not-data-paused/play:group-not-data-ended/play:block',
             iconClassName
           )}
@@ -108,7 +108,7 @@ export function AudioPlayButton() {
             fill="currentColor"
             xmlns="http://www.w3.org/2000/svg"
             className={cn(
-              'col-start-1 row-start-1 hidden w-[9.8px] h-[12.65px] text-white',
+              'col-start-1 row-start-1 hidden w-[9.8px] h-[12.65px] max-sm:w-[13px] max-sm:h-[16.5px] text-white',
               'group-data-started/play:group-not-data-paused/play:group-not-data-ended/play:block',
               'group-data-visible/buffering:opacity-0'
             )}
@@ -125,7 +125,7 @@ export function AudioPlayButton() {
             fill="currentColor"
             xmlns="http://www.w3.org/2000/svg"
             className={cn(
-              'col-start-1 row-start-1 hidden w-[11px] h-[13.2px] text-white translate-x-[0.6px]',
+              'col-start-1 row-start-1 hidden w-[11px] h-[13.2px] max-sm:w-[15px] max-sm:h-[18px] text-white translate-x-[0.6px]',
               'group-not-data-ended/play:group-data-paused/play:block',
               'group-not-data-ended/play:group-not-data-started/play:block',
               'group-data-visible/buffering:opacity-0'
@@ -137,7 +137,7 @@ export function AudioPlayButton() {
           {/* Replay */}
           <ReplayIcon
             className={cn(
-              'col-start-1 row-start-1 hidden w-[12.6px] h-[15px] text-white',
+              'col-start-1 row-start-1 hidden w-[12.6px] h-[15px] max-sm:w-[15px] max-sm:h-[17.5px] text-white',
               'group-data-ended/play:block',
               'group-data-visible/buffering:opacity-0'
             )}

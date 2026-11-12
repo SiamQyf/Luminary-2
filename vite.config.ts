@@ -20,6 +20,7 @@ export default defineConfig({
   },
   server: {
     fs: { allow: [path('.')] },
+    allowedHosts: true,
   },
   build: {
     outDir: path('./dist'),
