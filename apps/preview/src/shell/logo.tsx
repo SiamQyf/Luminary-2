@@ -622,6 +622,24 @@ export const THEME_PALETTES: Record<string, { dark: ThemePalette; light: ThemePa
       iconGlow: 'rgba(82, 82, 91, 0.18)',
     },
   },
+  'coco-glass': {
+    dark: {
+      primary: '#ffffff',
+      secondary: '#f0ede6',
+      accent: '#ffffff',
+      gradient: 'linear-gradient(135deg, #ffffff 10%, #e2ded5 55%, #c8c2b5 100%)',
+      glow: 'rgba(255, 255, 255, 0.45)',
+      iconGlow: 'rgba(255, 255, 255, 0.35)',
+    },
+    light: {
+      primary: '#1c1f24',
+      secondary: '#4b5563',
+      accent: '#111827',
+      gradient: 'linear-gradient(135deg, #1c1f24 15%, #4b5563 60%, #111827 100%)',
+      glow: 'rgba(28, 31, 36, 0.22)',
+      iconGlow: 'rgba(75, 85, 99, 0.18)',
+    },
+  },
 };
 
 export function getThemePalette(themeName: string, isDark = true): ThemePalette {

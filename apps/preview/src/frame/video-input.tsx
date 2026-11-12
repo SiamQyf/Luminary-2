@@ -127,6 +127,7 @@ export const SANDBOX_VIDEOS: readonly SandboxVideo[] = [
 export const STYLE_OPTIONS = [
   { id: 'translucent', label: 'Translucent Glass' },
   { id: 'linear-ticks', label: 'Linear Ticks' },
+  { id: 'coco-glass', label: 'Coco Glass' },
   { id: 'gta-vi', label: 'GTA VI' },
   { id: 'cyber-neon', label: 'Cyber Neon' },
   { id: 'synthwave-80s', label: '80s Synthwave' },

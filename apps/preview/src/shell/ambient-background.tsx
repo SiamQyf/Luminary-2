@@ -392,6 +392,17 @@ const THEME_PALETTES: Record<string, ThemePalette> = {
     bit2: '#ffffff',
     bitGlow: 'rgba(237, 229, 206, 0.56)',
   },
+  'coco-glass': {
+    bleed1: 'rgba(255, 255, 255, 0.18)',
+    bleed2: 'rgba(240, 235, 225, 0.15)',
+    bleed3: 'rgba(215, 205, 180, 0.12)',
+    bleed4: 'rgba(16, 20, 26, 0.10)',
+    strip1: '#ffffff',
+    strip2: '#f5f0e6',
+    bit1: '#ffffff',
+    bit2: '#f0ebd8',
+    bitGlow: 'rgba(255, 255, 255, 0.65)',
+  },
 };
 
 /**

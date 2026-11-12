@@ -640,6 +640,20 @@ live-audio-player {
     0 22px 52px rgba(0, 0, 0, 0.88) !important;
 }
 
+.preview-player[data-theme="coco-glass"],
+.preview-player[data-theme="coco-glass"] .media-skin {
+  border-radius: 18px !important;
+}
+.preview-player[data-theme="coco-glass"] .media-skin {
+  border: 1.5px solid rgba(255, 255, 255, 0.3333) !important;
+  outline: none !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.15),
+    inset 1.5px 1.5px 0 0 rgba(255, 255, 255, 0.4),
+    inset 0 0 16px rgba(255, 255, 255, 0.08),
+    0 16px 44px rgba(0, 0, 0, 0.55) !important;
+}
+
 /* ==========================================================================
    UNIFORM ICON DROP SHADOW (MANDATORY UNIVERSAL SPECIFICATION)
    Standardized across ALL player control icons, buttons, and themes:
@@ -6255,6 +6269,186 @@ div[role="menu"]:not([data-child-open]) {
 }
 
 /* ==========================================================================
+   35. COCO GLASS — Squircle Glass Deck Cards with 4-Layer Specular Bevel
+   Inspired by Coco Max (coco-max.vercel.app):
+   - Squircle 12px rounded-rectangular cards
+   - 4-layer specular refraction box-shadow
+   - High-translucency liquid glass (rgba(16, 20, 26, 0.34))
+   - Wide deck slider with linear window ticks & vertical white rounded pill thumb
+   ========================================================================== */
+.preview-player[data-theme="coco-glass"] {
+  --media-primary: #ffffff;
+}
+
+.preview-player[data-theme="coco-glass"] .group\/liquid-btn,
+.preview-player[data-theme="coco-glass"] .group\/center-buffering button,
+.preview-player[data-theme="coco-glass"] [data-slot="control"],
+.preview-player[data-theme="coco-glass"] .media-fullscreen-button {
+  border-radius: 12px !important;
+  background-color: rgba(16, 20, 26, 0.34) !important;
+  backdrop-filter: blur(16px) saturate(160%) brightness(1.08) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(160%) brightness(1.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18),
+    inset 1.5px 1.5px 0 0 rgba(255, 255, 255, 0.4),
+    inset 0 0 12px rgba(255, 255, 255, 0.12),
+    0 8px 22px rgba(0, 0, 0, 0.28) !important;
+  color: #ffffff !important;
+  transition: transform 0.15s ease-out, background-color 0.2s ease-out, box-shadow 0.2s ease-out !important;
+}
+
+.preview-player[data-theme="coco-glass"] .group\/liquid-btn:hover,
+.preview-player[data-theme="coco-glass"] .group\/center-buffering button:hover,
+.preview-player[data-theme="coco-glass"] [data-slot="control"]:hover,
+.preview-player[data-theme="coco-glass"] .media-fullscreen-button:hover {
+  background-color: rgba(255, 255, 255, 0.18) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.28),
+    inset 1.5px 1.5px 0 0 rgba(255, 255, 255, 0.65),
+    inset 0 0 16px rgba(255, 255, 255, 0.2),
+    0 8px 24px rgba(0, 0, 0, 0.36) !important;
+  transform: scale(1.04) !important;
+}
+
+.preview-player[data-theme="coco-glass"] .group\/liquid-btn:active,
+.preview-player[data-theme="coco-glass"] .group\/center-buffering button:active {
+  transform: scale(0.95) !important;
+}
+
+.preview-player[data-theme="coco-glass"] .media-md\:flex > .group\/liquid-btn:nth-child(3),
+.preview-player[data-theme="coco-glass"] .group\/liquid-btn.group\/play,
+.preview-player[data-theme="coco-glass"] .group\/center-buffering button:nth-child(2) {
+  border-radius: 12px !important;
+  background-color: rgba(16, 20, 26, 0.42) !important;
+  border: 1px solid rgba(255, 255, 255, 0.24) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2),
+    inset 1.5px 1.5px 0 0 rgba(255, 255, 255, 0.5),
+    inset 0 0 14px rgba(255, 255, 255, 0.15),
+    0 8px 24px rgba(0, 0, 0, 0.32) !important;
+  color: #ffffff !important;
+}
+
+.preview-player[data-theme="coco-glass"] .player-icon-scale,
+.preview-player[data-theme="coco-glass"] .group\/mute svg,
+.preview-player[data-theme="coco-glass"] .group\/liquid-btn svg,
+.preview-player[data-theme="coco-glass"] .group\/center-buffering svg {
+  color: #ffffff !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
+}
+
+.preview-player[data-theme="coco-glass"] .group\/vol-pill {
+  border-radius: 12px !important;
+  background-color: rgba(16, 20, 26, 0.34) !important;
+  backdrop-filter: blur(16px) saturate(160%) brightness(1.08) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(160%) brightness(1.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18),
+    inset 1.5px 1.5px 0 0 rgba(255, 255, 255, 0.4),
+    inset 0 0 12px rgba(255, 255, 255, 0.12),
+    0 8px 22px rgba(0, 0, 0, 0.28) !important;
+}
+
+.preview-player[data-theme="coco-glass"] .volume-slider-thumb {
+  width: 6px !important;
+  height: 18px !important;
+  border-radius: 3px !important;
+  background: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Timeline Scrubber with Coco linear window ticks & vertical pill thumb */
+.preview-player[data-theme="coco-glass"] .group\/slider {
+  height: 36px !important;
+}
+
+.preview-player[data-theme="coco-glass"] div[class*="media-slider-smooth"][class*="isolate"] {
+  height: 36px !important;
+  border-radius: 12px !important;
+  background-color: rgba(16, 20, 26, 0.34) !important;
+  backdrop-filter: blur(16px) saturate(160%) brightness(1.08) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(160%) brightness(1.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18),
+    inset 1.5px 1.5px 0 0 rgba(255, 255, 255, 0.4),
+    inset 0 0 14px rgba(255, 255, 255, 0.12),
+    0 8px 22px rgba(0, 0, 0, 0.28) !important;
+  background-image: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.22) 0 1px, transparent 1px 20px) !important;
+}
+
+.preview-player[data-theme="coco-glass"] div[class*="clip-media-x-[--media-slider-buffer]"] {
+  border-radius: 10px !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+}
+
+.preview-player[data-theme="coco-glass"] div[class*="clip-media-x-[--media-slider-fill]"] {
+  border-radius: 10px !important;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.28) 100%) !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+
+.preview-player[data-theme="coco-glass"] .group\/slider .media-thumb-smooth {
+  width: 8px !important;
+  height: 26px !important;
+  border-radius: 4px !important;
+  background: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.85), 0 2px 6px rgba(0, 0, 0, 0.35) !important;
+}
+
+.preview-player[data-theme="coco-glass"] time-value,
+.preview-player[data-theme="coco-glass"] div[class*="tabular-nums"] {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9) !important;
+}
+
+.preview-player[data-theme="coco-glass"] span:first-child > time,
+.preview-player[data-theme="coco-glass"] span:first-child > time-value {
+  color: #ffffff !important;
+}
+
+.preview-player[data-theme="coco-glass"] [role="menu"],
+:root[data-theme="coco-glass"] [role="menu"] {
+  border-radius: 14px !important;
+  padding: 8px !important;
+  background: rgba(16, 20, 26, 0.88) !important;
+  backdrop-filter: blur(20px) saturate(1.6) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.15),
+    inset 1.5px 1.5px rgba(255, 255, 255, 0.35),
+    0 20px 48px rgba(0, 0, 0, 0.75) !important;
+  color: #ffffff !important;
+}
+
+.preview-player[data-theme="coco-glass"] .group\/menu-btn:hover,
+.preview-player[data-theme="coco-glass"] .group\/menu-radio:hover,
+:root[data-theme="coco-glass"] [role="menuitem"]:hover,
+:root[data-theme="coco-glass"] [role="menuitemradio"]:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-radius: 10px !important;
+}
+
+.preview-player[data-theme="coco-glass"] [role="menu"] svg {
+  color: #ffffff !important;
+}
+
+.preview-player[data-theme="coco-glass"] .video-title {
+  color: #ffffff !important;
+}
+
+.preview-player[data-theme="coco-glass"] .video-subtitle {
+  color: #e5e5e5 !important;
+}
+
+/* ==========================================================================
    MINIMAL KEYBOARD SHORTCUTS STRIP (Under Player)
    ========================================================================== */
 .shortcuts-strip {
@@ -6702,6 +6896,13 @@ div[role="menu"]:not([data-child-open]) {
   --media-caption-radius: 8px;
 }
 
+.preview-player[data-theme="coco-glass"],
+:root[data-theme="coco-glass"] {
+  --media-caption-bg: rgba(16, 20, 26, 0.74);
+  --media-caption-border: rgba(255, 255, 255, 0.18);
+  --media-caption-radius: 10px;
+}
+
 .preview-player[data-theme="plain"],
 :root[data-theme="plain"] {
   --media-caption-bg: rgba(14, 14, 16, 0.78);
@@ -7048,6 +7249,13 @@ div[role="menu"]:not([data-child-open]) {
     linear-gradient(180deg, rgba(11, 11, 12, 0) 0%, rgba(11, 11, 12, 0.55) 40%, rgba(10, 10, 11, 0.95) 76%, #080809 100%);
   background-size: 6px 100%, 100% 100%;
   box-shadow: inset 0 -1px 0 rgba(237, 229, 206, 0.26);
+}
+
+/* 33. Coco Glass — pristine translucent dock vignette + specular hairline */
+.preview-player[data-theme="coco-glass"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
+  background-image:
+    linear-gradient(180deg, rgba(16, 20, 26, 0) 0%, rgba(16, 20, 26, 0.35) 45%, rgba(16, 20, 26, 0.72) 100%);
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.18);
 }
 
 /* 33. Plain White — whisper-subtle matte dot grain + pure white hairline */
