@@ -7834,1553 +7834,6 @@ div[role="menu"]:not([data-child-open]) {
 }
 
 /* ==========================================================================
-   14 DISTINCT THEMES: BUTTONS, DOCKS, SEEKBARS & SETTINGS MENUS
-   ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   THEME: Liquid Mercury (liquid-mercury)
-   -------------------------------------------------------------------------- */
-.preview-player[data-theme="liquid-mercury"] .group\/liquid-btn,
-.preview-player[data-theme="liquid-mercury"] .group\/center-buffering button,
-.preview-player[data-theme="liquid-mercury"] [data-slot="control"],
-.preview-player[data-theme="liquid-mercury"] .media-fullscreen-button {
-  border-radius: 9999px !important;
-  
-  background: linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(148,163,184,0.12) 50%, rgba(255,255,255,0.18) 100%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.45) !important;
-  box-shadow: inset 0 1px 2px rgba(255,255,255,0.6), 0 4px 14px rgba(0,0,0,0.5) !important;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.preview-player[data-theme="liquid-mercury"] .group\/liquid-btn:hover,
-.preview-player[data-theme="liquid-mercury"] .group\/center-buffering button:hover,
-.preview-player[data-theme="liquid-mercury"] [data-slot="control"]:hover,
-.preview-player[data-theme="liquid-mercury"] .media-fullscreen-button:hover {
-  background: linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(148,163,184,0.2) 50%, rgba(255,255,255,0.3) 100%) !important;
-  border-color: rgba(255, 255, 255, 0.8) !important;
-  box-shadow: 0 0 16px rgba(255, 255, 255, 0.6), inset 0 1px 2px rgba(255,255,255,0.8) !important;
-  transform: translateY(-1.5px) !important;
-}
-
-.preview-player[data-theme="liquid-mercury"] .media-md\:flex > .group\/liquid-btn:nth-child(3),
-.preview-player[data-theme="liquid-mercury"] .group\/liquid-btn.group\/play,
-.preview-player[data-theme="liquid-mercury"] .group\/center-buffering button:nth-child(2) {
-  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #64748b 100%) !important;
-  color: #0f172a !important;
-  border: 1.5px solid rgba(255, 255, 255, 0.9) !important;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.65) !important;
-}
-
-/* Seekbar Track & Progress */
-.preview-player[data-theme="liquid-mercury"] div[class*="media-slider-smooth"][class*="isolate"] {
-  height: 4px !important;
-  border-radius: 9999px !important;
-  background: rgba(148, 163, 184, 0.25) !important;
-}
-
-.preview-player[data-theme="liquid-mercury"] div[class*="clip-media-x-[--media-slider-fill]"] {
-  background: linear-gradient(90deg, #94a3b8 0%, #e2e8f0 60%, #ffffff 100%) !important;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7) !important;
-  border-radius: 9999px !important;
-}
-
-/* Seekbar Scrubber Knob */
-.preview-player[data-theme="liquid-mercury"] .group\/slider .media-thumb-smooth {
-  width: 15px !important;
-  height: 15px !important;
-  border-radius: 9999px !important;
-  
-  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #cbd5e1 55%, #64748b 100%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.8) !important;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.9), 0 2px 6px rgba(0,0,0,0.6) !important;
-  opacity: 1 !important;
-  display: block !important;
-}
-
-/* Volume Bars */
-.preview-player[data-theme="liquid-mercury"] .group\/vol-pill div[class*="bg-white/20"] {
-  background: rgba(148, 163, 184, 0.3) !important;
-}
-.preview-player[data-theme="liquid-mercury"] .group\/vol-pill div[class*="bg-white/90"] {
-  background: linear-gradient(90deg, #94a3b8 0%, #e2e8f0 100%) !important;
-  box-shadow: 0 0 6px rgba(226, 232, 240, 0.6) !important;
-}
-
-/* Time Display */
-.preview-player[data-theme="liquid-mercury"] time-value,
-.preview-player[data-theme="liquid-mercury"] div[class*="tabular-nums"] {
-  color: #e2e8f0 !important;
-}
-
-/* Bottom Control Bar Dock */
-
-
-/* Super Attractive Settings Menu Card */
-.preview-player[data-theme="liquid-mercury"] [role="menu"],
-:root[data-theme="liquid-mercury"] [role="menu"] {
-  background: linear-gradient(145deg, rgba(30, 41, 59, 0.96), rgba(15, 23, 42, 0.98)) !important;
-  border: 1.5px solid rgba(226, 232, 240, 0.4) !important;
-  border-radius: 18px !important;
-  box-shadow: 0 24px 50px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.4), 0 0 25px rgba(226,232,240,0.15) !important;
-  backdrop-filter: blur(28px) !important;
-  -webkit-backdrop-filter: blur(28px) !important;
-}
-
-.preview-player[data-theme="liquid-mercury"] .group\/menu-btn:hover,
-.preview-player[data-theme="liquid-mercury"] .group\/menu-radio:hover,
-:root[data-theme="liquid-mercury"] [role="menuitem"]:hover,
-:root[data-theme="liquid-mercury"] [role="menuitemradio"]:hover {
-  background: linear-gradient(90deg, rgba(255,255,255,0.16) 0%, rgba(148,163,184,0.08) 100%) !important;
-  color: #f8fafc !important;
-  transition: all 0.15s ease !important;
-}
-
-/* --------------------------------------------------------------------------
-   THEME: Aurora Borealis (aurora-borealis)
-   -------------------------------------------------------------------------- */
-.preview-player[data-theme="aurora-borealis"] .group\/liquid-btn,
-.preview-player[data-theme="aurora-borealis"] .group\/center-buffering button,
-.preview-player[data-theme="aurora-borealis"] [data-slot="control"],
-.preview-player[data-theme="aurora-borealis"] .media-fullscreen-button {
-  border-radius: 12px !important;
-  
-  background: rgba(6, 78, 59, 0.4) !important;
-  border: 1px solid rgba(52, 211, 153, 0.45) !important;
-  box-shadow: 0 0 14px rgba(16, 185, 129, 0.2) !important;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.preview-player[data-theme="aurora-borealis"] .group\/liquid-btn:hover,
-.preview-player[data-theme="aurora-borealis"] .group\/center-buffering button:hover,
-.preview-player[data-theme="aurora-borealis"] [data-slot="control"]:hover,
-.preview-player[data-theme="aurora-borealis"] .media-fullscreen-button:hover {
-  background: rgba(6, 95, 70, 0.6) !important;
-  border-color: rgba(52, 211, 153, 0.85) !important;
-  box-shadow: 0 0 20px rgba(52, 211, 153, 0.65) !important;
-  transform: translateY(-1.5px) !important;
-}
-
-.preview-player[data-theme="aurora-borealis"] .media-md\:flex > .group\/liquid-btn:nth-child(3),
-.preview-player[data-theme="aurora-borealis"] .group\/liquid-btn.group\/play,
-.preview-player[data-theme="aurora-borealis"] .group\/center-buffering button:nth-child(2) {
-  background: linear-gradient(135deg, #34d399 0%, #06b6d4 50%, #8b5cf6 100%) !important;
-  color: #022c22 !important;
-  border: 1px solid rgba(255, 255, 255, 0.8) !important;
-  box-shadow: 0 0 22px rgba(52, 211, 153, 0.75) !important;
-}
-
-/* Seekbar Track & Progress */
-.preview-player[data-theme="aurora-borealis"] div[class*="media-slider-smooth"][class*="isolate"] {
-  height: 3.5px !important;
-  border-radius: 9999px !important;
-  background: rgba(16, 185, 129, 0.2) !important;
-}
-
-.preview-player[data-theme="aurora-borealis"] div[class*="clip-media-x-[--media-slider-fill]"] {
-  background: linear-gradient(90deg, #10b981 0%, #06b6d4 50%, #a78bfa 100%) !important;
-  box-shadow: 0 0 12px rgba(52, 211, 153, 0.6) !important;
-  border-radius: 9999px !important;
-}
-
-/* Seekbar Scrubber Knob */
-.preview-player[data-theme="aurora-borealis"] .group\/slider .media-thumb-smooth {
-  width: 14px !important;
-  height: 14px !important;
-  border-radius: 9999px !important;
-  
-  background: radial-gradient(circle, #ffffff 0%, #34d399 55%, #06b6d4 100%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.9) !important;
-  box-shadow: 0 0 16px rgba(52, 211, 153, 0.95) !important;
-  opacity: 1 !important;
-  display: block !important;
-}
-
-/* Volume Bars */
-.preview-player[data-theme="aurora-borealis"] .group\/vol-pill div[class*="bg-white/20"] {
-  background: rgba(16, 185, 129, 0.25) !important;
-}
-.preview-player[data-theme="aurora-borealis"] .group\/vol-pill div[class*="bg-white/90"] {
-  background: linear-gradient(90deg, #10b981 0%, #34d399 100%) !important;
-  box-shadow: 0 0 6px rgba(52, 211, 153, 0.65) !important;
-}
-
-/* Time Display */
-.preview-player[data-theme="aurora-borealis"] time-value,
-.preview-player[data-theme="aurora-borealis"] div[class*="tabular-nums"] {
-  color: #34d399 !important;
-}
-
-/* Bottom Control Bar Dock */
-
-
-/* Super Attractive Settings Menu Card */
-.preview-player[data-theme="aurora-borealis"] [role="menu"],
-:root[data-theme="aurora-borealis"] [role="menu"] {
-  background: rgba(10, 15, 30, 0.95) !important;
-  border: 1.5px solid rgba(52, 211, 153, 0.38) !important;
-  border-radius: 16px !important;
-  box-shadow: 0 24px 50px rgba(0,0,0,0.92), 0 0 30px rgba(16,185,129,0.2) !important;
-  backdrop-filter: blur(28px) !important;
-  -webkit-backdrop-filter: blur(28px) !important;
-}
-
-.preview-player[data-theme="aurora-borealis"] .group\/menu-btn:hover,
-.preview-player[data-theme="aurora-borealis"] .group\/menu-radio:hover,
-:root[data-theme="aurora-borealis"] [role="menuitem"]:hover,
-:root[data-theme="aurora-borealis"] [role="menuitemradio"]:hover {
-  background: linear-gradient(90deg, rgba(52, 211, 153, 0.18) 0%, rgba(6, 182, 212, 0.1) 100%) !important;
-  color: #a7f3d0 !important;
-  transition: all 0.15s ease !important;
-}
-
-/* --------------------------------------------------------------------------
-   THEME: Solar Flare (solar-flare)
-   -------------------------------------------------------------------------- */
-.preview-player[data-theme="solar-flare"] .group\/liquid-btn,
-.preview-player[data-theme="solar-flare"] .group\/center-buffering button,
-.preview-player[data-theme="solar-flare"] [data-slot="control"],
-.preview-player[data-theme="solar-flare"] .media-fullscreen-button {
-  border-radius: 9999px !important;
-  
-  background: rgba(67, 20, 7, 0.65) !important;
-  border: 1.5px solid rgba(251, 146, 60, 0.5) !important;
-  box-shadow: inset 0 0 10px rgba(249, 115, 22, 0.3), 0 4px 14px rgba(0,0,0,0.7) !important;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.preview-player[data-theme="solar-flare"] .group\/liquid-btn:hover,
-.preview-player[data-theme="solar-flare"] .group\/center-buffering button:hover,
-.preview-player[data-theme="solar-flare"] [data-slot="control"]:hover,
-.preview-player[data-theme="solar-flare"] .media-fullscreen-button:hover {
-  background: rgba(124, 45, 18, 0.8) !important;
-  border-color: rgba(251, 146, 60, 0.9) !important;
-  box-shadow: 0 0 20px rgba(249, 115, 22, 0.75) !important;
-  transform: translateY(-1.5px) !important;
-}
-
-.preview-player[data-theme="solar-flare"] .media-md\:flex > .group\/liquid-btn:nth-child(3),
-.preview-player[data-theme="solar-flare"] .group\/liquid-btn.group\/play,
-.preview-player[data-theme="solar-flare"] .group\/center-buffering button:nth-child(2) {
-  background: linear-gradient(135deg, #fde047 0%, #f97316 60%, #ea580c 100%) !important;
-  color: #431407 !important;
-  border: 1.5px solid rgba(255, 255, 255, 0.85) !important;
-  box-shadow: 0 0 24px rgba(249, 115, 22, 0.85) !important;
-}
-
-/* Seekbar Track & Progress */
-.preview-player[data-theme="solar-flare"] div[class*="media-slider-smooth"][class*="isolate"] {
-  height: 4px !important;
-  border-radius: 9999px !important;
-  background: rgba(124, 45, 18, 0.4) !important;
-}
-
-.preview-player[data-theme="solar-flare"] div[class*="clip-media-x-[--media-slider-fill]"] {
-  background: linear-gradient(90deg, #ea580c 0%, #f97316 60%, #fde047 100%) !important;
-  box-shadow: 0 0 14px rgba(249, 115, 22, 0.75) !important;
-  border-radius: 9999px !important;
-}
-
-/* Seekbar Scrubber Knob */
-.preview-player[data-theme="solar-flare"] .group\/slider .media-thumb-smooth {
-  width: 15px !important;
-  height: 15px !important;
-  border-radius: 9999px !important;
-  
-  background: radial-gradient(circle at 40% 40%, #ffffff 0%, #fde047 35%, #ea580c 75%, #7c2d12 100%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.9) !important;
-  box-shadow: 0 0 16px rgba(249, 115, 22, 0.95), 0 0 28px rgba(253, 224, 71, 0.6) !important;
-  opacity: 1 !important;
-  display: block !important;
-}
-
-/* Volume Bars */
-.preview-player[data-theme="solar-flare"] .group\/vol-pill div[class*="bg-white/20"] {
-  background: rgba(124, 45, 18, 0.35) !important;
-}
-.preview-player[data-theme="solar-flare"] .group\/vol-pill div[class*="bg-white/90"] {
-  background: linear-gradient(90deg, #ea580c 0%, #f97316 100%) !important;
-  box-shadow: 0 0 6px rgba(249, 115, 22, 0.75) !important;
-}
-
-/* Time Display */
-.preview-player[data-theme="solar-flare"] time-value,
-.preview-player[data-theme="solar-flare"] div[class*="tabular-nums"] {
-  color: #fb923c !important;
-}
-
-/* Bottom Control Bar Dock */
-
-
-/* Super Attractive Settings Menu Card */
-.preview-player[data-theme="solar-flare"] [role="menu"],
-:root[data-theme="solar-flare"] [role="menu"] {
-  background: linear-gradient(160deg, #180c06 0%, #0d0604 100%) !important;
-  border: 1.5px solid rgba(249, 115, 22, 0.48) !important;
-  border-radius: 18px !important;
-  box-shadow: 0 24px 50px rgba(0,0,0,0.95), 0 0 28px rgba(249, 115, 22, 0.22) !important;
-  backdrop-filter: blur(28px) !important;
-  -webkit-backdrop-filter: blur(28px) !important;
-}
-
-.preview-player[data-theme="solar-flare"] .group\/menu-btn:hover,
-.preview-player[data-theme="solar-flare"] .group\/menu-radio:hover,
-:root[data-theme="solar-flare"] [role="menuitem"]:hover,
-:root[data-theme="solar-flare"] [role="menuitemradio"]:hover {
-  background: linear-gradient(90deg, rgba(249, 115, 22, 0.22) 0%, rgba(234, 88, 12, 0.1) 100%) !important;
-  color: #fed7aa !important;
-  transition: all 0.15s ease !important;
-}
-
-/* --------------------------------------------------------------------------
-   THEME: Amethyst Geode (amethyst-geode)
-   -------------------------------------------------------------------------- */
-.preview-player[data-theme="amethyst-geode"] .group\/liquid-btn,
-.preview-player[data-theme="amethyst-geode"] .group\/center-buffering button,
-.preview-player[data-theme="amethyst-geode"] [data-slot="control"],
-.preview-player[data-theme="amethyst-geode"] .media-fullscreen-button {
-  border-radius: 6px !important;
-  clip-path: polygon(6px 0%, calc(100% - 6px) 0%, 100% 6px, 100% calc(100% - 6px), calc(100% - 6px) 100%, 6px 100%, 0% calc(100% - 6px), 0% 6px) !important;
-  background: rgba(59, 7, 100, 0.6) !important;
-  border: 1px solid rgba(192, 132, 252, 0.5) !important;
-  box-shadow: inset 0 0 10px rgba(168, 85, 247, 0.25) !important;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.preview-player[data-theme="amethyst-geode"] .group\/liquid-btn:hover,
-.preview-player[data-theme="amethyst-geode"] .group\/center-buffering button:hover,
-.preview-player[data-theme="amethyst-geode"] [data-slot="control"]:hover,
-.preview-player[data-theme="amethyst-geode"] .media-fullscreen-button:hover {
-  background: rgba(88, 28, 135, 0.8) !important;
-  border-color: rgba(192, 132, 252, 0.85) !important;
-  box-shadow: 0 0 18px rgba(168, 85, 247, 0.65) !important;
-  transform: translateY(-1.5px) !important;
-}
-
-.preview-player[data-theme="amethyst-geode"] .media-md\:flex > .group\/liquid-btn:nth-child(3),
-.preview-player[data-theme="amethyst-geode"] .group\/liquid-btn.group\/play,
-.preview-player[data-theme="amethyst-geode"] .group\/center-buffering button:nth-child(2) {
-  background: linear-gradient(135deg, #f3e8ff 0%, #c084fc 50%, #7e22ce 100%) !important;
-  color: #3b0764 !important;
-  border: 1.5px solid rgba(255, 255, 255, 0.85) !important;
-  box-shadow: 0 0 22px rgba(168, 85, 247, 0.8) !important;
-}
-
-/* Seekbar Track & Progress */
-.preview-player[data-theme="amethyst-geode"] div[class*="media-slider-smooth"][class*="isolate"] {
-  height: 3.5px !important;
-  border-radius: 6px !important;
-  background: rgba(126, 34, 206, 0.3) !important;
-}
-
-.preview-player[data-theme="amethyst-geode"] div[class*="clip-media-x-[--media-slider-fill]"] {
-  background: linear-gradient(90deg, #7e22ce 0%, #a855f7 60%, #e9d5ff 100%) !important;
-  box-shadow: 0 0 12px rgba(168, 85, 247, 0.65) !important;
-  border-radius: 6px !important;
-}
-
-/* Seekbar Scrubber Knob */
-.preview-player[data-theme="amethyst-geode"] .group\/slider .media-thumb-smooth {
-  width: 13px !important;
-  height: 13px !important;
-  border-radius: 2px !important;
-  transform: rotate(45deg) !important;
-  background: linear-gradient(135deg, #f3e8ff 0%, #c084fc 50%, #6b21a8 100%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.9) !important;
-  box-shadow: 0 0 14px rgba(168, 85, 247, 0.9) !important;
-  opacity: 1 !important;
-  display: block !important;
-}
-
-/* Volume Bars */
-.preview-player[data-theme="amethyst-geode"] .group\/vol-pill div[class*="bg-white/20"] {
-  background: rgba(126, 34, 206, 0.3) !important;
-}
-.preview-player[data-theme="amethyst-geode"] .group\/vol-pill div[class*="bg-white/90"] {
-  background: linear-gradient(90deg, #7e22ce 0%, #c084fc 100%) !important;
-  box-shadow: 0 0 6px rgba(168, 85, 247, 0.7) !important;
-}
-
-/* Time Display */
-.preview-player[data-theme="amethyst-geode"] time-value,
-.preview-player[data-theme="amethyst-geode"] div[class*="tabular-nums"] {
-  color: #c084fc !important;
-}
-
-/* Bottom Control Bar Dock */
-
-
-/* Super Attractive Settings Menu Card */
-.preview-player[data-theme="amethyst-geode"] [role="menu"],
-:root[data-theme="amethyst-geode"] [role="menu"] {
-  background: linear-gradient(160deg, #1e0b2e 0%, #0d0414 100%) !important;
-  border: 1.5px solid rgba(192, 132, 252, 0.45) !important;
-  border-radius: 12px !important;
-  box-shadow: 0 25px 50px rgba(0,0,0,0.92), 0 0 26px rgba(168, 85, 247, 0.22) !important;
-  backdrop-filter: blur(28px) !important;
-  -webkit-backdrop-filter: blur(28px) !important;
-}
-
-.preview-player[data-theme="amethyst-geode"] .group\/menu-btn:hover,
-.preview-player[data-theme="amethyst-geode"] .group\/menu-radio:hover,
-:root[data-theme="amethyst-geode"] [role="menuitem"]:hover,
-:root[data-theme="amethyst-geode"] [role="menuitemradio"]:hover {
-  background: linear-gradient(90deg, rgba(168, 85, 247, 0.22) 0%, rgba(126, 34, 206, 0.1) 100%) !important;
-  color: #f3e8ff !important;
-  transition: all 0.15s ease !important;
-}
-
-/* --------------------------------------------------------------------------
-   THEME: Cyber Deck (cyber-deck)
-   -------------------------------------------------------------------------- */
-.preview-player[data-theme="cyber-deck"] .group\/liquid-btn,
-.preview-player[data-theme="cyber-deck"] .group\/center-buffering button,
-.preview-player[data-theme="cyber-deck"] [data-slot="control"],
-.preview-player[data-theme="cyber-deck"] .media-fullscreen-button {
-  border-radius: 2px !important;
-  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%) !important;
-  background: rgba(24, 24, 27, 0.95) !important;
-  border: 1px solid rgba(250, 204, 21, 0.55) !important;
-  box-shadow: inset 0 0 6px rgba(250, 204, 21, 0.2) !important;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.preview-player[data-theme="cyber-deck"] .group\/liquid-btn:hover,
-.preview-player[data-theme="cyber-deck"] .group\/center-buffering button:hover,
-.preview-player[data-theme="cyber-deck"] [data-slot="control"]:hover,
-.preview-player[data-theme="cyber-deck"] .media-fullscreen-button:hover {
-  background: rgba(39, 39, 42, 0.98) !important;
-  border-color: rgba(250, 204, 21, 0.9) !important;
-  box-shadow: 0 0 16px rgba(250, 204, 21, 0.6) !important;
-  transform: translateY(-1.5px) !important;
-}
-
-.preview-player[data-theme="cyber-deck"] .media-md\:flex > .group\/liquid-btn:nth-child(3),
-.preview-player[data-theme="cyber-deck"] .group\/liquid-btn.group\/play,
-.preview-player[data-theme="cyber-deck"] .group\/center-buffering button:nth-child(2) {
-  background: #facc15 !important;
-  color: #09090b !important;
-  border: 1px solid #ffffff !important;
-  box-shadow: 0 0 20px rgba(250, 204, 21, 0.85) !important;
-}
-
-/* Seekbar Track & Progress */
-.preview-player[data-theme="cyber-deck"] div[class*="media-slider-smooth"][class*="isolate"] {
-  height: 4px !important;
-  border-radius: 2px !important;
-  background: rgba(234, 179, 8, 0.25) !important;
-}
-
-.preview-player[data-theme="cyber-deck"] div[class*="clip-media-x-[--media-slider-fill]"] {
-  background: linear-gradient(90deg, #eab308 0%, #facc15 70%, #06b6d4 100%) !important;
-  box-shadow: 0 0 12px rgba(250, 204, 21, 0.7) !important;
-  border-radius: 2px !important;
-}
-
-/* Seekbar Scrubber Knob */
-.preview-player[data-theme="cyber-deck"] .group\/slider .media-thumb-smooth {
-  width: 5px !important;
-  height: 16px !important;
-  border-radius: 1px !important;
-  
-  background: #facc15 !important;
-  border: none !important;
-  box-shadow: 0 0 12px rgba(250, 204, 21, 0.95) !important;
-  opacity: 1 !important;
-  display: block !important;
-}
-
-/* Volume Bars */
-.preview-player[data-theme="cyber-deck"] .group\/vol-pill div[class*="bg-white/20"] {
-  background: rgba(234, 179, 8, 0.25) !important;
-}
-.preview-player[data-theme="cyber-deck"] .group\/vol-pill div[class*="bg-white/90"] {
-  background: linear-gradient(90deg, #eab308 0%, #facc15 100%) !important;
-  box-shadow: 0 0 6px rgba(250, 204, 21, 0.75) !important;
-}
-
-/* Time Display */
-.preview-player[data-theme="cyber-deck"] time-value,
-.preview-player[data-theme="cyber-deck"] div[class*="tabular-nums"] {
-  color: #facc15 !important;
-}
-
-/* Bottom Control Bar Dock */
-
-
-/* Super Attractive Settings Menu Card */
-.preview-player[data-theme="cyber-deck"] [role="menu"],
-:root[data-theme="cyber-deck"] [role="menu"] {
-  background: #09090b !important;
-  border: 1.5px solid rgba(250, 204, 21, 0.65) !important;
-  border-radius: 6px !important;
-  box-shadow: 0 24px 50px rgba(0,0,0,0.98), 0 0 25px rgba(250, 204, 21, 0.22) !important;
-  backdrop-filter: blur(28px) !important;
-  -webkit-backdrop-filter: blur(28px) !important;
-}
-
-.preview-player[data-theme="cyber-deck"] .group\/menu-btn:hover,
-.preview-player[data-theme="cyber-deck"] .group\/menu-radio:hover,
-:root[data-theme="cyber-deck"] [role="menuitem"]:hover,
-:root[data-theme="cyber-deck"] [role="menuitemradio"]:hover {
-  background: rgba(250, 204, 21, 0.15) !important;
-  color: #fef08a !important;
-  transition: all 0.15s ease !important;
-}
-
-/* --------------------------------------------------------------------------
-   THEME: Porcelain & Cobalt (porcelain-cobalt)
-   -------------------------------------------------------------------------- */
-.preview-player[data-theme="porcelain-cobalt"] .group\/liquid-btn,
-.preview-player[data-theme="porcelain-cobalt"] .group\/center-buffering button,
-.preview-player[data-theme="porcelain-cobalt"] [data-slot="control"],
-.preview-player[data-theme="porcelain-cobalt"] .media-fullscreen-button {
-  border-radius: 9999px !important;
-  
-  background: rgba(255, 255, 255, 0.95) !important;
-  border: 1.5px solid rgba(30, 64, 175, 0.45) !important;
-  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.12), inset 0 1px 0 #ffffff !important;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.preview-player[data-theme="porcelain-cobalt"] .group\/liquid-btn:hover,
-.preview-player[data-theme="porcelain-cobalt"] .group\/center-buffering button:hover,
-.preview-player[data-theme="porcelain-cobalt"] [data-slot="control"]:hover,
-.preview-player[data-theme="porcelain-cobalt"] .media-fullscreen-button:hover {
-  background: #ffffff !important;
-  border-color: rgba(30, 64, 175, 0.8) !important;
-  box-shadow: 0 6px 16px rgba(30, 64, 175, 0.25) !important;
-  transform: translateY(-1.5px) !important;
-}
-
-.preview-player[data-theme="porcelain-cobalt"] .media-md\:flex > .group\/liquid-btn:nth-child(3),
-.preview-player[data-theme="porcelain-cobalt"] .group\/liquid-btn.group\/play,
-.preview-player[data-theme="porcelain-cobalt"] .group\/center-buffering button:nth-child(2) {
-  background: #1d4ed8 !important;
-  color: #ffffff !important;
-  border: 1.5px solid #ffffff !important;
-  box-shadow: 0 6px 18px rgba(29, 78, 216, 0.4) !important;
-}
-
-/* Seekbar Track & Progress */
-.preview-player[data-theme="porcelain-cobalt"] div[class*="media-slider-smooth"][class*="isolate"] {
-  height: 3.5px !important;
-  border-radius: 9999px !important;
-  background: rgba(255, 255, 255, 0.22) !important;
-}
-
-.preview-player[data-theme="porcelain-cobalt"] div[class*="clip-media-x-[--media-slider-fill]"] {
-  background: linear-gradient(90deg, #1d4ed8 0%, #2563eb 60%, #1e40af 100%) !important;
-  box-shadow: none !important;
-  border-radius: 9999px !important;
-}
-
-/* Seekbar Scrubber Knob */
-.preview-player[data-theme="porcelain-cobalt"] .group\/slider .media-thumb-smooth {
-  width: 14px !important;
-  height: 14px !important;
-  border-radius: 9999px !important;
-  
-  background: #ffffff !important;
-  border: 2.5px solid #1d4ed8 !important;
-  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.35) !important;
-  opacity: 1 !important;
-  display: block !important;
-}
-
-/* Volume Bars */
-.preview-player[data-theme="porcelain-cobalt"] .group\/vol-pill div[class*="bg-white/20"] {
-  background: rgba(30, 64, 175, 0.2) !important;
-}
-.preview-player[data-theme="porcelain-cobalt"] .group\/vol-pill div[class*="bg-white/90"] {
-  background: linear-gradient(90deg, #1d4ed8 0%, #2563eb 100%) !important;
-  box-shadow: 0 0 6px rgba(37, 99, 235, 0.4) !important;
-}
-
-/* Time Display */
-.preview-player[data-theme="porcelain-cobalt"] time-value,
-.preview-player[data-theme="porcelain-cobalt"] div[class*="tabular-nums"] {
-  color: #bfdbfe !important;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85) !important;
-}
-
-/* Bottom Control Bar Dock */
-
-
-/* Super Attractive Settings Menu Card */
-.preview-player[data-theme="porcelain-cobalt"] [role="menu"],
-:root[data-theme="porcelain-cobalt"] [role="menu"] {
-  background: rgba(255, 255, 255, 0.98) !important;
-  border: 1.5px solid rgba(30, 64, 175, 0.38) !important;
-  border-radius: 16px !important;
-  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.2), 0 0 20px rgba(37, 99, 235, 0.12) !important;
-  backdrop-filter: blur(28px) !important;
-  -webkit-backdrop-filter: blur(28px) !important;
-}
-
-.preview-player[data-theme="porcelain-cobalt"] .group\/menu-btn:hover,
-.preview-player[data-theme="porcelain-cobalt"] .group\/menu-radio:hover,
-:root[data-theme="porcelain-cobalt"] [role="menuitem"]:hover,
-:root[data-theme="porcelain-cobalt"] [role="menuitemradio"]:hover {
-  background: rgba(37, 99, 235, 0.1) !important;
-  color: #1e40af !important;
-  transition: all 0.15s ease !important;
-}
-
-/* --------------------------------------------------------------------------
-   THEME: Emerald Vault (emerald-vault)
-   -------------------------------------------------------------------------- */
-.preview-player[data-theme="emerald-vault"] .group\/liquid-btn,
-.preview-player[data-theme="emerald-vault"] .group\/center-buffering button,
-.preview-player[data-theme="emerald-vault"] [data-slot="control"],
-.preview-player[data-theme="emerald-vault"] .media-fullscreen-button {
-  border-radius: 9999px !important;
-  
-  background: rgba(6, 40, 26, 0.85) !important;
-  border: 1.5px solid rgba(212, 175, 55, 0.65) !important;
-  box-shadow: inset 0 0 10px rgba(16, 185, 129, 0.3), 0 4px 14px rgba(0,0,0,0.7) !important;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.preview-player[data-theme="emerald-vault"] .group\/liquid-btn:hover,
-.preview-player[data-theme="emerald-vault"] .group\/center-buffering button:hover,
-.preview-player[data-theme="emerald-vault"] [data-slot="control"]:hover,
-.preview-player[data-theme="emerald-vault"] .media-fullscreen-button:hover {
-  background: rgba(8, 55, 36, 0.95) !important;
-  border-color: rgba(212, 175, 55, 0.9) !important;
-  box-shadow: 0 0 18px rgba(212, 175, 55, 0.65) !important;
-  transform: translateY(-1.5px) !important;
-}
-
-.preview-player[data-theme="emerald-vault"] .media-md\:flex > .group\/liquid-btn:nth-child(3),
-.preview-player[data-theme="emerald-vault"] .group\/liquid-btn.group\/play,
-.preview-player[data-theme="emerald-vault"] .group\/center-buffering button:nth-child(2) {
-  background: linear-gradient(135deg, #fef08a 0%, #d4af37 60%, #854d0e 100%) !important;
-  color: #042f1f !important;
-  border: 1.5px solid #ffffff !important;
-  box-shadow: 0 0 22px rgba(212, 175, 55, 0.85) !important;
-}
-
-/* Seekbar Track & Progress */
-.preview-player[data-theme="emerald-vault"] div[class*="media-slider-smooth"][class*="isolate"] {
-  height: 4px !important;
-  border-radius: 2px !important;
-  background: rgba(212, 175, 55, 0.25) !important;
-}
-
-.preview-player[data-theme="emerald-vault"] div[class*="clip-media-x-[--media-slider-fill]"] {
-  background: linear-gradient(90deg, #059669 0%, #10b981 60%, #d4af37 100%) !important;
-  box-shadow: 0 0 12px rgba(16, 185, 129, 0.7) !important;
-  border-radius: 2px !important;
-}
-
-/* Seekbar Scrubber Knob */
-.preview-player[data-theme="emerald-vault"] .group\/slider .media-thumb-smooth {
-  width: 14px !important;
-  height: 14px !important;
-  border-radius: 3px !important;
-  
-  background: linear-gradient(135deg, #fef08a 0%, #d4af37 55%, #854d0e 100%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.8) !important;
-  box-shadow: 0 0 14px rgba(212, 175, 55, 0.95) !important;
-  opacity: 1 !important;
-  display: block !important;
-}
-
-/* Volume Bars */
-.preview-player[data-theme="emerald-vault"] .group\/vol-pill div[class*="bg-white/20"] {
-  background: rgba(212, 175, 55, 0.25) !important;
-}
-.preview-player[data-theme="emerald-vault"] .group\/vol-pill div[class*="bg-white/90"] {
-  background: linear-gradient(90deg, #059669 0%, #10b981 100%) !important;
-  box-shadow: 0 0 6px rgba(16, 185, 129, 0.7) !important;
-}
-
-/* Time Display */
-.preview-player[data-theme="emerald-vault"] time-value,
-.preview-player[data-theme="emerald-vault"] div[class*="tabular-nums"] {
-  color: #10b981 !important;
-}
-
-/* Bottom Control Bar Dock */
-
-
-/* Super Attractive Settings Menu Card */
-.preview-player[data-theme="emerald-vault"] [role="menu"],
-:root[data-theme="emerald-vault"] [role="menu"] {
-  background: linear-gradient(160deg, #072218 0%, #03120c 100%) !important;
-  border: 1.5px solid rgba(212, 175, 55, 0.55) !important;
-  border-radius: 14px !important;
-  box-shadow: 0 25px 52px rgba(0,0,0,0.96), 0 0 26px rgba(16, 185, 129, 0.2) !important;
-  backdrop-filter: blur(28px) !important;
-  -webkit-backdrop-filter: blur(28px) !important;
-}
-
-.preview-player[data-theme="emerald-vault"] .group\/menu-btn:hover,
-.preview-player[data-theme="emerald-vault"] .group\/menu-radio:hover,
-:root[data-theme="emerald-vault"] [role="menuitem"]:hover,
-:root[data-theme="emerald-vault"] [role="menuitemradio"]:hover {
-  background: linear-gradient(90deg, rgba(16, 185, 129, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%) !important;
-  color: #a7f3d0 !important;
-  transition: all 0.15s ease !important;
-}
-
-/* --------------------------------------------------------------------------
-   THEME: Vaporwave Sunset (vaporwave-sunset)
-   -------------------------------------------------------------------------- */
-.preview-player[data-theme="vaporwave-sunset"] .group\/liquid-btn,
-.preview-player[data-theme="vaporwave-sunset"] .group\/center-buffering button,
-.preview-player[data-theme="vaporwave-sunset"] [data-slot="control"],
-.preview-player[data-theme="vaporwave-sunset"] .media-fullscreen-button {
-  border-radius: 9999px !important;
-  
-  background: linear-gradient(135deg, rgba(244,114,182,0.35) 0%, rgba(147,51,234,0.3) 100%) !important;
-  border: 1px solid rgba(244, 114, 182, 0.55) !important;
-  box-shadow: 0 0 14px rgba(244, 114, 182, 0.3) !important;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.preview-player[data-theme="vaporwave-sunset"] .group\/liquid-btn:hover,
-.preview-player[data-theme="vaporwave-sunset"] .group\/center-buffering button:hover,
-.preview-player[data-theme="vaporwave-sunset"] [data-slot="control"]:hover,
-.preview-player[data-theme="vaporwave-sunset"] .media-fullscreen-button:hover {
-  background: linear-gradient(135deg, rgba(244,114,182,0.55) 0%, rgba(147,51,234,0.5) 100%) !important;
-  border-color: rgba(244, 114, 182, 0.85) !important;
-  box-shadow: 0 0 20px rgba(244, 114, 182, 0.65) !important;
-  transform: translateY(-1.5px) !important;
-}
-
-.preview-player[data-theme="vaporwave-sunset"] .media-md\:flex > .group\/liquid-btn:nth-child(3),
-.preview-player[data-theme="vaporwave-sunset"] .group\/liquid-btn.group\/play,
-.preview-player[data-theme="vaporwave-sunset"] .group\/center-buffering button:nth-child(2) {
-  background: linear-gradient(135deg, #f472b6 0%, #fb923c 60%, #fde047 100%) !important;
-  color: #200a20 !important;
-  border: 1.5px solid #ffffff !important;
-  box-shadow: 0 0 22px rgba(244, 114, 182, 0.8) !important;
-}
-
-/* Seekbar Track & Progress */
-.preview-player[data-theme="vaporwave-sunset"] div[class*="media-slider-smooth"][class*="isolate"] {
-  height: 4px !important;
-  border-radius: 9999px !important;
-  background: rgba(168, 85, 247, 0.25) !important;
-}
-
-.preview-player[data-theme="vaporwave-sunset"] div[class*="clip-media-x-[--media-slider-fill]"] {
-  background: linear-gradient(90deg, #ec4899 0%, #f472b6 40%, #fb923c 100%) !important;
-  box-shadow: 0 0 12px rgba(244, 114, 182, 0.7) !important;
-  border-radius: 9999px !important;
-}
-
-/* Seekbar Scrubber Knob */
-.preview-player[data-theme="vaporwave-sunset"] .group\/slider .media-thumb-smooth {
-  width: 16px !important;
-  height: 16px !important;
-  border-radius: 9999px !important;
-  
-  background: radial-gradient(circle, #fde047 0%, #fb923c 45%, #ec4899 100%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.9) !important;
-  box-shadow: 0 0 16px rgba(244, 114, 182, 0.9) !important;
-  opacity: 1 !important;
-  display: block !important;
-}
-
-/* Volume Bars */
-.preview-player[data-theme="vaporwave-sunset"] .group\/vol-pill div[class*="bg-white/20"] {
-  background: rgba(168, 85, 247, 0.3) !important;
-}
-.preview-player[data-theme="vaporwave-sunset"] .group\/vol-pill div[class*="bg-white/90"] {
-  background: linear-gradient(90deg, #ec4899 0%, #f472b6 100%) !important;
-  box-shadow: 0 0 6px rgba(244, 114, 182, 0.7) !important;
-}
-
-/* Time Display */
-.preview-player[data-theme="vaporwave-sunset"] time-value,
-.preview-player[data-theme="vaporwave-sunset"] div[class*="tabular-nums"] {
-  color: #f472b6 !important;
-}
-
-/* Bottom Control Bar Dock */
-
-
-/* Super Attractive Settings Menu Card */
-.preview-player[data-theme="vaporwave-sunset"] [role="menu"],
-:root[data-theme="vaporwave-sunset"] [role="menu"] {
-  background: rgba(24, 14, 42, 0.96) !important;
-  border: 1.5px solid rgba(244, 114, 182, 0.48) !important;
-  border-radius: 18px !important;
-  box-shadow: 0 24px 50px rgba(0,0,0,0.92), 0 0 30px rgba(236, 72, 153, 0.25) !important;
-  backdrop-filter: blur(28px) !important;
-  -webkit-backdrop-filter: blur(28px) !important;
-}
-
-.preview-player[data-theme="vaporwave-sunset"] .group\/menu-btn:hover,
-.preview-player[data-theme="vaporwave-sunset"] .group\/menu-radio:hover,
-:root[data-theme="vaporwave-sunset"] [role="menuitem"]:hover,
-:root[data-theme="vaporwave-sunset"] [role="menuitemradio"]:hover {
-  background: linear-gradient(90deg, rgba(244, 114, 182, 0.22) 0%, rgba(251, 146, 60, 0.12) 100%) !important;
-  color: #fbcfe8 !important;
-  transition: all 0.15s ease !important;
-}
-
-/* --------------------------------------------------------------------------
-   THEME: Carbon Stealth (carbon-stealth)
-   -------------------------------------------------------------------------- */
-.preview-player[data-theme="carbon-stealth"] .group\/liquid-btn,
-.preview-player[data-theme="carbon-stealth"] .group\/center-buffering button,
-.preview-player[data-theme="carbon-stealth"] [data-slot="control"],
-.preview-player[data-theme="carbon-stealth"] .media-fullscreen-button {
-  border-radius: 4px !important;
-  clip-path: polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%) !important;
-  background: rgba(28, 25, 23, 0.95) !important;
-  border: 1px solid rgba(239, 68, 68, 0.48) !important;
-  box-shadow: inset 0 0 6px rgba(239, 68, 68, 0.18) !important;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.preview-player[data-theme="carbon-stealth"] .group\/liquid-btn:hover,
-.preview-player[data-theme="carbon-stealth"] .group\/center-buffering button:hover,
-.preview-player[data-theme="carbon-stealth"] [data-slot="control"]:hover,
-.preview-player[data-theme="carbon-stealth"] .media-fullscreen-button:hover {
-  background: rgba(41, 37, 36, 0.98) !important;
-  border-color: rgba(239, 68, 68, 0.85) !important;
-  box-shadow: 0 0 16px rgba(239, 68, 68, 0.6) !important;
-  transform: translateY(-1.5px) !important;
-}
-
-.preview-player[data-theme="carbon-stealth"] .media-md\:flex > .group\/liquid-btn:nth-child(3),
-.preview-player[data-theme="carbon-stealth"] .group\/liquid-btn.group\/play,
-.preview-player[data-theme="carbon-stealth"] .group\/center-buffering button:nth-child(2) {
-  background: #ef4444 !important;
-  color: #0c0a09 !important;
-  border: 1px solid #ffffff !important;
-  box-shadow: 0 0 20px rgba(239, 68, 68, 0.85) !important;
-}
-
-/* Seekbar Track & Progress */
-.preview-player[data-theme="carbon-stealth"] div[class*="media-slider-smooth"][class*="isolate"] {
-  height: 3.5px !important;
-  border-radius: 2px !important;
-  background: rgba(239, 68, 68, 0.2) !important;
-}
-
-.preview-player[data-theme="carbon-stealth"] div[class*="clip-media-x-[--media-slider-fill]"] {
-  background: linear-gradient(90deg, #991b1b 0%, #dc2626 70%, #ef4444 100%) !important;
-  box-shadow: 0 0 10px rgba(239, 68, 68, 0.65) !important;
-  border-radius: 2px !important;
-}
-
-/* Seekbar Scrubber Knob */
-.preview-player[data-theme="carbon-stealth"] .group\/slider .media-thumb-smooth {
-  width: 6px !important;
-  height: 16px !important;
-  border-radius: 1px !important;
-  
-  background: #ef4444 !important;
-  border: none !important;
-  box-shadow: 0 0 12px rgba(239, 68, 68, 0.95) !important;
-  opacity: 1 !important;
-  display: block !important;
-}
-
-/* Volume Bars */
-.preview-player[data-theme="carbon-stealth"] .group\/vol-pill div[class*="bg-white/20"] {
-  background: rgba(239, 68, 68, 0.25) !important;
-}
-.preview-player[data-theme="carbon-stealth"] .group\/vol-pill div[class*="bg-white/90"] {
-  background: linear-gradient(90deg, #b91c1c 0%, #ef4444 100%) !important;
-  box-shadow: 0 0 6px rgba(239, 68, 68, 0.7) !important;
-}
-
-/* Time Display */
-.preview-player[data-theme="carbon-stealth"] time-value,
-.preview-player[data-theme="carbon-stealth"] div[class*="tabular-nums"] {
-  color: #ef4444 !important;
-}
-
-/* Bottom Control Bar Dock */
-
-
-/* Super Attractive Settings Menu Card */
-.preview-player[data-theme="carbon-stealth"] [role="menu"],
-:root[data-theme="carbon-stealth"] [role="menu"] {
-  background: #0c0a09 !important;
-  border: 1.5px solid rgba(239, 68, 68, 0.55) !important;
-  border-radius: 8px !important;
-  box-shadow: 0 24px 50px rgba(0,0,0,0.98), 0 0 24px rgba(239, 68, 68, 0.2) !important;
-  backdrop-filter: blur(28px) !important;
-  -webkit-backdrop-filter: blur(28px) !important;
-}
-
-.preview-player[data-theme="carbon-stealth"] .group\/menu-btn:hover,
-.preview-player[data-theme="carbon-stealth"] .group\/menu-radio:hover,
-:root[data-theme="carbon-stealth"] [role="menuitem"]:hover,
-:root[data-theme="carbon-stealth"] [role="menuitemradio"]:hover {
-  background: rgba(239, 68, 68, 0.15) !important;
-  color: #fca5a5 !important;
-  transition: all 0.15s ease !important;
-}
-
-/* --------------------------------------------------------------------------
-   THEME: Holo Prism (holo-prism)
-   -------------------------------------------------------------------------- */
-.preview-player[data-theme="holo-prism"] .group\/liquid-btn,
-.preview-player[data-theme="holo-prism"] .group\/center-buffering button,
-.preview-player[data-theme="holo-prism"] [data-slot="control"],
-.preview-player[data-theme="holo-prism"] .media-fullscreen-button {
-  border-radius: 9999px !important;
-  
-  background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(217,70,239,0.18)) !important;
-  border: 1.5px solid rgba(217, 70, 239, 0.55) !important;
-  box-shadow: 0 0 16px rgba(217, 70, 239, 0.3) !important;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.preview-player[data-theme="holo-prism"] .group\/liquid-btn:hover,
-.preview-player[data-theme="holo-prism"] .group\/center-buffering button:hover,
-.preview-player[data-theme="holo-prism"] [data-slot="control"]:hover,
-.preview-player[data-theme="holo-prism"] .media-fullscreen-button:hover {
-  background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(217,70,239,0.35)) !important;
-  border-color: rgba(217, 70, 239, 0.9) !important;
-  box-shadow: 0 0 22px rgba(217, 70, 239, 0.7) !important;
-  transform: translateY(-1.5px) !important;
-}
-
-.preview-player[data-theme="holo-prism"] .media-md\:flex > .group\/liquid-btn:nth-child(3),
-.preview-player[data-theme="holo-prism"] .group\/liquid-btn.group\/play,
-.preview-player[data-theme="holo-prism"] .group\/center-buffering button:nth-child(2) {
-  background: linear-gradient(135deg, #ff007a 0%, #9600ff 30%, #00e1ff 60%, #ffe600 100%) !important;
-  color: #0e0a18 !important;
-  border: 1.5px solid #ffffff !important;
-  box-shadow: 0 0 24px rgba(217, 70, 239, 0.85) !important;
-}
-
-/* Seekbar Track & Progress */
-.preview-player[data-theme="holo-prism"] div[class*="media-slider-smooth"][class*="isolate"] {
-  height: 4px !important;
-  border-radius: 9999px !important;
-  background: rgba(217, 70, 239, 0.22) !important;
-}
-
-.preview-player[data-theme="holo-prism"] div[class*="clip-media-x-[--media-slider-fill]"] {
-  background: linear-gradient(90deg, #ff007a, #9600ff, #00e1ff, #00ff75, #ffe600, #ff007a) !important;
-  box-shadow: 0 0 14px rgba(217, 70, 239, 0.7) !important;
-  border-radius: 9999px !important;
-}
-
-/* Seekbar Scrubber Knob */
-.preview-player[data-theme="holo-prism"] .group\/slider .media-thumb-smooth {
-  width: 14px !important;
-  height: 14px !important;
-  border-radius: 9999px !important;
-  
-  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #00e1ff 40%, #ff007a 80%, #9600ff 100%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.9) !important;
-  box-shadow: 0 0 16px rgba(217, 70, 239, 0.95) !important;
-  opacity: 1 !important;
-  display: block !important;
-}
-
-/* Volume Bars */
-.preview-player[data-theme="holo-prism"] .group\/vol-pill div[class*="bg-white/20"] {
-  background: rgba(217, 70, 239, 0.25) !important;
-}
-.preview-player[data-theme="holo-prism"] .group\/vol-pill div[class*="bg-white/90"] {
-  background: linear-gradient(90deg, #ff007a, #9600ff, #00e1ff) !important;
-  box-shadow: 0 0 6px rgba(217, 70, 239, 0.75) !important;
-}
-
-/* Time Display */
-.preview-player[data-theme="holo-prism"] time-value,
-.preview-player[data-theme="holo-prism"] div[class*="tabular-nums"] {
-  color: #d946ef !important;
-}
-
-/* Bottom Control Bar Dock */
-
-
-/* Super Attractive Settings Menu Card */
-.preview-player[data-theme="holo-prism"] [role="menu"],
-:root[data-theme="holo-prism"] [role="menu"] {
-  background: linear-gradient(160deg, #170d24 0%, #0a0512 100%) !important;
-  border: 1.5px solid rgba(217, 70, 239, 0.55) !important;
-  border-radius: 18px !important;
-  box-shadow: 0 24px 50px rgba(0,0,0,0.92), 0 0 30px rgba(217, 70, 239, 0.25) !important;
-  backdrop-filter: blur(28px) !important;
-  -webkit-backdrop-filter: blur(28px) !important;
-}
-
-.preview-player[data-theme="holo-prism"] .group\/menu-btn:hover,
-.preview-player[data-theme="holo-prism"] .group\/menu-radio:hover,
-:root[data-theme="holo-prism"] [role="menuitem"]:hover,
-:root[data-theme="holo-prism"] [role="menuitemradio"]:hover {
-  background: linear-gradient(90deg, rgba(217, 70, 239, 0.22) 0%, rgba(6, 182, 212, 0.14) 100%) !important;
-  color: #f5d0fe !important;
-  transition: all 0.15s ease !important;
-}
-
-/* --------------------------------------------------------------------------
-   THEME: Deep Abyss (deep-abyss)
-   -------------------------------------------------------------------------- */
-.preview-player[data-theme="deep-abyss"] .group\/liquid-btn,
-.preview-player[data-theme="deep-abyss"] .group\/center-buffering button,
-.preview-player[data-theme="deep-abyss"] [data-slot="control"],
-.preview-player[data-theme="deep-abyss"] .media-fullscreen-button {
-  border-radius: 9999px !important;
-  
-  background: rgba(4, 25, 38, 0.88) !important;
-  border: 1.5px solid rgba(6, 182, 212, 0.55) !important;
-  box-shadow: inset 0 0 10px rgba(6, 182, 212, 0.25), 0 4px 14px rgba(0,0,0,0.7) !important;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.preview-player[data-theme="deep-abyss"] .group\/liquid-btn:hover,
-.preview-player[data-theme="deep-abyss"] .group\/center-buffering button:hover,
-.preview-player[data-theme="deep-abyss"] [data-slot="control"]:hover,
-.preview-player[data-theme="deep-abyss"] .media-fullscreen-button:hover {
-  background: rgba(8, 40, 60, 0.95) !important;
-  border-color: rgba(6, 182, 212, 0.9) !important;
-  box-shadow: 0 0 20px rgba(6, 182, 212, 0.75) !important;
-  transform: translateY(-1.5px) !important;
-}
-
-.preview-player[data-theme="deep-abyss"] .media-md\:flex > .group\/liquid-btn:nth-child(3),
-.preview-player[data-theme="deep-abyss"] .group\/liquid-btn.group\/play,
-.preview-player[data-theme="deep-abyss"] .group\/center-buffering button:nth-child(2) {
-  background: linear-gradient(135deg, #67e8f9 0%, #06b6d4 50%, #0e7490 100%) !important;
-  color: #020810 !important;
-  border: 1.5px solid #ffffff !important;
-  box-shadow: 0 0 24px rgba(6, 182, 212, 0.85) !important;
-}
-
-/* Seekbar Track & Progress */
-.preview-player[data-theme="deep-abyss"] div[class*="media-slider-smooth"][class*="isolate"] {
-  height: 3.5px !important;
-  border-radius: 9999px !important;
-  background: rgba(6, 182, 212, 0.25) !important;
-}
-
-.preview-player[data-theme="deep-abyss"] div[class*="clip-media-x-[--media-slider-fill]"] {
-  background: linear-gradient(90deg, #0e7490 0%, #06b6d4 70%, #67e8f9 100%) !important;
-  box-shadow: 0 0 12px rgba(6, 182, 212, 0.7) !important;
-  border-radius: 9999px !important;
-}
-
-/* Seekbar Scrubber Knob */
-.preview-player[data-theme="deep-abyss"] .group\/slider .media-thumb-smooth {
-  width: 14px !important;
-  height: 14px !important;
-  border-radius: 9999px !important;
-  
-  background: radial-gradient(circle, #ffffff 0%, #22d3ee 50%, #0891b2 100%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.9) !important;
-  box-shadow: 0 0 18px rgba(6, 182, 212, 0.95) !important;
-  opacity: 1 !important;
-  display: block !important;
-}
-
-/* Volume Bars */
-.preview-player[data-theme="deep-abyss"] .group\/vol-pill div[class*="bg-white/20"] {
-  background: rgba(6, 182, 212, 0.25) !important;
-}
-.preview-player[data-theme="deep-abyss"] .group\/vol-pill div[class*="bg-white/90"] {
-  background: linear-gradient(90deg, #0e7490 0%, #06b6d4 100%) !important;
-  box-shadow: 0 0 6px rgba(6, 182, 212, 0.75) !important;
-}
-
-/* Time Display */
-.preview-player[data-theme="deep-abyss"] time-value,
-.preview-player[data-theme="deep-abyss"] div[class*="tabular-nums"] {
-  color: #06b6d4 !important;
-}
-
-/* Bottom Control Bar Dock */
-
-
-/* Super Attractive Settings Menu Card */
-.preview-player[data-theme="deep-abyss"] [role="menu"],
-:root[data-theme="deep-abyss"] [role="menu"] {
-  background: linear-gradient(160deg, #041724 0%, #020b12 100%) !important;
-  border: 1.5px solid rgba(6, 182, 212, 0.5) !important;
-  border-radius: 16px !important;
-  box-shadow: 0 25px 52px rgba(0,0,0,0.96), 0 0 28px rgba(6, 182, 212, 0.24) !important;
-  backdrop-filter: blur(28px) !important;
-  -webkit-backdrop-filter: blur(28px) !important;
-}
-
-.preview-player[data-theme="deep-abyss"] .group\/menu-btn:hover,
-.preview-player[data-theme="deep-abyss"] .group\/menu-radio:hover,
-:root[data-theme="deep-abyss"] [role="menuitem"]:hover,
-:root[data-theme="deep-abyss"] [role="menuitemradio"]:hover {
-  background: linear-gradient(90deg, rgba(6, 182, 212, 0.2) 0%, rgba(14, 116, 144, 0.1) 100%) !important;
-  color: #a5f3fc !important;
-  transition: all 0.15s ease !important;
-}
-
-/* --------------------------------------------------------------------------
-   THEME: Velvet Opera (velvet-opera)
-   -------------------------------------------------------------------------- */
-.preview-player[data-theme="velvet-opera"] .group\/liquid-btn,
-.preview-player[data-theme="velvet-opera"] .group\/center-buffering button,
-.preview-player[data-theme="velvet-opera"] [data-slot="control"],
-.preview-player[data-theme="velvet-opera"] .media-fullscreen-button {
-  border-radius: 12px !important;
-  
-  background: rgba(76, 5, 25, 0.8) !important;
-  border: 1.5px solid rgba(212, 175, 55, 0.6) !important;
-  box-shadow: inset 0 0 8px rgba(159, 18, 57, 0.35), 0 4px 14px rgba(0,0,0,0.7) !important;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.preview-player[data-theme="velvet-opera"] .group\/liquid-btn:hover,
-.preview-player[data-theme="velvet-opera"] .group\/center-buffering button:hover,
-.preview-player[data-theme="velvet-opera"] [data-slot="control"]:hover,
-.preview-player[data-theme="velvet-opera"] .media-fullscreen-button:hover {
-  background: rgba(100, 10, 35, 0.95) !important;
-  border-color: rgba(212, 175, 55, 0.9) !important;
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.65) !important;
-  transform: translateY(-1.5px) !important;
-}
-
-.preview-player[data-theme="velvet-opera"] .media-md\:flex > .group\/liquid-btn:nth-child(3),
-.preview-player[data-theme="velvet-opera"] .group\/liquid-btn.group\/play,
-.preview-player[data-theme="velvet-opera"] .group\/center-buffering button:nth-child(2) {
-  background: linear-gradient(135deg, #fef08a 0%, #d4af37 60%, #881337 100%) !important;
-  color: #1f0209 !important;
-  border: 1.5px solid #ffffff !important;
-  box-shadow: 0 0 22px rgba(212, 175, 55, 0.85) !important;
-}
-
-/* Seekbar Track & Progress */
-.preview-player[data-theme="velvet-opera"] div[class*="media-slider-smooth"][class*="isolate"] {
-  height: 4px !important;
-  border-radius: 2px !important;
-  background: rgba(212, 175, 55, 0.25) !important;
-}
-
-.preview-player[data-theme="velvet-opera"] div[class*="clip-media-x-[--media-slider-fill]"] {
-  background: linear-gradient(90deg, #881337 0%, #be123c 60%, #d4af37 100%) !important;
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.65) !important;
-  border-radius: 2px !important;
-}
-
-/* Seekbar Scrubber Knob */
-.preview-player[data-theme="velvet-opera"] .group\/slider .media-thumb-smooth {
-  width: 14px !important;
-  height: 14px !important;
-  border-radius: 9999px !important;
-  
-  background: radial-gradient(circle at 35% 35%, #fef08a 0%, #d4af37 55%, #854d0e 100%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.8) !important;
-  box-shadow: 0 0 14px rgba(212, 175, 55, 0.95) !important;
-  opacity: 1 !important;
-  display: block !important;
-}
-
-/* Volume Bars */
-.preview-player[data-theme="velvet-opera"] .group\/vol-pill div[class*="bg-white/20"] {
-  background: rgba(212, 175, 55, 0.25) !important;
-}
-.preview-player[data-theme="velvet-opera"] .group\/vol-pill div[class*="bg-white/90"] {
-  background: linear-gradient(90deg, #881337 0%, #be123c 100%) !important;
-  box-shadow: 0 0 6px rgba(212, 175, 55, 0.65) !important;
-}
-
-/* Time Display */
-.preview-player[data-theme="velvet-opera"] time-value,
-.preview-player[data-theme="velvet-opera"] div[class*="tabular-nums"] {
-  color: #fb7185 !important;
-}
-
-/* Bottom Control Bar Dock */
-
-
-/* Super Attractive Settings Menu Card */
-.preview-player[data-theme="velvet-opera"] [role="menu"],
-:root[data-theme="velvet-opera"] [role="menu"] {
-  background: linear-gradient(160deg, #240712 0%, #120309 100%) !important;
-  border: 1.5px solid rgba(212, 175, 55, 0.55) !important;
-  border-radius: 14px !important;
-  box-shadow: 0 25px 50px rgba(0,0,0,0.96), 0 0 25px rgba(159, 18, 57, 0.25) !important;
-  backdrop-filter: blur(28px) !important;
-  -webkit-backdrop-filter: blur(28px) !important;
-}
-
-.preview-player[data-theme="velvet-opera"] .group\/menu-btn:hover,
-.preview-player[data-theme="velvet-opera"] .group\/menu-radio:hover,
-:root[data-theme="velvet-opera"] [role="menuitem"]:hover,
-:root[data-theme="velvet-opera"] [role="menuitemradio"]:hover {
-  background: linear-gradient(90deg, rgba(190, 18, 60, 0.22) 0%, rgba(212, 175, 55, 0.12) 100%) !important;
-  color: #fecdd3 !important;
-  transition: all 0.15s ease !important;
-}
-
-/* --------------------------------------------------------------------------
-   THEME: Toxic Hazard (toxic-hazard)
-   -------------------------------------------------------------------------- */
-.preview-player[data-theme="toxic-hazard"] .group\/liquid-btn,
-.preview-player[data-theme="toxic-hazard"] .group\/center-buffering button,
-.preview-player[data-theme="toxic-hazard"] [data-slot="control"],
-.preview-player[data-theme="toxic-hazard"] .media-fullscreen-button {
-  border-radius: 6px !important;
-  
-  background: rgba(10, 15, 8, 0.95) !important;
-  border: 1.5px solid rgba(57, 255, 20, 0.6) !important;
-  box-shadow: inset 0 0 8px rgba(57, 255, 20, 0.2), 0 4px 14px rgba(0,0,0,0.8) !important;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.preview-player[data-theme="toxic-hazard"] .group\/liquid-btn:hover,
-.preview-player[data-theme="toxic-hazard"] .group\/center-buffering button:hover,
-.preview-player[data-theme="toxic-hazard"] [data-slot="control"]:hover,
-.preview-player[data-theme="toxic-hazard"] .media-fullscreen-button:hover {
-  background: rgba(20, 30, 15, 0.98) !important;
-  border-color: rgba(57, 255, 20, 0.95) !important;
-  box-shadow: 0 0 22px rgba(57, 255, 20, 0.85) !important;
-  transform: translateY(-1.5px) !important;
-}
-
-.preview-player[data-theme="toxic-hazard"] .media-md\:flex > .group\/liquid-btn:nth-child(3),
-.preview-player[data-theme="toxic-hazard"] .group\/liquid-btn.group\/play,
-.preview-player[data-theme="toxic-hazard"] .group\/center-buffering button:nth-child(2) {
-  background: #39ff14 !important;
-  color: #040804 !important;
-  border: 1.5px solid #ffffff !important;
-  box-shadow: 0 0 25px rgba(57, 255, 20, 0.95) !important;
-}
-
-/* Seekbar Track & Progress */
-.preview-player[data-theme="toxic-hazard"] div[class*="media-slider-smooth"][class*="isolate"] {
-  height: 4px !important;
-  border-radius: 2px !important;
-  background: rgba(57, 255, 20, 0.25) !important;
-}
-
-.preview-player[data-theme="toxic-hazard"] div[class*="clip-media-x-[--media-slider-fill]"] {
-  background: linear-gradient(90deg, #15803d 0%, #22c55e 50%, #39ff14 100%) !important;
-  box-shadow: 0 0 14px rgba(57, 255, 20, 0.8) !important;
-  border-radius: 2px !important;
-}
-
-/* Seekbar Scrubber Knob */
-.preview-player[data-theme="toxic-hazard"] .group\/slider .media-thumb-smooth {
-  width: 14px !important;
-  height: 14px !important;
-  border-radius: 3px !important;
-  
-  background: #39ff14 !important;
-  border: 1px solid #ffffff !important;
-  box-shadow: 0 0 16px rgba(57, 255, 20, 1) !important;
-  opacity: 1 !important;
-  display: block !important;
-}
-
-/* Volume Bars */
-.preview-player[data-theme="toxic-hazard"] .group\/vol-pill div[class*="bg-white/20"] {
-  background: rgba(57, 255, 20, 0.25) !important;
-}
-.preview-player[data-theme="toxic-hazard"] .group\/vol-pill div[class*="bg-white/90"] {
-  background: linear-gradient(90deg, #15803d 0%, #39ff14 100%) !important;
-  box-shadow: 0 0 6px rgba(57, 255, 20, 0.85) !important;
-}
-
-/* Time Display */
-.preview-player[data-theme="toxic-hazard"] time-value,
-.preview-player[data-theme="toxic-hazard"] div[class*="tabular-nums"] {
-  color: #39ff14 !important;
-}
-
-/* Bottom Control Bar Dock */
-
-
-/* Super Attractive Settings Menu Card */
-.preview-player[data-theme="toxic-hazard"] [role="menu"],
-:root[data-theme="toxic-hazard"] [role="menu"] {
-  background: #050705 !important;
-  border: 1.5px solid rgba(57, 255, 20, 0.65) !important;
-  border-radius: 8px !important;
-  box-shadow: 0 25px 50px rgba(0,0,0,0.98), 0 0 30px rgba(57, 255, 20, 0.28) !important;
-  backdrop-filter: blur(28px) !important;
-  -webkit-backdrop-filter: blur(28px) !important;
-}
-
-.preview-player[data-theme="toxic-hazard"] .group\/menu-btn:hover,
-.preview-player[data-theme="toxic-hazard"] .group\/menu-radio:hover,
-:root[data-theme="toxic-hazard"] [role="menuitem"]:hover,
-:root[data-theme="toxic-hazard"] [role="menuitemradio"]:hover {
-  background: rgba(57, 255, 20, 0.18) !important;
-  color: #bbf7d0 !important;
-  transition: all 0.15s ease !important;
-}
-
-/* --------------------------------------------------------------------------
-   THEME: Glacial Permafrost (glacial-permafrost)
-   -------------------------------------------------------------------------- */
-.preview-player[data-theme="glacial-permafrost"] .group\/liquid-btn,
-.preview-player[data-theme="glacial-permafrost"] .group\/center-buffering button,
-.preview-player[data-theme="glacial-permafrost"] [data-slot="control"],
-.preview-player[data-theme="glacial-permafrost"] .media-fullscreen-button {
-  border-radius: 8px !important;
-  
-  background: rgba(12, 38, 64, 0.65) !important;
-  border: 1px solid rgba(186, 230, 253, 0.55) !important;
-  box-shadow: inset 0 0 10px rgba(125, 211, 252, 0.25), 0 4px 14px rgba(0,0,0,0.6) !important;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.preview-player[data-theme="glacial-permafrost"] .group\/liquid-btn:hover,
-.preview-player[data-theme="glacial-permafrost"] .group\/center-buffering button:hover,
-.preview-player[data-theme="glacial-permafrost"] [data-slot="control"]:hover,
-.preview-player[data-theme="glacial-permafrost"] .media-fullscreen-button:hover {
-  background: rgba(16, 50, 85, 0.85) !important;
-  border-color: rgba(186, 230, 253, 0.9) !important;
-  box-shadow: 0 0 18px rgba(125, 211, 252, 0.65) !important;
-  transform: translateY(-1.5px) !important;
-}
-
-.preview-player[data-theme="glacial-permafrost"] .media-md\:flex > .group\/liquid-btn:nth-child(3),
-.preview-player[data-theme="glacial-permafrost"] .group\/liquid-btn.group\/play,
-.preview-player[data-theme="glacial-permafrost"] .group\/center-buffering button:nth-child(2) {
-  background: linear-gradient(135deg, #ffffff 0%, #7dd3fc 50%, #0284c7 100%) !important;
-  color: #082f49 !important;
-  border: 1.5px solid #ffffff !important;
-  box-shadow: 0 0 22px rgba(56, 189, 248, 0.8) !important;
-}
-
-/* Seekbar Track & Progress */
-.preview-player[data-theme="glacial-permafrost"] div[class*="media-slider-smooth"][class*="isolate"] {
-  height: 3.5px !important;
-  border-radius: 9999px !important;
-  background: rgba(125, 211, 252, 0.25) !important;
-}
-
-.preview-player[data-theme="glacial-permafrost"] div[class*="clip-media-x-[--media-slider-fill]"] {
-  background: linear-gradient(90deg, #0284c7 0%, #38bdf8 60%, #e0f2fe 100%) !important;
-  box-shadow: 0 0 12px rgba(125, 211, 252, 0.7) !important;
-  border-radius: 9999px !important;
-}
-
-/* Seekbar Scrubber Knob */
-.preview-player[data-theme="glacial-permafrost"] .group\/slider .media-thumb-smooth {
-  width: 14px !important;
-  height: 14px !important;
-  border-radius: 4px !important;
-  
-  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #7dd3fc 60%, #0284c7 100%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.9) !important;
-  box-shadow: 0 0 16px rgba(125, 211, 252, 0.9) !important;
-  opacity: 1 !important;
-  display: block !important;
-}
-
-/* Volume Bars */
-.preview-player[data-theme="glacial-permafrost"] .group\/vol-pill div[class*="bg-white/20"] {
-  background: rgba(125, 211, 252, 0.25) !important;
-}
-.preview-player[data-theme="glacial-permafrost"] .group\/vol-pill div[class*="bg-white/90"] {
-  background: linear-gradient(90deg, #0284c7 0%, #38bdf8 100%) !important;
-  box-shadow: 0 0 6px rgba(125, 211, 252, 0.75) !important;
-}
-
-/* Time Display */
-.preview-player[data-theme="glacial-permafrost"] time-value,
-.preview-player[data-theme="glacial-permafrost"] div[class*="tabular-nums"] {
-  color: #7dd3fc !important;
-}
-
-/* Bottom Control Bar Dock */
-
-
-/* Super Attractive Settings Menu Card */
-.preview-player[data-theme="glacial-permafrost"] [role="menu"],
-:root[data-theme="glacial-permafrost"] [role="menu"] {
-  background: linear-gradient(160deg, #0a192f 0%, #050d1a 100%) !important;
-  border: 1.5px solid rgba(125, 211, 252, 0.48) !important;
-  border-radius: 16px !important;
-  box-shadow: 0 24px 50px rgba(0,0,0,0.94), 0 0 26px rgba(56, 189, 248, 0.22) !important;
-  backdrop-filter: blur(28px) !important;
-  -webkit-backdrop-filter: blur(28px) !important;
-}
-
-.preview-player[data-theme="glacial-permafrost"] .group\/menu-btn:hover,
-.preview-player[data-theme="glacial-permafrost"] .group\/menu-radio:hover,
-:root[data-theme="glacial-permafrost"] [role="menuitem"]:hover,
-:root[data-theme="glacial-permafrost"] [role="menuitemradio"]:hover {
-  background: linear-gradient(90deg, rgba(125, 211, 252, 0.2) 0%, rgba(56, 189, 248, 0.1) 100%) !important;
-  color: #e0f2fe !important;
-  transition: all 0.15s ease !important;
-}
-
-
-/* Porcelain & Cobalt Icon Colors */
-.preview-player[data-theme="porcelain-cobalt"] svg,
-.preview-player[data-theme="porcelain-cobalt"] .player-icon-scale svg,
-.preview-player[data-theme="porcelain-cobalt"] .group\/mute svg,
-.preview-player[data-theme="porcelain-cobalt"] .group\/liquid-btn svg,
-.preview-player[data-theme="porcelain-cobalt"] .group\/center-buffering svg,
-.preview-player[data-theme="porcelain-cobalt"] [data-slot="control"] svg,
-.preview-player[data-theme="porcelain-cobalt"] .media-fullscreen-button svg {
-  color: #1d4ed8 !important;
-}
-
-.preview-player[data-theme="porcelain-cobalt"] .media-md\:flex > .group\/liquid-btn:nth-child(3) svg,
-.preview-player[data-theme="porcelain-cobalt"] .group\/liquid-btn.group\/play svg,
-.preview-player[data-theme="porcelain-cobalt"] .group\/center-buffering button:nth-child(2) svg {
-  color: #ffffff !important;
-}
-
-
-/* ==========================================================================
-   TRANSLUCENT ATMOSPHERIC DOCKS WITH VERTICAL FLUTED TEXTURE (MATCHING IMAGE 2)
-   All 14 themes use translucent gradients fading from 0% opacity into the video.
-   No solid, opaque backgrounds.
-   ========================================================================== */
-.preview-player[data-theme="liquid-mercury"] .media-skin [data-part="bottom-controls-bar"],
-.preview-player[data-theme="aurora-borealis"] .media-skin [data-part="bottom-controls-bar"],
-.preview-player[data-theme="solar-flare"] .media-skin [data-part="bottom-controls-bar"],
-.preview-player[data-theme="amethyst-geode"] .media-skin [data-part="bottom-controls-bar"],
-.preview-player[data-theme="cyber-deck"] .media-skin [data-part="bottom-controls-bar"],
-.preview-player[data-theme="porcelain-cobalt"] .media-skin [data-part="bottom-controls-bar"],
-.preview-player[data-theme="emerald-vault"] .media-skin [data-part="bottom-controls-bar"],
-.preview-player[data-theme="vaporwave-sunset"] .media-skin [data-part="bottom-controls-bar"],
-.preview-player[data-theme="carbon-stealth"] .media-skin [data-part="bottom-controls-bar"],
-.preview-player[data-theme="holo-prism"] .media-skin [data-part="bottom-controls-bar"],
-.preview-player[data-theme="deep-abyss"] .media-skin [data-part="bottom-controls-bar"],
-.preview-player[data-theme="velvet-opera"] .media-skin [data-part="bottom-controls-bar"],
-.preview-player[data-theme="toxic-hazard"] .media-skin [data-part="bottom-controls-bar"],
-.preview-player[data-theme="glacial-permafrost"] .media-skin [data-part="bottom-controls-bar"] {
-  background: transparent !important;
-  background-color: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
-}
-
-/* 1. Liquid Mercury — silver fluted vertical micro-refractions + smoky liquid glass fade */
-.preview-player[data-theme="liquid-mercury"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
-  background-image:
-    repeating-linear-gradient(90deg, rgba(226, 232, 240, 0.065) 0 1px, transparent 1px 6px),
-    linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.45) 38%, rgba(10, 15, 28, 0.88) 75%, #080c14 100%);
-  background-size: 6px 100%, 100% 100%;
-  box-shadow: inset 0 -1px 0 rgba(226, 232, 240, 0.22);
-}
-
-/* 2. Aurora Borealis — emerald polar fluted lines + sub-zero northern midnight fade */
-.preview-player[data-theme="aurora-borealis"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
-  background-image:
-    repeating-linear-gradient(90deg, rgba(52, 211, 153, 0.065) 0 1px, transparent 1px 6px),
-    linear-gradient(180deg, rgba(4, 20, 25, 0) 0%, rgba(4, 20, 25, 0.48) 38%, rgba(3, 14, 18, 0.9) 75%, #020a0d 100%);
-  background-size: 6px 100%, 100% 100%;
-  box-shadow: inset 0 -1px 0 rgba(52, 211, 153, 0.25);
-}
-
-/* 3. Solar Flare — warm amber plasma vertical lines + deep sunspot fade */
-.preview-player[data-theme="solar-flare"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
-  background-image:
-    repeating-linear-gradient(90deg, rgba(249, 115, 22, 0.07) 0 1px, transparent 1px 6px),
-    linear-gradient(180deg, rgba(20, 8, 4, 0) 0%, rgba(20, 8, 4, 0.52) 38%, rgba(15, 5, 2, 0.92) 75%, #0a0301 100%);
-  background-size: 6px 100%, 100% 100%;
-  box-shadow: inset 0 -1px 0 rgba(249, 115, 22, 0.26);
-}
-
-/* 4. Amethyst Geode — crystalline violet facet lines + royal velvet fade */
-.preview-player[data-theme="amethyst-geode"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
-  background-image:
-    repeating-linear-gradient(90deg, rgba(168, 85, 247, 0.065) 0 1px, transparent 1px 6px),
-    linear-gradient(180deg, rgba(18, 5, 30, 0) 0%, rgba(18, 5, 30, 0.5) 38%, rgba(12, 3, 20, 0.9) 75%, #08020d 100%);
-  background-size: 6px 100%, 100% 100%;
-  box-shadow: inset 0 -1px 0 rgba(168, 85, 247, 0.25);
-}
-
-/* 5. Cyber Deck — hazard telemetry vertical ticks + carbon chassis fade */
-.preview-player[data-theme="cyber-deck"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
-  background-image:
-    repeating-linear-gradient(90deg, rgba(250, 204, 21, 0.06) 0 1px, transparent 1px 6px),
-    linear-gradient(180deg, rgba(9, 9, 11, 0) 0%, rgba(9, 9, 11, 0.52) 38%, rgba(7, 7, 9, 0.94) 75%, #050507 100%);
-  background-size: 6px 100%, 100% 100%;
-  box-shadow: inset 0 -1px 0 rgba(250, 204, 21, 0.25);
-}
-
-/* 6. Porcelain & Cobalt — delicate cobalt vertical calibration ticks + translucent cobalt-tinted charcoal fade */
-.preview-player[data-theme="porcelain-cobalt"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
-  background-image:
-    repeating-linear-gradient(90deg, rgba(30, 64, 175, 0.065) 0 1px, transparent 1px 6px),
-    linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.45) 38%, rgba(15, 23, 42, 0.88) 75%, #090e17 100%);
-  background-size: 6px 100%, 100% 100%;
-  box-shadow: inset 0 -1px 0 rgba(30, 64, 175, 0.28);
-}
-
-/* 7. Emerald Vault — gold bullion calibration ticks + imperial emerald velvet fade */
-.preview-player[data-theme="emerald-vault"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
-  background-image:
-    repeating-linear-gradient(90deg, rgba(212, 175, 55, 0.065) 0 1px, transparent 1px 6px),
-    linear-gradient(180deg, rgba(4, 20, 14, 0) 0%, rgba(4, 20, 14, 0.5) 38%, rgba(3, 14, 10, 0.9) 75%, #020a07 100%);
-  background-size: 6px 100%, 100% 100%;
-  box-shadow: inset 0 -1px 0 rgba(212, 175, 55, 0.25);
-}
-
-/* 8. Vaporwave Sunset — dusk pink vertical scanlines + 90s aesthetic twilight fade */
-.preview-player[data-theme="vaporwave-sunset"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
-  background-image:
-    repeating-linear-gradient(90deg, rgba(244, 114, 182, 0.065) 0 1px, transparent 1px 6px),
-    linear-gradient(180deg, rgba(20, 10, 32, 0) 0%, rgba(20, 10, 32, 0.5) 38%, rgba(15, 7, 24, 0.9) 75%, #0b0512 100%);
-  background-size: 6px 100%, 100% 100%;
-  box-shadow: inset 0 -1px 0 rgba(244, 114, 182, 0.25);
-}
-
-/* 9. Carbon Stealth — infrared tactical ticks + stealth composite carbon fade */
-.preview-player[data-theme="carbon-stealth"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
-  background-image:
-    repeating-linear-gradient(90deg, rgba(239, 68, 68, 0.06) 0 1px, transparent 1px 6px),
-    linear-gradient(180deg, rgba(12, 10, 9, 0) 0%, rgba(12, 10, 9, 0.52) 38%, rgba(9, 8, 7, 0.94) 75%, #060504 100%);
-  background-size: 6px 100%, 100% 100%;
-  box-shadow: inset 0 -1px 0 rgba(239, 68, 68, 0.25);
-}
-
-/* 10. Holo Prism — rainbow diffraction vertical lines + dark oil-slick fade */
-.preview-player[data-theme="holo-prism"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
-  background-image:
-    repeating-linear-gradient(90deg, rgba(217, 70, 239, 0.065) 0 1px, transparent 1px 6px),
-    linear-gradient(180deg, rgba(14, 10, 24, 0) 0%, rgba(14, 10, 24, 0.5) 38%, rgba(10, 7, 18, 0.9) 75%, #07050d 100%);
-  background-size: 6px 100%, 100% 100%;
-  box-shadow: inset 0 -1px 0 rgba(217, 70, 239, 0.26);
-}
-
-/* 11. Deep Abyss — bioluminescent cyan vertical depth lines + oceanic trench fade */
-.preview-player[data-theme="deep-abyss"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
-  background-image:
-    repeating-linear-gradient(90deg, rgba(6, 182, 212, 0.065) 0 1px, transparent 1px 6px),
-    linear-gradient(180deg, rgba(2, 10, 18, 0) 0%, rgba(2, 10, 18, 0.52) 38%, rgba(1, 6, 12, 0.92) 75%, #010408 100%);
-  background-size: 6px 100%, 100% 100%;
-  box-shadow: inset 0 -1px 0 rgba(6, 182, 212, 0.25);
-}
-
-/* 12. Velvet Opera — rococo gold vertical cords + royal burgundy velvet fade */
-.preview-player[data-theme="velvet-opera"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
-  background-image:
-    repeating-linear-gradient(90deg, rgba(212, 175, 55, 0.065) 0 1px, transparent 1px 6px),
-    linear-gradient(180deg, rgba(26, 5, 12, 0) 0%, rgba(26, 5, 12, 0.52) 38%, rgba(18, 3, 8, 0.92) 75%, #0d0206 100%);
-  background-size: 6px 100%, 100% 100%;
-  box-shadow: inset 0 -1px 0 rgba(212, 175, 55, 0.26);
-}
-
-/* 13. Toxic Hazard — radioactive hazard vertical lines + deep decontamination fade */
-.preview-player[data-theme="toxic-hazard"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
-  background-image:
-    repeating-linear-gradient(90deg, rgba(57, 255, 20, 0.065) 0 1px, transparent 1px 6px),
-    linear-gradient(180deg, rgba(5, 10, 5, 0) 0%, rgba(5, 10, 5, 0.52) 38%, rgba(3, 7, 3, 0.94) 75%, #020402 100%);
-  background-size: 6px 100%, 100% 100%;
-  box-shadow: inset 0 -1px 0 rgba(57, 255, 20, 0.28);
-}
-
-/* 14. Glacial Permafrost — Arctic crystal vertical fissure lines + sub-zero fjord fade */
-.preview-player[data-theme="glacial-permafrost"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
-  background-image:
-    repeating-linear-gradient(90deg, rgba(125, 211, 252, 0.065) 0 1px, transparent 1px 6px),
-    linear-gradient(180deg, rgba(8, 18, 32, 0) 0%, rgba(8, 18, 32, 0.5) 38%, rgba(5, 12, 22, 0.9) 75%, #03080f 100%);
-  background-size: 6px 100%, 100% 100%;
-  box-shadow: inset 0 -1px 0 rgba(125, 211, 252, 0.26);
-}
-
-/* ==========================================================================
    14 THEMES: RIGOROUS DESIGN CONSISTENCY & BESPOKE VISUAL IDENTITY
    Every theme maintains complete internal consistency:
    - Harmonious button geometries & matching volume pill shapes
@@ -10010,16 +8463,16 @@ div[role="menu"]:not([data-child-open]) {
 
 /* ==========================================================================
    6. PORCELAIN & COBALT (porcelain-cobalt)
-   White fine china cabochons, royal delftware cobalt enamel, crackle web dock
+   White fine china cabochons, royal delftware cobalt enamel, cohesive porcelain family
    ========================================================================== */
 .preview-player[data-theme="porcelain-cobalt"] .group\/liquid-btn,
 .preview-player[data-theme="porcelain-cobalt"] .group\/center-buffering button,
 .preview-player[data-theme="porcelain-cobalt"] [data-slot="control"],
 .preview-player[data-theme="porcelain-cobalt"] .media-fullscreen-button {
   border-radius: 9999px !important;
-  background: rgba(255, 255, 255, 0.95) !important;
-  border: 1.5px solid rgba(30, 64, 175, 0.45) !important;
-  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.15), inset 0 1px 0 #ffffff !important;
+  background: radial-gradient(circle at 35% 25%, #ffffff 0%, #f8fafc 55%, #e2e8f0 100%) !important;
+  border: 1.5px solid #1d4ed8 !important;
+  box-shadow: inset 0 1.5px 2px #ffffff, inset 0 -1.5px 2px rgba(30, 64, 175, 0.15), 0 4px 12px rgba(15, 23, 42, 0.18) !important;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 .preview-player[data-theme="porcelain-cobalt"] .group\/liquid-btn:hover,
@@ -10027,16 +8480,15 @@ div[role="menu"]:not([data-child-open]) {
 .preview-player[data-theme="porcelain-cobalt"] [data-slot="control"]:hover,
 .preview-player[data-theme="porcelain-cobalt"] .media-fullscreen-button:hover {
   background: #ffffff !important;
-  border-color: rgba(30, 64, 175, 0.8) !important;
-  box-shadow: 0 6px 16px rgba(30, 64, 175, 0.28) !important;
+  border-color: #2563eb !important;
+  box-shadow: inset 0 2px 3px #ffffff, 0 6px 18px rgba(30, 64, 175, 0.35) !important;
   transform: translateY(-1.5px) !important;
 }
 .preview-player[data-theme="porcelain-cobalt"] .group\/play,
 .preview-player[data-theme="porcelain-cobalt"] .group\/center-buffering button:nth-child(2) {
-  background: #1d4ed8 !important;
-  color: #ffffff !important;
-  border: 1.5px solid #ffffff !important;
-  box-shadow: 0 6px 18px rgba(29, 78, 216, 0.45) !important;
+  background: radial-gradient(circle at 35% 25%, #ffffff 0%, #eff6ff 50%, #dbeafe 100%) !important;
+  border: 2px solid #1d4ed8 !important;
+  box-shadow: inset 0 2px 3px #ffffff, inset 0 -2px 3px rgba(29, 78, 216, 0.2), 0 6px 18px rgba(29, 78, 216, 0.35) !important;
 }
 .preview-player[data-theme="porcelain-cobalt"] svg,
 .preview-player[data-theme="porcelain-cobalt"] .player-icon-scale svg,
@@ -10047,13 +8499,13 @@ div[role="menu"]:not([data-child-open]) {
   filter: none !important;
 }
 .preview-player[data-theme="porcelain-cobalt"] .group\/play svg {
-  color: #ffffff !important;
+  color: #1d4ed8 !important;
 }
 .preview-player[data-theme="porcelain-cobalt"] .group\/vol-pill {
   border-radius: 9999px !important;
-  background: rgba(255, 255, 255, 0.95) !important;
-  border: 1.5px solid rgba(30, 64, 175, 0.45) !important;
-  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.15), inset 0 1px 0 #ffffff !important;
+  background: radial-gradient(circle at 35% 25%, #ffffff 0%, #f8fafc 55%, #e2e8f0 100%) !important;
+  border: 1.5px solid #1d4ed8 !important;
+  box-shadow: inset 0 1.5px 2px #ffffff, inset 0 -1.5px 2px rgba(30, 64, 175, 0.15), 0 4px 12px rgba(15, 23, 42, 0.18) !important;
 }
 .preview-player[data-theme="porcelain-cobalt"] .group\/vol-pill div[class*="bg-white/20"] {
   height: 4px !important;
@@ -10076,7 +8528,7 @@ div[role="menu"]:not([data-child-open]) {
 .preview-player[data-theme="porcelain-cobalt"] div[class*="media-slider-smooth"][class*="isolate"] {
   height: 4px !important;
   border-radius: 9999px !important;
-  background: rgba(255, 255, 255, 0.22) !important;
+  background: rgba(255, 255, 255, 0.25) !important;
 }
 .preview-player[data-theme="porcelain-cobalt"] div[class*="clip-media-x-[--media-slider-buffer]"] {
   background: rgba(30, 64, 175, 0.25) !important;
@@ -10104,8 +8556,8 @@ div[role="menu"]:not([data-child-open]) {
 }
 .preview-player[data-theme="porcelain-cobalt"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
   background-image:
-    repeating-radial-gradient(circle at 50% 120%, rgba(30, 64, 175, 0.05) 0 2px, transparent 2px 18px),
-    linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.45) 38%, #090e17 100%);
+    radial-gradient(circle at 50% 120%, rgba(30, 64, 175, 0.12) 0%, transparent 60%),
+    linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.45) 35%, rgba(10, 18, 38, 0.88) 100%);
   box-shadow: inset 0 -1px 0 rgba(30, 64, 175, 0.3);
 }
 .preview-player[data-theme="porcelain-cobalt"] [role="menu"],
@@ -10956,40 +9408,63 @@ div[role="menu"]:not([data-child-open]) {
 }
 
 /* ==========================================================================
-   14. WATER DROPLET (water-droplet) - PURE PEBBLE DEWDROP CONSISTENCY
-   Crystal-clear water dewdrop glass, luminous aqua meniscus, water stream seekbar
+   14. WATER DROPLET (water-droplet) - 100% PHOTOREALISTIC LIQUID WATER OPTICS
+   Convex magnifying lens refraction, dual specular sun glints, caustic ground bounce,
+   surface tension meniscus rim, and elastic liquid response.
    ========================================================================== */
 .preview-player[data-theme="water-droplet"] .group\/liquid-btn,
 .preview-player[data-theme="water-droplet"] .group\/center-buffering button,
 .preview-player[data-theme="water-droplet"] [data-slot="control"],
 .preview-player[data-theme="water-droplet"] .media-fullscreen-button {
   border-radius: 9999px !important;
-  background: radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.5) 0%, rgba(186, 230, 253, 0.15) 40%, rgba(14, 165, 233, 0.25) 100%) !important;
-  backdrop-filter: blur(14px) saturate(180%) !important;
+  background:
+    radial-gradient(ellipse 65% 35% at 34% 18%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.55) 30%, rgba(255, 255, 255, 0) 65%),
+    radial-gradient(ellipse 60% 40% at 65% 82%, rgba(255, 255, 255, 0.6) 0%, rgba(186, 230, 253, 0.28) 45%, transparent 75%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02) 0%, rgba(14, 165, 233, 0.06) 70%, rgba(2, 132, 199, 0.14) 100%) !important;
+  backdrop-filter: blur(2px) contrast(118%) brightness(112%) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(2px) contrast(118%) brightness(112%) saturate(140%) !important;
   border: 1px solid rgba(255, 255, 255, 0.65) !important;
-  box-shadow: inset 0 1.5px 2px rgba(255, 255, 255, 0.8), inset 0 -1.5px 2px rgba(2, 132, 199, 0.35), 0 4px 14px rgba(14, 165, 233, 0.25), 0 1px 3px rgba(0, 0, 0, 0.35) !important;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow:
+    inset 0 2.5px 3px rgba(255, 255, 255, 0.85),
+    inset 0 -2.5px 4px rgba(0, 0, 0, 0.35),
+    inset 1px 0 2px rgba(255, 255, 255, 0.4),
+    0 3px 8px rgba(0, 0, 0, 0.45),
+    0 1px 2px rgba(0, 0, 0, 0.6),
+    0 0 16px rgba(56, 189, 248, 0.25) !important;
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.22s ease-out !important;
 }
 .preview-player[data-theme="water-droplet"] .group\/liquid-btn:hover,
 .preview-player[data-theme="water-droplet"] .group\/center-buffering button:hover,
 .preview-player[data-theme="water-droplet"] [data-slot="control"]:hover,
 .preview-player[data-theme="water-droplet"] .media-fullscreen-button:hover {
-  transform: translateY(-1.5px) !important;
+  transform: scale(1.08) translateY(-1.5px) !important;
   border-color: #ffffff !important;
-  box-shadow: inset 0 2px 4px #ffffff, 0 6px 20px rgba(56, 189, 248, 0.5) !important;
+  box-shadow:
+    inset 0 3px 4px #ffffff,
+    inset 0 -3px 5px rgba(0, 0, 0, 0.4),
+    0 6px 18px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(56, 189, 248, 0.45) !important;
 }
 .preview-player[data-theme="water-droplet"] .group\/play,
 .preview-player[data-theme="water-droplet"] .group\/center-buffering button:nth-child(2) {
-  background: radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.95) 0%, rgba(56, 189, 248, 0.85) 35%, rgba(2, 132, 199, 0.95) 100%) !important;
-  border: 1.5px solid rgba(255, 255, 255, 0.9) !important;
-  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.9), inset 0 -3px 6px rgba(3, 105, 161, 0.6), 0 6px 22px rgba(14, 165, 233, 0.6) !important;
+  background:
+    radial-gradient(ellipse 65% 35% at 34% 18%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.75) 35%, rgba(255, 255, 255, 0) 65%),
+    radial-gradient(ellipse 65% 45% at 65% 82%, rgba(255, 255, 255, 0.75) 0%, rgba(186, 230, 253, 0.45) 45%, transparent 75%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, rgba(14, 165, 233, 0.1) 70%, rgba(2, 132, 199, 0.22) 100%) !important;
+  border: 1.25px solid rgba(255, 255, 255, 0.85) !important;
+  box-shadow:
+    inset 0 3px 4px rgba(255, 255, 255, 0.95),
+    inset 0 -3px 5px rgba(0, 0, 0, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.5),
+    0 0 22px rgba(56, 189, 248, 0.35) !important;
   color: #ffffff !important;
 }
+.preview-player[data-theme="water-droplet"] svg,
 .preview-player[data-theme="water-droplet"] .player-icon-scale svg,
 .preview-player[data-theme="water-droplet"] .group\/mute svg,
 .preview-player[data-theme="water-droplet"] .group\/liquid-btn svg,
 .preview-player[data-theme="water-droplet"] [data-slot="control"] svg {
-  color: #bae6fd !important;
+  color: #ffffff !important;
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
 }
 .preview-player[data-theme="water-droplet"] .group\/play svg {
@@ -10997,79 +9472,92 @@ div[role="menu"]:not([data-child-open]) {
 }
 .preview-player[data-theme="water-droplet"] .group\/vol-pill {
   border-radius: 9999px !important;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(14, 165, 233, 0.16) 50%, rgba(3, 105, 161, 0.35) 100%) !important;
+  background:
+    radial-gradient(ellipse 65% 35% at 34% 18%, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.5) 30%, rgba(255, 255, 255, 0) 65%),
+    radial-gradient(ellipse 60% 40% at 65% 82%, rgba(255, 255, 255, 0.55) 0%, rgba(186, 230, 253, 0.25) 45%, transparent 75%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02) 0%, rgba(14, 165, 233, 0.06) 70%, rgba(2, 132, 199, 0.14) 100%) !important;
+  backdrop-filter: blur(2px) contrast(118%) brightness(112%) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(2px) contrast(118%) brightness(112%) saturate(140%) !important;
   border: 1px solid rgba(255, 255, 255, 0.65) !important;
-  box-shadow: inset 0 1.5px 2px rgba(255, 255, 255, 0.75), inset 0 -2px 4px rgba(2, 132, 199, 0.35), 0 4px 14px rgba(14, 165, 233, 0.25) !important;
-  backdrop-filter: blur(14px) saturate(180%) !important;
+  box-shadow:
+    inset 0 2.5px 3px rgba(255, 255, 255, 0.85),
+    inset 0 -2.5px 4px rgba(0, 0, 0, 0.35),
+    0 3px 8px rgba(0, 0, 0, 0.45),
+    0 0 16px rgba(56, 189, 248, 0.25) !important;
 }
 .preview-player[data-theme="water-droplet"] .group\/vol-pill div[class*="bg-white/20"] {
   height: 4px !important;
   border-radius: 9999px !important;
-  background: rgba(8, 47, 73, 0.7) !important;
-  border: 0.5px solid rgba(56, 189, 248, 0.35) !important;
+  background: rgba(0, 0, 0, 0.3) !important;
+  border: 0.5px solid rgba(255, 255, 255, 0.25) !important;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.6) !important;
 }
 .preview-player[data-theme="water-droplet"] .group\/vol-pill div[class*="bg-white/90"] {
   height: 4px !important;
   border-radius: 9999px !important;
-  background: linear-gradient(90deg, #38bdf8 0%, #0284c7 70%, #0369a1 100%) !important;
+  background: linear-gradient(90deg, #38bdf8 0%, #0284c7 70%, #ffffff 100%) !important;
   box-shadow: 0 0 8px rgba(56, 189, 248, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.85) !important;
 }
 .preview-player[data-theme="water-droplet"] .volume-slider-thumb {
-  width: 9px !important;
-  height: 9px !important;
+  width: 10px !important;
+  height: 10px !important;
   border-radius: 50% !important;
-  background: radial-gradient(circle at 35% 30%, #ffffff 0%, #7dd3fc 45%, #0284c7 100%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.85) !important;
-  box-shadow: 0 2px 6px rgba(14, 165, 233, 0.7), inset 0 1px 1px #ffffff !important;
+  background: radial-gradient(circle at 35% 25%, #ffffff 0%, #bae6fd 45%, #0284c7 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45), inset 0 1px 1px #ffffff !important;
 }
 .preview-player[data-theme="water-droplet"] div[class*="media-slider-smooth"][class*="isolate"] {
   height: 4px !important;
   border-radius: 9999px !important;
-  background: rgba(14, 165, 233, 0.18) !important;
-  border: 0.5px solid rgba(56, 189, 248, 0.35) !important;
+  background: rgba(0, 0, 0, 0.28) !important;
+  border: 0.5px solid rgba(255, 255, 255, 0.35) !important;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5) !important;
 }
 .preview-player[data-theme="water-droplet"] div[class*="clip-media-x-[--media-slider-buffer]"] {
-  background: rgba(56, 189, 248, 0.3) !important;
+  background: rgba(186, 230, 253, 0.25) !important;
   border-radius: 9999px !important;
 }
 .preview-player[data-theme="water-droplet"] div[class*="clip-media-x-[--media-slider-fill]"] {
-  background: linear-gradient(90deg, #38bdf8 0%, #06b6d4 45%, #0284c7 90%, #e0f2fe 100%) !important;
-  box-shadow: 0 0 12px rgba(56, 189, 248, 0.7), inset 0 1px 1px rgba(255, 255, 255, 0.9) !important;
+  background: linear-gradient(90deg, #38bdf8 0%, #0284c7 50%, #38bdf8 85%, #ffffff 100%) !important;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.9) !important;
   border-radius: 9999px !important;
 }
 .preview-player[data-theme="water-droplet"] .group\/slider .media-thumb-smooth {
-  width: 14px !important;
-  height: 14px !important;
+  width: 15px !important;
+  height: 15px !important;
   border-radius: 50% !important;
-  background: radial-gradient(circle at 35% 28%, #ffffff 0%, #bae6fd 30%, #38bdf8 65%, #0284c7 100%) !important;
+  background:
+    radial-gradient(ellipse 65% 35% at 35% 20%, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.6) 35%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 65% 82%, rgba(255, 255, 255, 0.7) 0%, rgba(186, 230, 253, 0.4) 45%, transparent 75%),
+    radial-gradient(circle at 50% 50%, #ffffff 0%, #7dd3fc 45%, #0284c7 100%) !important;
   border: 1.5px solid rgba(255, 255, 255, 0.95) !important;
-  box-shadow: 0 3px 12px rgba(14, 165, 233, 0.85), inset 0 1.5px 2px #ffffff !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5), 0 0 14px rgba(56, 189, 248, 0.6), inset 0 1.5px 2px #ffffff !important;
   opacity: 1 !important;
   display: block !important;
 }
 .preview-player[data-theme="water-droplet"] time-value,
 .preview-player[data-theme="water-droplet"] div[class*="tabular-nums"] {
-  color: #bae6fd !important;
+  color: #e0f2fe !important;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85) !important;
 }
 .preview-player[data-theme="water-droplet"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
   background-image:
-    radial-gradient(ellipse 50px 20px at 30% 65%, rgba(56, 189, 248, 0.09) 0%, transparent 60%),
-    radial-gradient(ellipse 80px 30px at 70% 80%, rgba(14, 165, 233, 0.08) 0%, transparent 60%),
-    linear-gradient(180deg, rgba(3, 14, 24, 0) 0%, rgba(3, 14, 24, 0.38) 35%, rgba(2, 10, 18, 0.88) 75%, #01060b 100%);
-  background-size: 140px 60px, 180px 80px, 100% 100%;
+    radial-gradient(ellipse 70px 28px at 25% 75%, rgba(56, 189, 248, 0.08) 0%, transparent 65%),
+    radial-gradient(ellipse 90px 35px at 75% 80%, rgba(14, 165, 233, 0.07) 0%, transparent 65%),
+    linear-gradient(180deg, transparent 0%, rgba(3, 14, 24, 0.35) 35%, rgba(1, 8, 16, 0.88) 100%);
+  background-size: 160px 70px, 200px 90px, 100% 100%;
   box-shadow: inset 0 -1px 0 rgba(56, 189, 248, 0.35);
 }
 .preview-player[data-theme="water-droplet"] [role="menu"],
 :root[data-theme="water-droplet"] [role="menu"] {
-  background: radial-gradient(circle at 30% 0%, rgba(56, 189, 248, 0.22) 0%, rgba(3, 14, 24, 0.95) 75%) !important;
-  border: 1.5px solid rgba(56, 189, 248, 0.35) !important;
+  background:
+    radial-gradient(circle at 35% 0%, rgba(56, 189, 248, 0.18) 0%, transparent 70%),
+    linear-gradient(180deg, rgba(3, 14, 24, 0.94) 0%, rgba(1, 8, 16, 0.98) 100%) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.45) !important;
   border-radius: 18px !important;
-  box-shadow: 0 16px 44px rgba(2, 6, 12, 0.88), inset 0 1.5px 1.5px rgba(255, 255, 255, 0.45), 0 0 20px rgba(56, 189, 248, 0.22) !important;
-  backdrop-filter: blur(28px) saturate(200%) !important;
-  -webkit-backdrop-filter: blur(28px) saturate(200%) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.88), inset 0 1.5px 2px rgba(255, 255, 255, 0.5), 0 0 24px rgba(56, 189, 248, 0.25) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
 }
 .preview-player[data-theme="water-droplet"] .group\/menu-btn:hover,
 .preview-player[data-theme="water-droplet"] .group\/menu-radio:hover,
@@ -11079,4 +9567,3 @@ div[role="menu"]:not([data-child-open]) {
   border-radius: 10px !important;
   color: #bae6fd !important;
 }
-
