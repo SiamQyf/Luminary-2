@@ -387,6 +387,7 @@ export function VolumePill({ className }: { className?: ClassValue }) {
           'backdrop-blur-[12px] backdrop-saturate-[150%] backdrop-brightness-[108%]',
           // Smooth transition
           'transition-[width,padding] duration-300 ease-out',
+          'before:rounded-[inherit] after:rounded-[inherit]',
           className
         )}
         data-name="Volume Pill"
@@ -400,11 +401,11 @@ export function VolumePill({ className }: { className?: ClassValue }) {
               armActiveTimer();
             }
           }}
-          className="relative z-10 size-[31.4px] shrink-0 grid place-items-center p-0 m-0 border-none bg-transparent cursor-pointer text-white group/mute outline-none"
+          className="relative z-10 size-[31.4px] shrink-0 grid place-items-center p-0 m-0 border-none! bg-transparent! shadow-none! cursor-pointer text-white group/mute outline-none rounded-[inherit] overflow-hidden"
         >
           <span
             className={cn(
-              'player-icon-scale relative z-10 size-full grid grid-cols-1 grid-rows-1 place-items-center text-white pointer-events-none transition-transform duration-500 ease-out',
+              'player-icon-scale relative z-10 size-full grid grid-cols-1 grid-rows-1 place-items-center text-white pointer-events-none transition-transform duration-500 ease-out rounded-[inherit]',
               isFullscreen ? 'scale-[0.92]!' : 'scale-[0.86]!'
             )}
           >

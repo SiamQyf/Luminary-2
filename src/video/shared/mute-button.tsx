@@ -46,7 +46,7 @@ export function MuteButton({ className, ...props }: MuteButtonPrimitive.Props = 
   return (
     <MuteButtonPrimitive
       render={<Button />}
-      className={(state) => cn('group/mute', resolveClassName(className, state))}
+      className={(state) => cn('group/mute rounded-[inherit]', resolveClassName(className, state))}
       {...props}
     >
       <SpeakerMutedIcon

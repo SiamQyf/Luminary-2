@@ -2912,6 +2912,73 @@ div[role="menu"]:not([data-child-open]) {
 }
 
 /* ==========================================================================
+   Universal Multi-Layer Border-Radius Synchronization Across All Controls:
+   Guarantees that every layer (front, back, 2nd, 3rd, 4th, pseudo-elements
+   ::before/::after, child containers, icon scale wrappers, and inner buttons)
+   strictly inherits the identical, concentric border-radius applied to the parent.
+   ========================================================================== */
+.preview-player .group\/liquid-btn::before,
+.preview-player .group\/liquid-btn::after,
+.preview-player .group\/liquid-btn > *,
+.preview-player .group\/liquid-btn .player-icon-scale,
+.preview-player[data-theme] .group\/liquid-btn::before,
+.preview-player[data-theme] .group\/liquid-btn::after,
+.preview-player[data-theme] .group\/liquid-btn > *,
+.preview-player[data-theme] .group\/liquid-btn .player-icon-scale,
+.preview-player .group\/vol-pill::before,
+.preview-player .group\/vol-pill::after,
+.preview-player .group\/vol-pill > *,
+.preview-player .group\/vol-pill button,
+.preview-player .group\/vol-pill .group\/mute,
+.preview-player .group\/vol-pill .player-icon-scale,
+.preview-player[data-theme] .group\/vol-pill::before,
+.preview-player[data-theme] .group\/vol-pill::after,
+.preview-player[data-theme] .group\/vol-pill > *,
+.preview-player[data-theme] .group\/vol-pill button,
+.preview-player[data-theme] .group\/vol-pill .group\/mute,
+.preview-player[data-theme] .group\/vol-pill .player-icon-scale,
+.preview-player [data-slot="control"]::before,
+.preview-player [data-slot="control"]::after,
+.preview-player [data-slot="control"] > *,
+.preview-player [data-slot="control"] .player-icon-scale,
+.preview-player[data-theme] [data-slot="control"]::before,
+.preview-player[data-theme] [data-slot="control"]::after,
+.preview-player[data-theme] [data-slot="control"] > *,
+.preview-player[data-theme] [data-slot="control"] .player-icon-scale,
+.preview-player .media-fullscreen-button::before,
+.preview-player .media-fullscreen-button::after,
+.preview-player .media-fullscreen-button > *,
+.preview-player .media-fullscreen-button .player-icon-scale,
+.preview-player[data-theme] .media-fullscreen-button::before,
+.preview-player[data-theme] .media-fullscreen-button::after,
+.preview-player[data-theme] .media-fullscreen-button > *,
+.preview-player[data-theme] .media-fullscreen-button .player-icon-scale,
+.preview-player .group\/center-buffering button::before,
+.preview-player .group\/center-buffering button::after,
+.preview-player .group\/center-buffering button > *,
+.preview-player .group\/center-buffering button .player-icon-scale,
+.preview-player[data-theme] .group\/center-buffering button::before,
+.preview-player[data-theme] .group\/center-buffering button::after,
+.preview-player[data-theme] .group\/center-buffering button > *,
+.preview-player[data-theme] .group\/center-buffering button .player-icon-scale {
+  border-radius: inherit !important;
+}
+
+/* Strict isolation: Inner mute button primitive inside volume pill container must never render a second border, background, or box-shadow */
+.preview-player .group\/vol-pill button,
+.preview-player .group\/vol-pill .group\/mute,
+.preview-player[data-theme] .group\/vol-pill button,
+.preview-player[data-theme] .group\/vol-pill .group\/mute {
+  border: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border-radius: inherit !important;
+}
+
+/* ==========================================================================
    Volume Slider Thumb (Category-Matched Shape & Texture per Theme)
    ========================================================================== */
 .volume-slider-thumb {
