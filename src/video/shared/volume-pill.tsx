@@ -374,8 +374,8 @@ export function VolumePill({ className }: { className?: ClassValue }) {
         className={cn(
           'relative group/vol-pill flex h-[31.4px] shrink-0 items-center justify-center rounded-full overflow-hidden select-none isolate border-none outline-none',
           'w-[31.4px]',
-          !isMobilePortrait && 'hover:w-[112px] hover:pr-3 hover:justify-start focus-within:w-[112px] focus-within:pr-3 focus-within:justify-start has-[[data-dragging]]:w-[112px] has-[[data-dragging]]:pr-3 has-[[data-dragging]]:justify-start',
-          !isMobilePortrait && isActive && 'w-[112px]! pr-3! justify-start!',
+          !isMobilePortrait && 'hover:w-[111.5px] hover:pr-3 hover:justify-start focus-within:w-[111.5px] focus-within:pr-3 focus-within:justify-start has-[[data-dragging]]:w-[111.5px] has-[[data-dragging]]:pr-3 has-[[data-dragging]]:justify-start',
+          !isMobilePortrait && isActive && 'w-[111.5px]! pr-3! justify-start!',
           // Static high-translucency dark liquid glass base
           'bg-black/20',
           // Luminous transparent liquid glass (lets video colors shine through with refraction)
@@ -433,7 +433,7 @@ export function VolumePill({ className }: { className?: ClassValue }) {
               isActive && 'w-full! max-w-full! opacity-100! pointer-events-auto! scale-x-100! flex-1! overflow-visible!'
             )}
           >
-            <VolumeSlider.Track className="relative h-[2px] w-full rounded-full bg-white/20 overflow-hidden">
+            <VolumeSlider.Track className="relative h-[2px] w-[calc(100%-0.5px)] rounded-full bg-white/20 overflow-hidden">
               <VolumeSlider.Fill className="absolute inset-y-0 left-0 rounded-full bg-white/90 w-[var(--media-slider-fill,100%)] shadow-sm" />
             </VolumeSlider.Track>
             <VolumeSlider.Thumb

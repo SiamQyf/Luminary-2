@@ -985,7 +985,7 @@ live-audio-player {
 
 /* Translucent Glass: Volume Slider & Progressbar (Liquid Glass Capsule & Pearl) */
 .preview-player[data-theme="translucent"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 3px !important;
+  height: 2.5px !important;
   border-radius: 9999px !important;
   background: rgba(255, 255, 255, 0.16) !important;
   border: 1px solid rgba(255, 255, 255, 0.24) !important;
@@ -1091,7 +1091,7 @@ live-audio-player {
 }
 
 .preview-player[data-theme="timber"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 3px !important;
   background: #1a0e06 !important;
   border: 1px solid rgba(245, 158, 11, 0.38) !important;
@@ -1270,7 +1270,7 @@ live-audio-player {
 }
 
 .preview-player[data-theme="pencil-sketch"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 2px !important;
   background:
     repeating-linear-gradient(90deg, rgba(228, 228, 231, 0.35) 0 1px, transparent 1px 7px),
@@ -1488,7 +1488,7 @@ div[role="menu"]:not([data-child-open]) {
 }
 
 .preview-player[data-theme="cyber-neon"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 3.5px !important;
+  height: 3px !important;
   border-radius: 2px !important;
   background: #070a14 !important;
   border: 1px solid rgba(0, 240, 255, 0.48) !important;
@@ -1651,7 +1651,7 @@ div[role="menu"]:not([data-child-open]) {
 }
 
 .preview-player[data-theme="obsidian-gold"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 3.5px !important;
+  height: 3px !important;
   border-radius: 2px !important;
   background: #141418 !important;
   border: 1px solid rgba(245, 197, 24, 0.42) !important;
@@ -1814,7 +1814,7 @@ div[role="menu"]:not([data-child-open]) {
 }
 
 .preview-player[data-theme="retro-terminal"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 0 !important;
   background: #030a04 !important;
   border: 1px solid rgba(34, 197, 94, 0.55) !important;
@@ -2009,7 +2009,7 @@ div[role="menu"]:not([data-child-open]) {
 
 .preview-player[data-theme="plain"] .group\/vol-pill div[class*="bg-white/20"],
 .preview-player[data-theme="ceramic"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 3px !important;
+  height: 2.5px !important;
   border-radius: 9999px !important;
   background: #e4e4e7 !important;
   border: none !important;
@@ -2240,7 +2240,7 @@ div[role="menu"]:not([data-child-open]) {
 }
 
 .preview-player[data-theme="molten-magma"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 3.5px !important;
+  height: 3px !important;
   border-radius: 3px !important;
   background: #140806 !important;
   border: 1px solid rgba(239, 68, 68, 0.45) !important;
@@ -3355,7 +3355,7 @@ div[role="menu"]:not([data-child-open]) {
   color: #ffffff !important;
 }
 .preview-player[data-theme="gta-vi"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 3.5px !important;
+  height: 3px !important;
   border-radius: 9999px !important;
   background: rgba(18, 10, 28, 0.88) !important;
   border: 1px solid rgba(255, 19, 137, 0.5) !important;
@@ -3427,7 +3427,7 @@ div[role="menu"]:not([data-child-open]) {
   color: #ffffff !important;
 }
 .preview-player[data-theme="synthwave-80s"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 3.5px !important;
+  height: 3px !important;
   border-radius: 3px !important;
   background:
     repeating-linear-gradient(90deg, transparent 0 7px, rgba(199, 125, 255, 0.25) 7px 8px),
@@ -3505,7 +3505,7 @@ div[role="menu"]:not([data-child-open]) {
   color: #fcee0a !important;
 }
 .preview-player[data-theme="cyberpunk-2077"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 1px !important;
   background:
     repeating-linear-gradient(-45deg, rgba(252, 238, 10, 0.08) 0 4px, transparent 4px 8px),
@@ -3584,7 +3584,7 @@ div[role="menu"]:not([data-child-open]) {
   color: #ffffff !important;
 }
 .preview-player[data-theme="sakura-blossom"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 3.5px !important;
+  height: 3px !important;
   border-radius: 9999px !important;
   background: rgba(43, 18, 34, 0.85) !important;
   border: 1px solid rgba(251, 207, 232, 0.38) !important;
@@ -3655,7 +3655,7 @@ div[role="menu"]:not([data-child-open]) {
   color: #ffffff !important;
 }
 .preview-player[data-theme="cosmic-nebula"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 3.5px !important;
+  height: 3px !important;
   border-radius: 9999px !important;
   background:
     radial-gradient(circle at 22% 50%, rgba(255, 255, 255, 0.45) 0.5px, transparent 1px),
@@ -3815,7 +3815,7 @@ div[role="menu"]:not([data-child-open]) {
     0 0 10px rgba(0, 229, 163, 0.32) !important;
 }
 .preview-player[data-theme="gamepad"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 9999px !important;
   background: #080a0f !important;
   border: 1px solid rgba(255, 255, 255, 0.16) !important;
@@ -3987,7 +3987,7 @@ div[role="menu"]:not([data-child-open]) {
   filter: brightness(1.05) !important;
 }
 .preview-player[data-theme="gamepad-white"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4.5px !important;
+  height: 4px !important;
   border-radius: 9999px !important;
   background: #0d091f !important;
   border: 1.5px solid #090714 !important;
@@ -4166,7 +4166,7 @@ div[role="menu"]:not([data-child-open]) {
   color: #141210 !important;
 }
 .preview-player[data-theme="news-magazine"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 1.5px !important;
   background:
     repeating-linear-gradient(90deg, rgba(20, 18, 16, 0.22) 0 1px, transparent 1px 8px),
@@ -4347,7 +4347,7 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 3px 10px rgba(0, 0, 0, 0.72) !important;
 }
 .preview-player[data-theme="vinyl-turntable"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 3.5px !important;
+  height: 3px !important;
   border-radius: 2px !important;
   background: #09090b !important;
   border: 1px solid rgba(212, 165, 116, 0.45) !important;
@@ -4463,7 +4463,7 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: 0 2px 6px rgba(4, 15, 38, 0.65) !important;
 }
 .preview-player[data-theme="blueprint"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 3.5px !important;
+  height: 3px !important;
   border-radius: 1px !important;
   background:
     repeating-linear-gradient(90deg, rgba(224, 242, 254, 0.35) 0 1px, transparent 1px 8px),
@@ -4595,7 +4595,7 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 4px 12px rgba(2, 132, 199, 0.45) !important;
 }
 .preview-player[data-theme="frutiger-aero"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4.5px !important;
+  height: 4px !important;
   border-radius: 9999px !important;
   background: rgba(7, 46, 78, 0.72) !important;
   border: 1px solid rgba(255, 255, 255, 0.65) !important;
@@ -4711,7 +4711,7 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: inset 0 0 0 1px rgba(229, 193, 123, 0.25), 0 3px 10px rgba(0, 0, 0, 0.72) !important;
 }
 .preview-player[data-theme="art-deco"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 3.5px !important;
+  height: 3px !important;
   border-radius: 1px !important;
   background: #041513 !important;
   border: 1px solid rgba(229, 193, 123, 0.55) !important;
@@ -4857,7 +4857,7 @@ div[role="menu"]:not([data-child-open]) {
     0 4px 10px rgba(49, 46, 129, 0.28) !important;
 }
 .preview-player[data-theme="clay-pastel"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 5px !important;
+  height: 4.5px !important;
   border-radius: 9999px !important;
   background: rgba(76, 29, 149, 0.16) !important;
   border: none !important;
@@ -4987,7 +4987,7 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 2px 6px rgba(0, 0, 0, 0.72) !important;
 }
 .preview-player[data-theme="tactical-hud"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 3.5px !important;
+  height: 3px !important;
   border-radius: 1px !important;
   background:
     repeating-linear-gradient(90deg, rgba(245, 158, 11, 0.28) 0 1px, transparent 1px 9px),
@@ -5108,7 +5108,7 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: inset 0 1px 0 rgba(242, 239, 228, 0.16), 0 3px 10px rgba(8, 14, 10, 0.65) !important;
 }
 .preview-player[data-theme="matcha-zen"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 3.5px !important;
+  height: 3px !important;
   border-radius: 9999px !important;
   background: #141a15 !important;
   border: 1px solid rgba(163, 201, 135, 0.38) !important;
@@ -5228,7 +5228,7 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: 2px 2px 0 #18181b !important;
 }
 .preview-player[data-theme="bauhaus"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 0 !important;
   background: #27272a !important;
   border: 1px solid #fafaf9 !important;
@@ -5361,7 +5361,7 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: none !important;
 }
 .preview-player[data-theme="swiss-intl"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 3.5px !important;
+  height: 3px !important;
   border-radius: 1.5px !important;
   background:
     repeating-linear-gradient(90deg, rgba(28, 25, 23, 0.28) 0 1px, transparent 1px 7px),
@@ -5490,7 +5490,7 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: 0 3px 10px rgba(6, 14, 28, 0.75) !important;
 }
 .preview-player[data-theme="ukiyo-e"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 2px !important;
   background: #0b1626 !important;
   border: 1px solid rgba(232, 220, 196, 0.55) !important;
@@ -5602,7 +5602,7 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: inset 0 1px 4px rgba(103, 232, 249, 0.32), 0 0 10px rgba(20, 184, 166, 0.3) !important;
 }
 .preview-player[data-theme="bioluminescent"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 9999px !important;
   background: rgba(2, 14, 24, 0.85) !important;
   border: 1px solid rgba(45, 212, 191, 0.42) !important;
@@ -5711,7 +5711,7 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: inset 0 1px 1px rgba(253, 230, 138, 0.4), 0 0 0 1px #1c1008, 0 3px 10px rgba(0, 0, 0, 0.8) !important;
 }
 .preview-player[data-theme="steampunk"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4.5px !important;
+  height: 4px !important;
   border-radius: 3px !important;
   background:
     repeating-linear-gradient(90deg, rgba(212, 160, 58, 0.32) 0 1px, transparent 1px 8px),
@@ -5836,7 +5836,7 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: 0 2.5px 0 #1e1b4b !important;
 }
 .preview-player[data-theme="candy-pop"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 5px !important;
+  height: 4.5px !important;
   border-radius: 9999px !important;
   background: #1e1b4b !important;
   border: 1.5px solid #1e1b4b !important;
@@ -5948,7 +5948,7 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 3px 8px rgba(0, 0, 0, 0.78) !important;
 }
 .preview-player[data-theme="polaroid-film"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 1.5px !important;
   background:
     repeating-linear-gradient(90deg, rgba(244, 244, 245, 0.25) 0 3px, transparent 3px 6px),
@@ -6062,7 +6062,7 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: inset 0 1px 0 rgba(224, 242, 254, 0.3), 0 3px 10px rgba(4, 16, 28, 0.6) !important;
 }
 .preview-player[data-theme="nordic-frost"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 3.5px !important;
+  height: 3px !important;
   border-radius: 2px !important;
   background: rgba(8, 18, 25, 0.88) !important;
   border: 1px solid rgba(186, 230, 253, 0.36) !important;
@@ -6169,7 +6169,7 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: inset 0 1px 0 rgba(253, 230, 138, 0.22), 0 3px 10px rgba(0, 0, 0, 0.85) !important;
 }
 .preview-player[data-theme="crimson-cinema"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 3.5px !important;
+  height: 3px !important;
   border-radius: 9999px !important;
   background: #140307 !important;
   border: 1px solid rgba(251, 113, 133, 0.4) !important;
@@ -6284,7 +6284,7 @@ div[role="menu"]:not([data-child-open]) {
     2px 2px 0 #09071a !important;
 }
 .preview-player[data-theme="pixel-8bit"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 5px !important;
+  height: 4.5px !important;
   border-radius: 0 !important;
   background: #0f0e28 !important;
   border: 1.5px solid #09071a !important;
@@ -6406,7 +6406,7 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.55) !important;
 }
 .preview-player[data-theme="linear-ticks"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 11px !important;
+  height: 10.5px !important;
   border-radius: 0 !important;
   background-color: transparent !important;
   background-image: repeating-linear-gradient(90deg, rgba(237, 229, 206, 0.25) 0 1.5px, transparent 1.5px 5px) !important;
@@ -6799,7 +6799,7 @@ div[role="menu"]:not([data-child-open]) {
 
 /* Volume Slider Inactive Track - Dim LED Phosphor Dots */
 .preview-player[data-theme="dot-matrix"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 6px !important;
+  height: 5.5px !important;
   border-radius: 3px !important;
   background: transparent !important;
   background-image: radial-gradient(circle 1.2px, rgba(0, 240, 255, 0.22) 1.2px, transparent 1.3px) !important;
@@ -6809,7 +6809,7 @@ div[role="menu"]:not([data-child-open]) {
 
 /* Volume Slider Active Fill - Glowing Cyan to Hot Pink Equalizer Gradient */
 .preview-player[data-theme="dot-matrix"] .group\/vol-pill div[class*="bg-white/90"] {
-  height: 6px !important;
+  height: 5.5px !important;
   border-radius: 3px !important;
   background: linear-gradient(90deg, #00f0ff 0%, #38bdf8 65%, #ff2a85 100%) !important;
   box-shadow: 0 0 8px rgba(0, 240, 255, 0.7) !important;
@@ -7914,13 +7914,13 @@ div[role="menu"]:not([data-child-open]) {
   backdrop-filter: blur(16px) !important;
 }
 .preview-player[data-theme="liquid-mercury"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 9999px !important;
   background: rgba(15, 23, 42, 0.75) !important;
   border: 0.5px solid rgba(148, 163, 184, 0.4) !important;
 }
 .preview-player[data-theme="liquid-mercury"] .group\/vol-pill div[class*="bg-white/90"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 9999px !important;
   background: linear-gradient(90deg, #94a3b8 0%, #f8fafc 50%, #e2e8f0 100%) !important;
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.8), inset 0 1px 1px #ffffff !important;
@@ -8033,13 +8033,13 @@ div[role="menu"]:not([data-child-open]) {
   backdrop-filter: blur(16px) !important;
 }
 .preview-player[data-theme="aurora-borealis"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 9999px !important;
   background: rgba(3, 14, 18, 0.75) !important;
   border: 0.5px solid rgba(52, 211, 153, 0.3) !important;
 }
 .preview-player[data-theme="aurora-borealis"] .group\/vol-pill div[class*="bg-white/90"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 9999px !important;
   background: linear-gradient(90deg, #34d399 0%, #a7f3d0 60%, #c084fc 100%) !important;
   box-shadow: 0 0 8px rgba(52, 211, 153, 0.75) !important;
@@ -8152,13 +8152,13 @@ div[role="menu"]:not([data-child-open]) {
   backdrop-filter: blur(16px) !important;
 }
 .preview-player[data-theme="solar-flare"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 9999px !important;
   background: rgba(15, 5, 2, 0.75) !important;
   border: 0.5px solid rgba(249, 115, 22, 0.35) !important;
 }
 .preview-player[data-theme="solar-flare"] .group\/vol-pill div[class*="bg-white/90"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 9999px !important;
   background: linear-gradient(90deg, #ea580c 0%, #f59e0b 60%, #fef08a 100%) !important;
   box-shadow: 0 0 8px rgba(249, 115, 22, 0.8) !important;
@@ -8271,13 +8271,13 @@ div[role="menu"]:not([data-child-open]) {
   backdrop-filter: blur(16px) !important;
 }
 .preview-player[data-theme="amethyst-geode"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 9999px !important;
   background: rgba(12, 3, 20, 0.75) !important;
   border: 0.5px solid rgba(168, 85, 247, 0.35) !important;
 }
 .preview-player[data-theme="amethyst-geode"] .group\/vol-pill div[class*="bg-white/90"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 9999px !important;
   background: linear-gradient(90deg, #a855f7 0%, #c084fc 60%, #f3e8ff 100%) !important;
   box-shadow: 0 0 8px rgba(168, 85, 247, 0.75) !important;
@@ -8390,13 +8390,13 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: inset 0 1px 0 rgba(250, 204, 21, 0.25), 0 3px 8px rgba(0, 0, 0, 0.8) !important;
 }
 .preview-player[data-theme="cyber-deck"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 2px !important;
   background: #09090b !important;
   border: 0.5px solid rgba(250, 204, 21, 0.3) !important;
 }
 .preview-player[data-theme="cyber-deck"] .group\/vol-pill div[class*="bg-white/90"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 2px !important;
   background: repeating-linear-gradient(90deg, #eab308 0 4px, #09090b 4px 6px) !important;
   box-shadow: 0 0 8px rgba(250, 204, 21, 0.7) !important;
@@ -8508,12 +8508,12 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: inset 0 1.5px 2px #ffffff, inset 0 -1.5px 2px rgba(30, 64, 175, 0.15), 0 4px 12px rgba(15, 23, 42, 0.18) !important;
 }
 .preview-player[data-theme="porcelain-cobalt"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 9999px !important;
   background: rgba(30, 64, 175, 0.15) !important;
 }
 .preview-player[data-theme="porcelain-cobalt"] .group\/vol-pill div[class*="bg-white/90"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 9999px !important;
   background: linear-gradient(90deg, #1d4ed8 0%, #2563eb 100%) !important;
   box-shadow: 0 0 6px rgba(37, 99, 235, 0.4) !important;
@@ -8623,13 +8623,13 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: inset 0 1px 1px rgba(253, 224, 71, 0.4), 0 4px 12px rgba(0, 0, 0, 0.7) !important;
 }
 .preview-player[data-theme="emerald-vault"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 2px !important;
   background: rgba(3, 14, 10, 0.8) !important;
   border: 0.5px solid rgba(212, 175, 55, 0.35) !important;
 }
 .preview-player[data-theme="emerald-vault"] .group\/vol-pill div[class*="bg-white/90"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 2px !important;
   background: linear-gradient(90deg, #10b981 0%, #d4af37 100%) !important;
   box-shadow: 0 0 8px rgba(212, 175, 55, 0.75) !important;
@@ -8741,13 +8741,13 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: 0 0 12px rgba(244, 114, 182, 0.35) !important;
 }
 .preview-player[data-theme="vaporwave-sunset"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 9999px !important;
   background: rgba(15, 7, 24, 0.8) !important;
   border: 0.5px solid rgba(244, 114, 182, 0.35) !important;
 }
 .preview-player[data-theme="vaporwave-sunset"] .group\/vol-pill div[class*="bg-white/90"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 9999px !important;
   background: linear-gradient(90deg, #ec4899 0%, #a855f7 50%, #06b6d4 100%) !important;
   box-shadow: 0 0 8px rgba(236, 72, 153, 0.8) !important;
@@ -8858,13 +8858,13 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 3px 8px rgba(0, 0, 0, 0.8) !important;
 }
 .preview-player[data-theme="carbon-stealth"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 2px !important;
   background: #0a0a0a !important;
   border: 0.5px solid rgba(239, 68, 68, 0.3) !important;
 }
 .preview-player[data-theme="carbon-stealth"] .group\/vol-pill div[class*="bg-white/90"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 2px !important;
   background: linear-gradient(90deg, #dc2626 0%, #ef4444 100%) !important;
   box-shadow: 0 0 8px rgba(239, 68, 68, 0.8) !important;
@@ -8977,13 +8977,13 @@ div[role="menu"]:not([data-child-open]) {
   backdrop-filter: blur(16px) !important;
 }
 .preview-player[data-theme="holo-prism"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 9999px !important;
   background: rgba(10, 7, 18, 0.75) !important;
   border: 0.5px solid rgba(217, 70, 239, 0.3) !important;
 }
 .preview-player[data-theme="holo-prism"] .group\/vol-pill div[class*="bg-white/90"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 9999px !important;
   background: linear-gradient(90deg, #f43f5e 0%, #d946ef 35%, #06b6d4 70%, #10b981 100%) !important;
   box-shadow: 0 0 8px rgba(217, 70, 239, 0.75) !important;
@@ -9096,13 +9096,13 @@ div[role="menu"]:not([data-child-open]) {
   backdrop-filter: blur(16px) !important;
 }
 .preview-player[data-theme="deep-abyss"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 9999px !important;
   background: rgba(1, 6, 12, 0.8) !important;
   border: 0.5px solid rgba(6, 182, 212, 0.3) !important;
 }
 .preview-player[data-theme="deep-abyss"] .group\/vol-pill div[class*="bg-white/90"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 9999px !important;
   background: linear-gradient(90deg, #06b6d4 0%, #22d3ee 60%, #a5f3fc 100%) !important;
   box-shadow: 0 0 8px rgba(6, 182, 212, 0.8) !important;
@@ -9214,13 +9214,13 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: inset 0 1px 1px rgba(253, 224, 71, 0.4), 0 4px 12px rgba(0, 0, 0, 0.7) !important;
 }
 .preview-player[data-theme="velvet-opera"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 2px !important;
   background: rgba(18, 3, 8, 0.8) !important;
   border: 0.5px solid rgba(212, 175, 55, 0.35) !important;
 }
 .preview-player[data-theme="velvet-opera"] .group\/vol-pill div[class*="bg-white/90"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 2px !important;
   background: linear-gradient(90deg, #be123c 0%, #d4af37 100%) !important;
   box-shadow: 0 0 8px rgba(212, 175, 55, 0.7) !important;
@@ -9333,13 +9333,13 @@ div[role="menu"]:not([data-child-open]) {
   backdrop-filter: blur(16px) !important;
 }
 .preview-player[data-theme="glacial-permafrost"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 2px !important;
   background: rgba(5, 12, 22, 0.8) !important;
   border: 0.5px solid rgba(125, 211, 252, 0.35) !important;
 }
 .preview-player[data-theme="glacial-permafrost"] .group\/vol-pill div[class*="bg-white/90"] {
-  height: 4px !important;
+  height: 3.5px !important;
   border-radius: 2px !important;
   background: linear-gradient(90deg, #38bdf8 0%, #7dd3fc 60%, #e0f2fe 100%) !important;
   box-shadow: 0 0 8px rgba(125, 211, 252, 0.8) !important;
@@ -9492,7 +9492,7 @@ div[role="menu"]:not([data-child-open]) {
     0 1px 4px rgba(56, 189, 248, 0.15) !important;
 }
 .preview-player[data-theme="water-droplet"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 5px !important;
+  height: 4.5px !important;
   border-radius: 9999px !important;
   border: none !important;
   outline: none !important;
@@ -9509,20 +9509,39 @@ div[role="menu"]:not([data-child-open]) {
     0 1px 4px rgba(56, 189, 248, 0.15) !important;
 }
 .preview-player[data-theme="water-droplet"] .group\/vol-pill div[class*="bg-white/90"] {
-  height: 5px !important;
+  height: 4.5px !important;
   border-radius: 9999px !important;
   border: none !important;
   background: linear-gradient(90deg, #38bdf8 0%, #0ea5e9 70%, #bae6fd 100%) !important;
   box-shadow: 0 0 8px rgba(56, 189, 248, 0.7) !important;
 }
 .preview-player[data-theme="water-droplet"] .volume-slider-thumb {
-  width: 9px !important;
-  height: 9px !important;
+  width: 9.5px !important;
+  height: 9.5px !important;
   border-radius: 50% !important;
   border: none !important;
   outline: none !important;
-  background: radial-gradient(circle at 35% 25%, #ffffff 0%, #bae6fd 50%, #38bdf8 100%) !important;
-  box-shadow: 0 0 6px rgba(56, 189, 248, 0.6) !important;
+  background:
+    radial-gradient(ellipse 42% 18% at 35% 16%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.18) 45%, transparent 75%),
+    radial-gradient(ellipse 38% 16% at 65% 84%, rgba(255, 255, 255, 0.3) 0%, rgba(186, 230, 253, 0.1) 40%, transparent 75%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04) 0%, rgba(56, 189, 248, 0.08) 60%, rgba(14, 165, 233, 0.18) 85%, rgba(2, 44, 75, 0.22) 100%) !important;
+  backdrop-filter: blur(2px) contrast(115%) brightness(118%) saturate(135%) !important;
+  -webkit-backdrop-filter: blur(2px) contrast(115%) brightness(118%) saturate(135%) !important;
+  box-shadow:
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.45),
+    inset 0 -0.5px 1px rgba(255, 255, 255, 0.2),
+    0 0 8px rgba(56, 189, 248, 0.4),
+    0 1px 3px rgba(56, 189, 248, 0.2) !important;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease-out !important;
+}
+.preview-player[data-theme="water-droplet"] .group\/vol-pill:hover .volume-slider-thumb,
+.preview-player[data-theme="water-droplet"] .group\/vol-pill[data-dragging] .volume-slider-thumb {
+  transform: translate(-50%, -50%) scale(1.15) !important;
+  box-shadow:
+    inset 0 1.25px 2px rgba(255, 255, 255, 0.6),
+    inset 0 -0.75px 1.5px rgba(255, 255, 255, 0.3),
+    0 0 12px rgba(56, 189, 248, 0.55),
+    0 1px 5px rgba(56, 189, 248, 0.25) !important;
 }
 
 /* Seekbar Track (Bottom of Seekbar): Styled exactly like the Water Droplet Icon Background */
@@ -9570,11 +9589,28 @@ div[role="menu"]:not([data-child-open]) {
   border: none !important;
   outline: none !important;
   background:
-    radial-gradient(ellipse 35% 15% at 35% 20%, rgba(255, 255, 255, 0.5) 0%, transparent 60%),
-    radial-gradient(circle at 50% 50%, #bae6fd 0%, #38bdf8 70%, #0284c7 100%) !important;
-  box-shadow: 0 0 12px rgba(56, 189, 248, 0.6), inset 0 1px 1.5px rgba(255, 255, 255, 0.4) !important;
+    radial-gradient(ellipse 42% 18% at 35% 16%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.18) 45%, transparent 75%),
+    radial-gradient(ellipse 38% 16% at 65% 84%, rgba(255, 255, 255, 0.3) 0%, rgba(186, 230, 253, 0.1) 40%, transparent 75%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04) 0%, rgba(56, 189, 248, 0.08) 60%, rgba(14, 165, 233, 0.18) 85%, rgba(2, 44, 75, 0.22) 100%) !important;
+  backdrop-filter: blur(2px) contrast(115%) brightness(118%) saturate(135%) !important;
+  -webkit-backdrop-filter: blur(2px) contrast(115%) brightness(118%) saturate(135%) !important;
+  box-shadow:
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.45),
+    inset 0 -0.5px 1px rgba(255, 255, 255, 0.2),
+    0 0 12px rgba(56, 189, 248, 0.4),
+    0 1px 4px rgba(56, 189, 248, 0.2) !important;
   opacity: 1 !important;
   display: block !important;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease-out !important;
+}
+.preview-player[data-theme="water-droplet"] .group\/slider:hover .media-thumb-smooth,
+.preview-player[data-theme="water-droplet"] .group\/slider[data-dragging] .media-thumb-smooth {
+  transform: scale(1.18) !important;
+  box-shadow:
+    inset 0 1.25px 2px rgba(255, 255, 255, 0.6),
+    inset 0 -0.75px 1.5px rgba(255, 255, 255, 0.3),
+    0 0 18px rgba(56, 189, 248, 0.6),
+    0 2px 7px rgba(56, 189, 248, 0.3) !important;
 }
 .preview-player[data-theme="water-droplet"] time-value,
 .preview-player[data-theme="water-droplet"] div[class*="tabular-nums"] {
@@ -9607,4 +9643,9 @@ div[role="menu"]:not([data-child-open]) {
   background: rgba(56, 189, 248, 0.18) !important;
   border-radius: 10px !important;
   color: #bae6fd !important;
+}
+
+/* Universal Volume Bar Length Adjustment (-0.5px) */
+.group\/vol-pill div[class*="bg-white/20"] {
+  max-width: calc(100% - 0.5px) !important;
 }
