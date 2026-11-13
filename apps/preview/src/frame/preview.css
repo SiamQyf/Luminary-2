@@ -7903,12 +7903,7 @@ div[role="menu"]:not([data-child-open]) {
 }
 
 /* Bottom Control Bar Dock */
-.preview-player[data-theme="liquid-mercury"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!) {
-  background: linear-gradient(180deg, rgba(255,255,255,0.16) 0%, rgba(203,213,225,0.06) 40%, rgba(15,23,42,0.85) 100%) !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
-}
+
 
 /* Super Attractive Settings Menu Card */
 .preview-player[data-theme="liquid-mercury"] [role="menu"],
@@ -8006,12 +8001,7 @@ div[role="menu"]:not([data-child-open]) {
 }
 
 /* Bottom Control Bar Dock */
-.preview-player[data-theme="aurora-borealis"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!) {
-  background: linear-gradient(180deg, rgba(52,211,153,0.12) 0%, rgba(4,20,25,0.88) 100%) !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  box-shadow: inset 0 1px 0 rgba(52, 211, 153, 0.3) !important;
-}
+
 
 /* Super Attractive Settings Menu Card */
 .preview-player[data-theme="aurora-borealis"] [role="menu"],
@@ -8109,12 +8099,7 @@ div[role="menu"]:not([data-child-open]) {
 }
 
 /* Bottom Control Bar Dock */
-.preview-player[data-theme="solar-flare"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!) {
-  background: linear-gradient(180deg, rgba(249,115,22,0.14) 0%, rgba(20,8,4,0.92) 100%) !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  box-shadow: inset 0 1px 0 rgba(249, 115, 22, 0.35) !important;
-}
+
 
 /* Super Attractive Settings Menu Card */
 .preview-player[data-theme="solar-flare"] [role="menu"],
@@ -8212,12 +8197,7 @@ div[role="menu"]:not([data-child-open]) {
 }
 
 /* Bottom Control Bar Dock */
-.preview-player[data-theme="amethyst-geode"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!) {
-  background: linear-gradient(180deg, rgba(168,85,247,0.12) 0%, rgba(18,5,30,0.94) 100%) !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  box-shadow: inset 0 1px 0 rgba(192, 132, 252, 0.3) !important;
-}
+
 
 /* Super Attractive Settings Menu Card */
 .preview-player[data-theme="amethyst-geode"] [role="menu"],
@@ -8315,12 +8295,7 @@ div[role="menu"]:not([data-child-open]) {
 }
 
 /* Bottom Control Bar Dock */
-.preview-player[data-theme="cyber-deck"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!) {
-  background: linear-gradient(180deg, rgba(234,179,8,0.08) 0%, #09090b 100%) !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  box-shadow: inset 0 1px 0 rgba(250, 204, 21, 0.3) !important;
-}
+
 
 /* Super Attractive Settings Menu Card */
 .preview-player[data-theme="cyber-deck"] [role="menu"],
@@ -8380,7 +8355,7 @@ div[role="menu"]:not([data-child-open]) {
 .preview-player[data-theme="porcelain-cobalt"] div[class*="media-slider-smooth"][class*="isolate"] {
   height: 3.5px !important;
   border-radius: 9999px !important;
-  background: rgba(30, 64, 175, 0.18) !important;
+  background: rgba(255, 255, 255, 0.22) !important;
 }
 
 .preview-player[data-theme="porcelain-cobalt"] div[class*="clip-media-x-[--media-slider-fill]"] {
@@ -8414,16 +8389,12 @@ div[role="menu"]:not([data-child-open]) {
 /* Time Display */
 .preview-player[data-theme="porcelain-cobalt"] time-value,
 .preview-player[data-theme="porcelain-cobalt"] div[class*="tabular-nums"] {
-  color: #1e3a8a !important;
+  color: #bfdbfe !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85) !important;
 }
 
 /* Bottom Control Bar Dock */
-.preview-player[data-theme="porcelain-cobalt"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!) {
-  background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(241,245,249,0.98) 100%) !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  box-shadow: inset 0 1px 0 rgba(30, 64, 175, 0.2) !important;
-}
+
 
 /* Super Attractive Settings Menu Card */
 .preview-player[data-theme="porcelain-cobalt"] [role="menu"],
@@ -8521,12 +8492,7 @@ div[role="menu"]:not([data-child-open]) {
 }
 
 /* Bottom Control Bar Dock */
-.preview-player[data-theme="emerald-vault"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!) {
-  background: linear-gradient(180deg, rgba(212,175,55,0.14) 0%, rgba(4,20,14,0.95) 100%) !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  box-shadow: inset 0 1px 0 rgba(212, 175, 55, 0.35) !important;
-}
+
 
 /* Super Attractive Settings Menu Card */
 .preview-player[data-theme="emerald-vault"] [role="menu"],
@@ -8624,12 +8590,7 @@ div[role="menu"]:not([data-child-open]) {
 }
 
 /* Bottom Control Bar Dock */
-.preview-player[data-theme="vaporwave-sunset"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!) {
-  background: linear-gradient(180deg, rgba(244,114,182,0.16) 0%, rgba(20,10,32,0.92) 100%) !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  box-shadow: inset 0 1px 0 rgba(244, 114, 182, 0.3) !important;
-}
+
 
 /* Super Attractive Settings Menu Card */
 .preview-player[data-theme="vaporwave-sunset"] [role="menu"],
@@ -8727,12 +8688,7 @@ div[role="menu"]:not([data-child-open]) {
 }
 
 /* Bottom Control Bar Dock */
-.preview-player[data-theme="carbon-stealth"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!) {
-  background: linear-gradient(180deg, rgba(239,68,68,0.06) 0%, #0c0a09 100%) !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  box-shadow: inset 0 1px 0 rgba(239, 68, 68, 0.3) !important;
-}
+
 
 /* Super Attractive Settings Menu Card */
 .preview-player[data-theme="carbon-stealth"] [role="menu"],
@@ -8830,12 +8786,7 @@ div[role="menu"]:not([data-child-open]) {
 }
 
 /* Bottom Control Bar Dock */
-.preview-player[data-theme="holo-prism"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!) {
-  background: linear-gradient(180deg, rgba(217,70,239,0.12) 0%, rgba(14,10,24,0.92) 100%) !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  box-shadow: inset 0 1px 0 rgba(217, 70, 239, 0.3) !important;
-}
+
 
 /* Super Attractive Settings Menu Card */
 .preview-player[data-theme="holo-prism"] [role="menu"],
@@ -8933,12 +8884,7 @@ div[role="menu"]:not([data-child-open]) {
 }
 
 /* Bottom Control Bar Dock */
-.preview-player[data-theme="deep-abyss"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!) {
-  background: linear-gradient(180deg, rgba(6,182,212,0.14) 0%, rgba(2,10,18,0.96) 100%) !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  box-shadow: inset 0 1px 0 rgba(6, 182, 212, 0.3) !important;
-}
+
 
 /* Super Attractive Settings Menu Card */
 .preview-player[data-theme="deep-abyss"] [role="menu"],
@@ -9036,12 +8982,7 @@ div[role="menu"]:not([data-child-open]) {
 }
 
 /* Bottom Control Bar Dock */
-.preview-player[data-theme="velvet-opera"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!) {
-  background: linear-gradient(180deg, rgba(159,18,57,0.16) 0%, rgba(26,5,12,0.96) 100%) !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  box-shadow: inset 0 1px 0 rgba(212, 175, 55, 0.35) !important;
-}
+
 
 /* Super Attractive Settings Menu Card */
 .preview-player[data-theme="velvet-opera"] [role="menu"],
@@ -9139,12 +9080,7 @@ div[role="menu"]:not([data-child-open]) {
 }
 
 /* Bottom Control Bar Dock */
-.preview-player[data-theme="toxic-hazard"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!) {
-  background: linear-gradient(180deg, rgba(57,255,20,0.12) 0%, #050505 100%) !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  box-shadow: inset 0 1px 0 rgba(57, 255, 20, 0.35) !important;
-}
+
 
 /* Super Attractive Settings Menu Card */
 .preview-player[data-theme="toxic-hazard"] [role="menu"],
@@ -9242,12 +9178,7 @@ div[role="menu"]:not([data-child-open]) {
 }
 
 /* Bottom Control Bar Dock */
-.preview-player[data-theme="glacial-permafrost"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!) {
-  background: linear-gradient(180deg, rgba(125,211,252,0.18) 0%, rgba(8,18,32,0.94) 100%) !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  box-shadow: inset 0 1px 0 rgba(125, 211, 252, 0.3) !important;
-}
+
 
 /* Super Attractive Settings Menu Card */
 .preview-player[data-theme="glacial-permafrost"] [role="menu"],
@@ -9285,4 +9216,156 @@ div[role="menu"]:not([data-child-open]) {
 .preview-player[data-theme="porcelain-cobalt"] .group\/liquid-btn.group\/play svg,
 .preview-player[data-theme="porcelain-cobalt"] .group\/center-buffering button:nth-child(2) svg {
   color: #ffffff !important;
+}
+
+
+/* ==========================================================================
+   TRANSLUCENT ATMOSPHERIC DOCKS WITH VERTICAL FLUTED TEXTURE (MATCHING IMAGE 2)
+   All 14 themes use translucent gradients fading from 0% opacity into the video.
+   No solid, opaque backgrounds.
+   ========================================================================== */
+.preview-player[data-theme="liquid-mercury"] .media-skin [data-part="bottom-controls-bar"],
+.preview-player[data-theme="aurora-borealis"] .media-skin [data-part="bottom-controls-bar"],
+.preview-player[data-theme="solar-flare"] .media-skin [data-part="bottom-controls-bar"],
+.preview-player[data-theme="amethyst-geode"] .media-skin [data-part="bottom-controls-bar"],
+.preview-player[data-theme="cyber-deck"] .media-skin [data-part="bottom-controls-bar"],
+.preview-player[data-theme="porcelain-cobalt"] .media-skin [data-part="bottom-controls-bar"],
+.preview-player[data-theme="emerald-vault"] .media-skin [data-part="bottom-controls-bar"],
+.preview-player[data-theme="vaporwave-sunset"] .media-skin [data-part="bottom-controls-bar"],
+.preview-player[data-theme="carbon-stealth"] .media-skin [data-part="bottom-controls-bar"],
+.preview-player[data-theme="holo-prism"] .media-skin [data-part="bottom-controls-bar"],
+.preview-player[data-theme="deep-abyss"] .media-skin [data-part="bottom-controls-bar"],
+.preview-player[data-theme="velvet-opera"] .media-skin [data-part="bottom-controls-bar"],
+.preview-player[data-theme="toxic-hazard"] .media-skin [data-part="bottom-controls-bar"],
+.preview-player[data-theme="glacial-permafrost"] .media-skin [data-part="bottom-controls-bar"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* 1. Liquid Mercury — silver fluted vertical micro-refractions + smoky liquid glass fade */
+.preview-player[data-theme="liquid-mercury"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
+  background-image:
+    repeating-linear-gradient(90deg, rgba(226, 232, 240, 0.065) 0 1px, transparent 1px 6px),
+    linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.45) 38%, rgba(10, 15, 28, 0.88) 75%, #080c14 100%);
+  background-size: 6px 100%, 100% 100%;
+  box-shadow: inset 0 -1px 0 rgba(226, 232, 240, 0.22);
+}
+
+/* 2. Aurora Borealis — emerald polar fluted lines + sub-zero northern midnight fade */
+.preview-player[data-theme="aurora-borealis"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
+  background-image:
+    repeating-linear-gradient(90deg, rgba(52, 211, 153, 0.065) 0 1px, transparent 1px 6px),
+    linear-gradient(180deg, rgba(4, 20, 25, 0) 0%, rgba(4, 20, 25, 0.48) 38%, rgba(3, 14, 18, 0.9) 75%, #020a0d 100%);
+  background-size: 6px 100%, 100% 100%;
+  box-shadow: inset 0 -1px 0 rgba(52, 211, 153, 0.25);
+}
+
+/* 3. Solar Flare — warm amber plasma vertical lines + deep sunspot fade */
+.preview-player[data-theme="solar-flare"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
+  background-image:
+    repeating-linear-gradient(90deg, rgba(249, 115, 22, 0.07) 0 1px, transparent 1px 6px),
+    linear-gradient(180deg, rgba(20, 8, 4, 0) 0%, rgba(20, 8, 4, 0.52) 38%, rgba(15, 5, 2, 0.92) 75%, #0a0301 100%);
+  background-size: 6px 100%, 100% 100%;
+  box-shadow: inset 0 -1px 0 rgba(249, 115, 22, 0.26);
+}
+
+/* 4. Amethyst Geode — crystalline violet facet lines + royal velvet fade */
+.preview-player[data-theme="amethyst-geode"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
+  background-image:
+    repeating-linear-gradient(90deg, rgba(168, 85, 247, 0.065) 0 1px, transparent 1px 6px),
+    linear-gradient(180deg, rgba(18, 5, 30, 0) 0%, rgba(18, 5, 30, 0.5) 38%, rgba(12, 3, 20, 0.9) 75%, #08020d 100%);
+  background-size: 6px 100%, 100% 100%;
+  box-shadow: inset 0 -1px 0 rgba(168, 85, 247, 0.25);
+}
+
+/* 5. Cyber Deck — hazard telemetry vertical ticks + carbon chassis fade */
+.preview-player[data-theme="cyber-deck"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
+  background-image:
+    repeating-linear-gradient(90deg, rgba(250, 204, 21, 0.06) 0 1px, transparent 1px 6px),
+    linear-gradient(180deg, rgba(9, 9, 11, 0) 0%, rgba(9, 9, 11, 0.52) 38%, rgba(7, 7, 9, 0.94) 75%, #050507 100%);
+  background-size: 6px 100%, 100% 100%;
+  box-shadow: inset 0 -1px 0 rgba(250, 204, 21, 0.25);
+}
+
+/* 6. Porcelain & Cobalt — delicate cobalt vertical calibration ticks + translucent cobalt-tinted charcoal fade */
+.preview-player[data-theme="porcelain-cobalt"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
+  background-image:
+    repeating-linear-gradient(90deg, rgba(30, 64, 175, 0.065) 0 1px, transparent 1px 6px),
+    linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.45) 38%, rgba(15, 23, 42, 0.88) 75%, #090e17 100%);
+  background-size: 6px 100%, 100% 100%;
+  box-shadow: inset 0 -1px 0 rgba(30, 64, 175, 0.28);
+}
+
+/* 7. Emerald Vault — gold bullion calibration ticks + imperial emerald velvet fade */
+.preview-player[data-theme="emerald-vault"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
+  background-image:
+    repeating-linear-gradient(90deg, rgba(212, 175, 55, 0.065) 0 1px, transparent 1px 6px),
+    linear-gradient(180deg, rgba(4, 20, 14, 0) 0%, rgba(4, 20, 14, 0.5) 38%, rgba(3, 14, 10, 0.9) 75%, #020a07 100%);
+  background-size: 6px 100%, 100% 100%;
+  box-shadow: inset 0 -1px 0 rgba(212, 175, 55, 0.25);
+}
+
+/* 8. Vaporwave Sunset — dusk pink vertical scanlines + 90s aesthetic twilight fade */
+.preview-player[data-theme="vaporwave-sunset"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
+  background-image:
+    repeating-linear-gradient(90deg, rgba(244, 114, 182, 0.065) 0 1px, transparent 1px 6px),
+    linear-gradient(180deg, rgba(20, 10, 32, 0) 0%, rgba(20, 10, 32, 0.5) 38%, rgba(15, 7, 24, 0.9) 75%, #0b0512 100%);
+  background-size: 6px 100%, 100% 100%;
+  box-shadow: inset 0 -1px 0 rgba(244, 114, 182, 0.25);
+}
+
+/* 9. Carbon Stealth — infrared tactical ticks + stealth composite carbon fade */
+.preview-player[data-theme="carbon-stealth"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
+  background-image:
+    repeating-linear-gradient(90deg, rgba(239, 68, 68, 0.06) 0 1px, transparent 1px 6px),
+    linear-gradient(180deg, rgba(12, 10, 9, 0) 0%, rgba(12, 10, 9, 0.52) 38%, rgba(9, 8, 7, 0.94) 75%, #060504 100%);
+  background-size: 6px 100%, 100% 100%;
+  box-shadow: inset 0 -1px 0 rgba(239, 68, 68, 0.25);
+}
+
+/* 10. Holo Prism — rainbow diffraction vertical lines + dark oil-slick fade */
+.preview-player[data-theme="holo-prism"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
+  background-image:
+    repeating-linear-gradient(90deg, rgba(217, 70, 239, 0.065) 0 1px, transparent 1px 6px),
+    linear-gradient(180deg, rgba(14, 10, 24, 0) 0%, rgba(14, 10, 24, 0.5) 38%, rgba(10, 7, 18, 0.9) 75%, #07050d 100%);
+  background-size: 6px 100%, 100% 100%;
+  box-shadow: inset 0 -1px 0 rgba(217, 70, 239, 0.26);
+}
+
+/* 11. Deep Abyss — bioluminescent cyan vertical depth lines + oceanic trench fade */
+.preview-player[data-theme="deep-abyss"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
+  background-image:
+    repeating-linear-gradient(90deg, rgba(6, 182, 212, 0.065) 0 1px, transparent 1px 6px),
+    linear-gradient(180deg, rgba(2, 10, 18, 0) 0%, rgba(2, 10, 18, 0.52) 38%, rgba(1, 6, 12, 0.92) 75%, #010408 100%);
+  background-size: 6px 100%, 100% 100%;
+  box-shadow: inset 0 -1px 0 rgba(6, 182, 212, 0.25);
+}
+
+/* 12. Velvet Opera — rococo gold vertical cords + royal burgundy velvet fade */
+.preview-player[data-theme="velvet-opera"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
+  background-image:
+    repeating-linear-gradient(90deg, rgba(212, 175, 55, 0.065) 0 1px, transparent 1px 6px),
+    linear-gradient(180deg, rgba(26, 5, 12, 0) 0%, rgba(26, 5, 12, 0.52) 38%, rgba(18, 3, 8, 0.92) 75%, #0d0206 100%);
+  background-size: 6px 100%, 100% 100%;
+  box-shadow: inset 0 -1px 0 rgba(212, 175, 55, 0.26);
+}
+
+/* 13. Toxic Hazard — radioactive hazard vertical lines + deep decontamination fade */
+.preview-player[data-theme="toxic-hazard"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
+  background-image:
+    repeating-linear-gradient(90deg, rgba(57, 255, 20, 0.065) 0 1px, transparent 1px 6px),
+    linear-gradient(180deg, rgba(5, 10, 5, 0) 0%, rgba(5, 10, 5, 0.52) 38%, rgba(3, 7, 3, 0.94) 75%, #020402 100%);
+  background-size: 6px 100%, 100% 100%;
+  box-shadow: inset 0 -1px 0 rgba(57, 255, 20, 0.28);
+}
+
+/* 14. Glacial Permafrost — Arctic crystal vertical fissure lines + sub-zero fjord fade */
+.preview-player[data-theme="glacial-permafrost"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
+  background-image:
+    repeating-linear-gradient(90deg, rgba(125, 211, 252, 0.065) 0 1px, transparent 1px 6px),
+    linear-gradient(180deg, rgba(8, 18, 32, 0) 0%, rgba(8, 18, 32, 0.5) 38%, rgba(5, 12, 22, 0.9) 75%, #03080f 100%);
+  background-size: 6px 100%, 100% 100%;
+  box-shadow: inset 0 -1px 0 rgba(125, 211, 252, 0.26);
 }
