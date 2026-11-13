@@ -71,7 +71,7 @@ export const THEME_STYLES = [
   { id: 'holo-prism', label: 'Holo Prism' },
   { id: 'deep-abyss', label: 'Deep Abyss' },
   { id: 'velvet-opera', label: 'Velvet Opera' },
-  { id: 'toxic-hazard', label: 'Toxic Hazard' },
+  { id: 'water-droplet', label: 'Water Droplet' },
   { id: 'glacial-permafrost', label: 'Glacial Permafrost' },
 ] as const;
 
