@@ -372,10 +372,10 @@ export function VolumePill({ className }: { className?: ClassValue }) {
       {/* Main Volume Pill: Collapsed 31.4px circle on mobile portrait, expands horizontally on desktop/landscape */}
       <div
         className={cn(
-          'relative group/vol-pill flex h-[31.4px] shrink-0 items-center justify-center rounded-full overflow-hidden select-none isolate border-none outline-none',
+          'relative group/vol-pill flex h-[31.4px] shrink-0 items-center justify-start rounded-full overflow-hidden select-none isolate border-none outline-none',
           'w-[31.4px]',
-          !isMobilePortrait && 'hover:w-[111.5px] hover:pr-3 hover:justify-start focus-within:w-[111.5px] focus-within:pr-3 focus-within:justify-start has-[[data-dragging]]:w-[111.5px] has-[[data-dragging]]:pr-3 has-[[data-dragging]]:justify-start',
-          !isMobilePortrait && isActive && 'w-[111.5px]! pr-3! justify-start!',
+          !isMobilePortrait && 'hover:w-[111px] hover:pr-3 focus-within:w-[111px] focus-within:pr-3 has-[[data-dragging]]:w-[111px] has-[[data-dragging]]:pr-3',
+          !isMobilePortrait && isActive && 'w-[111px]! pr-3!',
           // Static high-translucency dark liquid glass base
           'bg-black/20',
           // Luminous transparent liquid glass (lets video colors shine through with refraction)
@@ -425,21 +425,20 @@ export function VolumePill({ className }: { className?: ClassValue }) {
               setIsDragging(true);
             }}
             className={cn(
-              'horizontal-volume-slider relative z-10 flex h-full flex-1 items-center cursor-pointer outline-none origin-left transition-all duration-300 ease-out',
-              'w-0 max-w-0 opacity-0 pointer-events-none scale-x-0 flex-none overflow-hidden',
-              'group-hover/vol-pill:w-full group-hover/vol-pill:max-w-full group-hover/vol-pill:opacity-100 group-hover/vol-pill:pointer-events-auto group-hover/vol-pill:scale-x-100 group-hover/vol-pill:flex-1 group-hover/vol-pill:overflow-visible',
-              'group-focus-within/vol-pill:w-full group-focus-within/vol-pill:max-w-full group-focus-within/vol-pill:opacity-100 group-focus-within/vol-pill:pointer-events-auto group-focus-within/vol-pill:scale-x-100 group-focus-within/vol-pill:flex-1 group-focus-within/vol-pill:overflow-visible',
-              'group-has-[[data-dragging]]/vol-pill:w-full group-has-[[data-dragging]]/vol-pill:max-w-full group-has-[[data-dragging]]/vol-pill:opacity-100 group-has-[[data-dragging]]/vol-pill:pointer-events-auto group-has-[[data-dragging]]/vol-pill:scale-x-100 group-has-[[data-dragging]]/vol-pill:flex-1 group-has-[[data-dragging]]/vol-pill:overflow-visible',
-              isActive && 'w-full! max-w-full! opacity-100! pointer-events-auto! scale-x-100! flex-1! overflow-visible!'
+              'horizontal-volume-slider relative z-10 flex h-full flex-1 items-center cursor-pointer outline-none transition-[width,opacity] duration-300 ease-out',
+              'w-0 max-w-0 opacity-0 pointer-events-none flex-none overflow-hidden',
+              'group-hover/vol-pill:w-full group-hover/vol-pill:max-w-full group-hover/vol-pill:opacity-100 group-hover/vol-pill:pointer-events-auto group-hover/vol-pill:flex-1 group-hover/vol-pill:overflow-visible',
+              'group-focus-within/vol-pill:w-full group-focus-within/vol-pill:max-w-full group-focus-within/vol-pill:opacity-100 group-focus-within/vol-pill:pointer-events-auto group-focus-within/vol-pill:flex-1 group-focus-within/vol-pill:overflow-visible',
+              'group-has-[[data-dragging]]/vol-pill:w-full group-has-[[data-dragging]]/vol-pill:max-w-full group-has-[[data-dragging]]/vol-pill:opacity-100 group-has-[[data-dragging]]/vol-pill:pointer-events-auto group-has-[[data-dragging]]/vol-pill:flex-1 group-has-[[data-dragging]]/vol-pill:overflow-visible',
+              isActive && 'w-full! max-w-full! opacity-100! pointer-events-auto! flex-1! overflow-visible!'
             )}
           >
-            <VolumeSlider.Track className="relative h-[2px] w-[calc(100%-0.5px)] rounded-full bg-white/20 overflow-hidden">
+            <VolumeSlider.Track className="relative h-[2px] w-[calc(100%-1px)] rounded-full bg-white/20 overflow-hidden my-auto self-center">
               <VolumeSlider.Fill className="absolute inset-y-0 left-0 rounded-full bg-white/90 w-[var(--media-slider-fill,100%)] shadow-sm" />
             </VolumeSlider.Track>
             <VolumeSlider.Thumb
               className={cn(
                 'volume-slider-thumb absolute top-1/2 -translate-x-1/2 -translate-y-1/2 left-[var(--media-slider-fill,100%)] size-[7px] rounded-full pointer-events-none',
-                'transition-transform duration-150 ease-out',
                 'group-has-[[data-dragging]]/vol-pill:left-(--media-slider-pointer)',
                 'outline-none'
               )}

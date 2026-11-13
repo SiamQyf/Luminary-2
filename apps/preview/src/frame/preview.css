@@ -2923,6 +2923,7 @@ div[role="menu"]:not([data-child-open]) {
   border-radius: 9999px !important;
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.7) !important;
   filter: none !important;
+  transform: translate(-50%, -50%) !important;
 }
 
 .preview-player[data-theme="translucent"] .volume-slider-thumb {
@@ -9521,6 +9522,7 @@ div[role="menu"]:not([data-child-open]) {
   border-radius: 50% !important;
   border: none !important;
   outline: none !important;
+  transform: translate(-50%, -50%) !important;
   background:
     radial-gradient(ellipse 42% 18% at 35% 16%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.18) 45%, transparent 75%),
     radial-gradient(ellipse 38% 16% at 65% 84%, rgba(255, 255, 255, 0.3) 0%, rgba(186, 230, 253, 0.1) 40%, transparent 75%),
@@ -9645,7 +9647,20 @@ div[role="menu"]:not([data-child-open]) {
   color: #bae6fd !important;
 }
 
-/* Universal Volume Bar Length Adjustment (-0.5px) */
+/* Universal Volume Bar Length Adjustment (-1px) */
 .group\/vol-pill div[class*="bg-white/20"] {
-  max-width: calc(100% - 0.5px) !important;
+  max-width: calc(100% - 1px) !important;
+  align-self: center !important;
+  margin-top: auto !important;
+  margin-bottom: auto !important;
+}
+
+.horizontal-volume-slider {
+  display: flex !important;
+  align-items: center !important;
+}
+.horizontal-volume-slider div[class*="bg-white/20"] {
+  align-self: center !important;
+  margin-top: auto !important;
+  margin-bottom: auto !important;
 }
