@@ -161,6 +161,20 @@ export const STYLE_OPTIONS = [
   { id: 'crimson-cinema', label: 'Criterion Cinema' },
   { id: 'pixel-8bit', label: '8-Bit Pixel' },
   { id: 'plain', label: 'Plain White' },
+  { id: 'liquid-mercury', label: 'Liquid Mercury' },
+  { id: 'aurora-borealis', label: 'Aurora Borealis' },
+  { id: 'solar-flare', label: 'Solar Flare' },
+  { id: 'amethyst-geode', label: 'Amethyst Geode' },
+  { id: 'cyber-deck', label: 'Cyber Deck' },
+  { id: 'porcelain-cobalt', label: 'Porcelain & Cobalt' },
+  { id: 'emerald-vault', label: 'Emerald Vault' },
+  { id: 'vaporwave-sunset', label: 'Vaporwave Sunset' },
+  { id: 'carbon-stealth', label: 'Carbon Stealth' },
+  { id: 'holo-prism', label: 'Holo Prism' },
+  { id: 'deep-abyss', label: 'Deep Abyss' },
+  { id: 'velvet-opera', label: 'Velvet Opera' },
+  { id: 'toxic-hazard', label: 'Toxic Hazard' },
+  { id: 'glacial-permafrost', label: 'Glacial Permafrost' },
 ] as const;
 
 interface FlatOption<T extends string> {
