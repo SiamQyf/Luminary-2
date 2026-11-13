@@ -2923,7 +2923,19 @@ div[role="menu"]:not([data-child-open]) {
   border-radius: 9999px !important;
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.7) !important;
   filter: none !important;
-  transform: translate(-50%, -50%) !important;
+  translate: -50% -50% !important;
+  transform: none !important;
+  transform-origin: center center !important;
+}
+
+.vertical-volume-popup .volume-slider-thumb {
+  translate: -50% 50% !important;
+}
+
+.media-thumb-smooth {
+  translate: -50% -50% !important;
+  transform: none !important;
+  transform-origin: center center !important;
 }
 
 .preview-player[data-theme="translucent"] .volume-slider-thumb {
@@ -6872,7 +6884,7 @@ div[role="menu"]:not([data-child-open]) {
   border: none !important;
   box-shadow: none !important;
   filter: drop-shadow(0 0 6px #00f0ff) drop-shadow(0 0 12px rgba(0, 240, 255, 0.6)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
-  transition: transform 0.15s ease-out, filter 0.15s ease-out !important;
+  transition: scale 0.15s ease-out, filter 0.15s ease-out !important;
 }
 
 .preview-player[data-theme="dot-matrix"] .group\/slider .media-thumb-smooth::before,
@@ -6883,7 +6895,7 @@ div[role="menu"]:not([data-child-open]) {
 
 .preview-player[data-theme="dot-matrix"] .group\/slider:hover .media-thumb-smooth,
 .preview-player[data-theme="dot-matrix"] .group\/slider[data-dragging] .media-thumb-smooth {
-  transform: scale(1.15) !important;
+  scale: 1.15 !important;
   filter: drop-shadow(0 0 9px #00f0ff) drop-shadow(0 0 18px rgba(0, 240, 255, 0.9)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
 }
 
@@ -8287,7 +8299,7 @@ div[role="menu"]:not([data-child-open]) {
   width: 9px !important;
   height: 9px !important;
   border-radius: 2px !important;
-  transform: rotate(45deg) !important;
+  rotate: 45deg !important;
   background: radial-gradient(circle at 35% 35%, #ffffff 0%, #a855f7 100%) !important;
   box-shadow: 0 0 8px #c084fc !important;
 }
@@ -9349,7 +9361,7 @@ div[role="menu"]:not([data-child-open]) {
   width: 8px !important;
   height: 8px !important;
   border-radius: 2px !important;
-  transform: rotate(45deg) !important;
+  rotate: 45deg !important;
   background: #ffffff !important;
   box-shadow: 0 0 6px #7dd3fc !important;
 }
@@ -9372,7 +9384,7 @@ div[role="menu"]:not([data-child-open]) {
   width: 13px !important;
   height: 13px !important;
   border-radius: 2px !important;
-  transform: rotate(45deg) !important;
+  rotate: 45deg !important;
   background: radial-gradient(circle at 35% 35%, #ffffff 0%, #7dd3fc 45%, #0284c7 100%) !important;
   border: 1.5px solid #ffffff !important;
   box-shadow: 0 0 16px rgba(125, 211, 252, 0.9) !important;
@@ -9522,7 +9534,6 @@ div[role="menu"]:not([data-child-open]) {
   border-radius: 50% !important;
   border: none !important;
   outline: none !important;
-  transform: translate(-50%, -50%) !important;
   background:
     radial-gradient(ellipse 42% 18% at 35% 16%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.18) 45%, transparent 75%),
     radial-gradient(ellipse 38% 16% at 65% 84%, rgba(255, 255, 255, 0.3) 0%, rgba(186, 230, 253, 0.1) 40%, transparent 75%),
@@ -9534,11 +9545,11 @@ div[role="menu"]:not([data-child-open]) {
     inset 0 -0.5px 1px rgba(255, 255, 255, 0.2),
     0 0 8px rgba(56, 189, 248, 0.4),
     0 1px 3px rgba(56, 189, 248, 0.2) !important;
-  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease-out !important;
+  transition: scale 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease-out !important;
 }
 .preview-player[data-theme="water-droplet"] .group\/vol-pill:hover .volume-slider-thumb,
 .preview-player[data-theme="water-droplet"] .group\/vol-pill[data-dragging] .volume-slider-thumb {
-  transform: translate(-50%, -50%) scale(1.15) !important;
+  scale: 1.15 !important;
   box-shadow:
     inset 0 1.25px 2px rgba(255, 255, 255, 0.6),
     inset 0 -0.75px 1.5px rgba(255, 255, 255, 0.3),
@@ -9603,11 +9614,11 @@ div[role="menu"]:not([data-child-open]) {
     0 1px 4px rgba(56, 189, 248, 0.2) !important;
   opacity: 1 !important;
   display: block !important;
-  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease-out !important;
+  transition: scale 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease-out !important;
 }
 .preview-player[data-theme="water-droplet"] .group\/slider:hover .media-thumb-smooth,
 .preview-player[data-theme="water-droplet"] .group\/slider[data-dragging] .media-thumb-smooth {
-  transform: scale(1.18) !important;
+  scale: 1.18 !important;
   box-shadow:
     inset 0 1.25px 2px rgba(255, 255, 255, 0.6),
     inset 0 -0.75px 1.5px rgba(255, 255, 255, 0.3),

@@ -419,7 +419,7 @@ export function VolumePill({ className }: { className?: ClassValue }) {
         {!isMobilePortrait && (
           <VolumeSlider.Root
             orientation="horizontal"
-            thumbAlignment="edge"
+            thumbAlignment="center"
             onPointerDown={() => {
               isDraggingRef.current = true;
               setIsDragging(true);
@@ -438,8 +438,8 @@ export function VolumePill({ className }: { className?: ClassValue }) {
             </VolumeSlider.Track>
             <VolumeSlider.Thumb
               className={cn(
-                'volume-slider-thumb absolute top-1/2 -translate-x-1/2 -translate-y-1/2 left-[var(--media-slider-fill,100%)] size-[7px] rounded-full pointer-events-none',
-                'group-has-[[data-dragging]]/vol-pill:left-(--media-slider-pointer)',
+                'volume-slider-thumb absolute top-1/2 left-[var(--media-slider-fill,100%)] size-[7px] rounded-full pointer-events-none',
+                'group-has-[[data-dragging]]/vol-pill:left-[var(--media-slider-pointer)]',
                 'outline-none'
               )}
             />
