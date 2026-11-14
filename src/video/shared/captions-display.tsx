@@ -154,25 +154,48 @@ function getActiveSubtitleTrack(media: HTMLVideoElement): TextTrack | null {
   );
 }
 
+function SubtitleMusicNote({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={cn('size-[0.95em] shrink-0 opacity-80', className)}
+      aria-hidden="true"
+    >
+      <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+    </svg>
+  );
+}
+
 /**
  * Format subtitle cue text:
  * - Detects sound effects / music cues (e.g. "[Music]", "[Applause]", "♪ ... ♪")
  * - Formats lines cleanly for optimal compact typography & contrast without bloated empty space
  */
 function formatCueContent(text: string) {
-  const isSoundOrMusic =
-    /^\s*\[(.*?)\]\s*$/.test(text) ||
+  const isMusic =
     /^\s*♪(.*?)♪\s*$/.test(text) ||
+    /^\s*\[(.*?)music(.*?)\]\s*$/i.test(text) ||
+    /^\s*\((.*?)music(.*?)\)\s*$/i.test(text) ||
     text.toLowerCase().includes('music') ||
     text.includes('♪');
 
-  if (isSoundOrMusic) {
-    const cleanSound = text.replace(/^[\[♪\s]+|[\]♪\s]+$/g, '').trim();
+  if (isMusic) {
+    const cleanSound = text.replace(/^[\[♪\(\s]+|[\]♪\)\s]+$/g, '').trim();
     return (
-      <span className="inline-flex items-center justify-center gap-1 italic tracking-wide text-white/95 leading-tight">
-        <span className="text-[10px] sm:text-[11px] opacity-75 font-normal select-none">♪</span>
-        <span>{cleanSound || text}</span>
-        <span className="text-[10px] sm:text-[11px] opacity-75 font-normal select-none">♪</span>
+      <span className="inline-flex items-center justify-center gap-1.5 leading-none">
+        <SubtitleMusicNote />
+        <span className="italic tracking-wide leading-none pe-0.5">{cleanSound || 'Music'}</span>
+        <SubtitleMusicNote />
+      </span>
+    );
+  }
+
+  const isSoundEffect = /^\s*\[(.*?)\]\s*$/.test(text) || /^\s*\((.*?)\)\s*$/.test(text);
+  if (isSoundEffect) {
+    return (
+      <span className="inline-flex items-center justify-center italic tracking-wide text-white/95 leading-none">
+        {text}
       </span>
     );
   }
@@ -191,9 +214,9 @@ function formatCueContent(text: string) {
 
   if (lines.length > 1) {
     return (
-      <span className="flex flex-col items-center gap-0.5">
+      <span className="flex flex-col items-center justify-center gap-0.5 leading-[1.3]">
         {lines.map((line, idx) => (
-          <span key={idx} className="block leading-[1.3] text-center">
+          <span key={idx} className="block text-center leading-[1.3]">
             {line}
           </span>
         ))}
@@ -201,7 +224,7 @@ function formatCueContent(text: string) {
     );
   }
 
-  return <span className="leading-[1.3] text-center">{lines[0] || text}</span>;
+  return <span className="inline-block text-center leading-[1.3]">{lines[0] || text}</span>;
 }
 
 /**
@@ -403,13 +426,13 @@ export function CaptionsDisplay() {
         key={activeText}
         data-part="caption-pill"
         className={cn(
-          'inline-block max-w-[94%] sm:max-w-[84%] md:max-w-[72%]',
-          'px-2.5 py-1 sm:px-3.5 sm:py-1.5 md:px-4 md:py-2',
+          'inline-flex items-center justify-center max-w-[94%] sm:max-w-[84%] md:max-w-[72%]',
+          'px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2',
           'rounded-[var(--media-caption-radius,10px)]',
           'backdrop-blur-[12px] backdrop-saturate-[160%] backdrop-contrast-[105%]',
           'text-white text-center font-sans font-medium',
           'text-[11.5px] sm:text-[13px] md:text-[14.5px] lg:text-[16px] tracking-[0.01em]',
-          'select-none transition-all duration-120 animate-in fade-in zoom-in-[0.98]'
+          'leading-none select-none transition-all duration-120 animate-in fade-in zoom-in-[0.98]'
         )}
         style={{
           background: 'var(--media-caption-bg, rgba(8, 10, 15, 0.72))',
