@@ -910,61 +910,6 @@ export const THEME_PALETTES: Record<string, { dark: ThemePalette; light: ThemePa
       iconGlow: 'rgba(3, 105, 161, 0.22)',
     },
   },
-  // E-Learning, EdTech & Universities
-  'academic-lecture': {
-    dark: {
-      primary: '#3b82f6',
-      secondary: '#f59e0b',
-      accent: '#dbeafe',
-      gradient: 'linear-gradient(135deg, #60a5fa 15%, #3b82f6 55%, #1d4ed8 100%)',
-      glow: 'rgba(59, 130, 246, 0.65)',
-      iconGlow: 'rgba(59, 130, 246, 0.50)',
-    },
-    light: {
-      primary: '#1d4ed8',
-      secondary: '#d97706',
-      accent: '#0f172a',
-      gradient: 'linear-gradient(135deg, #1d4ed8 15%, #2563eb 60%, #0f172a 100%)',
-      glow: 'rgba(29, 78, 216, 0.28)',
-      iconGlow: 'rgba(217, 119, 6, 0.22)',
-    },
-  },
-  'study-highlighter': {
-    dark: {
-      primary: '#facc15',
-      secondary: '#38bdf8',
-      accent: '#fef08a',
-      gradient: 'linear-gradient(135deg, #fef08a 15%, #facc15 55%, #eab308 100%)',
-      glow: 'rgba(250, 204, 21, 0.70)',
-      iconGlow: 'rgba(250, 204, 21, 0.55)',
-    },
-    light: {
-      primary: '#ca8a04',
-      secondary: '#0284c7',
-      accent: '#111827',
-      gradient: 'linear-gradient(135deg, #ca8a04 15%, #eab308 60%, #111827 100%)',
-      glow: 'rgba(202, 138, 4, 0.28)',
-      iconGlow: 'rgba(2, 132, 199, 0.22)',
-    },
-  },
-  'campus-library': {
-    dark: {
-      primary: '#10b981',
-      secondary: '#fbbf24',
-      accent: '#a7f3d0',
-      gradient: 'linear-gradient(135deg, #a7f3d0 15%, #10b981 55%, #047857 100%)',
-      glow: 'rgba(16, 185, 129, 0.65)',
-      iconGlow: 'rgba(16, 185, 129, 0.50)',
-    },
-    light: {
-      primary: '#047857',
-      secondary: '#d97706',
-      accent: '#064e3b',
-      gradient: 'linear-gradient(135deg, #047857 15%, #059669 60%, #064e3b 100%)',
-      glow: 'rgba(4, 120, 87, 0.28)',
-      iconGlow: 'rgba(217, 119, 6, 0.22)',
-    },
-  },
 };
 
 export function getThemePalette(themeName: string, isDark = true): ThemePalette {
