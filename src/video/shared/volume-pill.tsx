@@ -410,7 +410,7 @@ export function VolumePill({ className }: { className?: ClassValue }) {
           >
             <VolumeHornAnimatedIcon
               isDancing={isActive || isDragging || isVerticalOpen}
-              className="size-[15.6px] text-white relative -left-[1px]"
+              className="size-[16.1px] text-white relative -left-[1px]"
             />
           </span>
         </MuteButtonPrimitive>

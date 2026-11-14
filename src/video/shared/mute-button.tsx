@@ -50,10 +50,10 @@ export function MuteButton({ className, ...props }: MuteButtonPrimitive.Props = 
       {...props}
     >
       <SpeakerMutedIcon
-        className={cn('col-start-1 row-start-1 size-[17.8px] text-white relative -left-[1px]', 'hidden group-data-muted/mute:block')}
+        className={cn('col-start-1 row-start-1 size-[18.3px] text-white relative -left-[1px]', 'hidden group-data-muted/mute:block')}
       />
       <SpeakerIcon
-        className={cn('col-start-1 row-start-1 size-[17.8px] text-white relative -left-[1px]', 'hidden group-not-data-muted/mute:block')}
+        className={cn('col-start-1 row-start-1 size-[18.3px] text-white relative -left-[1px]', 'hidden group-not-data-muted/mute:block')}
       />
     </MuteButtonPrimitive>
   );
