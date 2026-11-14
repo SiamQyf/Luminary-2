@@ -9436,7 +9436,7 @@ div[role="menu"]:not([data-child-open]) {
 .preview-player[data-theme="water-droplet"] [data-slot="control"],
 .preview-player[data-theme="water-droplet"] .media-fullscreen-button {
   border-radius: 9999px !important;
-  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  border: none !important;
   outline: none !important;
   background:
     radial-gradient(ellipse 35% 18% at 35% 16%, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.15) 45%, transparent 75%),
@@ -9456,7 +9456,7 @@ div[role="menu"]:not([data-child-open]) {
 .preview-player[data-theme="water-droplet"] [data-slot="control"]:hover,
 .preview-player[data-theme="water-droplet"] .media-fullscreen-button:hover {
   transform: scale(1.08) translateY(-1.5px) !important;
-  border-color: rgba(255, 255, 255, 0.75) !important;
+  border: none !important;
   outline: none !important;
   background:
     radial-gradient(ellipse 35% 18% at 35% 16%, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.25) 45%, transparent 75%),
@@ -9470,7 +9470,7 @@ div[role="menu"]:not([data-child-open]) {
 }
 .preview-player[data-theme="water-droplet"] .group\/play,
 .preview-player[data-theme="water-droplet"] .group\/center-buffering button:nth-child(2) {
-  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  border: none !important;
   outline: none !important;
   background:
     radial-gradient(ellipse 38% 18% at 35% 16%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.2) 45%, transparent 75%),
@@ -9518,7 +9518,7 @@ div[role="menu"]:not([data-child-open]) {
 }
 .preview-player[data-theme="water-droplet"] .group\/vol-pill {
   border-radius: 9999px !important;
-  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  border: none !important;
   outline: none !important;
   background:
     radial-gradient(ellipse 35% 18% at 35% 16%, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.15) 45%, transparent 75%),
@@ -9534,7 +9534,7 @@ div[role="menu"]:not([data-child-open]) {
 }
 .preview-player[data-theme="water-droplet"] .group\/vol-pill:hover,
 .preview-player[data-theme="water-droplet"] .group\/vol-pill:focus-within {
-  border-color: rgba(255, 255, 255, 0.75) !important;
+  border: none !important;
   background:
     radial-gradient(ellipse 35% 18% at 35% 16%, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.25) 45%, transparent 75%),
     radial-gradient(ellipse 32% 16% at 65% 84%, rgba(255, 255, 255, 0.4) 0%, rgba(186, 230, 253, 0.3) 40%, transparent 75%),
