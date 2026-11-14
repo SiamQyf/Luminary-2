@@ -512,6 +512,75 @@
   text-shadow: 0 0 8px rgba(244, 63, 94, 0.9), 0 0 16px rgba(168, 85, 247, 0.5) !important;
 }
 
+/* 80s Synthwave: Buttons (Seekbar sunset gradient & neon magenta glow) */
+.preview-player[data-theme="synthwave-80s"] .group\/liquid-btn,
+.preview-player[data-theme="synthwave-80s"] .group\/center-buffering button,
+.preview-player[data-theme="synthwave-80s"] [data-slot="control"],
+.preview-player[data-theme="synthwave-80s"] .media-fullscreen-button,
+.preview-player[data-theme="synthwave-80s"] .group\/vol-pill,
+:root[data-theme="synthwave-80s"] .group\/liquid-btn,
+:root[data-theme="synthwave-80s"] .group\/center-buffering button,
+:root[data-theme="synthwave-80s"] [data-slot="control"],
+:root[data-theme="synthwave-80s"] .media-fullscreen-button,
+:root[data-theme="synthwave-80s"] .group\/vol-pill,
+:where(.media-skin)[data-theme="synthwave-80s"] .group\/liquid-btn,
+:where(.media-skin)[data-theme="synthwave-80s"] .group\/center-buffering button,
+:where(.media-skin)[data-theme="synthwave-80s"] [data-slot="control"],
+:where(.media-skin)[data-theme="synthwave-80s"] .media-fullscreen-button,
+:where(.media-skin)[data-theme="synthwave-80s"] .group\/vol-pill {
+  background-color: #f72585 !important;
+  background-image: linear-gradient(135deg, #7209b7 0%, #f72585 58%, #ffd166 100%) !important;
+  border: 1.5px solid #f72585 !important;
+  box-shadow: 0 0 10px rgba(247, 37, 133, 0.65), 0 2px 6px rgba(0, 0, 0, 0.8) !important;
+  color: #ffffff !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.preview-player[data-theme="synthwave-80s"] .group\/liquid-btn:hover,
+.preview-player[data-theme="synthwave-80s"] .group\/center-buffering button:hover,
+.preview-player[data-theme="synthwave-80s"] [data-slot="control"]:hover,
+.preview-player[data-theme="synthwave-80s"] .media-fullscreen-button:hover,
+.preview-player[data-theme="synthwave-80s"] .group\/vol-pill:hover,
+:root[data-theme="synthwave-80s"] .group\/liquid-btn:hover,
+:root[data-theme="synthwave-80s"] .group\/center-buffering button:hover,
+:root[data-theme="synthwave-80s"] [data-slot="control"]:hover,
+:root[data-theme="synthwave-80s"] .media-fullscreen-button:hover,
+:root[data-theme="synthwave-80s"] .group\/vol-pill:hover {
+  filter: brightness(1.15) !important;
+  box-shadow: 0 0 16px #f72585, 0 0 8px #ffd166 !important;
+}
+
+.preview-player[data-theme="synthwave-80s"] .group\/liquid-btn:active,
+.preview-player[data-theme="synthwave-80s"] .group\/center-buffering button:active,
+.preview-player[data-theme="synthwave-80s"] [data-slot="control"]:active,
+.preview-player[data-theme="synthwave-80s"] .media-fullscreen-button:active,
+.preview-player[data-theme="synthwave-80s"] .group\/vol-pill:active,
+:root[data-theme="synthwave-80s"] .group\/liquid-btn:active,
+:root[data-theme="synthwave-80s"] .group\/center-buffering button:active,
+:root[data-theme="synthwave-80s"] [data-slot="control"]:active,
+:root[data-theme="synthwave-80s"] .media-fullscreen-button:active,
+:root[data-theme="synthwave-80s"] .group\/vol-pill:active {
+  transform: scale(0.95) !important;
+  filter: brightness(0.92) !important;
+}
+
+.preview-player[data-theme="synthwave-80s"] .player-icon-scale svg,
+.preview-player[data-theme="synthwave-80s"] .group\/mute svg,
+.preview-player[data-theme="synthwave-80s"] .group\/liquid-btn svg,
+.preview-player[data-theme="synthwave-80s"] .group\/center-buffering svg,
+.preview-player[data-theme="synthwave-80s"] [data-slot="control"] svg,
+.preview-player[data-theme="synthwave-80s"] .media-fullscreen-button svg,
+:root[data-theme="synthwave-80s"] .player-icon-scale svg,
+:root[data-theme="synthwave-80s"] .group\/mute svg,
+:root[data-theme="synthwave-80s"] .group\/liquid-btn svg,
+:root[data-theme="synthwave-80s"] .group\/center-buffering svg,
+:root[data-theme="synthwave-80s"] [data-slot="control"] svg,
+:root[data-theme="synthwave-80s"] .media-fullscreen-button svg {
+  color: #ffffff !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
+}
+
 /* Cyberpunk 2077 (cyberpunk-2077) */
 .preview-player[data-theme="cyberpunk-2077"] [data-part="caption-pill"],
 :root[data-theme="cyberpunk-2077"] [data-part="caption-pill"],
