@@ -9436,47 +9436,51 @@ div[role="menu"]:not([data-child-open]) {
 .preview-player[data-theme="water-droplet"] [data-slot="control"],
 .preview-player[data-theme="water-droplet"] .media-fullscreen-button {
   border-radius: 9999px !important;
-  border: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
   outline: none !important;
   background:
-    radial-gradient(ellipse 35% 15% at 35% 16%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 40%, transparent 70%),
-    radial-gradient(ellipse 30% 14% at 65% 84%, rgba(255, 255, 255, 0.2) 0%, rgba(186, 230, 253, 0.08) 40%, transparent 70%),
-    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02) 0%, rgba(56, 189, 248, 0.04) 70%, rgba(14, 165, 233, 0.09) 100%) !important;
-  backdrop-filter: blur(2px) contrast(115%) brightness(118%) saturate(135%) !important;
-  -webkit-backdrop-filter: blur(2px) contrast(115%) brightness(118%) saturate(135%) !important;
+    radial-gradient(ellipse 35% 18% at 35% 16%, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.15) 45%, transparent 75%),
+    radial-gradient(ellipse 32% 16% at 65% 84%, rgba(255, 255, 255, 0.3) 0%, rgba(186, 230, 253, 0.2) 40%, transparent 75%),
+    linear-gradient(180deg, rgba(56, 189, 248, 0.52) 0%, rgba(14, 165, 233, 0.62) 60%, rgba(2, 132, 199, 0.72) 100%) !important;
+  backdrop-filter: blur(10px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(160%) !important;
   box-shadow:
-    inset 0 1px 1.5px rgba(255, 255, 255, 0.3),
-    inset 0 -0.5px 1px rgba(255, 255, 255, 0.15),
-    0 0 12px rgba(56, 189, 248, 0.22),
-    0 1px 4px rgba(56, 189, 248, 0.15) !important;
-  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.22s ease-out !important;
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.6),
+    inset 0 -1px 2px rgba(2, 132, 199, 0.4),
+    0 0 12px rgba(56, 189, 248, 0.35),
+    0 2px 6px rgba(0, 0, 0, 0.35) !important;
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.22s ease-out, background 0.22s ease-out !important;
 }
 .preview-player[data-theme="water-droplet"] .group\/liquid-btn:hover,
 .preview-player[data-theme="water-droplet"] .group\/center-buffering button:hover,
 .preview-player[data-theme="water-droplet"] [data-slot="control"]:hover,
 .preview-player[data-theme="water-droplet"] .media-fullscreen-button:hover {
   transform: scale(1.08) translateY(-1.5px) !important;
-  border: none !important;
+  border-color: rgba(255, 255, 255, 0.75) !important;
   outline: none !important;
+  background:
+    radial-gradient(ellipse 35% 18% at 35% 16%, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.25) 45%, transparent 75%),
+    radial-gradient(ellipse 32% 16% at 65% 84%, rgba(255, 255, 255, 0.4) 0%, rgba(186, 230, 253, 0.3) 40%, transparent 75%),
+    linear-gradient(180deg, rgba(56, 189, 248, 0.65) 0%, rgba(14, 165, 233, 0.75) 60%, rgba(2, 132, 199, 0.85) 100%) !important;
   box-shadow:
-    inset 0 1.25px 2px rgba(255, 255, 255, 0.45),
-    inset 0 -0.75px 1.5px rgba(255, 255, 255, 0.22),
-    0 0 18px rgba(56, 189, 248, 0.45),
-    0 2px 8px rgba(56, 189, 248, 0.25) !important;
+    inset 0 1.5px 3px rgba(255, 255, 255, 0.8),
+    inset 0 -1.5px 2px rgba(2, 132, 199, 0.5),
+    0 0 18px rgba(56, 189, 248, 0.55),
+    0 4px 10px rgba(0, 0, 0, 0.4) !important;
 }
 .preview-player[data-theme="water-droplet"] .group\/play,
 .preview-player[data-theme="water-droplet"] .group\/center-buffering button:nth-child(2) {
-  border: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
   outline: none !important;
   background:
-    radial-gradient(ellipse 38% 16% at 35% 16%, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0.12) 40%, transparent 70%),
-    radial-gradient(ellipse 32% 15% at 65% 84%, rgba(255, 255, 255, 0.24) 0%, rgba(186, 230, 253, 0.1) 40%, transparent 70%),
-    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04) 0%, rgba(56, 189, 248, 0.06) 70%, rgba(14, 165, 233, 0.12) 100%) !important;
+    radial-gradient(ellipse 38% 18% at 35% 16%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.2) 45%, transparent 75%),
+    radial-gradient(ellipse 32% 16% at 65% 84%, rgba(255, 255, 255, 0.35) 0%, rgba(186, 230, 253, 0.25) 40%, transparent 75%),
+    linear-gradient(180deg, rgba(56, 189, 248, 0.58) 0%, rgba(14, 165, 233, 0.7) 60%, rgba(2, 132, 199, 0.8) 100%) !important;
   box-shadow:
-    inset 0 1.25px 2px rgba(255, 255, 255, 0.35),
-    inset 0 -0.75px 1px rgba(255, 255, 255, 0.18),
-    0 0 14px rgba(56, 189, 248, 0.3),
-    0 1px 6px rgba(56, 189, 248, 0.2) !important;
+    inset 0 1.5px 2.5px rgba(255, 255, 255, 0.7),
+    inset 0 -1px 2px rgba(2, 132, 199, 0.45),
+    0 0 16px rgba(56, 189, 248, 0.45),
+    0 2px 8px rgba(0, 0, 0, 0.38) !important;
   color: #ffffff !important;
 }
 .preview-player[data-theme="water-droplet"] svg,
@@ -9502,7 +9506,7 @@ div[role="menu"]:not([data-child-open]) {
 .preview-player[data-theme="water-droplet"] .media-fullscreen-button:hover svg,
 .preview-player[data-theme="water-droplet"] .group\/mute:hover svg,
 .preview-player[data-theme="water-droplet"] .group\/play:hover svg {
-  color: #38bdf8 !important;
+  color: #ffffff !important;
   filter: none !important;
   -webkit-filter: none !important;
 }
@@ -9514,19 +9518,27 @@ div[role="menu"]:not([data-child-open]) {
 }
 .preview-player[data-theme="water-droplet"] .group\/vol-pill {
   border-radius: 9999px !important;
-  border: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
   outline: none !important;
   background:
-    radial-gradient(ellipse 35% 15% at 35% 16%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 40%, transparent 70%),
-    radial-gradient(ellipse 30% 14% at 65% 84%, rgba(255, 255, 255, 0.2) 0%, rgba(186, 230, 253, 0.08) 40%, transparent 70%),
-    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02) 0%, rgba(56, 189, 248, 0.04) 70%, rgba(14, 165, 233, 0.09) 100%) !important;
-  backdrop-filter: blur(2px) contrast(115%) brightness(118%) saturate(135%) !important;
-  -webkit-backdrop-filter: blur(2px) contrast(115%) brightness(118%) saturate(135%) !important;
+    radial-gradient(ellipse 35% 18% at 35% 16%, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.15) 45%, transparent 75%),
+    radial-gradient(ellipse 32% 16% at 65% 84%, rgba(255, 255, 255, 0.3) 0%, rgba(186, 230, 253, 0.2) 40%, transparent 75%),
+    linear-gradient(180deg, rgba(56, 189, 248, 0.52) 0%, rgba(14, 165, 233, 0.62) 60%, rgba(2, 132, 199, 0.72) 100%) !important;
+  backdrop-filter: blur(10px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(160%) !important;
   box-shadow:
-    inset 0 1px 1.5px rgba(255, 255, 255, 0.3),
-    inset 0 -0.5px 1px rgba(255, 255, 255, 0.15),
-    0 0 12px rgba(56, 189, 248, 0.22),
-    0 1px 4px rgba(56, 189, 248, 0.15) !important;
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.6),
+    inset 0 -1px 2px rgba(2, 132, 199, 0.4),
+    0 0 12px rgba(56, 189, 248, 0.35),
+    0 2px 6px rgba(0, 0, 0, 0.35) !important;
+}
+.preview-player[data-theme="water-droplet"] .group\/vol-pill:hover,
+.preview-player[data-theme="water-droplet"] .group\/vol-pill:focus-within {
+  border-color: rgba(255, 255, 255, 0.75) !important;
+  background:
+    radial-gradient(ellipse 35% 18% at 35% 16%, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.25) 45%, transparent 75%),
+    radial-gradient(ellipse 32% 16% at 65% 84%, rgba(255, 255, 255, 0.4) 0%, rgba(186, 230, 253, 0.3) 40%, transparent 75%),
+    linear-gradient(180deg, rgba(56, 189, 248, 0.65) 0%, rgba(14, 165, 233, 0.75) 60%, rgba(2, 132, 199, 0.85) 100%) !important;
 }
 .preview-player[data-theme="water-droplet"] .group\/vol-pill div[class*="bg-white/20"] {
   height: 4.5px !important;
