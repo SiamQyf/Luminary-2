@@ -13,7 +13,7 @@ type NavbarProps = {
   onSchemeChange?: (scheme: ColorScheme) => void;
   /** Whether the effective scheme is dark. */
   isDark?: boolean;
-  /** Active player theme name (e.g. obsidian-gold, cyber-neon, gta-vi) */
+  /** Active player theme name (e.g. obsidian-gold, cyber-neon) */
   theme?: string;
 };
 

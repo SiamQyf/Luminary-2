@@ -28,24 +28,6 @@ export const THEME_PALETTES: Record<string, { dark: ThemePalette; light: ThemePa
       iconGlow: 'rgba(2, 132, 199, 0.2)',
     },
   },
-  'gta-vi': {
-    dark: {
-      primary: '#ff1389',
-      secondary: '#ff7b00',
-      accent: '#ffe600',
-      gradient: 'linear-gradient(135deg, #ff1389 10%, #ff5e00 60%, #ffb703 100%)',
-      glow: 'rgba(255, 19, 137, 0.55)',
-      iconGlow: 'rgba(255, 19, 137, 0.45)',
-    },
-    light: {
-      primary: '#e11d48',
-      secondary: '#ea580c',
-      accent: '#d97706',
-      gradient: 'linear-gradient(135deg, #e11d48 10%, #ea580c 60%, #d97706 100%)',
-      glow: 'rgba(225, 29, 72, 0.35)',
-      iconGlow: 'rgba(225, 29, 72, 0.25)',
-    },
-  },
   'cyber-neon': {
     dark: {
       primary: '#00f0ff',

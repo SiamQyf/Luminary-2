@@ -29,17 +29,6 @@ const THEME_PALETTES: Record<string, ThemePalette> = {
     bit2: '#c084fc',
     bitGlow: 'rgba(56, 189, 248, 0.65)',
   },
-  'gta-vi': {
-    bleed1: 'rgba(255, 19, 137, 0.24)',
-    bleed2: 'rgba(255, 123, 0, 0.20)',
-    bleed3: 'rgba(168, 85, 247, 0.18)',
-    bleed4: 'rgba(255, 60, 120, 0.14)',
-    strip1: '#ff1389',
-    strip2: '#ff7b00',
-    bit1: '#ff1389',
-    bit2: '#ff9e00',
-    bitGlow: 'rgba(255, 19, 137, 0.65)',
-  },
   'cyber-neon': {
     bleed1: 'rgba(0, 240, 255, 0.24)',
     bleed2: 'rgba(139, 92, 246, 0.20)',
