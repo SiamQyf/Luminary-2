@@ -9696,57 +9696,72 @@ div[role="menu"]:not([data-child-open]) {
 
 
 /* ==========================================================================
-   Scholarly Press Theme
+   Scholarly Press Theme (Complete Redesign)
    Ivory Paper, Hairline Ink Borders & Saffron Spindle Seekbar
    ========================================================================== */
 .preview-player[data-theme="scholarly-press"],
 .preview-player[data-theme="scholarly-press"] .media-skin {
-  border-radius: 14px !important;
+  border-radius: 16px !important;
 }
 .preview-player[data-theme="scholarly-press"] .media-skin {
   border: 1.5px solid rgba(31, 31, 30, 0.3333) !important;
   outline: none !important;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18) !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22) !important;
 }
 
-/* Floating Bottom Controls Island */
+/* Floating Bottom Controls Island (52px Height, 16px Radius) */
 .preview-player[data-theme="scholarly-press"] .media-skin [data-part="bottom-controls-bar"]:not([class*="static"]) {
   background: #fdfdfb !important;
   border: 1.2px solid #1f1f1e !important;
-  border-radius: 14px !important;
+  border-radius: 16px !important;
   margin: 0 16px 14px 16px !important;
   width: calc(100% - 32px) !important;
-  padding: 8px 14px !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+  height: 52px !important;
+  min-height: 52px !important;
+  padding: 0 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
 }
 .preview-player[data-theme="scholarly-press"] .media-skin [data-part="bottom-controls-bar"]::before {
   display: none !important;
 }
 
-/* Perfect Circular Buttons */
+/* Exact 35px Circular Buttons Across All Controls */
 .preview-player[data-theme="scholarly-press"] .group\/liquid-btn,
-.preview-player[data-theme="scholarly-press"] .group\/center-buffering button,
 .preview-player[data-theme="scholarly-press"] [data-slot="control"],
 .preview-player[data-theme="scholarly-press"] .media-fullscreen-button,
-.preview-player[data-theme="scholarly-press"] .group\/play {
+.preview-player[data-theme="scholarly-press"] .group\/play,
+.preview-player[data-theme="scholarly-press"] .bottom-play-portrait-simple button {
+  width: 35px !important;
+  height: 35px !important;
+  min-width: 35px !important;
   border-radius: 50% !important;
   background-color: #ffffff !important;
   border: 1.2px solid #1f1f1e !important;
   color: #1f1f1e !important;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
   transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease !important;
 }
 .preview-player[data-theme="scholarly-press"] .group\/liquid-btn:hover,
 .preview-player[data-theme="scholarly-press"] [data-slot="control"]:hover,
 .preview-player[data-theme="scholarly-press"] .media-fullscreen-button:hover,
 .preview-player[data-theme="scholarly-press"] .group\/play:hover,
-.preview-player[data-theme="scholarly-press"] .group\/center-buffering button:hover {
+.preview-player[data-theme="scholarly-press"] .bottom-play-portrait-simple button:hover {
   background-color: #f5f5f2 !important;
   border-color: #000000 !important;
 }
 .preview-player[data-theme="scholarly-press"] .group\/center-buffering button {
+  width: 52px !important;
+  height: 52px !important;
+  min-width: 52px !important;
+  border-radius: 50% !important;
   background: #ffffff !important;
-  border: 1.2px solid #1f1f1e !important;
+  border: 1.5px solid #1f1f1e !important;
   color: #1f1f1e !important;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
 }
@@ -9764,10 +9779,56 @@ div[role="menu"]:not([data-child-open]) {
   -webkit-filter: none !important;
 }
 
+/* Volume Pill: 35px Circle when Collapsed, Smoothly Expands on Hover */
+.preview-player[data-theme="scholarly-press"] .group\/vol-pill {
+  height: 35px !important;
+  min-height: 35px !important;
+  border-radius: 9999px !important;
+  background: #ffffff !important;
+  border: 1.2px solid #1f1f1e !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s ease !important;
+}
+.preview-player[data-theme="scholarly-press"] .group\/vol-pill:hover {
+  background: #f5f5f2 !important;
+}
+.preview-player[data-theme="scholarly-press"] .group\/vol-pill button {
+  width: 35px !important;
+  height: 35px !important;
+  min-width: 35px !important;
+  border: none !important;
+  background: transparent !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+}
+.preview-player[data-theme="scholarly-press"] .group\/vol-pill div[class*="bg-white/20"] {
+  height: 4px !important;
+  border-radius: 9999px !important;
+  background: rgba(31, 31, 30, 0.15) !important;
+  border: 0.5px solid rgba(31, 31, 30, 0.3) !important;
+}
+.preview-player[data-theme="scholarly-press"] .group\/vol-pill div[class*="bg-white/90"] {
+  height: 4px !important;
+  border-radius: 9999px !important;
+  background: #e6af33 !important;
+}
+.preview-player[data-theme="scholarly-press"] .volume-slider-thumb {
+  width: 9px !important;
+  height: 9px !important;
+  border-radius: 50% !important;
+  background: #1f1f1e !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) !important;
+}
+
 /* Saffron Spindle Seekbar with Ink Baseline Axis */
 .preview-player[data-theme="scholarly-press"] .group\/slider {
   position: relative !important;
-  height: 18px !important;
+  height: 24px !important;
   display: flex !important;
   align-items: center !important;
 }
@@ -9777,45 +9838,46 @@ div[role="menu"]:not([data-child-open]) {
   left: 0 !important;
   right: 0 !important;
   top: 50% !important;
-  transform: translateY(5.5px) !important;
+  transform: translateY(6px) !important;
   height: 1px !important;
-  background: rgba(31, 31, 30, 0.45) !important;
+  background: rgba(31, 31, 30, 0.5) !important;
   pointer-events: none !important;
-  z-index: 0 !important;
+  z-index: 1 !important;
 }
 .preview-player[data-theme="scholarly-press"] div[class*="media-slider-smooth"][class*="isolate"] {
-  height: 11px !important;
+  height: 12px !important;
   clip-path: ellipse(50% 50% at 50% 50%) !important;
   -webkit-clip-path: ellipse(50% 50% at 50% 50%) !important;
-  background: rgba(31, 31, 30, 0.08) !important;
+  background: #f2ede1 !important;
+  filter: drop-shadow(0 0 0.8px rgba(31, 31, 30, 0.75)) drop-shadow(0 0.5px 0.5px rgba(31, 31, 30, 0.35)) !important;
   border-radius: 0 !important;
   overflow: hidden !important;
   box-shadow: none !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   border: none !important;
-  z-index: 1 !important;
+  z-index: 2 !important;
 }
 .preview-player[data-theme="scholarly-press"] div[class*="clip-media-x-[--media-slider-buffer]"] {
-  background: rgba(230, 175, 51, 0.25) !important;
+  background: rgba(230, 175, 51, 0.3) !important;
   border-radius: 0 !important;
 }
 .preview-player[data-theme="scholarly-press"] div[class*="clip-media-x-[--media-slider-fill]"] {
-  background: #e6af33 !important;
+  background: linear-gradient(180deg, #f0be42 0%, #e6af33 55%, #d49c25 100%) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), inset 0 -1px 0 rgba(0, 0, 0, 0.15) !important;
   border-radius: 0 !important;
-  box-shadow: none !important;
   opacity: 1 !important;
 }
 .preview-player[data-theme="scholarly-press"] .group\/slider .media-thumb-smooth {
   width: 3.5px !important;
-  height: 13px !important;
+  height: 16px !important;
   border-radius: 1px !important;
   background: #1f1f1e !important;
   border: none !important;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
   opacity: 0 !important;
   transition: opacity 0.15s ease !important;
-  z-index: 2 !important;
+  z-index: 3 !important;
 }
 .preview-player[data-theme="scholarly-press"] .group\/slider:hover .media-thumb-smooth,
 .preview-player[data-theme="scholarly-press"] .group\/slider[data-dragging] .media-thumb-smooth {
@@ -9828,38 +9890,12 @@ div[role="menu"]:not([data-child-open]) {
 .preview-player[data-theme="scholarly-press"] div[class*="tabular-nums"] span {
   color: #1f1f1e !important;
   font-family: 'Times New Roman', Times, 'Baskerville', 'Georgia', serif !important;
-  font-size: 13.5px !important;
+  font-size: 14px !important;
   font-weight: 500 !important;
-  letter-spacing: 0.02em !important;
+  letter-spacing: 0.03em !important;
   text-shadow: none !important;
   filter: none !important;
   -webkit-filter: none !important;
-}
-
-/* Volume Pill */
-.preview-player[data-theme="scholarly-press"] .group\/vol-pill {
-  border-radius: 9999px !important;
-  background: #ffffff !important;
-  border: 1.2px solid #1f1f1e !important;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
-}
-.preview-player[data-theme="scholarly-press"] .group\/vol-pill div[class*="bg-white/20"] {
-  height: 3.5px !important;
-  border-radius: 9999px !important;
-  background: rgba(31, 31, 30, 0.15) !important;
-  border: 0.5px solid rgba(31, 31, 30, 0.25) !important;
-}
-.preview-player[data-theme="scholarly-press"] .group\/vol-pill div[class*="bg-white/90"] {
-  height: 3.5px !important;
-  border-radius: 9999px !important;
-  background: #e6af33 !important;
-}
-.preview-player[data-theme="scholarly-press"] .volume-slider-thumb {
-  width: 8px !important;
-  height: 8px !important;
-  border-radius: 50% !important;
-  background: #1f1f1e !important;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
 }
 
 /* Popover Settings Menu */
@@ -9867,8 +9903,8 @@ div[role="menu"]:not([data-child-open]) {
 :root[data-theme="scholarly-press"] [role="menu"] {
   background: #ffffff !important;
   border: 1.2px solid #1f1f1e !important;
-  border-radius: 12px !important;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.14) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.15) !important;
   color: #1f1f1e !important;
   padding: 6px !important;
 }
@@ -9876,7 +9912,7 @@ div[role="menu"]:not([data-child-open]) {
 .preview-player[data-theme="scholarly-press"] .group\/menu-radio:hover,
 :root[data-theme="scholarly-press"] [role="menuitem"]:hover,
 :root[data-theme="scholarly-press"] [role="menuitemradio"]:hover {
-  background: #f4f4f0 !important;
+  background: #f5f5f1 !important;
   border-radius: 8px !important;
   color: #000000 !important;
 }
@@ -9900,6 +9936,9 @@ div[role="menu"]:not([data-child-open]) {
 
 /* Top Controls */
 .preview-player[data-theme="scholarly-press"] [data-part="top-controls-bar"] [data-slot="control"] {
+  width: 35px !important;
+  height: 35px !important;
+  min-width: 35px !important;
   border-radius: 50% !important;
   background-color: #ffffff !important;
   border: 1.2px solid #1f1f1e !important;
