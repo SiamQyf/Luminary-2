@@ -568,6 +568,17 @@ const THEME_PALETTES: Record<string, ThemePalette> = {
     bit2: '#ffffff',
     bitGlow: 'rgba(125, 211, 252, 0.75)',
   },
+  'scholarly-press': {
+    bleed1: 'rgba(230, 175, 51, 0.25)',
+    bleed2: 'rgba(245, 245, 240, 0.22)',
+    bleed3: 'rgba(217, 119, 6, 0.18)',
+    bleed4: 'rgba(31, 31, 30, 0.22)',
+    strip1: '#e6af33',
+    strip2: '#d97706',
+    bit1: '#e6af33',
+    bit2: '#fef3c7',
+    bitGlow: 'rgba(230, 175, 51, 0.85)',
+  },
 };
 
 /**

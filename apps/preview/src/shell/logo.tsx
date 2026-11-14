@@ -910,6 +910,24 @@ export const THEME_PALETTES: Record<string, { dark: ThemePalette; light: ThemePa
       iconGlow: 'rgba(3, 105, 161, 0.22)',
     },
   },
+  'scholarly-press': {
+    dark: {
+      primary: '#e6af33',
+      secondary: '#d97706',
+      accent: '#fef3c7',
+      gradient: 'linear-gradient(135deg, #fef3c7 15%, #e6af33 55%, #b45309 100%)',
+      glow: 'rgba(230, 175, 51, 0.70)',
+      iconGlow: 'rgba(230, 175, 51, 0.50)',
+    },
+    light: {
+      primary: '#b45309',
+      secondary: '#92400e',
+      accent: '#78350f',
+      gradient: 'linear-gradient(135deg, #d97706 0%, #b45309 60%, #78350f 100%)',
+      glow: 'rgba(180, 83, 9, 0.20)',
+      iconGlow: 'rgba(180, 83, 9, 0.15)',
+    },
+  },
 };
 
 export function getThemePalette(themeName: string, isDark = true): ThemePalette {
