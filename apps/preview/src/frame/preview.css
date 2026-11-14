@@ -9720,3 +9720,75 @@ div[role="menu"]:not([data-child-open]) {
      0 2px 4px rgba(0, 0, 0, 0.95) !important;
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
 }
+
+[data-caption-style="obsidian-gold"] [data-part="caption-pill"],
+:root[data-caption-style="obsidian-gold"] [data-part="caption-pill"] {
+  border-radius: 8px !important;
+  background: linear-gradient(180deg, rgba(24, 20, 16, 0.94) 0%, rgba(12, 10, 8, 0.98) 100%) !important;
+  border: 1px solid rgba(245, 158, 11, 0.45) !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(254, 240, 138, 0.25), 0 0 12px rgba(245, 158, 11, 0.2) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  color: #fef3c7 !important;
+  font-family: Georgia, 'Times New Roman', serif !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95), 0 0 8px rgba(245, 158, 11, 0.4) !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
+}
+
+[data-caption-style="retro-terminal"] [data-part="caption-pill"],
+:root[data-caption-style="retro-terminal"] [data-part="caption-pill"] {
+  border-radius: 3px !important;
+  background: rgba(4, 18, 8, 0.92) !important;
+  border: 1px solid rgba(74, 222, 128, 0.45) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.85), inset 0 0 8px rgba(34, 197, 94, 0.2) !important;
+  backdrop-filter: blur(6px) !important;
+  -webkit-backdrop-filter: blur(6px) !important;
+  color: #4ade80 !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  text-shadow: 0 0 8px rgba(74, 222, 128, 0.85), 0 1px 2px rgba(0, 0, 0, 0.95) !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
+  letter-spacing: 0.05em !important;
+}
+
+[data-caption-style="synthwave-sunset"] [data-part="caption-pill"],
+:root[data-caption-style="synthwave-sunset"] [data-part="caption-pill"] {
+  border-radius: 8px !important;
+  background: linear-gradient(135deg, rgba(20, 10, 35, 0.92) 0%, rgba(10, 5, 20, 0.96) 100%) !important;
+  border: 1.5px solid #f43f5e !important;
+  box-shadow: 0 0 18px rgba(244, 63, 94, 0.45), inset 0 0 10px rgba(168, 85, 247, 0.25) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  color: #fdf4ff !important;
+  font-weight: 700 !important;
+  text-shadow: 0 0 8px rgba(244, 63, 94, 0.9), 0 0 16px rgba(168, 85, 247, 0.5) !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
+  letter-spacing: 0.03em !important;
+}
+
+[data-caption-style="comic-pop"] [data-part="caption-pill"],
+:root[data-caption-style="comic-pop"] [data-part="caption-pill"] {
+  border-radius: 8px !important;
+  background: #fffdf5 !important;
+  border: 2px solid #09090b !important;
+  box-shadow: 3px 3px 0px #09090b, 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #09090b !important;
+  font-weight: 900 !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+[data-caption-style="pure-frosted"] [data-part="caption-pill"],
+:root[data-caption-style="pure-frosted"] [data-part="caption-pill"] {
+  border-radius: 9999px !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.6), inset 0 -1px 1px rgba(0, 0, 0, 0.2) !important;
+  backdrop-filter: blur(24px) saturate(200%) brightness(120%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(200%) brightness(120%) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85) !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
+}

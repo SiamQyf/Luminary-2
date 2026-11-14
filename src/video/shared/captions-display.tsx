@@ -266,6 +266,61 @@ export const CAPTION_STYLE_CONFIGS: Record<CaptionDesignId, CaptionStyleConfig> 
       filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85))',
     },
   },
+  'obsidian-gold': {
+    pillClass: 'rounded-[7px] sm:rounded-[9px] px-3.5 py-1.5 sm:px-4.5 sm:py-2 md:px-5 md:py-2.5 font-serif font-medium tracking-[0.02em] backdrop-blur-[12px]',
+    style: {
+      background: 'linear-gradient(180deg, rgba(24, 20, 16, 0.94) 0%, rgba(12, 10, 8, 0.98) 100%)',
+      color: '#fef3c7',
+      border: '1px solid rgba(245, 158, 11, 0.45)',
+      boxShadow: '0 4px 18px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(254, 240, 138, 0.25), 0 0 12px rgba(245, 158, 11, 0.2)',
+      textShadow: '0 1px 3px rgba(0, 0, 0, 0.95), 0 0 8px rgba(245, 158, 11, 0.4)',
+      filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85))',
+    },
+  },
+  'retro-terminal': {
+    pillClass: 'rounded-[3px] px-3.5 py-1 sm:px-4 sm:py-1.5 md:px-5 md:py-2 font-mono font-bold tracking-[0.05em] backdrop-blur-[6px]',
+    style: {
+      background: 'rgba(4, 18, 8, 0.92)',
+      color: '#4ade80',
+      border: '1px solid rgba(74, 222, 128, 0.45)',
+      boxShadow: '0 4px 16px rgba(0, 0, 0, 0.85), inset 0 0 8px rgba(34, 197, 94, 0.2)',
+      textShadow: '0 0 8px rgba(74, 222, 128, 0.85), 0 1px 2px rgba(0, 0, 0, 0.95)',
+      filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85))',
+    },
+  },
+  'synthwave-sunset': {
+    pillClass: 'rounded-[8px] px-4 py-1.5 sm:px-5 sm:py-2 md:px-5.5 md:py-2.5 font-sans font-bold tracking-[0.03em] backdrop-blur-[12px]',
+    style: {
+      background: 'linear-gradient(135deg, rgba(20, 10, 35, 0.92) 0%, rgba(10, 5, 20, 0.96) 100%)',
+      color: '#fdf4ff',
+      border: '1.5px solid #f43f5e',
+      boxShadow: '0 0 18px rgba(244, 63, 94, 0.45), inset 0 0 10px rgba(168, 85, 247, 0.25)',
+      textShadow: '0 0 8px rgba(244, 63, 94, 0.9), 0 0 16px rgba(168, 85, 247, 0.5)',
+      filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85))',
+    },
+  },
+  'comic-pop': {
+    pillClass: 'rounded-[8px] px-3.5 py-1.5 sm:px-4.5 sm:py-2 md:px-5.5 md:py-2 font-sans font-black tracking-tight',
+    style: {
+      background: '#fffdf5',
+      color: '#09090b',
+      border: '2px solid #09090b',
+      boxShadow: '3px 3px 0px #09090b, 0 4px 12px rgba(0, 0, 0, 0.4)',
+      textShadow: 'none',
+      filter: 'none',
+    },
+  },
+  'pure-frosted': {
+    pillClass: 'rounded-full px-4 py-1.5 sm:px-5 sm:py-2 md:px-6 md:py-2.5 backdrop-blur-[24px] backdrop-saturate-[200%] backdrop-brightness-[120%] text-white font-sans font-semibold',
+    style: {
+      background: 'rgba(255, 255, 255, 0.14)',
+      color: '#ffffff',
+      border: '1px solid rgba(255, 255, 255, 0.35)',
+      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.6), inset 0 -1px 1px rgba(0, 0, 0, 0.2)',
+      textShadow: '0 1px 3px rgba(0, 0, 0, 0.85)',
+      filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85))',
+    },
+  },
 };
 
 /**

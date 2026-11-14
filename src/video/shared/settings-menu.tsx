@@ -80,6 +80,11 @@ export const CAPTION_DESIGNS = [
   { id: 'retro-yellow', label: 'Retro Yellow', subtitle: 'Criterion & Anime Gold' },
   { id: 'neon-cyber', label: 'Neon Cyber', subtitle: 'Glowing Cyan HUD' },
   { id: 'minimalist', label: 'Minimalist', subtitle: 'Floating Outline Text' },
+  { id: 'obsidian-gold', label: 'Obsidian Gold', subtitle: 'Black Velvet & Warm Gold' },
+  { id: 'retro-terminal', label: 'Retro Terminal', subtitle: 'Phosphor Green Matrix' },
+  { id: 'synthwave-sunset', label: 'Synthwave Sunset', subtitle: 'Hot Magenta & Indigo Glow' },
+  { id: 'comic-pop', label: 'Comic Pop', subtitle: 'Cream Washi & Ink Border' },
+  { id: 'pure-frosted', label: 'Pure Frosted', subtitle: 'Ultra-Translucent Diffusion' },
 ] as const;
 
 export type CaptionDesignId = (typeof CAPTION_DESIGNS)[number]['id'];
@@ -604,7 +609,7 @@ export function SettingsMenu() {
           // Clean transparent popup positioning surface (content handles the card background)
           'z-20 m-0 w-[264px]! min-w-[248px]! max-w-[272px]! overflow-visible! bg-transparent! border-0! shadow-none! backdrop-blur-none! p-0 text-white',
           '[--media-popover-align-offset:39.3px] rtl:[--media-popover-align-offset:-39.3px] [--media-popover-side-offset:24px] [--media-popup-side-offset:var(--media-popover-side-offset)]',
-          'max-h-[min(var(--media-menu-available-height,380px),380px)] overscroll-none',
+          'max-h-[min(var(--media-menu-available-height,420px),420px)] overscroll-none',
           'h-(--media-menu-height)'
         )}
       >
