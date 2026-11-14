@@ -175,6 +175,12 @@ export const STYLE_OPTIONS = [
   { id: 'velvet-opera', label: 'Velvet Opera' },
   { id: 'water-droplet', label: 'Water Droplet' },
   { id: 'glacial-permafrost', label: 'Glacial Permafrost' },
+  // E-Learning, EdTech & Universities
+  { id: 'oxford-academe', label: 'Oxford Academe', subtitle: 'Collegiate Heritage & Ivy Gold' },
+  { id: 'chalk-blackboard', label: 'Chalk Blackboard', subtitle: 'MIT Lecture Hall & Slate Chalk' },
+  { id: 'code-syntax', label: 'Code Syntax', subtitle: 'CS Lab IDE & Monaco Dark' },
+  { id: 'quantum-lab', label: 'Quantum Lab', subtitle: 'STEM Telemetry & Oscilloscope' },
+  { id: 'papyrus-vellum', label: 'Papyrus Vellum', subtitle: 'Archival Library & Gold Leaf' },
 ] as const;
 
 interface FlatOption<T extends string> {

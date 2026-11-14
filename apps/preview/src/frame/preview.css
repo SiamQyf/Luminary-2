@@ -859,6 +859,72 @@ live-audio-player {
     0 24px 54px rgba(0, 0, 0, 0.92) !important;
 }
 
+.preview-player[data-theme="oxford-academe"],
+.preview-player[data-theme="oxford-academe"] .media-skin {
+  border-radius: 10px !important;
+}
+.preview-player[data-theme="oxford-academe"] .media-skin {
+  border: 1.5px solid rgba(212, 175, 55, 0.3333) !important;
+  outline: none !important;
+  box-shadow:
+    inset 0 0 20px rgba(128, 0, 32, 0.25),
+    0 0 0 1px #1a0408,
+    0 24px 55px rgba(0, 0, 0, 0.95) !important;
+}
+
+.preview-player[data-theme="chalk-blackboard"],
+.preview-player[data-theme="chalk-blackboard"] .media-skin {
+  border-radius: 8px !important;
+}
+.preview-player[data-theme="chalk-blackboard"] .media-skin {
+  border: 1.5px solid rgba(254, 240, 138, 0.3333) !important;
+  outline: none !important;
+  box-shadow:
+    inset 0 0 24px rgba(20, 40, 30, 0.35),
+    0 0 0 1px #0a1410,
+    0 24px 55px rgba(0, 0, 0, 0.94) !important;
+}
+
+.preview-player[data-theme="code-syntax"],
+.preview-player[data-theme="code-syntax"] .media-skin {
+  border-radius: 12px !important;
+}
+.preview-player[data-theme="code-syntax"] .media-skin {
+  border: 1.5px solid rgba(97, 175, 239, 0.3333) !important;
+  outline: none !important;
+  box-shadow:
+    inset 0 0 20px rgba(97, 175, 239, 0.15),
+    0 0 0 1px #0e1117,
+    0 24px 55px rgba(0, 0, 0, 0.95) !important;
+}
+
+.preview-player[data-theme="quantum-lab"],
+.preview-player[data-theme="quantum-lab"] .media-skin {
+  border-radius: 14px !important;
+}
+.preview-player[data-theme="quantum-lab"] .media-skin {
+  border: 1.5px solid rgba(0, 240, 255, 0.3333) !important;
+  outline: none !important;
+  box-shadow:
+    inset 0 0 24px rgba(0, 240, 255, 0.18),
+    0 0 0 1px #040810,
+    0 24px 58px rgba(0, 0, 0, 0.96) !important;
+}
+
+.preview-player[data-theme="papyrus-vellum"],
+.preview-player[data-theme="papyrus-vellum"] .media-skin {
+  border-radius: 10px !important;
+}
+.preview-player[data-theme="papyrus-vellum"] .media-skin {
+  border: 1.5px solid rgba(217, 119, 6, 0.3333) !important;
+  outline: none !important;
+  box-shadow:
+    inset 0 0 22px rgba(180, 83, 9, 0.2),
+    0 0 0 1px #140d07,
+    0 24px 55px rgba(0, 0, 0, 0.95) !important;
+}
+
+
 
 /* ==========================================================================
    UNIFORM ICON DROP SHADOW (MANDATORY UNIVERSAL SPECIFICATION)
@@ -9693,6 +9759,610 @@ div[role="menu"]:not([data-child-open]) {
   border-radius: 10px !important;
   color: #bae6fd !important;
 }
+
+/* ==========================================================================
+   E-LEARNING, EDTECH & UNIVERSITIES THEME SUITE (5 HIGH-PRECISION THEMES)
+   1. Oxford Academe (oxford-academe) - Collegiate Heritage & Ivy League
+   2. Chalk Blackboard (chalk-blackboard) - MIT/Caltech Slate & Yellow Chalk
+   3. Code Syntax (code-syntax) - CS Lab IDE & Monaco Token Dark
+   4. Quantum Lab (quantum-lab) - STEM Telemetry & Lab Oscilloscope
+   5. Papyrus Vellum (papyrus-vellum) - Archival Rare Book & Gold Leaf
+   ========================================================================== */
+
+/* ==========================================================================
+   15. OXFORD ACADEME (oxford-academe)
+   Ivy League Collegiate Heritage, Deep Crimson Mahogany, Antique Gold Gilding
+   ========================================================================== */
+.preview-player[data-theme="oxford-academe"] .group\/liquid-btn,
+.preview-player[data-theme="oxford-academe"] .group\/center-buffering button,
+.preview-player[data-theme="oxford-academe"] [data-slot="control"],
+.preview-player[data-theme="oxford-academe"] .media-fullscreen-button {
+  border-radius: 9px !important;
+  background: radial-gradient(circle at 35% 25%, rgba(212, 175, 55, 0.22) 0%, rgba(38, 6, 12, 0.88) 85%) !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.5) !important;
+  box-shadow: 0 4px 14px rgba(18, 3, 6, 0.7), inset 0 1px 1px rgba(254, 240, 138, 0.5) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.preview-player[data-theme="oxford-academe"] .group\/liquid-btn:hover,
+.preview-player[data-theme="oxford-academe"] .group\/center-buffering button:hover,
+.preview-player[data-theme="oxford-academe"] [data-slot="control"]:hover,
+.preview-player[data-theme="oxford-academe"] .media-fullscreen-button:hover {
+  border-color: #fef08a !important;
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.65), inset 0 1px 2px #fef08a !important;
+  transform: translateY(-1.5px) !important;
+}
+.preview-player[data-theme="oxford-academe"] .group\/play,
+.preview-player[data-theme="oxford-academe"] .group\/center-buffering button:nth-child(2) {
+  background: linear-gradient(135deg, #880020 0%, #580014 100%) !important;
+  border: 1.5px solid #d4af37 !important;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.55), inset 0 1px 2px rgba(254, 240, 138, 0.6) !important;
+  color: #ffffff !important;
+}
+.preview-player[data-theme="oxford-academe"] .player-icon-scale svg,
+.preview-player[data-theme="oxford-academe"] .group\/mute svg,
+.preview-player[data-theme="oxford-academe"] .group\/liquid-btn svg,
+.preview-player[data-theme="oxford-academe"] [data-slot="control"] svg {
+  color: #fde047 !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
+}
+.preview-player[data-theme="oxford-academe"] .group\/play svg {
+  color: #ffffff !important;
+}
+.preview-player[data-theme="oxford-academe"] .group\/vol-pill {
+  border-radius: 9px !important;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.16) 0%, rgba(30, 5, 10, 0.9) 100%) !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.45) !important;
+  box-shadow: inset 0 1px 1px rgba(254, 240, 138, 0.35), 0 4px 12px rgba(0, 0, 0, 0.7) !important;
+}
+.preview-player[data-theme="oxford-academe"] .group\/vol-pill div[class*="bg-white/20"] {
+  height: 3.5px !important;
+  border-radius: 2px !important;
+  background: rgba(18, 3, 6, 0.85) !important;
+  border: 0.5px solid rgba(212, 175, 55, 0.3) !important;
+}
+.preview-player[data-theme="oxford-academe"] .group\/vol-pill div[class*="bg-white/90"] {
+  height: 3.5px !important;
+  border-radius: 2px !important;
+  background: linear-gradient(90deg, #800020 0%, #d4af37 100%) !important;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.7) !important;
+}
+.preview-player[data-theme="oxford-academe"] .volume-slider-thumb {
+  width: 9px !important;
+  height: 9px !important;
+  border-radius: 2px !important;
+  background: #d4af37 !important;
+  box-shadow: 0 0 6px #d4af37 !important;
+}
+.preview-player[data-theme="oxford-academe"] div[class*="media-slider-smooth"][class*="isolate"] {
+  height: 4px !important;
+  border-radius: 9999px !important;
+  background: rgba(30, 5, 10, 0.85) !important;
+  border: 0.5px solid rgba(212, 175, 55, 0.3) !important;
+}
+.preview-player[data-theme="oxford-academe"] div[class*="clip-media-x-[--media-slider-buffer]"] {
+  background: rgba(254, 243, 199, 0.22) !important;
+  border-radius: 9999px !important;
+}
+.preview-player[data-theme="oxford-academe"] div[class*="clip-media-x-[--media-slider-fill]"] {
+  background: linear-gradient(90deg, #800020 0%, #b45309 50%, #d4af37 100%) !important;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.65) !important;
+  border-radius: 9999px !important;
+}
+.preview-player[data-theme="oxford-academe"] .group\/slider .media-thumb-smooth {
+  width: 14px !important;
+  height: 16px !important;
+  border-radius: 2px 2px 7px 7px !important;
+  background: linear-gradient(180deg, #fef08a 0%, #d4af37 55%, #92400e 100%) !important;
+  border: 1px solid #fef08a !important;
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.85) !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+.preview-player[data-theme="oxford-academe"] time-value,
+.preview-player[data-theme="oxford-academe"] div[class*="tabular-nums"] {
+  color: #fef3c7 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+  font-family: ui-serif, Georgia, Cambria, serif !important;
+  letter-spacing: 0.04em !important;
+}
+.preview-player[data-theme="oxford-academe"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
+  background-image:
+    repeating-linear-gradient(135deg, rgba(212, 175, 55, 0.04) 0 1px, transparent 1px 14px),
+    linear-gradient(180deg, transparent 0%, rgba(30, 5, 10, 0.5) 35%, #0e0205 100%);
+  box-shadow: inset 0 -1px 0 rgba(212, 175, 55, 0.3);
+}
+.preview-player[data-theme="oxford-academe"] [role="menu"],
+:root[data-theme="oxford-academe"] [role="menu"] {
+  background: linear-gradient(145deg, rgba(30, 5, 10, 0.97), rgba(14, 2, 5, 0.99)) !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.45) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(254, 240, 138, 0.4), 0 0 25px rgba(212, 175, 55, 0.2) !important;
+  backdrop-filter: blur(28px) !important;
+  -webkit-backdrop-filter: blur(28px) !important;
+}
+.preview-player[data-theme="oxford-academe"] .group\/menu-btn:hover,
+.preview-player[data-theme="oxford-academe"] .group\/menu-radio:hover,
+:root[data-theme="oxford-academe"] [role="menuitem"]:hover,
+:root[data-theme="oxford-academe"] [role="menuitemradio"]:hover {
+  background: rgba(212, 175, 55, 0.16) !important;
+  border-radius: 8px !important;
+  color: #fef08a !important;
+}
+
+/* ==========================================================================
+   16. CHALK BLACKBOARD (chalk-blackboard)
+   MIT/Caltech Physics & Mathematics Lecture Slate, Powdery Chalk & Felt Eraser
+   ========================================================================== */
+.preview-player[data-theme="chalk-blackboard"] .group\/liquid-btn,
+.preview-player[data-theme="chalk-blackboard"] .group\/center-buffering button,
+.preview-player[data-theme="chalk-blackboard"] [data-slot="control"],
+.preview-player[data-theme="chalk-blackboard"] .media-fullscreen-button {
+  border-radius: 8px !important;
+  background: radial-gradient(circle at 40% 30%, rgba(32, 56, 44, 0.9) 0%, rgba(14, 26, 20, 0.95) 100%) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.4) !important;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.2), 0 4px 10px rgba(0, 0, 0, 0.6) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.preview-player[data-theme="chalk-blackboard"] .group\/liquid-btn:hover,
+.preview-player[data-theme="chalk-blackboard"] .group\/center-buffering button:hover,
+.preview-player[data-theme="chalk-blackboard"] [data-slot="control"]:hover,
+.preview-player[data-theme="chalk-blackboard"] .media-fullscreen-button:hover {
+  border-color: #fde047 !important;
+  box-shadow: 0 0 14px rgba(253, 224, 71, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.35) !important;
+  transform: translateY(-1px) !important;
+}
+.preview-player[data-theme="chalk-blackboard"] .group\/play,
+.preview-player[data-theme="chalk-blackboard"] .group\/center-buffering button:nth-child(2) {
+  background: linear-gradient(135deg, #244434 0%, #11221a 100%) !important;
+  border: 1.5px solid #fde047 !important;
+  box-shadow: 0 0 18px rgba(253, 224, 71, 0.45) !important;
+  color: #fef08a !important;
+}
+.preview-player[data-theme="chalk-blackboard"] .player-icon-scale svg,
+.preview-player[data-theme="chalk-blackboard"] .group\/mute svg,
+.preview-player[data-theme="chalk-blackboard"] .group\/liquid-btn svg,
+.preview-player[data-theme="chalk-blackboard"] [data-slot="control"] svg {
+  color: #fef08a !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
+}
+.preview-player[data-theme="chalk-blackboard"] .group\/play svg {
+  color: #fde047 !important;
+}
+.preview-player[data-theme="chalk-blackboard"] .group\/vol-pill {
+  border-radius: 8px !important;
+  background: linear-gradient(135deg, rgba(32, 56, 44, 0.85) 0%, rgba(12, 22, 17, 0.95) 100%) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.35) !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), 0 4px 10px rgba(0, 0, 0, 0.6) !important;
+}
+.preview-player[data-theme="chalk-blackboard"] .group\/vol-pill div[class*="bg-white/20"] {
+  height: 4px !important;
+  border-radius: 2px !important;
+  background: rgba(10, 18, 14, 0.9) !important;
+  border: 0.5px dashed rgba(255, 255, 255, 0.3) !important;
+}
+.preview-player[data-theme="chalk-blackboard"] .group\/vol-pill div[class*="bg-white/90"] {
+  height: 4px !important;
+  border-radius: 2px !important;
+  background: linear-gradient(90deg, #4ade80 0%, #facc15 100%) !important;
+  box-shadow: 0 0 8px rgba(250, 204, 21, 0.6) !important;
+}
+.preview-player[data-theme="chalk-blackboard"] .volume-slider-thumb {
+  width: 8px !important;
+  height: 12px !important;
+  border-radius: 2px !important;
+  background: #fef08a !important;
+  box-shadow: 0 0 6px #fde047 !important;
+}
+.preview-player[data-theme="chalk-blackboard"] div[class*="media-slider-smooth"][class*="isolate"] {
+  height: 4px !important;
+  border-radius: 2px !important;
+  background: rgba(10, 18, 14, 0.88) !important;
+  border: 0.5px dashed rgba(255, 255, 255, 0.35) !important;
+}
+.preview-player[data-theme="chalk-blackboard"] div[class*="clip-media-x-[--media-slider-buffer]"] {
+  background: rgba(165, 243, 252, 0.2) !important;
+  border-radius: 2px !important;
+}
+.preview-player[data-theme="chalk-blackboard"] div[class*="clip-media-x-[--media-slider-fill]"] {
+  background: linear-gradient(90deg, #22c55e 0%, #eab308 60%, #fef08a 100%) !important;
+  box-shadow: 0 0 12px rgba(250, 204, 21, 0.65) !important;
+  border-radius: 2px !important;
+}
+.preview-player[data-theme="chalk-blackboard"] .group\/slider .media-thumb-smooth {
+  width: 9px !important;
+  height: 16px !important;
+  border-radius: 2px !important;
+  background: #ffffff !important;
+  border: 1.5px solid #fde047 !important;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.85), 0 0 16px rgba(253, 224, 71, 0.5) !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+.preview-player[data-theme="chalk-blackboard"] time-value,
+.preview-player[data-theme="chalk-blackboard"] div[class*="tabular-nums"] {
+  color: #f8fafc !important;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace !important;
+}
+.preview-player[data-theme="chalk-blackboard"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
+  background-image:
+    radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.05) 0%, transparent 60%),
+    linear-gradient(180deg, transparent 0%, rgba(15, 29, 24, 0.55) 35%, #0a1410 100%);
+  box-shadow: inset 0 -1px 0 rgba(254, 240, 138, 0.25);
+}
+.preview-player[data-theme="chalk-blackboard"] [role="menu"],
+:root[data-theme="chalk-blackboard"] [role="menu"] {
+  background: linear-gradient(145deg, rgba(18, 34, 27, 0.98), rgba(9, 17, 13, 0.99)) !important;
+  border: 1.5px solid rgba(254, 240, 138, 0.4) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.94), inset 0 1px 1px rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+}
+.preview-player[data-theme="chalk-blackboard"] .group\/menu-btn:hover,
+.preview-player[data-theme="chalk-blackboard"] .group\/menu-radio:hover,
+:root[data-theme="chalk-blackboard"] [role="menuitem"]:hover,
+:root[data-theme="chalk-blackboard"] [role="menuitemradio"]:hover {
+  background: rgba(254, 240, 138, 0.15) !important;
+  border-radius: 6px !important;
+  color: #fef08a !important;
+}
+
+/* ==========================================================================
+   17. CODE SYNTAX (code-syntax)
+   Computer Science Lab IDE & Algorithm Bootcamp, Monaco Syntax Palette
+   ========================================================================== */
+.preview-player[data-theme="code-syntax"] .group\/liquid-btn,
+.preview-player[data-theme="code-syntax"] .group\/center-buffering button,
+.preview-player[data-theme="code-syntax"] [data-slot="control"],
+.preview-player[data-theme="code-syntax"] .media-fullscreen-button {
+  border-radius: 6px !important;
+  background: linear-gradient(135deg, rgba(30, 30, 46, 0.9) 0%, rgba(17, 17, 27, 0.95) 100%) !important;
+  border: 1px solid rgba(97, 175, 239, 0.45) !important;
+  box-shadow: inset 0 1px 1px rgba(205, 214, 244, 0.15), 0 3px 8px rgba(0, 0, 0, 0.55) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.preview-player[data-theme="code-syntax"] .group\/liquid-btn:hover,
+.preview-player[data-theme="code-syntax"] .group\/center-buffering button:hover,
+.preview-player[data-theme="code-syntax"] [data-slot="control"]:hover,
+.preview-player[data-theme="code-syntax"] .media-fullscreen-button:hover {
+  border-color: #61afef !important;
+  box-shadow: 0 0 14px rgba(97, 175, 239, 0.6), inset 0 1px 1px rgba(97, 175, 239, 0.3) !important;
+  transform: translateY(-1px) !important;
+}
+.preview-player[data-theme="code-syntax"] .group\/play,
+.preview-player[data-theme="code-syntax"] .group\/center-buffering button:nth-child(2) {
+  background: linear-gradient(135deg, #1d3557 0%, #0f1e33 100%) !important;
+  border: 1.5px solid #61afef !important;
+  box-shadow: 0 0 18px rgba(97, 175, 239, 0.55) !important;
+  color: #ffffff !important;
+}
+.preview-player[data-theme="code-syntax"] .player-icon-scale svg,
+.preview-player[data-theme="code-syntax"] .group\/mute svg,
+.preview-player[data-theme="code-syntax"] .group\/liquid-btn svg,
+.preview-player[data-theme="code-syntax"] [data-slot="control"] svg {
+  color: #61afef !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
+}
+.preview-player[data-theme="code-syntax"] .group\/play svg {
+  color: #ffffff !important;
+}
+.preview-player[data-theme="code-syntax"] .group\/vol-pill {
+  border-radius: 6px !important;
+  background: linear-gradient(135deg, rgba(30, 30, 46, 0.9) 0%, rgba(17, 17, 27, 0.95) 100%) !important;
+  border: 1px solid rgba(97, 175, 239, 0.4) !important;
+}
+.preview-player[data-theme="code-syntax"] .group\/vol-pill div[class*="bg-white/20"] {
+  height: 4px !important;
+  border-radius: 1px !important;
+  background: rgba(14, 14, 22, 0.9) !important;
+  border: 0.5px solid rgba(108, 112, 134, 0.35) !important;
+}
+.preview-player[data-theme="code-syntax"] .group\/vol-pill div[class*="bg-white/90"] {
+  height: 4px !important;
+  border-radius: 1px !important;
+  background: linear-gradient(90deg, #c678dd 0%, #61afef 100%) !important;
+  box-shadow: 0 0 8px rgba(97, 175, 239, 0.7) !important;
+}
+.preview-player[data-theme="code-syntax"] .volume-slider-thumb {
+  width: 4px !important;
+  height: 13px !important;
+  border-radius: 1px !important;
+  background: #98c379 !important;
+  box-shadow: 0 0 6px #98c379 !important;
+}
+.preview-player[data-theme="code-syntax"] div[class*="media-slider-smooth"][class*="isolate"] {
+  height: 4px !important;
+  border-radius: 2px !important;
+  background: rgba(17, 17, 27, 0.88) !important;
+  border: 0.5px solid rgba(108, 112, 134, 0.4) !important;
+}
+.preview-player[data-theme="code-syntax"] div[class*="clip-media-x-[--media-slider-buffer]"] {
+  background: rgba(97, 175, 239, 0.22) !important;
+  border-radius: 2px !important;
+}
+.preview-player[data-theme="code-syntax"] div[class*="clip-media-x-[--media-slider-fill]"] {
+  background: linear-gradient(90deg, #98c379 0%, #e5c07b 40%, #61afef 75%, #c678dd 100%) !important;
+  box-shadow: 0 0 12px rgba(97, 175, 239, 0.65) !important;
+  border-radius: 2px !important;
+}
+.preview-player[data-theme="code-syntax"] .group\/slider .media-thumb-smooth {
+  width: 13px !important;
+  height: 13px !important;
+  border-radius: 3px !important;
+  background: #1e1e2e !important;
+  border: 1.5px solid #61afef !important;
+  box-shadow: 0 0 12px rgba(97, 175, 239, 0.85) !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+.preview-player[data-theme="code-syntax"] time-value,
+.preview-player[data-theme="code-syntax"] div[class*="tabular-nums"] {
+  color: #98c379 !important;
+  text-shadow: 0 0 6px rgba(152, 195, 121, 0.4), 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+  font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace !important;
+  letter-spacing: -0.02em !important;
+}
+.preview-player[data-theme="code-syntax"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
+  background-image:
+    repeating-linear-gradient(90deg, rgba(97, 175, 239, 0.03) 0 1px, transparent 1px 40px),
+    linear-gradient(180deg, transparent 0%, rgba(24, 24, 37, 0.55) 35%, #0f0f18 100%);
+  box-shadow: inset 0 -1px 0 rgba(97, 175, 239, 0.3);
+}
+.preview-player[data-theme="code-syntax"] [role="menu"],
+:root[data-theme="code-syntax"] [role="menu"] {
+  background: linear-gradient(145deg, rgba(24, 24, 37, 0.98), rgba(17, 17, 27, 0.99)) !important;
+  border: 1px solid rgba(97, 175, 239, 0.4) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.92), inset 0 1px 0 rgba(205, 214, 244, 0.2) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+}
+.preview-player[data-theme="code-syntax"] .group\/menu-btn:hover,
+.preview-player[data-theme="code-syntax"] .group\/menu-radio:hover,
+:root[data-theme="code-syntax"] [role="menuitem"]:hover,
+:root[data-theme="code-syntax"] [role="menuitemradio"]:hover {
+  background: rgba(97, 175, 239, 0.16) !important;
+  border-radius: 4px !important;
+  color: #61afef !important;
+}
+
+/* ==========================================================================
+   18. QUANTUM LAB (quantum-lab)
+   STEM Telemetry & Scientific Observatory, Laser Argon Cyan & Photonic Grid
+   ========================================================================== */
+.preview-player[data-theme="quantum-lab"] .group\/liquid-btn,
+.preview-player[data-theme="quantum-lab"] .group\/center-buffering button,
+.preview-player[data-theme="quantum-lab"] [data-slot="control"],
+.preview-player[data-theme="quantum-lab"] .media-fullscreen-button {
+  border-radius: 12px !important;
+  background: radial-gradient(circle at 40% 30%, rgba(6, 28, 48, 0.88) 0%, rgba(2, 8, 16, 0.96) 100%) !important;
+  border: 1.5px solid rgba(0, 240, 255, 0.5) !important;
+  box-shadow: inset 0 1px 2px rgba(0, 240, 255, 0.3), 0 0 12px rgba(0, 240, 255, 0.18), 0 4px 12px rgba(0, 0, 0, 0.7) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.preview-player[data-theme="quantum-lab"] .group\/liquid-btn:hover,
+.preview-player[data-theme="quantum-lab"] .group\/center-buffering button:hover,
+.preview-player[data-theme="quantum-lab"] [data-slot="control"]:hover,
+.preview-player[data-theme="quantum-lab"] .media-fullscreen-button:hover {
+  border-color: #38bdf8 !important;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.7), inset 0 1px 2px #a5f3fc !important;
+  transform: translateY(-1.5px) !important;
+}
+.preview-player[data-theme="quantum-lab"] .group\/play,
+.preview-player[data-theme="quantum-lab"] .group\/center-buffering button:nth-child(2) {
+  background: linear-gradient(135deg, #005f73 0%, #06283d 100%) !important;
+  border: 1.5px solid #00f0ff !important;
+  box-shadow: 0 0 22px rgba(0, 240, 255, 0.7) !important;
+  color: #ffffff !important;
+}
+.preview-player[data-theme="quantum-lab"] .player-icon-scale svg,
+.preview-player[data-theme="quantum-lab"] .group\/mute svg,
+.preview-player[data-theme="quantum-lab"] .group\/liquid-btn svg,
+.preview-player[data-theme="quantum-lab"] [data-slot="control"] svg {
+  color: #00f0ff !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
+}
+.preview-player[data-theme="quantum-lab"] .group\/play svg {
+  color: #ffffff !important;
+}
+.preview-player[data-theme="quantum-lab"] .group\/vol-pill {
+  border-radius: 12px !important;
+  background: linear-gradient(135deg, rgba(6, 28, 48, 0.88) 0%, rgba(2, 8, 16, 0.96) 100%) !important;
+  border: 1.5px solid rgba(0, 240, 255, 0.45) !important;
+}
+.preview-player[data-theme="quantum-lab"] .group\/vol-pill div[class*="bg-white/20"] {
+  height: 3.5px !important;
+  border-radius: 9999px !important;
+  background: rgba(3, 8, 16, 0.9) !important;
+  border: 0.5px solid rgba(0, 240, 255, 0.3) !important;
+}
+.preview-player[data-theme="quantum-lab"] .group\/vol-pill div[class*="bg-white/90"] {
+  height: 3.5px !important;
+  border-radius: 9999px !important;
+  background: linear-gradient(90deg, #00f0ff 0%, #38bdf8 100%) !important;
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.8) !important;
+}
+.preview-player[data-theme="quantum-lab"] .volume-slider-thumb {
+  width: 9px !important;
+  height: 9px !important;
+  border-radius: 50% !important;
+  background: #00f0ff !important;
+  box-shadow: 0 0 8px #00f0ff !important;
+}
+.preview-player[data-theme="quantum-lab"] div[class*="media-slider-smooth"][class*="isolate"] {
+  height: 4px !important;
+  border-radius: 9999px !important;
+  background: rgba(3, 8, 16, 0.88) !important;
+  border: 0.5px solid rgba(0, 240, 255, 0.35) !important;
+}
+.preview-player[data-theme="quantum-lab"] div[class*="clip-media-x-[--media-slider-buffer]"] {
+  background: rgba(0, 240, 255, 0.22) !important;
+  border-radius: 9999px !important;
+}
+.preview-player[data-theme="quantum-lab"] div[class*="clip-media-x-[--media-slider-fill]"] {
+  background: linear-gradient(90deg, #0284c7 0%, #00f0ff 65%, #a5f3fc 100%) !important;
+  box-shadow: 0 0 14px rgba(0, 240, 255, 0.75) !important;
+  border-radius: 9999px !important;
+}
+.preview-player[data-theme="quantum-lab"] .group\/slider .media-thumb-smooth {
+  width: 15px !important;
+  height: 15px !important;
+  border-radius: 50% !important;
+  background: radial-gradient(circle, #ffffff 25%, #00f0ff 65%, #0369a1 100%) !important;
+  border: 1.5px solid #00f0ff !important;
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.9) !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+.preview-player[data-theme="quantum-lab"] time-value,
+.preview-player[data-theme="quantum-lab"] div[class*="tabular-nums"] {
+  color: #a5f3fc !important;
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.65) !important;
+  font-family: ui-monospace, monospace !important;
+}
+.preview-player[data-theme="quantum-lab"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
+  background-image:
+    repeating-linear-gradient(0deg, rgba(0, 240, 255, 0.03) 0 1px, transparent 1px 16px),
+    linear-gradient(180deg, transparent 0%, rgba(4, 14, 28, 0.5) 35%, #02060e 100%);
+  box-shadow: inset 0 -1px 0 rgba(0, 240, 255, 0.35);
+}
+.preview-player[data-theme="quantum-lab"] [role="menu"],
+:root[data-theme="quantum-lab"] [role="menu"] {
+  background: linear-gradient(145deg, rgba(4, 14, 28, 0.98), rgba(2, 6, 12, 0.99)) !important;
+  border: 1.5px solid rgba(0, 240, 255, 0.45) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.95), inset 0 1px 1px rgba(0, 240, 255, 0.4), 0 0 25px rgba(0, 240, 255, 0.2) !important;
+  backdrop-filter: blur(28px) !important;
+  -webkit-backdrop-filter: blur(28px) !important;
+}
+.preview-player[data-theme="quantum-lab"] .group\/menu-btn:hover,
+.preview-player[data-theme="quantum-lab"] .group\/menu-radio:hover,
+:root[data-theme="quantum-lab"] [role="menuitem"]:hover,
+:root[data-theme="quantum-lab"] [role="menuitemradio"]:hover {
+  background: rgba(0, 240, 255, 0.16) !important;
+  border-radius: 8px !important;
+  color: #a5f3fc !important;
+}
+
+/* ==========================================================================
+   19. PAPYRUS VELLUM (papyrus-vellum)
+   Archival Rare Book & Digital Humanities, Aged Vellum & Illuminated Gold Leaf
+   ========================================================================== */
+.preview-player[data-theme="papyrus-vellum"] .group\/liquid-btn,
+.preview-player[data-theme="papyrus-vellum"] .group\/center-buffering button,
+.preview-player[data-theme="papyrus-vellum"] [data-slot="control"],
+.preview-player[data-theme="papyrus-vellum"] .media-fullscreen-button {
+  border-radius: 9px !important;
+  background: radial-gradient(circle at 35% 25%, rgba(244, 236, 216, 0.2) 0%, rgba(40, 24, 15, 0.9) 100%) !important;
+  border: 1.5px solid rgba(217, 119, 6, 0.55) !important;
+  box-shadow: inset 0 1px 1px rgba(254, 243, 199, 0.4), 0 4px 12px rgba(0, 0, 0, 0.65) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.preview-player[data-theme="papyrus-vellum"] .group\/liquid-btn:hover,
+.preview-player[data-theme="papyrus-vellum"] .group\/center-buffering button:hover,
+.preview-player[data-theme="papyrus-vellum"] [data-slot="control"]:hover,
+.preview-player[data-theme="papyrus-vellum"] .media-fullscreen-button:hover {
+  border-color: #fde68a !important;
+  box-shadow: 0 0 16px rgba(217, 119, 6, 0.65), inset 0 1px 2px #fef3c7 !important;
+  transform: translateY(-1.5px) !important;
+}
+.preview-player[data-theme="papyrus-vellum"] .group\/play,
+.preview-player[data-theme="papyrus-vellum"] .group\/center-buffering button:nth-child(2) {
+  background: linear-gradient(135deg, #1e3a8a 0%, #172554 100%) !important;
+  border: 1.5px solid #d97706 !important;
+  box-shadow: 0 0 18px rgba(217, 119, 6, 0.6) !important;
+  color: #ffffff !important;
+}
+.preview-player[data-theme="papyrus-vellum"] .player-icon-scale svg,
+.preview-player[data-theme="papyrus-vellum"] .group\/mute svg,
+.preview-player[data-theme="papyrus-vellum"] .group\/liquid-btn svg,
+.preview-player[data-theme="papyrus-vellum"] [data-slot="control"] svg {
+  color: #fef3c7 !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
+}
+.preview-player[data-theme="papyrus-vellum"] .group\/play svg {
+  color: #ffffff !important;
+}
+.preview-player[data-theme="papyrus-vellum"] .group\/vol-pill {
+  border-radius: 9px !important;
+  background: linear-gradient(135deg, rgba(244, 236, 216, 0.16) 0%, rgba(35, 20, 12, 0.92) 100%) !important;
+  border: 1.5px solid rgba(217, 119, 6, 0.5) !important;
+}
+.preview-player[data-theme="papyrus-vellum"] .group\/vol-pill div[class*="bg-white/20"] {
+  height: 3.5px !important;
+  border-radius: 2px !important;
+  background: rgba(18, 10, 5, 0.9) !important;
+  border: 0.5px solid rgba(217, 119, 6, 0.3) !important;
+}
+.preview-player[data-theme="papyrus-vellum"] .group\/vol-pill div[class*="bg-white/90"] {
+  height: 3.5px !important;
+  border-radius: 2px !important;
+  background: linear-gradient(90deg, #1e3a8a 0%, #d97706 100%) !important;
+  box-shadow: 0 0 8px rgba(217, 119, 6, 0.7) !important;
+}
+.preview-player[data-theme="papyrus-vellum"] .volume-slider-thumb {
+  width: 9px !important;
+  height: 9px !important;
+  border-radius: 50% !important;
+  background: #f59e0b !important;
+  box-shadow: 0 0 6px #f59e0b !important;
+}
+.preview-player[data-theme="papyrus-vellum"] div[class*="media-slider-smooth"][class*="isolate"] {
+  height: 4px !important;
+  border-radius: 9999px !important;
+  background: rgba(22, 13, 8, 0.88) !important;
+  border: 0.5px solid rgba(217, 119, 6, 0.35) !important;
+}
+.preview-player[data-theme="papyrus-vellum"] div[class*="clip-media-x-[--media-slider-buffer]"] {
+  background: rgba(254, 243, 199, 0.22) !important;
+  border-radius: 9999px !important;
+}
+.preview-player[data-theme="papyrus-vellum"] div[class*="clip-media-x-[--media-slider-fill]"] {
+  background: linear-gradient(90deg, #1d4ed8 0%, #b45309 50%, #f59e0b 85%, #fef3c7 100%) !important;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.65) !important;
+  border-radius: 9999px !important;
+}
+.preview-player[data-theme="papyrus-vellum"] .group\/slider .media-thumb-smooth {
+  width: 14px !important;
+  height: 16px !important;
+  border-radius: 3px 3px 6px 6px !important;
+  background: radial-gradient(circle at 35% 35%, #fef3c7 0%, #d97706 60%, #78350f 100%) !important;
+  border: 1.5px solid #fde68a !important;
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.75) !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+.preview-player[data-theme="papyrus-vellum"] time-value,
+.preview-player[data-theme="papyrus-vellum"] div[class*="tabular-nums"] {
+  color: #fefae0 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85) !important;
+  font-family: ui-serif, Georgia, serif !important;
+}
+.preview-player[data-theme="papyrus-vellum"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before {
+  background-image:
+    repeating-linear-gradient(45deg, rgba(217, 119, 6, 0.04) 0 1px, transparent 1px 12px),
+    linear-gradient(180deg, transparent 0%, rgba(35, 21, 14, 0.55) 35%, #140d07 100%);
+  box-shadow: inset 0 -1px 0 rgba(217, 119, 6, 0.3);
+}
+.preview-player[data-theme="papyrus-vellum"] [role="menu"],
+:root[data-theme="papyrus-vellum"] [role="menu"] {
+  background: linear-gradient(145deg, rgba(35, 21, 14, 0.98), rgba(18, 11, 7, 0.99)) !important;
+  border: 1.5px solid rgba(217, 119, 6, 0.45) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.95), inset 0 1px 1px rgba(254, 243, 199, 0.4), 0 0 22px rgba(217, 119, 6, 0.2) !important;
+  backdrop-filter: blur(28px) !important;
+  -webkit-backdrop-filter: blur(28px) !important;
+}
+.preview-player[data-theme="papyrus-vellum"] .group\/menu-btn:hover,
+.preview-player[data-theme="papyrus-vellum"] .group\/menu-radio:hover,
+:root[data-theme="papyrus-vellum"] [role="menuitem"]:hover,
+:root[data-theme="papyrus-vellum"] [role="menuitemradio"]:hover {
+  background: rgba(217, 119, 6, 0.16) !important;
+  border-radius: 8px !important;
+  color: #fde68a !important;
+}
+
 
 /* Universal Volume Bar Length Adjustment (-1px) */
 .group\/vol-pill div[class*="bg-white/20"] {
