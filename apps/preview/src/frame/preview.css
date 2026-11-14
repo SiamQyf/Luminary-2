@@ -9477,7 +9477,7 @@ div[role="menu"]:not([data-child-open]) {
     inset 0 -0.75px 1px rgba(255, 255, 255, 0.18),
     0 0 14px rgba(56, 189, 248, 0.3),
     0 1px 6px rgba(56, 189, 248, 0.2) !important;
-  color: #38bdf8 !important;
+  color: #ffffff !important;
 }
 .preview-player[data-theme="water-droplet"] svg,
 .preview-player[data-theme="water-droplet"] .player-icon-scale svg,
@@ -9487,7 +9487,7 @@ div[role="menu"]:not([data-child-open]) {
 .preview-player[data-theme="water-droplet"] .media-fullscreen-button svg,
 .preview-player[data-theme="water-droplet"] .group\/play svg,
 .preview-player[data-theme="water-droplet"] .group\/center-buffering svg {
-  color: #38bdf8 !important;
+  color: #ffffff !important;
   fill: currentColor !important;
   filter: none !important;
   -webkit-filter: none !important;
@@ -9502,13 +9502,13 @@ div[role="menu"]:not([data-child-open]) {
 .preview-player[data-theme="water-droplet"] .media-fullscreen-button:hover svg,
 .preview-player[data-theme="water-droplet"] .group\/mute:hover svg,
 .preview-player[data-theme="water-droplet"] .group\/play:hover svg {
-  color: #7dd3fc !important;
+  color: #38bdf8 !important;
   filter: none !important;
   -webkit-filter: none !important;
 }
 .preview-player[data-theme="water-droplet"] [role="menu"] svg,
 :root[data-theme="water-droplet"] [role="menu"] svg {
-  color: #38bdf8 !important;
+  color: #ffffff !important;
   filter: none !important;
   -webkit-filter: none !important;
 }
