@@ -568,6 +568,40 @@ const THEME_PALETTES: Record<string, ThemePalette> = {
     bit2: '#ffffff',
     bitGlow: 'rgba(125, 211, 252, 0.75)',
   },
+  // E-Learning, EdTech & Universities
+  'academic-lecture': {
+    bleed1: 'rgba(59, 130, 246, 0.26)',
+    bleed2: 'rgba(37, 99, 235, 0.22)',
+    bleed3: 'rgba(245, 158, 11, 0.18)',
+    bleed4: 'rgba(11, 19, 41, 0.25)',
+    strip1: '#3b82f6',
+    strip2: '#f59e0b',
+    bit1: '#60a5fa',
+    bit2: '#fbbf24',
+    bitGlow: 'rgba(59, 130, 246, 0.80)',
+  },
+  'study-highlighter': {
+    bleed1: 'rgba(250, 204, 21, 0.28)',
+    bleed2: 'rgba(56, 189, 248, 0.20)',
+    bleed3: 'rgba(254, 240, 138, 0.18)',
+    bleed4: 'rgba(17, 24, 39, 0.25)',
+    strip1: '#facc15',
+    strip2: '#38bdf8',
+    bit1: '#fef08a',
+    bit2: '#38bdf8',
+    bitGlow: 'rgba(250, 204, 21, 0.85)',
+  },
+  'campus-library': {
+    bleed1: 'rgba(16, 185, 129, 0.26)',
+    bleed2: 'rgba(251, 191, 36, 0.20)',
+    bleed3: 'rgba(5, 150, 105, 0.18)',
+    bleed4: 'rgba(4, 34, 26, 0.26)',
+    strip1: '#10b981',
+    strip2: '#fbbf24',
+    bit1: '#a7f3d0',
+    bit2: '#fbbf24',
+    bitGlow: 'rgba(16, 185, 129, 0.80)',
+  },
 };
 
 /**
