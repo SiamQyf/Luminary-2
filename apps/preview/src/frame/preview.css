@@ -9636,3 +9636,87 @@ div[role="menu"]:not([data-child-open]) {
   color: rgba(255, 255, 255, 0.8) !important;
   opacity: 1 !important;
 }
+
+/* ==========================================================================
+   Caption Design Styles (5 Distinct Presets)
+   - glass-pill: Frosted Glass Capsule (Default)
+   - cinema-classic: Hollywood & Netflix Solid Black Box
+   - retro-yellow: Criterion & Vintage Anime Golden Yellow
+   - neon-cyber: Sci-Fi Glowing Cyan HUD
+   - minimalist: Floating Text with Outline Shadow (Zero Scene Occlusion)
+   ========================================================================== */
+
+[data-caption-style="glass-pill"] [data-part="caption-pill"],
+:root[data-caption-style="glass-pill"] [data-part="caption-pill"] {
+  border-radius: 9999px !important;
+  background: rgba(8, 10, 15, 0.72) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.35) !important;
+  backdrop-filter: blur(14px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.95), 0 0 8px rgba(0, 0, 0, 0.65) !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
+}
+
+[data-caption-style="cinema-classic"] [data-part="caption-pill"],
+:root[data-caption-style="cinema-classic"] [data-part="caption-pill"] {
+  border-radius: 4px !important;
+  background: rgba(0, 0, 0, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.85) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+[data-caption-style="retro-yellow"] [data-part="caption-pill"],
+:root[data-caption-style="retro-yellow"] [data-part="caption-pill"] {
+  border-radius: 6px !important;
+  background: rgba(10, 10, 14, 0.90) !important;
+  border: 1px solid rgba(254, 240, 138, 0.30) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.80) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+  color: #ffe600 !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 2px #000000, 0 0 4px rgba(0, 0, 0, 0.9) !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
+}
+
+[data-caption-style="neon-cyber"] [data-part="caption-pill"],
+:root[data-caption-style="neon-cyber"] [data-part="caption-pill"] {
+  border-radius: 8px !important;
+  background: rgba(3, 7, 18, 0.88) !important;
+  border: 1.5px solid #00f0ff !important;
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.45), inset 0 0 10px rgba(0, 240, 255, 0.22) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  color: #e0faff !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.9), 0 1px 3px rgba(0, 0, 0, 0.95) !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
+  letter-spacing: 0.04em !important;
+}
+
+[data-caption-style="minimalist"] [data-part="caption-pill"],
+:root[data-caption-style="minimalist"] [data-part="caption-pill"] {
+  border-radius: 0px !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-shadow:
+    -1.5px -1.5px 0 #000,
+     1.5px -1.5px 0 #000,
+    -1.5px  1.5px 0 #000,
+     1.5px  1.5px 0 #000,
+     0 2px 4px rgba(0, 0, 0, 0.95) !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
+}

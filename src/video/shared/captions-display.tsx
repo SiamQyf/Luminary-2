@@ -4,6 +4,7 @@ import { useMedia, usePlayer } from '@videojs/react';
 import { useEffect, useRef, useState } from 'react';
 
 import { cn } from '@/lib/resolve-class-name';
+import type { CaptionDesignId } from './settings-menu';
 
 interface ParsedCue {
   start: number;
@@ -204,6 +205,69 @@ function formatCueContent(text: string) {
   return <span className="leading-[1.3] text-center">{lines[0] || text}</span>;
 }
 
+export interface CaptionStyleConfig {
+  pillClass: string;
+  style: React.CSSProperties;
+}
+
+export const CAPTION_STYLE_CONFIGS: Record<CaptionDesignId, CaptionStyleConfig> = {
+  'glass-pill': {
+    pillClass: 'rounded-full px-4 py-1.5 sm:px-5 sm:py-2 md:px-6 md:py-2.5 backdrop-blur-[14px] backdrop-saturate-[160%] text-white font-sans font-medium',
+    style: {
+      background: 'rgba(8, 10, 15, 0.72)',
+      border: '1px solid rgba(255, 255, 255, 0.18)',
+      boxShadow: '0 4px 16px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.35)',
+      textShadow: '0 1px 2px rgba(0, 0, 0, 0.95), 0 0 8px rgba(0, 0, 0, 0.65)',
+      filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85))',
+    },
+  },
+  'cinema-classic': {
+    pillClass: 'rounded-[4px] px-3.5 py-1 sm:px-4 sm:py-1.5 md:px-5 md:py-2 text-white font-sans font-semibold tracking-wide',
+    style: {
+      background: 'rgba(0, 0, 0, 0.95)',
+      border: '1px solid rgba(255, 255, 255, 0.08)',
+      boxShadow: '0 4px 20px rgba(0, 0, 0, 0.85)',
+      textShadow: 'none',
+      filter: 'none',
+    },
+  },
+  'retro-yellow': {
+    pillClass: 'rounded-[6px] px-3.5 py-1.5 sm:px-4.5 sm:py-2 md:px-5 md:py-2.5 font-sans font-semibold tracking-normal backdrop-blur-[4px]',
+    style: {
+      background: 'rgba(10, 10, 14, 0.90)',
+      color: '#ffe600',
+      border: '1px solid rgba(254, 240, 138, 0.3)',
+      boxShadow: '0 4px 14px rgba(0, 0, 0, 0.8)',
+      textShadow: '0 1px 2px #000000, 0 0 4px rgba(0, 0, 0, 0.9)',
+      filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85))',
+    },
+  },
+  'neon-cyber': {
+    pillClass: 'rounded-[8px] px-4 py-1.5 sm:px-5 sm:py-2 md:px-5.5 md:py-2.5 font-mono font-medium tracking-[0.04em] backdrop-blur-[10px]',
+    style: {
+      background: 'rgba(3, 7, 18, 0.88)',
+      color: '#e0faff',
+      border: '1.5px solid #00f0ff',
+      boxShadow: '0 0 16px rgba(0, 240, 255, 0.45), inset 0 0 10px rgba(0, 240, 255, 0.22)',
+      textShadow: '0 0 8px rgba(0, 240, 255, 0.9), 0 1px 3px rgba(0, 0, 0, 0.95)',
+      filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85))',
+    },
+  },
+  'minimalist': {
+    pillClass: 'rounded-none px-2 py-0.5 sm:px-3 sm:py-1 font-sans font-bold tracking-tight',
+    style: {
+      background: 'transparent',
+      color: '#ffffff',
+      border: 'none',
+      boxShadow: 'none',
+      backdropFilter: 'none',
+      WebkitBackdropFilter: 'none',
+      textShadow: '-1.5px -1.5px 0 #000, 1.5px -1.5px 0 #000, -1.5px 1.5px 0 #000, 1.5px 1.5px 0 #000, 0 2px 4px rgba(0, 0, 0, 0.95)',
+      filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85))',
+    },
+  },
+};
+
 /**
  * Universal High-Performance Captions Display (Adaptive All-Screen Design):
  * - Fits all device aspect ratios & screen sizes (mobile portrait, mobile landscape, tablet, desktop, fullscreen).
@@ -218,6 +282,32 @@ export function CaptionsDisplay() {
   const [activeText, setActiveText] = useState<string | null>(null);
   const cuesRef = useRef<ParsedCue[]>([]);
   const fetchedUrlRef = useRef<string | null>(null);
+
+  const [captionStyle, setCaptionStyle] = useState<CaptionDesignId>(() => {
+    if (typeof window !== 'undefined') {
+      const domStyle = document.documentElement.dataset.captionStyle;
+      if (domStyle && domStyle in CAPTION_STYLE_CONFIGS) return domStyle as CaptionDesignId;
+      const stored = sessionStorage.getItem('luminary-caption-style') || localStorage.getItem('luminary-caption-style');
+      if (stored && stored in CAPTION_STYLE_CONFIGS) return stored as CaptionDesignId;
+    }
+    return 'glass-pill';
+  });
+
+  useEffect(() => {
+    const handleStyleChange = (e: any) => {
+      const nextStyle = e.detail?.style || e.data?.style;
+      if (nextStyle && nextStyle in CAPTION_STYLE_CONFIGS) {
+        setCaptionStyle(nextStyle as CaptionDesignId);
+      }
+    };
+
+    window.addEventListener('luminary-caption-style-change', handleStyleChange as EventListener);
+    window.addEventListener('message', handleStyleChange);
+    return () => {
+      window.removeEventListener('luminary-caption-style-change', handleStyleChange as EventListener);
+      window.removeEventListener('message', handleStyleChange);
+    };
+  }, []);
 
   useEffect(() => {
     if (!media) return;
@@ -388,6 +478,8 @@ export function CaptionsDisplay() {
 
   if (!activeText) return null;
 
+  const activeConfig = CAPTION_STYLE_CONFIGS[captionStyle] || CAPTION_STYLE_CONFIGS['glass-pill'];
+
   return (
     <div
       aria-live="polite"
@@ -400,25 +492,16 @@ export function CaptionsDisplay() {
       )}
     >
       <div
-        key={activeText}
+        key={`${captionStyle}-${activeText}`}
         data-part="caption-pill"
+        data-caption-style={captionStyle}
         className={cn(
           'inline-block max-w-[94%] sm:max-w-[84%] md:max-w-[72%]',
-          'px-2.5 py-1 sm:px-3.5 sm:py-1.5 md:px-4 md:py-2',
-          'rounded-[7px] sm:rounded-[9px] md:rounded-[11px]',
-          'backdrop-blur-[12px] backdrop-saturate-[160%] backdrop-contrast-[105%]',
-          'text-white text-center font-sans font-medium',
-          'text-[11.5px] sm:text-[13px] md:text-[14.5px] lg:text-[16px] tracking-[0.01em]',
-          'select-none transition-all duration-120 animate-in fade-in zoom-in-[0.98]'
+          'text-center select-none transition-all duration-120 animate-in fade-in zoom-in-[0.98]',
+          'text-[11.5px] sm:text-[13px] md:text-[14.5px] lg:text-[16px]',
+          activeConfig.pillClass
         )}
-        style={{
-          background: 'var(--media-caption-bg, rgba(8, 10, 15, 0.72))',
-          border: '1px solid var(--media-caption-border, rgba(255, 255, 255, 0.15))',
-          boxShadow:
-            'var(--media-caption-shadow, 0 4px 16px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 0 rgba(0, 0, 0, 0.35))',
-          textShadow: '0 1px 2px rgba(0, 0, 0, 0.95), 0 0 8px rgba(0, 0, 0, 0.65)',
-          filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85))',
-        }}
+        style={activeConfig.style}
       >
         {formatCueContent(activeText)}
       </div>
