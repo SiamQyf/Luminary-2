@@ -175,7 +175,6 @@ export const STYLE_OPTIONS = [
   { id: 'velvet-opera', label: 'Velvet Opera' },
   { id: 'water-droplet', label: 'Water Droplet' },
   { id: 'glacial-permafrost', label: 'Glacial Permafrost' },
-  { id: 'scholarly-press', label: 'Scholarly Press', subtitle: 'Ivory Paper & Saffron Spindle' },
 ] as const;
 
 interface FlatOption<T extends string> {
