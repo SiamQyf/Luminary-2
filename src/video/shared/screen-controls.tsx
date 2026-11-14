@@ -218,7 +218,7 @@ export function CastButton() {
         aria-label={label}
         aria-pressed={isCasting}
       >
-        <CastIcon className={cn('col-start-1 row-start-1 w-[17.2px] h-[13.5px]', isCasting ? 'text-sky-400' : 'text-white')} />
+        <CastIcon className={cn('col-start-1 row-start-1 w-[15.2px] h-[11.8px]', isCasting ? 'text-sky-400' : 'text-white')} />
       </Button>
     </ButtonTooltip>
   );
