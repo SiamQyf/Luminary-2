@@ -9697,7 +9697,7 @@ div[role="menu"]:not([data-child-open]) {
 
 /* ==========================================================================
    Scholarly Press Theme
-   Ivory Paper, Hairline Ink Borders & Saffron Spindle Seekbar
+   Transparent Skin Background, Saffron Spindle Seekbar & White Ink Buttons
    ========================================================================== */
 .preview-player[data-theme="scholarly-press"],
 .preview-player[data-theme="scholarly-press"] .media-skin {
@@ -9709,15 +9709,13 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18) !important;
 }
 
-/* Floating Bottom Controls Island */
-.preview-player[data-theme="scholarly-press"] .media-skin [data-part="bottom-controls-bar"]:not([class*="static"]) {
-  background: #fdfdfb !important;
-  border: 1.2px solid #1f1f1e !important;
-  border-radius: 14px !important;
-  margin: 0 16px 14px 16px !important;
-  width: calc(100% - 32px) !important;
-  padding: 8px 14px !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+/* Bottom Controls Bar (Transparent Background - Removed Skin BG) */
+.preview-player[data-theme="scholarly-press"] .media-skin [data-part="bottom-controls-bar"] {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  width: 100% !important;
 }
 .preview-player[data-theme="scholarly-press"] .media-skin [data-part="bottom-controls-bar"]::before {
   display: none !important;
@@ -9733,7 +9731,7 @@ div[role="menu"]:not([data-child-open]) {
   background-color: #ffffff !important;
   border: 1.2px solid #1f1f1e !important;
   color: #1f1f1e !important;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25) !important;
   transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease !important;
 }
 .preview-player[data-theme="scholarly-press"] .group\/liquid-btn:hover,
@@ -9748,7 +9746,7 @@ div[role="menu"]:not([data-child-open]) {
   background: #ffffff !important;
   border: 1.2px solid #1f1f1e !important;
   color: #1f1f1e !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
 }
 
 /* Deep Ink Vector Icons (High Contrast Light Theme - Filter: None) */
@@ -9764,7 +9762,7 @@ div[role="menu"]:not([data-child-open]) {
   -webkit-filter: none !important;
 }
 
-/* Saffron Spindle Seekbar with Ink Baseline Axis */
+/* Saffron Spindle Seekbar with Baseline Axis */
 .preview-player[data-theme="scholarly-press"] .group\/slider {
   position: relative !important;
   height: 18px !important;
@@ -9779,7 +9777,8 @@ div[role="menu"]:not([data-child-open]) {
   top: 50% !important;
   transform: translateY(5.5px) !important;
   height: 1px !important;
-  background: rgba(31, 31, 30, 0.45) !important;
+  background: rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6) !important;
   pointer-events: none !important;
   z-index: 0 !important;
 }
@@ -9787,7 +9786,7 @@ div[role="menu"]:not([data-child-open]) {
   height: 11px !important;
   clip-path: ellipse(50% 50% at 50% 50%) !important;
   -webkit-clip-path: ellipse(50% 50% at 50% 50%) !important;
-  background: rgba(31, 31, 30, 0.08) !important;
+  background: rgba(255, 255, 255, 0.2) !important;
   border-radius: 0 !important;
   overflow: hidden !important;
   box-shadow: none !important;
@@ -9797,22 +9796,22 @@ div[role="menu"]:not([data-child-open]) {
   z-index: 1 !important;
 }
 .preview-player[data-theme="scholarly-press"] div[class*="clip-media-x-[--media-slider-buffer]"] {
-  background: rgba(230, 175, 51, 0.25) !important;
+  background: rgba(230, 175, 51, 0.3) !important;
   border-radius: 0 !important;
 }
 .preview-player[data-theme="scholarly-press"] div[class*="clip-media-x-[--media-slider-fill]"] {
   background: #e6af33 !important;
   border-radius: 0 !important;
-  box-shadow: none !important;
+  box-shadow: 0 0 10px rgba(230, 175, 51, 0.5) !important;
   opacity: 1 !important;
 }
 .preview-player[data-theme="scholarly-press"] .group\/slider .media-thumb-smooth {
   width: 3.5px !important;
-  height: 13px !important;
+  height: 14px !important;
   border-radius: 1px !important;
-  background: #1f1f1e !important;
+  background: #ffffff !important;
   border: none !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.7) !important;
   opacity: 0 !important;
   transition: opacity 0.15s ease !important;
   z-index: 2 !important;
@@ -9826,12 +9825,12 @@ div[role="menu"]:not([data-child-open]) {
 .preview-player[data-theme="scholarly-press"] time-value,
 .preview-player[data-theme="scholarly-press"] div[class*="tabular-nums"],
 .preview-player[data-theme="scholarly-press"] div[class*="tabular-nums"] span {
-  color: #1f1f1e !important;
+  color: #ffffff !important;
   font-family: 'Times New Roman', Times, 'Baskerville', 'Georgia', serif !important;
   font-size: 13.5px !important;
   font-weight: 500 !important;
   letter-spacing: 0.02em !important;
-  text-shadow: none !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85) !important;
   filter: none !important;
   -webkit-filter: none !important;
 }
@@ -9841,7 +9840,7 @@ div[role="menu"]:not([data-child-open]) {
   border-radius: 9999px !important;
   background: #ffffff !important;
   border: 1.2px solid #1f1f1e !important;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25) !important;
 }
 .preview-player[data-theme="scholarly-press"] .group\/vol-pill div[class*="bg-white/20"] {
   height: 3.5px !important;
@@ -9904,6 +9903,7 @@ div[role="menu"]:not([data-child-open]) {
   background-color: #ffffff !important;
   border: 1.2px solid #1f1f1e !important;
   color: #1f1f1e !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25) !important;
 }
 
 /* Universal Volume Bar Length Adjustment (-1px) */
