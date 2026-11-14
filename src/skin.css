@@ -412,3 +412,19 @@
   -webkit-filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85));
 }
 
+/* ==========================================================================
+   Video Title & Subtitle Across All Themes
+   Title top is white (#ffffff), secondary text is 80% white (rgba(255, 255, 255, 0.8))
+   ========================================================================== */
+:where(.media-skin) .video-title,
+.video-title {
+  color: #ffffff !important;
+}
+
+:where(.media-skin) .video-subtitle,
+.video-subtitle {
+  color: rgba(255, 255, 255, 0.8) !important;
+  opacity: 1 !important;
+}
+
+

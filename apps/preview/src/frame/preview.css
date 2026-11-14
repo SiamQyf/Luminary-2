@@ -3269,7 +3269,7 @@ div[role="menu"]:not([data-child-open]) {
    Video Title & Subtitle Styling Across Themes
    ========================================================================== */
 .video-title {
-  color: #ffffff;
+  color: #ffffff !important;
   font-weight: 600;
   letter-spacing: -0.015em;
   text-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.85);
@@ -3277,7 +3277,8 @@ div[role="menu"]:not([data-child-open]) {
 }
 
 .video-subtitle {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.8) !important;
+  opacity: 1 !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.85);
   transition: color 0.25s ease, text-shadow 0.25s ease;
 }
@@ -3288,18 +3289,18 @@ div[role="menu"]:not([data-child-open]) {
   text-shadow: 0 0 10px rgba(0, 240, 255, 0.7), 0 2px 4px rgba(0, 0, 0, 0.9) !important;
 }
 .preview-player[data-theme="cyber-neon"] .video-subtitle {
-  color: #67e8f9 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
   text-shadow: 0 0 8px rgba(0, 240, 255, 0.45) !important;
 }
 
 /* Retro Terminal: Phosphor green monospace */
 .preview-player[data-theme="retro-terminal"] .video-title {
-  color: #4ade80 !important;
+  color: #ffffff !important;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
   text-shadow: 0 0 8px rgba(74, 222, 128, 0.75) !important;
 }
 .preview-player[data-theme="retro-terminal"] .video-subtitle {
-  color: #22c55e !important;
+  color: rgba(255, 255, 255, 0.8) !important;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
   text-shadow: 0 0 6px rgba(34, 197, 94, 0.5) !important;
 }
@@ -3307,21 +3308,21 @@ div[role="menu"]:not([data-child-open]) {
 /* Obsidian Gold & Timber: Rich warm gold */
 .preview-player[data-theme="obsidian-gold"] .video-title,
 .preview-player[data-theme="timber"] .video-title {
-  color: #fef08a !important;
+  color: #ffffff !important;
   text-shadow: 0 0 8px rgba(245, 158, 11, 0.4), 0 2px 4px rgba(0, 0, 0, 0.9) !important;
 }
 .preview-player[data-theme="obsidian-gold"] .video-subtitle,
 .preview-player[data-theme="timber"] .video-subtitle {
-  color: #fbbf24 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* Molten Magma: Fiery lava glow */
 .preview-player[data-theme="molten-magma"] .video-title {
-  color: #ffedd5 !important;
+  color: #ffffff !important;
   text-shadow: 0 0 9px rgba(249, 115, 22, 0.65), 0 2px 4px rgba(0, 0, 0, 0.9) !important;
 }
 .preview-player[data-theme="molten-magma"] .video-subtitle {
-  color: #fdba74 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* Pencil Sketch: Clean technical monospace (never Comic Sans / black-grey) */
@@ -3331,7 +3332,7 @@ div[role="menu"]:not([data-child-open]) {
   text-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.85) !important;
 }
 .preview-player[data-theme="pencil-sketch"] .video-subtitle {
-  color: #e4e4e7 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.85) !important;
 }
@@ -3344,7 +3345,7 @@ div[role="menu"]:not([data-child-open]) {
 }
 .preview-player[data-theme="plain"] .video-subtitle,
 .preview-player[data-theme="ceramic"] .video-subtitle {
-  color: rgba(255, 255, 255, 0.85) !important;
+  color: rgba(255, 255, 255, 0.8) !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.85) !important;
 }
 
@@ -3430,7 +3431,7 @@ div[role="menu"]:not([data-child-open]) {
   text-shadow: 0 0 10px rgba(255, 19, 137, 0.8), 0 2px 4px rgba(0, 0, 0, 0.9) !important;
 }
 .preview-player[data-theme="gta-vi"] .video-subtitle {
-  color: #ff9e00 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
   text-shadow: 0 0 8px rgba(255, 123, 0, 0.6) !important;
 }
 
@@ -3509,7 +3510,7 @@ div[role="menu"]:not([data-child-open]) {
   text-shadow: 0 0 10px rgba(247, 37, 133, 0.75), 0 2px 4px rgba(0, 0, 0, 0.9) !important;
 }
 .preview-player[data-theme="synthwave-80s"] .video-subtitle {
-  color: #c77dff !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -3584,11 +3585,11 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.95), 0 0 15px rgba(252, 238, 10, 0.25) !important;
 }
 .preview-player[data-theme="cyberpunk-2077"] .video-title {
-  color: #fcee0a !important;
+  color: #ffffff !important;
   text-shadow: 0 0 10px rgba(252, 238, 10, 0.7) !important;
 }
 .preview-player[data-theme="cyberpunk-2077"] .video-subtitle {
-  color: #00f0ff !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -3659,7 +3660,7 @@ div[role="menu"]:not([data-child-open]) {
   text-shadow: 0 0 8px rgba(244, 114, 182, 0.6) !important;
 }
 .preview-player[data-theme="sakura-blossom"] .video-subtitle {
-  color: #fbcfe8 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -3732,11 +3733,11 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.9), 0 0 15px rgba(168, 85, 247, 0.25) !important;
 }
 .preview-player[data-theme="cosmic-nebula"] .video-title {
-  color: #fdf4ff !important;
+  color: #ffffff !important;
   text-shadow: 0 0 10px rgba(168, 85, 247, 0.8) !important;
 }
 .preview-player[data-theme="cosmic-nebula"] .video-subtitle {
-  color: #f472b6 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -3916,11 +3917,11 @@ div[role="menu"]:not([data-child-open]) {
 }
 
 .preview-player[data-theme="gamepad"] .video-title {
-  color: #f8fafc !important;
+  color: #ffffff !important;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 0 10px rgba(0, 229, 163, 0.35) !important;
 }
 .preview-player[data-theme="gamepad"] .video-subtitle {
-  color: #00e5a3 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -4088,7 +4089,7 @@ div[role="menu"]:not([data-child-open]) {
   text-shadow: 0 2px 0 #090714, 0 2px 8px rgba(0, 0, 0, 0.9) !important;
 }
 .preview-player[data-theme="gamepad-white"] .video-subtitle {
-  color: #a3e635 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
   text-shadow: 0 1px 0 #090714, 0 1px 4px rgba(0, 0, 0, 0.85) !important;
 }
 
@@ -4301,14 +4302,14 @@ div[role="menu"]:not([data-child-open]) {
 
 /* Editorial Broadsheet Headline & Byline Overlay */
 .preview-player[data-theme="news-magazine"] .video-title {
-  color: #faf7f0 !important;
+  color: #ffffff !important;
   font-family: Georgia, 'Times New Roman', serif !important;
   font-weight: 700 !important;
   letter-spacing: -0.02em !important;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.92) !important;
 }
 .preview-player[data-theme="news-magazine"] .video-subtitle {
-  color: #fca5a5 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
   font-family: Georgia, 'Times New Roman', serif !important;
   letter-spacing: 0.05em !important;
   text-transform: uppercase !important;
@@ -4430,10 +4431,10 @@ div[role="menu"]:not([data-child-open]) {
   color: #fb923c !important;
 }
 .preview-player[data-theme="vinyl-turntable"] .video-title {
-  color: #f5e6d3 !important;
+  color: #ffffff !important;
 }
 .preview-player[data-theme="vinyl-turntable"] .video-subtitle {
-  color: #fdba74 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -4562,7 +4563,7 @@ div[role="menu"]:not([data-child-open]) {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace !important;
 }
 .preview-player[data-theme="blueprint"] .video-subtitle {
-  color: #bae6fd !important;
+  color: rgba(255, 255, 255, 0.8) !important;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace !important;
 }
 
@@ -4682,7 +4683,7 @@ div[role="menu"]:not([data-child-open]) {
   text-shadow: 0 2px 6px rgba(3, 37, 65, 0.85) !important;
 }
 .preview-player[data-theme="frutiger-aero"] .video-subtitle {
-  color: #bae6fd !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -4798,11 +4799,11 @@ div[role="menu"]:not([data-child-open]) {
   color: #e5c17b !important;
 }
 .preview-player[data-theme="art-deco"] .video-title {
-  color: #fef3c7 !important;
+  color: #ffffff !important;
   font-family: Georgia, 'Times New Roman', serif !important;
 }
 .preview-player[data-theme="art-deco"] .video-subtitle {
-  color: #e5c17b !important;
+  color: rgba(255, 255, 255, 0.8) !important;
   letter-spacing: 0.08em !important;
 }
 
@@ -4959,7 +4960,7 @@ div[role="menu"]:not([data-child-open]) {
   color: #ffffff !important;
 }
 .preview-player[data-theme="clay-pastel"] .video-subtitle {
-  color: #ddd6fe !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -5076,10 +5077,10 @@ div[role="menu"]:not([data-child-open]) {
   color: #fbbf24 !important;
 }
 .preview-player[data-theme="tactical-hud"] .video-title {
-  color: #e7e5d8 !important;
+  color: #ffffff !important;
 }
 .preview-player[data-theme="tactical-hud"] .video-subtitle {
-  color: #fbbf24 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -5190,10 +5191,10 @@ div[role="menu"]:not([data-child-open]) {
   color: #a3c987 !important;
 }
 .preview-player[data-theme="matcha-zen"] .video-title {
-  color: #f2efe4 !important;
+  color: #ffffff !important;
 }
 .preview-player[data-theme="matcha-zen"] .video-subtitle {
-  color: #a3c987 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -5312,11 +5313,11 @@ div[role="menu"]:not([data-child-open]) {
   color: #facc15 !important;
 }
 .preview-player[data-theme="bauhaus"] .video-title {
-  color: #fafaf9 !important;
+  color: #ffffff !important;
   letter-spacing: 0.02em !important;
 }
 .preview-player[data-theme="bauhaus"] .video-subtitle {
-  color: #facc15 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -5461,10 +5462,10 @@ div[role="menu"]:not([data-child-open]) {
   color: #ea580c !important;
 }
 .preview-player[data-theme="swiss-intl"] .video-title {
-  color: #fafaf9 !important;
+  color: #ffffff !important;
 }
 .preview-player[data-theme="swiss-intl"] .video-subtitle {
-  color: #fdba74 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -5576,11 +5577,11 @@ div[role="menu"]:not([data-child-open]) {
   color: #fca5a5 !important;
 }
 .preview-player[data-theme="ukiyo-e"] .video-title {
-  color: #f3ead8 !important;
+  color: #ffffff !important;
   font-family: Georgia, 'Times New Roman', serif !important;
 }
 .preview-player[data-theme="ukiyo-e"] .video-subtitle {
-  color: #93c5fd !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -5685,11 +5686,11 @@ div[role="menu"]:not([data-child-open]) {
   color: #5eead4 !important;
 }
 .preview-player[data-theme="bioluminescent"] .video-title {
-  color: #ecfeff !important;
+  color: #ffffff !important;
   text-shadow: 0 0 10px rgba(45, 212, 191, 0.7) !important;
 }
 .preview-player[data-theme="bioluminescent"] .video-subtitle {
-  color: #5eead4 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -5800,11 +5801,11 @@ div[role="menu"]:not([data-child-open]) {
   color: #fbbf24 !important;
 }
 .preview-player[data-theme="steampunk"] .video-title {
-  color: #fef3c7 !important;
+  color: #ffffff !important;
   font-family: Georgia, 'Times New Roman', serif !important;
 }
 .preview-player[data-theme="steampunk"] .video-subtitle {
-  color: #f59e0b !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -5923,7 +5924,7 @@ div[role="menu"]:not([data-child-open]) {
   text-shadow: 0 2px 0 #1e1b4b !important;
 }
 .preview-player[data-theme="candy-pop"] .video-subtitle {
-  color: #f9a8d4 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -6037,10 +6038,10 @@ div[role="menu"]:not([data-child-open]) {
   color: #fbbf24 !important;
 }
 .preview-player[data-theme="polaroid-film"] .video-title {
-  color: #fafaf9 !important;
+  color: #ffffff !important;
 }
 .preview-player[data-theme="polaroid-film"] .video-subtitle {
-  color: #fbbf24 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -6145,10 +6146,10 @@ div[role="menu"]:not([data-child-open]) {
   color: #7dd3fc !important;
 }
 .preview-player[data-theme="nordic-frost"] .video-title {
-  color: #f0f9ff !important;
+  color: #ffffff !important;
 }
 .preview-player[data-theme="nordic-frost"] .video-subtitle {
-  color: #5eead4 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -6253,11 +6254,11 @@ div[role="menu"]:not([data-child-open]) {
   color: #fde68a !important;
 }
 .preview-player[data-theme="crimson-cinema"] .video-title {
-  color: #fef3c7 !important;
+  color: #ffffff !important;
   font-family: Georgia, 'Times New Roman', serif !important;
 }
 .preview-player[data-theme="crimson-cinema"] .video-subtitle {
-  color: #fda4af !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -6375,7 +6376,7 @@ div[role="menu"]:not([data-child-open]) {
   text-shadow: 2px 2px 0 #09071a !important;
 }
 .preview-player[data-theme="pixel-8bit"] .video-subtitle {
-  color: #38bdf8 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -6501,10 +6502,10 @@ div[role="menu"]:not([data-child-open]) {
   color: #ede5ce !important;
 }
 .preview-player[data-theme="linear-ticks"] .video-title {
-  color: #ede5ce !important;
+  color: #ffffff !important;
 }
 .preview-player[data-theme="linear-ticks"] .video-subtitle {
-  color: #a1a1aa !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* ==========================================================================
@@ -6740,7 +6741,7 @@ div[role="menu"]:not([data-child-open]) {
 }
 
 .preview-player[data-theme="crystal"] .video-subtitle {
-  color: #e5e5e5 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 /* ==========================================================================
@@ -6949,14 +6950,14 @@ div[role="menu"]:not([data-child-open]) {
 
 .preview-player[data-theme="dot-matrix"] .video-title {
   font-family: 'Courier New', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
-  color: #00f0ff !important;
+  color: #ffffff !important;
   text-shadow: 0 0 8px rgba(0, 240, 255, 0.7) !important;
   letter-spacing: 1.5px !important;
 }
 
 .preview-player[data-theme="dot-matrix"] .video-subtitle {
   font-family: 'Courier New', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
-  color: rgba(0, 240, 255, 0.75) !important;
+  color: rgba(255, 255, 255, 0.8) !important;
   letter-spacing: 1.2px !important;
 }
 
@@ -9679,4 +9680,25 @@ div[role="menu"]:not([data-child-open]) {
   align-self: center !important;
   margin-top: auto !important;
   margin-bottom: auto !important;
+}
+
+/* ==========================================================================
+   Universal Title & Subtitle Across All Themes
+   Title top is white (#ffffff), secondary text is 80% white (rgba(255, 255, 255, 0.8))
+   ========================================================================== */
+.preview-player[data-theme] .video-title,
+.preview-player .video-title,
+:root[data-theme] .video-title,
+:where(.media-skin) .video-title,
+.video-title {
+  color: #ffffff !important;
+}
+
+.preview-player[data-theme] .video-subtitle,
+.preview-player .video-subtitle,
+:root[data-theme] .video-subtitle,
+:where(.media-skin) .video-subtitle,
+.video-subtitle {
+  color: rgba(255, 255, 255, 0.8) !important;
+  opacity: 1 !important;
 }

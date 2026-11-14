@@ -63,18 +63,18 @@ export function Title({ title, subtitle, className }: TitleProps = {}) {
     title || subtitle ? (
       <>
         {title && (
-          <h1 className="video-title font-semibold text-sm sm:text-base md:text-[17px] leading-snug tracking-[-0.2px] truncate">
+          <h1 className="video-title text-white font-semibold text-sm sm:text-base md:text-[17px] leading-snug tracking-[-0.2px] truncate">
             {title}
           </h1>
         )}
         {subtitle && (
-          <p className="video-subtitle font-normal text-[11px] sm:text-xs md:text-[13px] leading-normal truncate opacity-80">
+          <p className="video-subtitle text-white/80 font-normal text-[11px] sm:text-xs md:text-[13px] leading-normal truncate">
             {subtitle}
           </p>
         )}
       </>
     ) : (
-      <TitlePrimitive className="video-title font-semibold text-sm sm:text-base md:text-[17px] leading-snug tracking-[-0.2px] truncate empty:hidden" />
+      <TitlePrimitive className="video-title text-white font-semibold text-sm sm:text-base md:text-[17px] leading-snug tracking-[-0.2px] truncate empty:hidden" />
     );
 
   return (
