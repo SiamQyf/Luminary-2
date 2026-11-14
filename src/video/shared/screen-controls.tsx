@@ -4,7 +4,9 @@ import {
   CastButton as CastButtonPrimitive,
   PiPButton as PiPButtonPrimitive,
   FullscreenButton as FullscreenButtonPrimitive,
+  usePlayer,
 } from '@videojs/react';
+import { selectRemotePlayback } from '@videojs/core/dom';
 import {
   CastEnterIcon as CastEnterIconPrimitive,
   CastExitIcon as CastExitIconPrimitive,
@@ -110,11 +112,114 @@ function FullscreenExitIcon({ className }: { className?: string }) {
 }
 
 export function CastButton() {
+  const remotePlayback = usePlayer(selectRemotePlayback);
+  const isCasting = remotePlayback?.remotePlaybackState === 'connected';
+  const isConnecting = remotePlayback?.remotePlaybackState === 'connecting';
+
+  const handleCastClick = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    // 1. If currently connected, prompt to disconnect / stop casting
+    if (isCasting && remotePlayback?.promptRemotePlayback) {
+      try {
+        await remotePlayback.promptRemotePlayback();
+        return;
+      } catch (err: any) {
+        if (err !== 'cancel' && err?.name !== 'NotAllowedError') {
+          console.warn('Cast disconnect error:', err);
+        }
+      }
+    }
+
+    // 2. Try Player Store's promptRemotePlayback
+    if (remotePlayback?.promptRemotePlayback) {
+      try {
+        await remotePlayback.promptRemotePlayback();
+        return;
+      } catch (err: any) {
+        if (err !== 'cancel' && err?.name !== 'NotAllowedError') {
+          console.warn('Player promptRemotePlayback error:', err);
+        }
+      }
+    }
+
+    // 3. Try Google Cast framework directly if available
+    if (typeof window !== 'undefined' && (window as any).cast?.framework) {
+      try {
+        const castContext = (window as any).cast.framework.CastContext.getInstance();
+        if (castContext) {
+          await castContext.requestSession();
+          return;
+        }
+      } catch (err: any) {
+        if (err !== 'cancel' && err?.name !== 'NotAllowedError') {
+          console.warn('Google Cast requestSession error:', err);
+        }
+      }
+    }
+
+    // 4. Try native HTMLMediaElement remote playback API
+    const video = document.querySelector('video') as HTMLVideoElement | null;
+    if (video && video.remote && typeof video.remote.prompt === 'function') {
+      try {
+        await video.remote.prompt();
+        return;
+      } catch (err: any) {
+        if (err !== 'cancel' && err?.name !== 'NotAllowedError') {
+          console.warn('video.remote.prompt error:', err);
+        }
+      }
+    }
+
+    // 5. Try WebKit presentation/AirPlay target picker (Safari/WebKit)
+    if (video && typeof (video as any).webkitShowPlaybackTargetPicker === 'function') {
+      try {
+        (video as any).webkitShowPlaybackTargetPicker();
+        return;
+      } catch (err) {
+        console.warn('webkitShowPlaybackTargetPicker error:', err);
+      }
+    }
+
+    // 6. Try Screen Cast / Screen Sharing API (navigator.mediaDevices.getDisplayMedia)
+    if (typeof navigator !== 'undefined' && navigator.mediaDevices && typeof navigator.mediaDevices.getDisplayMedia === 'function') {
+      try {
+        const stream = await navigator.mediaDevices.getDisplayMedia({
+          video: true,
+          audio: true,
+        });
+        stream.getVideoTracks()[0]?.addEventListener('ended', () => {
+          // Stream ended by user
+        });
+        return;
+      } catch (err: any) {
+        if (err?.name !== 'NotAllowedError') {
+          console.warn('getDisplayMedia error:', err);
+        }
+      }
+    }
+  };
+
+  const label = isCasting ? 'Stop casting' : isConnecting ? 'Connecting to cast...' : 'Screen Cast';
+
   return (
-    <ButtonTooltip popupClassName={'[--media-tooltip-side-offset:calc(var(--media-spacing)*3)]!'}>
-      <CastButtonPrimitive render={<Button />} className={'group/cast'}>
-        <CastIcon className="col-start-1 row-start-1 w-[17.2px] h-[13.5px] text-white" />
-      </CastButtonPrimitive>
+    <ButtonTooltip
+      label={label}
+      popupClassName={'[--media-tooltip-side-offset:calc(var(--media-spacing)*3)]!'}
+    >
+      <Button
+        onClick={handleCastClick}
+        className={cn(
+          'group/cast',
+          isCasting && 'text-sky-400! shadow-[0_0_12px_rgba(56,189,248,0.7)]!',
+          isConnecting && 'animate-pulse'
+        )}
+        aria-label={label}
+        aria-pressed={isCasting}
+      >
+        <CastIcon className={cn('col-start-1 row-start-1 w-[17.2px] h-[13.5px]', isCasting ? 'text-sky-400' : 'text-white')} />
+      </Button>
     </ButtonTooltip>
   );
 }

@@ -4,6 +4,7 @@
 
 import '../styles/video/scaffold.css';
 import { Container as ContainerPrimitive, Poster as PosterPrimitive, Slider as SliderPrimitive } from '@videojs/react';
+import { GoogleCast } from '@videojs/react/extensions/google-cast';
 import type { MouseEvent as ReactMouseEvent, ReactNode } from 'react';
 
 import { cn } from '@/lib/resolve-class-name';
@@ -194,6 +195,7 @@ export function VideoSkin({
       data-preset="video"
       {...props}
     >
+      <GoogleCast />
       <LiquidGlassFilter />
       {children}
       <Poster renderImage={renderPoster} />
