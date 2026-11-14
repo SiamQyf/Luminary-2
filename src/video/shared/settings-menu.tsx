@@ -74,21 +74,6 @@ export const THEME_STYLES = [
   { id: 'glacial-permafrost', label: 'Glacial Permafrost' },
 ] as const;
 
-export const CAPTION_DESIGNS = [
-  { id: 'glass-pill', label: 'Glass Pill', subtitle: 'Frosted Glass Capsule' },
-  { id: 'cinema-classic', label: 'Cinema Classic', subtitle: 'Solid Black Box' },
-  { id: 'retro-yellow', label: 'Retro Yellow', subtitle: 'Criterion & Anime Gold' },
-  { id: 'neon-cyber', label: 'Neon Cyber', subtitle: 'Glowing Cyan HUD' },
-  { id: 'minimalist', label: 'Minimalist', subtitle: 'Floating Outline Text' },
-  { id: 'obsidian-gold', label: 'Obsidian Gold', subtitle: 'Black Velvet & Warm Gold' },
-  { id: 'retro-terminal', label: 'Retro Terminal', subtitle: 'Phosphor Green Matrix' },
-  { id: 'synthwave-sunset', label: 'Synthwave Sunset', subtitle: 'Hot Magenta & Indigo Glow' },
-  { id: 'comic-pop', label: 'Comic Pop', subtitle: 'Cream Washi & Ink Border' },
-  { id: 'pure-frosted', label: 'Pure Frosted', subtitle: 'Ultra-Translucent Diffusion' },
-] as const;
-
-export type CaptionDesignId = (typeof CAPTION_DESIGNS)[number]['id'];
-
 /** Settings Menu Content styling: matching rounded player aesthetic (18px) with comfortable padding (8px) */
 const menuContentClass = cn(
   'absolute max-h-full overflow-y-auto overflow-x-hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden overscroll-none outline-hidden rounded-[18px]',
@@ -204,113 +189,6 @@ function StylesMenu() {
           {THEME_STYLES.map((style) => (
             <RadioItem key={style.id} value={style.id}>
               <span>{style.label}</span>
-            </RadioItem>
-          ))}
-        </Menu.RadioGroup>
-      </Menu.Content>
-    </Menu.Root>
-  );
-}
-
-function CaptionDesignIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-      aria-hidden="true"
-    >
-      <rect width="20" height="15" x="2" y="4.5" rx="3" />
-      <path d="M7 15h4M15 15h2M7 11h2M13 11h4" />
-    </svg>
-  );
-}
-
-function CaptionDesignMenu() {
-  const [currentDesign, setCurrentDesign] = useState<string>(() => {
-    if (typeof window === 'undefined') return 'glass-pill';
-    return (
-      document.documentElement.dataset.captionStyle ||
-      sessionStorage.getItem('luminary-caption-style') ||
-      localStorage.getItem('luminary-caption-style') ||
-      'glass-pill'
-    );
-  });
-
-  useEffect(() => {
-    const syncFromDom = () => {
-      const s = document.documentElement.dataset.captionStyle;
-      if (s) setCurrentDesign(s);
-    };
-    const handleDesignChange = (e: Event) => {
-      const customEvent = e as CustomEvent<{ style: string }>;
-      if (customEvent.detail?.style) {
-        setCurrentDesign(customEvent.detail.style);
-      }
-    };
-    syncFromDom();
-    window.addEventListener('luminary-caption-style-change', handleDesignChange);
-    return () => {
-      window.removeEventListener('luminary-caption-style-change', handleDesignChange);
-    };
-  }, []);
-
-  const handleSelectDesign = (styleId: string) => {
-    setCurrentDesign(styleId);
-    if (typeof window !== 'undefined') {
-      sessionStorage.setItem('luminary-caption-style', styleId);
-      localStorage.setItem('luminary-caption-style', styleId);
-      document.documentElement.dataset.captionStyle = styleId;
-      document.querySelectorAll('.preview-player, .media-player, [data-part="caption-pill"]').forEach((el) => {
-        el.setAttribute('data-caption-style', styleId);
-      });
-      window.dispatchEvent(new CustomEvent('luminary-caption-style-change', { detail: { style: styleId } }));
-      try {
-        window.postMessage({ type: 'CAPTION_STYLE_CHANGE', style: styleId }, '*');
-        window.parent?.postMessage({ type: 'CAPTION_STYLE_CHANGE', style: styleId }, '*');
-      } catch {}
-    }
-  };
-
-  const activeDesign = CAPTION_DESIGNS.find((d) => d.id === currentDesign) || CAPTION_DESIGNS[0];
-
-  return (
-    <Menu.Root>
-      <Menu.Trigger className={menuItemBtnClass}>
-        <span className="flex size-[20px] shrink-0 items-center justify-center text-white/75 group-hover/menu-btn:text-white group-focus-visible/menu-btn:text-white transition-colors">
-          <CaptionDesignIcon className="size-[15px]" />
-        </span>
-        <span className="text-[13.5px] font-medium tracking-tight text-white/95">
-          Caption Style
-        </span>
-        <span className="ms-auto inline-flex min-w-0 items-center gap-1.5 ps-3 text-white/50">
-          <span className="max-w-28 truncate text-[13px] text-white/50 group-hover/menu-btn:text-white/70 group-focus-visible/menu-btn:text-white/70 font-normal transition-colors">
-            {activeDesign.label}
-          </span>
-          <MenuChevron />
-        </span>
-      </Menu.Trigger>
-      <Menu.Content className={menuContentClass}>
-        <Menu.Item className={menuBackBtnClass}>
-          <MenuChevron back />
-          <span>Caption Style</span>
-        </Menu.Item>
-        <Menu.Separator className={'my-1 border-t border-white/[0.08]'} />
-        <Menu.RadioGroup
-          value={currentDesign}
-          onValueChange={handleSelectDesign}
-          className="flex flex-col gap-0.5"
-        >
-          {CAPTION_DESIGNS.map((item) => (
-            <RadioItem key={item.id} value={item.id}>
-              <div className="flex flex-col text-start">
-                <span className="leading-snug">{item.label}</span>
-                <span className="text-[11px] text-white/45 font-normal leading-tight">{item.subtitle}</span>
-              </div>
             </RadioItem>
           ))}
         </Menu.RadioGroup>
@@ -615,7 +493,6 @@ export function SettingsMenu() {
       >
         <Menu.Content className={menuContentClass}>
           <StylesMenu />
-          <CaptionDesignMenu />
           <LayoutMenu />
           <QualityMenu />
           <AudioTrackMenu />
