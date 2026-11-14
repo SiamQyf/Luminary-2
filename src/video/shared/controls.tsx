@@ -79,11 +79,11 @@ function BottomControlsContainer({ className, children, ...props }: HTMLAttribut
   return (
     <div
       onPointerEnter={(e) => {
-        acquireLock();
+        if (e.pointerType !== 'touch') acquireLock();
         props.onPointerEnter?.(e);
       }}
       onPointerMove={(e) => {
-        if (!releaseLockRef.current) acquireLock();
+        if (e.pointerType !== 'touch' && !releaseLockRef.current) acquireLock();
         props.onPointerMove?.(e);
       }}
       onPointerLeave={(e) => {

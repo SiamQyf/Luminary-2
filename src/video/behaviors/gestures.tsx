@@ -173,6 +173,10 @@ export function VideoGestures({ disabled = false }: VideoGesturesProps = {}) {
           singleClickTimerRef.current = null;
         }
 
+        if (store && (store as any).state && typeof (store as any).state.toggleControls === 'function') {
+          (store as any).state.toggleControls(true);
+        }
+
         const nextStepIndex = Math.min(active.stepIndex + 1, COMPOUNDING_STEPS.length - 1);
         const nextSeconds = COMPOUNDING_STEPS[nextStepIndex];
 
@@ -215,6 +219,11 @@ export function VideoGestures({ disabled = false }: VideoGesturesProps = {}) {
         lastClickRef.current = null;
 
         if (region === 'left' || region === 'right') {
+          // Keep controls active/visible during double-tap seeking
+          if (store && (store as any).state && typeof (store as any).state.toggleControls === 'function') {
+            (store as any).state.toggleControls(true);
+          }
+
           const direction: SeekDirection = region === 'left' ? 'backward' : 'forward';
           const initialSeconds = COMPOUNDING_STEPS[0]; // 5s
           const baselineTime = getCurrentTime();
@@ -244,6 +253,9 @@ export function VideoGestures({ disabled = false }: VideoGesturesProps = {}) {
         } else {
           // Center region double click -> Toggle Fullscreen
           toggleFullscreen();
+          if (store && (store as any).state && typeof (store as any).state.toggleControls === 'function') {
+            (store as any).state.toggleControls(true);
+          }
         }
         return;
       }
@@ -251,15 +263,20 @@ export function VideoGestures({ disabled = false }: VideoGesturesProps = {}) {
       // 3. FIRST CLICK / TAP: debounce single click
       lastClickRef.current = { time: now, x: e.clientX, y: e.clientY, region };
 
-      if (singleClickTimerRef.current) clearTimeout(singleClickTimerRef.current);
-      singleClickTimerRef.current = setTimeout(() => {
+      if (singleClickTimerRef.current) {
+        clearTimeout(singleClickTimerRef.current);
         singleClickTimerRef.current = null;
-        if (isTouch) {
-          toggleControls();
-        } else {
+      }
+
+      // On desktop mouse clicks, debounce single click by 260ms so it doesn't conflict with double-click actions.
+      // On mobile touch, Video.js natively manages controls toggling and idle timing (2000ms delay) on pointerup.
+      // A delayed toggleControls on touch inverts Video.js's state ~0.2s later, causing controls to flash and immediately hide.
+      if (!isTouch) {
+        singleClickTimerRef.current = setTimeout(() => {
+          singleClickTimerRef.current = null;
           togglePlayPause();
-        }
-      }, 260);
+        }, 260);
+      }
     };
 
     container.addEventListener('pointerdown', onPointerDown);
