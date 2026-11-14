@@ -6842,44 +6842,52 @@ div[role="menu"]:not([data-child-open]) {
   height: 18px !important;
 }
 
-/* Seekbar Inactive Track - Dim LED Phosphor Dots Matrix */
+/* Seekbar Inactive Track - Dim LED Phosphor Dots Matrix (Thinner Sleek Track) */
 .preview-player[data-theme="dot-matrix"] div[class*="media-slider-smooth"][class*="isolate"] {
-  height: 6px !important;
-  border-radius: 3px !important;
-  background-color: rgba(3, 7, 18, 0.75) !important;
-  border: 1px dotted rgba(0, 240, 255, 0.28) !important;
-  background-image: radial-gradient(circle 1.2px, rgba(0, 240, 255, 0.2) 1.2px, transparent 1.3px) !important;
-  background-size: 6px 6px !important;
+  height: 3px !important;
+  border-radius: 2px !important;
+  background-color: rgba(3, 7, 18, 0.85) !important;
+  border: none !important;
+  background-image: radial-gradient(circle 0.85px at center, rgba(0, 240, 255, 0.22) 0.85px, transparent 0.95px) !important;
+  background-size: 4.5px 100% !important;
+  background-position: center !important;
   background-repeat: repeat-x !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6) !important;
+  transition: height 0.15s ease !important;
+}
+
+.preview-player[data-theme="dot-matrix"] .group\/slider:hover div[class*="media-slider-smooth"][class*="isolate"] {
+  height: 4.5px !important;
 }
 
 /* Seekbar Buffer Track - Medium Bright Cyan LED Dots */
 .preview-player[data-theme="dot-matrix"] div[class*="clip-media-x-[--media-slider-buffer]"] {
-  height: 6px !important;
-  border-radius: 3px !important;
+  height: 100% !important;
+  border-radius: 2px !important;
   background-color: transparent !important;
-  background-image: radial-gradient(circle 1.3px, rgba(0, 240, 255, 0.45) 1.3px, transparent 1.4px) !important;
-  background-size: 6px 6px !important;
+  background-image: radial-gradient(circle 0.95px at center, rgba(0, 240, 255, 0.45) 0.95px, transparent 1.05px) !important;
+  background-size: 4.5px 100% !important;
+  background-position: center !important;
   background-repeat: repeat-x !important;
 }
 
 /* Seekbar Fill Track - Radiant Cyan LED Dots */
 .preview-player[data-theme="dot-matrix"] div[class*="clip-media-x-[--media-slider-fill]"] {
-  height: 6px !important;
-  border-radius: 3px !important;
+  height: 100% !important;
+  border-radius: 2px !important;
   background-color: transparent !important;
-  background-image: radial-gradient(circle 1.5px, #00f0ff 1.5px, transparent 1.6px) !important;
-  background-size: 6px 6px !important;
+  background-image: radial-gradient(circle 1.05px at center, #00f0ff 1.05px, transparent 1.15px) !important;
+  background-size: 4.5px 100% !important;
+  background-position: center !important;
   background-repeat: repeat-x !important;
-  filter: drop-shadow(0 0 5px rgba(0, 240, 255, 0.9)) !important;
+  filter: drop-shadow(0 0 4px rgba(0, 240, 255, 0.95)) !important;
   opacity: 1 !important;
 }
 
 /* Dot Matrix LED Knob (Thumb) - 3x3 White Phosphor LED Matrix */
 .preview-player[data-theme="dot-matrix"] .group\/slider .media-thumb-smooth {
-  width: 12px !important;
-  height: 12px !important;
+  width: 10px !important;
+  height: 10px !important;
   border-radius: 2px !important;
   rotate: 0deg !important;
   background-color: #030712 !important;
