@@ -447,8 +447,8 @@ export function CaptionsDisplay() {
       >
         <span
           data-part="caption-text"
-          className="inline-flex flex-col items-center justify-center -translate-y-[0.5px]"
-          style={{ transform: 'translateY(-0.5px)' }}
+          className="inline-flex flex-col items-center justify-center -translate-y-[0.25px]"
+          style={{ transform: 'translateY(-0.25px)' }}
         >
           {formatCueContent(activeText)}
         </span>

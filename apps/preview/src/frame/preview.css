@@ -9707,10 +9707,10 @@ div[role="menu"]:not([data-child-open]) {
    Every theme has a bespoke, harmonized subtitle design matching its identity
    ========================================================================== */
 
-/* Universal Caption Text: Shift by -0.5px in Y direction */
+/* Universal Caption Text: Shift by -0.25px in Y direction (brought down by .25px) */
 [data-part="caption-pill"] > [data-part="caption-text"],
 [data-part="caption-text"] {
-  transform: translateY(-0.5px) !important;
+  transform: translateY(-0.25px) !important;
 }
 
 /* Translucent Glass (translucent) */
