@@ -37,7 +37,7 @@ function VolumeHornAnimatedIcon({
   const hornScale = 0.88 + effectiveVolume * 0.12;
   // Sound wave scale from 0.70 to 0.98
   const waveScale = 0.7 + effectiveVolume * 0.28;
-  const waveOpacity = isMuted ? 0 : 0.35 + effectiveVolume * 0.65;
+  const waveOpacity = isMuted ? 0.45 : 0.45 + effectiveVolume * 0.55;
 
   const hornRef = useRef<SVGGElement>(null);
   const waveRef = useRef<SVGGElement>(null);
@@ -56,7 +56,7 @@ function VolumeHornAnimatedIcon({
         'transform',
         `translate(17 12) scale(${waveScale.toFixed(4)}) translate(-17 -12)`
       );
-      waveEl.style.opacity = isMuted ? '0' : waveOpacity.toFixed(3);
+      waveEl.style.opacity = waveOpacity.toFixed(3);
     };
 
     if (!isDancing) {
@@ -102,7 +102,7 @@ function VolumeHornAnimatedIcon({
       const wavePulse = 0.5 - 0.5 * Math.cos(2 * Math.PI * u);
       const wDx = 1.5 * wavePulse;
       const wS = waveScale * (1 + 0.14 * wavePulse);
-      const wOp = isMuted ? 0 : waveOpacity * (0.75 + 0.25 * wavePulse);
+      const wOp = waveOpacity * (0.8 + 0.2 * wavePulse);
 
       waveEl.setAttribute(
         'transform',
@@ -115,7 +115,7 @@ function VolumeHornAnimatedIcon({
 
     rafId = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(rafId);
-  }, [isDancing, isMuted, hornScale, waveScale, waveOpacity]);
+  }, [isDancing, hornScale, waveScale, waveOpacity]);
 
   return (
     <svg
@@ -148,23 +148,6 @@ function VolumeHornAnimatedIcon({
           clipRule="evenodd"
           d="M18.394 8.205a1 1 0 0 1 1.401.188A5.93 5.93 0 0 1 21 12a5.93 5.93 0 0 1-1.205 3.607 1 1 0 1 1-1.59-1.213A3.93 3.93 0 0 0 19 12c0-.915-.301-1.746-.795-2.393a1 1 0 0 1 .189-1.402"
         />
-      </g>
-
-      {/* Muted 'x' mark - appears cleanly when muted or volume is 0 */}
-      <g
-        transform={
-          isMuted
-            ? 'translate(19.5 12) scale(1) rotate(0) translate(-19.5 -12)'
-            : 'translate(19.5 12) scale(0.3) rotate(-45) translate(-19.5 -12)'
-        }
-        style={{
-          opacity: isMuted ? 1 : 0,
-          transition: 'opacity 150ms ease-out',
-          pointerEvents: 'none',
-        }}
-      >
-        <line x1="17.5" y1="9.5" x2="21.5" y2="14.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <line x1="21.5" y1="9.5" x2="17.5" y2="14.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
       </g>
     </svg>
   );
@@ -425,7 +408,7 @@ export function VolumePill({ className }: { className?: ClassValue }) {
               setIsDragging(true);
             }}
             className={cn(
-              'horizontal-volume-slider relative -left-[4px] z-10 flex h-full flex-1 items-center cursor-pointer outline-none transition-[width,opacity] duration-300 ease-out',
+              'horizontal-volume-slider relative ml-1.5 z-10 flex h-full flex-1 items-center cursor-pointer outline-none transition-[width,opacity] duration-300 ease-out',
               'w-0 max-w-0 opacity-0 pointer-events-none flex-none overflow-hidden',
               'group-hover/vol-pill:w-full group-hover/vol-pill:max-w-full group-hover/vol-pill:opacity-100 group-hover/vol-pill:pointer-events-auto group-hover/vol-pill:flex-1 group-hover/vol-pill:overflow-visible',
               'group-focus-within/vol-pill:w-full group-focus-within/vol-pill:max-w-full group-focus-within/vol-pill:opacity-100 group-focus-within/vol-pill:pointer-events-auto group-focus-within/vol-pill:flex-1 group-focus-within/vol-pill:overflow-visible',

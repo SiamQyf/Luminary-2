@@ -10151,7 +10151,7 @@ div[role="menu"]:not([data-child-open]) {
   display: flex !important;
   align-items: center !important;
   position: relative !important;
-  left: -4px !important;
+  left: 0 !important;
 }
 .horizontal-volume-slider div[class*="bg-white/20"] {
   align-self: center !important;
