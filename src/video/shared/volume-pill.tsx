@@ -37,7 +37,7 @@ function VolumeHornAnimatedIcon({
   const hornScale = 0.88 + effectiveVolume * 0.12;
   // Sound wave scale from 0.70 to 0.98
   const waveScale = 0.7 + effectiveVolume * 0.28;
-  const waveOpacity = isMuted ? 0.45 : 0.45 + effectiveVolume * 0.55;
+  const waveOpacity = isMuted ? 0 : 0.45 + effectiveVolume * 0.55;
 
   const hornRef = useRef<SVGGElement>(null);
   const waveRef = useRef<SVGGElement>(null);
@@ -56,7 +56,7 @@ function VolumeHornAnimatedIcon({
         'transform',
         `translate(17 12) scale(${waveScale.toFixed(4)}) translate(-17 -12)`
       );
-      waveEl.style.opacity = waveOpacity.toFixed(3);
+      waveEl.style.opacity = isMuted ? '0' : waveOpacity.toFixed(3);
     };
 
     if (!isDancing) {
@@ -102,7 +102,7 @@ function VolumeHornAnimatedIcon({
       const wavePulse = 0.5 - 0.5 * Math.cos(2 * Math.PI * u);
       const wDx = 1.5 * wavePulse;
       const wS = waveScale * (1 + 0.14 * wavePulse);
-      const wOp = waveOpacity * (0.8 + 0.2 * wavePulse);
+      const wOp = isMuted ? 0 : waveOpacity * (0.8 + 0.2 * wavePulse);
 
       waveEl.setAttribute(
         'transform',
@@ -115,7 +115,7 @@ function VolumeHornAnimatedIcon({
 
     rafId = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(rafId);
-  }, [isDancing, hornScale, waveScale, waveOpacity]);
+  }, [isDancing, isMuted, hornScale, waveScale, waveOpacity]);
 
   return (
     <svg
@@ -139,7 +139,7 @@ function VolumeHornAnimatedIcon({
         ref={waveRef}
         transform={`translate(17 12) scale(${waveScale.toFixed(4)}) translate(-17 -12)`}
         style={{
-          opacity: waveOpacity,
+          opacity: isMuted ? 0 : waveOpacity,
           pointerEvents: 'none',
         }}
       >
@@ -148,6 +148,23 @@ function VolumeHornAnimatedIcon({
           clipRule="evenodd"
           d="M18.394 8.205a1 1 0 0 1 1.401.188A5.93 5.93 0 0 1 21 12a5.93 5.93 0 0 1-1.205 3.607 1 1 0 1 1-1.59-1.213A3.93 3.93 0 0 0 19 12c0-.915-.301-1.746-.795-2.393a1 1 0 0 1 .189-1.402"
         />
+      </g>
+
+      {/* Volume cross 'x' mark for lowest volume / muted */}
+      <g
+        transform={
+          isMuted
+            ? 'translate(19.5 12) scale(1) rotate(0) translate(-19.5 -12)'
+            : 'translate(19.5 12) scale(0.3) rotate(-45) translate(-19.5 -12)'
+        }
+        style={{
+          opacity: isMuted ? 1 : 0,
+          transition: 'opacity 150ms ease-out',
+          pointerEvents: 'none',
+        }}
+      >
+        <line x1="17.5" y1="9.5" x2="21.5" y2="14.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <line x1="21.5" y1="9.5" x2="17.5" y2="14.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
       </g>
     </svg>
   );
