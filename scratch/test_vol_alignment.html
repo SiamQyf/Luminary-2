@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Volume Pill Alignment</title>
+  <style>
+    body {
+      background: #092735;
+      font-family: system-ui, sans-serif;
+      padding: 40px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .label {
+      width: 200px;
+      font-size: 14px;
+    }
+
+    /* Container matching water-droplet vol-pill */
+    .vol-pill {
+      height: 31.4px;
+      width: 110px;
+      padding-right: 12px;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background:
+        radial-gradient(ellipse 35% 18% at 35% 16%, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.08) 45%, transparent 75%),
+        radial-gradient(ellipse 32% 16% at 65% 84%, rgba(255, 255, 255, 0.12) 0%, rgba(186, 230, 253, 0.06) 40%, transparent 75%),
+        linear-gradient(180deg, rgba(56, 189, 248, 0.14) 0%, rgba(14, 165, 233, 0.14) 60%, rgba(2, 132, 199, 0.14) 100%),
+        rgba(4, 18, 30, 0.25);
+      backdrop-filter: blur(14px) saturate(160%);
+      border: 1px solid rgba(186, 230, 253, 0.22);
+      box-shadow:
+        inset 0 1px 1px rgba(255, 255, 255, 0.4),
+        inset 0 -1px 1px rgba(2, 132, 199, 0.18),
+        0 0 8px rgba(56, 189, 248, 0.18),
+        0 2px 6px rgba(0, 0, 0, 0.4);
+      box-sizing: border-box;
+    }
+
+    .mute-btn {
+      width: 31.4px;
+      height: 31.4px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      background: none;
+      border: none;
+      padding: 0;
+      color: white;
+    }
+
+    .icon-scale {
+      width: 17.1px;
+      height: 17.1px;
+      transform: scale(0.86);
+      display: grid;
+      place-items: center;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85));
+    }
+
+    /* Slider track */
+    .slider-root {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .track {
+      height: 4.5px;
+      width: 100%;
+      border-radius: 9999px;
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.08) 35%, transparent 70%),
+        linear-gradient(0deg, rgba(255, 255, 255, 0.18) 0%, rgba(186, 230, 253, 0.08) 35%, transparent 70%),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 0%, rgba(56, 189, 248, 0.04) 70%, rgba(14, 165, 233, 0.09) 100%),
+        rgba(186, 230, 253, 0.15);
+      box-shadow:
+        inset 0 1px 1.5px rgba(255, 255, 255, 0.3),
+        inset 0 -0.5px 1px rgba(255, 255, 255, 0.15),
+        0 0 12px rgba(56, 189, 248, 0.22),
+        0 1px 4px rgba(56, 189, 248, 0.15);
+    }
+
+    .fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #38bdf8 0%, #0ea5e9 70%, #bae6fd 100%);
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.7);
+    }
+
+    .thumb {
+      width: 9.5px;
+      height: 9.5px;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background:
+        radial-gradient(ellipse 42% 18% at 35% 16%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.18) 45%, transparent 75%),
+        radial-gradient(ellipse 38% 16% at 65% 84%, rgba(255, 255, 255, 0.3) 0%, rgba(186, 230, 253, 0.1) 40%, transparent 75%),
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04) 0%, rgba(56, 189, 248, 0.08) 60%, rgba(14, 165, 233, 0.18) 85%, rgba(2, 44, 75, 0.22) 100%);
+      box-shadow:
+        inset 0 1px 1.5px rgba(255, 255, 255, 0.45),
+        inset 0 -0.5px 1px rgba(255, 255, 255, 0.2),
+        0 0 8px rgba(56, 189, 248, 0.4),
+        0 1px 3px rgba(56, 189, 248, 0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Variant 1: Current Broken (left: -4px with Mute 'X') -->
+  <div class="row">
+    <div class="label">Current (Image 1): left -4px, with 'X'</div>
+    <div class="vol-pill">
+      <button class="mute-btn">
+        <div class="icon-scale">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <g transform="translate(10 12) scale(0.88) translate(-10 -12)">
+              <path d="M12.992 3.976c.686-.528 1.504-.956 2.375-.588.863.365 1.14 1.245 1.26 2.11.123.887.123 2.108.123 3.626v5.755c0 1.519 0 2.74-.123 3.626-.12.865-.397 1.745-1.26 2.11-.871.369-1.689-.06-2.375-.587-.703-.54-1.595-1.451-2.645-2.524-.54-.55-.898-.817-1.26-.967-.365-.15-.808-.214-1.58-.214-.67 0-1.267 0-1.72-.047-.475-.05-.916-.157-1.313-.427-.756-.516-1.045-1.271-1.154-1.965-.082-.518-.073-1.086-.065-1.543v-.678c-.008-.458-.017-1.026.065-1.544.11-.694.398-1.449 1.154-1.964.397-.271.838-.378 1.313-.428.453-.047 1.05-.047 1.72-.047.772 0 1.215-.064 1.58-.214.362-.15.72-.416 1.26-.967 1.05-1.072 1.942-1.984 2.645-2.523" />
+            </g>
+            <g style="opacity: 1;">
+              <line x1="17.5" y1="9.5" x2="21.5" y2="14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <line x1="21.5" y1="9.5" x2="17.5" y2="14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </g>
+          </svg>
+        </div>
+      </button>
+      <div class="slider-root" style="position: relative; left: -4px;">
+        <div class="track">
+          <div class="fill" style="width: 0%;"></div>
+        </div>
+        <div class="thumb" style="left: 0%;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant 2: Image 2 style (No 'X', subtle wave arc, slider gap ml-1.5 / left: 0) -->
+  <div class="row">
+    <div class="label">Target (Image 2): No 'X', subtle wave arc, clean gap</div>
+    <div class="vol-pill">
+      <button class="mute-btn">
+        <div class="icon-scale">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <!-- Horn -->
+            <g transform="translate(10 12) scale(0.88) translate(-10 -12)">
+              <path d="M12.992 3.976c.686-.528 1.504-.956 2.375-.588.863.365 1.14 1.245 1.26 2.11.123.887.123 2.108.123 3.626v5.755c0 1.519 0 2.74-.123 3.626-.12.865-.397 1.745-1.26 2.11-.871.369-1.689-.06-2.375-.587-.703-.54-1.595-1.451-2.645-2.524-.54-.55-.898-.817-1.26-.967-.365-.15-.808-.214-1.58-.214-.67 0-1.267 0-1.72-.047-.475-.05-.916-.157-1.313-.427-.756-.516-1.045-1.271-1.154-1.965-.082-.518-.073-1.086-.065-1.543v-.678c-.008-.458-.017-1.026.065-1.544.11-.694.398-1.449 1.154-1.964.397-.271.838-.378 1.313-.428.453-.047 1.05-.047 1.72-.047.772 0 1.215-.064 1.58-.214.362-.15.72-.416 1.26-.967 1.05-1.072 1.942-1.984 2.645-2.523" />
+            </g>
+            <!-- Single subtle sound wave arc matching Image 2 -->
+            <g transform="translate(17 12) scale(0.70) translate(-17 -12)" style="opacity: 0.5;">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M18.394 8.205a1 1 0 0 1 1.401.188A5.93 5.93 0 0 1 21 12a5.93 5.93 0 0 1-1.205 3.607 1 1 0 1 1-1.59-1.213A3.93 3.93 0 0 0 19 12c0-.915-.301-1.746-.795-2.393a1 1 0 0 1 .189-1.402"
+              />
+            </g>
+          </svg>
+        </div>
+      </button>
+      <div class="slider-root" style="position: relative; left: 0px; margin-left: 2px;">
+        <div class="track">
+          <div class="fill" style="width: 0%;"></div>
+        </div>
+        <div class="thumb" style="left: 0%;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant 3: Image 2 at 15% volume -->
+  <div class="row">
+    <div class="label">Target at 15% volume:</div>
+    <div class="vol-pill">
+      <button class="mute-btn">
+        <div class="icon-scale">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <g transform="translate(10 12) scale(0.90) translate(-10 -12)">
+              <path d="M12.992 3.976c.686-.528 1.504-.956 2.375-.588.863.365 1.14 1.245 1.26 2.11.123.887.123 2.108.123 3.626v5.755c0 1.519 0 2.74-.123 3.626-.12.865-.397 1.745-1.26 2.11-.871.369-1.689-.06-2.375-.587-.703-.54-1.595-1.451-2.645-2.524-.54-.55-.898-.817-1.26-.967-.365-.15-.808-.214-1.58-.214-.67 0-1.267 0-1.72-.047-.475-.05-.916-.157-1.313-.427-.756-.516-1.045-1.271-1.154-1.965-.082-.518-.073-1.086-.065-1.543v-.678c-.008-.458-.017-1.026.065-1.544.11-.694.398-1.449 1.154-1.964.397-.271.838-.378 1.313-.428.453-.047 1.05-.047 1.72-.047.772 0 1.215-.064 1.58-.214.362-.15.72-.416 1.26-.967 1.05-1.072 1.942-1.984 2.645-2.523" />
+            </g>
+            <g transform="translate(17 12) scale(0.74) translate(-17 -12)" style="opacity: 0.55;">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M18.394 8.205a1 1 0 0 1 1.401.188A5.93 5.93 0 0 1 21 12a5.93 5.93 0 0 1-1.205 3.607 1 1 0 1 1-1.59-1.213A3.93 3.93 0 0 0 19 12c0-.915-.301-1.746-.795-2.393a1 1 0 0 1 .189-1.402"
+              />
+            </g>
+          </svg>
+        </div>
+      </button>
+      <div class="slider-root" style="position: relative; left: 0px; margin-left: 2px;">
+        <div class="track">
+          <div class="fill" style="width: 15%;"></div>
+        </div>
+        <div class="thumb" style="left: 15%;"></div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

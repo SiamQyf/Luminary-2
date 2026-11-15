@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Glacial Permafrost Seekbar Designs</title>
+  <style>
+    body {
+      background: #03080f;
+      color: #e0f2fe;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 30px;
+    }
+    h2 {
+      color: #7dd3fc;
+      margin-bottom: 6px;
+      font-size: 16px;
+      letter-spacing: 0.5px;
+    }
+    p {
+      color: #94a3b8;
+      font-size: 13px;
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+    .demo-card {
+      background: rgba(8, 18, 32, 0.7);
+      border: 1px solid rgba(125, 211, 252, 0.35);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 28px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      width: 720px;
+    }
+    .player-dock {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: radial-gradient(circle at 50% 100%, rgba(125, 211, 252, 0.08) 0%, transparent 70%),
+                  linear-gradient(180deg, rgba(8, 18, 32, 0.4) 0%, rgba(3, 8, 15, 0.95) 100%);
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(125, 211, 252, 0.25);
+    }
+    .btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 6px;
+      background: radial-gradient(circle at 30% 25%, rgba(125, 211, 252, 0.35) 0%, rgba(8, 18, 32, 0.65) 80%);
+      border: 1px solid rgba(186, 230, 253, 0.55);
+      box-shadow: 0 4px 14px rgba(8, 18, 32, 0.7), inset 0 1px 2px rgba(255, 255, 255, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #bae6fd;
+    }
+    .btn-play {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 60%, #075985 100%);
+      border: 1.5px solid #bae6fd;
+      box-shadow: 0 0 22px rgba(125, 211, 252, 0.65);
+      color: #ffffff;
+    }
+    .time {
+      font-size: 12px;
+      color: #bae6fd;
+      font-variant-numeric: tabular-nums;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+      white-space: nowrap;
+    }
+    .slider-wrap {
+      flex: 1;
+      position: relative;
+      height: 32px;
+      display: flex;
+      align-items: center;
+    }
+
+    /* ==============================================================
+       DESIGN 1: Arctic Columnar Ice Needles (Dual-Frequency Spires)
+       ============================================================== */
+    .track-1 {
+      width: 100%;
+      height: 14px;
+      position: relative;
+      background: repeating-linear-gradient(90deg,
+        rgba(186, 230, 253, 0.45) 0 1.5px,
+        transparent 1.5px 6px,
+        rgba(125, 211, 252, 0.2) 6px 7.5px,
+        transparent 7.5px 12px
+      );
+      mask-image: linear-gradient(180deg,
+        transparent 0%,
+        white 15%,
+        white 85%,
+        transparent 100%
+      );
+      -webkit-mask-image: linear-gradient(180deg,
+        transparent 0%,
+        white 15%,
+        white 85%,
+        transparent 100%
+      );
+    }
+    .fill-1 {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 42%;
+      background: repeating-linear-gradient(90deg,
+        #ffffff 0 1.5px,
+        transparent 1.5px 6px,
+        #7dd3fc 6px 7.5px,
+        transparent 7.5px 12px
+      );
+      filter: drop-shadow(0 0 6px rgba(125, 211, 252, 0.95)) drop-shadow(0 0 2px #ffffff);
+    }
+    .thumb-1 {
+      position: absolute;
+      left: 42%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 3px;
+      height: 22px;
+      border-radius: 1px;
+      background: #ffffff;
+      box-shadow:
+        0 0 12px rgba(125, 211, 252, 1),
+        0 0 3px #ffffff,
+        0 0 20px rgba(56, 189, 248, 0.8),
+        0 2px 5px rgba(0, 0, 0, 0.9);
+    }
+    .thumb-1::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      width: 9px;
+      height: 9px;
+      border-radius: 1.5px;
+      background: radial-gradient(circle at 35% 35%, #ffffff 0%, #7dd3fc 45%, #0284c7 100%);
+      border: 1px solid #ffffff;
+      box-shadow: 0 0 8px rgba(125, 211, 252, 0.9);
+    }
+
+    /* ==============================================================
+       DESIGN 2: Svalbard Cryo Ice-Pillars (Waveform Shards)
+       ============================================================== */
+    .track-2 {
+      width: 100%;
+      height: 16px;
+      position: relative;
+    }
+    .track-2-bg {
+      position: absolute;
+      inset: 0;
+      background: rgba(186, 230, 253, 0.28);
+    }
+    .fill-2 {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 42%;
+      background: linear-gradient(90deg, #0284c7 0%, #38bdf8 55%, #bae6fd 85%, #ffffff 100%);
+      box-shadow: 0 0 14px rgba(56, 189, 248, 0.95);
+    }
+    .thumb-2 {
+      position: absolute;
+      left: 42%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 2.5px;
+      height: 20px;
+      border-radius: 1px;
+      background: #ffffff;
+      box-shadow: 0 0 10px #7dd3fc, 0 0 20px rgba(56, 189, 248, 0.9), 0 1px 3px rgba(0, 0, 0, 0.8);
+    }
+    .thumb-2::after {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      width: 6px;
+      height: 6px;
+      background: #ffffff;
+      box-shadow: 0 0 6px #7dd3fc;
+    }
+    .thumb-2::before {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      width: 6px;
+      height: 6px;
+      background: #ffffff;
+      box-shadow: 0 0 6px #7dd3fc;
+    }
+
+    /* ==============================================================
+       DESIGN 3: Carved Ice-Crevasse Track with Prism Diamond Slider
+       ============================================================== */
+    .track-3 {
+      width: 100%;
+      height: 7px;
+      position: relative;
+      border-radius: 3.5px;
+      background: #060e1a;
+      border: 1px solid rgba(125, 211, 252, 0.45);
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.95), 0 0 8px rgba(125, 211, 252, 0.15);
+      overflow: visible;
+    }
+    .track-3::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(90deg,
+        rgba(186, 230, 253, 0.35) 0 1.5px,
+        transparent 1.5px 6px
+      );
+      border-radius: 3px;
+    }
+    .fill-3 {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 42%;
+      border-radius: 3px;
+      background: linear-gradient(90deg, #0369a1 0%, #0284c7 35%, #38bdf8 70%, #ffffff 100%);
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.85);
+    }
+    .fill-3::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(90deg,
+        rgba(255, 255, 255, 0.7) 0 1.5px,
+        transparent 1.5px 6px
+      );
+    }
+    .thumb-3 {
+      position: absolute;
+      left: 42%;
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      width: 15px;
+      height: 15px;
+      border-radius: 3px;
+      background: radial-gradient(circle at 35% 35%, #ffffff 0%, #bae6fd 30%, #38bdf8 65%, #0284c7 100%);
+      border: 1.5px solid #ffffff;
+      box-shadow:
+        0 0 16px rgba(125, 211, 252, 1),
+        0 0 4px #ffffff,
+        0 4px 10px rgba(0, 0, 0, 0.85),
+        inset 0 1px 2px rgba(255, 255, 255, 0.9);
+    }
+
+    /* ==============================================================
+       DESIGN 4: Frost Shard Equalizer Bars (Variable Peak Ice Needles)
+       ============================================================== */
+    .track-4 {
+      width: 100%;
+      height: 15px;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <h1>Glacial Permafrost Seekbar Exploration</h1>
+
+  <!-- OPTION 1 -->
+  <h2>Option 1: Arctic Crystalline Ice Columns (Rhythmic Needle Ticks + Ice-Gem Prism Thumb)</h2>
+  <p>Dual-frequency ice needle bars with 14px primary cryo-columns & 8px secondary frost ticks, with an ice-gem diamond thumb.</p>
+  <div class="demo-card">
+    <div class="player-dock">
+      <div class="btn btn-play">▶</div>
+      <div class="btn">🔊</div>
+      <div class="time">0:42 / 2:14</div>
+      <div class="slider-wrap">
+        <div class="track-1">
+          <div class="fill-1"></div>
+        </div>
+        <div class="thumb-1"></div>
+      </div>
+      <div class="btn">CC</div>
+      <div class="btn">⚙</div>
+      <div class="btn">⛶</div>
+    </div>
+  </div>
+
+  <!-- OPTION 2 -->
+  <h2>Option 2: Svalbard Ice-Pillar Waveform (Authentic Frozen Crystal Spire Silhouette)</h2>
+  <p>Authentic crystalline audio/glacial waveform pillars (using SVG mask with ice crystal contour) + double-diamond needle playhead.</p>
+  <div class="demo-card">
+    <div class="player-dock">
+      <div class="btn btn-play">▶</div>
+      <div class="btn">🔊</div>
+      <div class="time">0:42 / 2:14</div>
+      <div class="slider-wrap">
+        <div class="track-2" id="track2">
+          <div class="track-2-bg" id="track2-bg"></div>
+          <div class="fill-2" id="fill2"></div>
+        </div>
+        <div class="thumb-2"></div>
+      </div>
+      <div class="btn">CC</div>
+      <div class="btn">⚙</div>
+      <div class="btn">⛶</div>
+    </div>
+  </div>
+
+  <!-- OPTION 3 -->
+  <h2>Option 3: Deep Glacial Crevasse with Sub-Zero Internal Crystal Grooves & Beveled Ice Diamond</h2>
+  <p>7px deep ice-slot trough with internal sub-zero frosted tick markings and a carved 15px 45° diamond ice crystal knob.</p>
+  <div class="demo-card">
+    <div class="player-dock">
+      <div class="btn btn-play">▶</div>
+      <div class="btn">🔊</div>
+      <div class="time">0:42 / 2:14</div>
+      <div class="slider-wrap">
+        <div class="track-3">
+          <div class="fill-3"></div>
+        </div>
+        <div class="thumb-3"></div>
+      </div>
+      <div class="btn">CC</div>
+      <div class="btn">⚙</div>
+      <div class="btn">⛶</div>
+    </div>
+  </div>
+
+  <script>
+    // Generate ice-crystal waveform mask for Option 2
+    const H50 = [
+      0.35, 0.65, 0.35, 0.25, 0.45, 0.85, 0.5,  0.25, 0.25, 0.25,
+      1.0,  0.55, 0.25, 0.75, 0.55, 0.35, 0.2,  0.2,  0.48, 1.0,
+      0.82, 0.18, 0.3,  0.62, 0.25, 0.2,  1.0,  0.7,  0.92, 0.2,
+      0.45, 0.48, 0.2,  0.2,  1.0,  0.92, 0.55, 0.85, 0.2,  0.32,
+      0.2,  0.65, 0.38, 0.85, 0.18, 0.32, 0.2,  0.52, 0.2,  0.2
+    ];
+    const step = 6.0;
+    const barW = 1.4;
+    const totalH = 14.0;
+    const totalW = step * H50.length;
+    let rects = '';
+    for (let i = 0; i < H50.length; i++) {
+      const rel = H50[i];
+      const minH = 2.0;
+      const bh = Math.max(minH, Math.round((minH + rel * (totalH - minH)) * 10) / 10);
+      const by = Math.round(((totalH - bh) / 2) * 10) / 10;
+      const bx = Math.round((i * step + (step - barW) / 2) * 10) / 10;
+      rects += `<rect x='${bx}' y='${by}' width='${barW}' height='${bh}' rx='0.7' fill='white'/>`;
+    }
+    const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${totalW.toFixed(1)} ${totalH.toFixed(1)}' width='${totalW.toFixed(1)}' height='${totalH.toFixed(1)}'>${rects}</svg>`;
+    const dataUri = 'data:image/svg+xml,' + encodeURIComponent(svg);
+    
+    const track2 = document.getElementById('track2');
+    track2.style.maskImage = `url("${dataUri}")`;
+    track2.style.webkitMaskImage = `url("${dataUri}")`;
+    track2.style.maskRepeat = 'repeat-x';
+    track2.style.webkitMaskRepeat = 'repeat-x';
+    track2.style.maskSize = `${totalW.toFixed(1)}px ${totalH.toFixed(1)}px`;
+    track2.style.webkitMaskSize = `${totalW.toFixed(1)}px ${totalH.toFixed(1)}px`;
+  </script>
+</body>
+</html>

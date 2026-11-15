@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Caustic | A light-bending glass skin for Video.js v10</title>
+    <meta name="description" content="Caustic is a Video.js v10 skin of glass that bends light: floating islands that bend the picture at their rims, a glass bead on the track, a lens for scene previews, chapters, frame step and an A-B loop." />
+    <meta property="og:title" content="Caustic | A light-bending glass skin for Video.js v10" />
+    <meta property="og:description" content="Glass that bends light: every control bends the film at its rim, previews scenes in a lens and loops any part you mark." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://caustic.omnium.tools/share.jpg" />
+    <meta property="og:url" content="https://caustic.omnium.tools/showcase.html" />
+    <link rel="canonical" href="https://caustic.omnium.tools/showcase.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" />
+    <script type="module" crossorigin src="./assets/showcase-W2-i8OG2.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-P2Xu9kJm.js">
+    <link rel="modulepreload" crossorigin href="./assets/media-D8V77C0C.js">
+    <link rel="stylesheet" crossorigin href="./assets/media-Cw0Daoyk.css">
+    <link rel="stylesheet" crossorigin href="./assets/showcase-CsgdQQyo.css">
+  </head>
+  <body>
+    <header class="sc-head wrap">
+      <p class="sc-kicker mono">Video.js v10 skin · HTML + CSS</p>
+      <h1 class="sc-title">Caustic</h1>
+      <p class="sc-lede">Glass that bends light. Every piece refracts the film at its rim, the way sunlight through a glass throws a bright line on the table. It floats up when you need it and sinks out of the way when you don't.</p>
+    </header>
+
+    <main>
+      <section class="sc-stage wrap" aria-label="Player">
+        <div id="player-main" class="sc-player"></div>
+        <p class="sc-hint mono">Press play, then move the pointer along the glass.</p>
+        <div class="sc-own">
+          <p class="sc-own-label mono">Try it with your own video</p>
+          <div class="sc-own-row">
+            <label class="sc-btn">Choose a file<input class="sc-own-file" type="file" accept="video/*"></label>
+            <form class="sc-own-url">
+              <label class="sr-only" for="own-url">Video link or Mux playback ID</label>
+              <input id="own-url" type="text" inputmode="url" autocomplete="off" spellcheck="false" placeholder="Paste an .mp4 or .m3u8 link, or a Mux playback ID">
+              <button class="sc-btn" type="submit">Load</button>
+            </form>
+            <button class="sc-btn sc-own-back" type="button" hidden>Back to the demo film</button>
+          </div>
+          <p class="sc-own-note">You can also drop a video file on the player. It plays only in your browser; nothing is uploaded.</p>
+          <p class="sc-own-status mono" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="sc-section wrap" aria-labelledby="idea">
+        <div class="sc-cols">
+          <h2 id="idea" class="sc-h2">The idea</h2>
+          <div class="sc-text">
+            <p>Most players lay a dark bar over the film. Caustic lays glass on it and lets the light bend through. The controls float in three islands, play is a thick drop and the playhead is a glass bead, and the picture shows through every piece: sharp in the middle, bent at the rim, the way light curves at the edge of a drop of water.</p>
+            <p>Each piece catches a highlight that follows your pointer. When the controls are not needed, the glass sinks below the frame instead of fading away, and rises again when you move.</p>
+            <p>In Chrome and Edge the rim truly refracts the picture behind it. In Safari and Firefox it is frosted glass with the same shape and light.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sc-section wrap" aria-labelledby="parts">
+        <h2 id="parts" class="sc-h2">What it does</h2>
+        <ol class="sc-parts">
+          <li><span class="mono">01</span><h3>The glass</h3><p>Three islands of glass: playback, the track with the time, and options. Play is a thick drop, the playhead a bead that swells into a lens as you drag it. Light that passes through each piece gathers at its foot in a slow net of bright lines: the caustic the skin is named after.</p></li>
+          <li><span class="mono">02</span><h3>The lens</h3><p>Before the film starts, and at the end, a single glass lens sits in the middle of the picture.</p></li>
+          <li><span class="mono">03</span><h3>Scene preview</h3><p>Move or drag along the track and the scene at that point appears in a small lens, with the time and the chapter.</p></li>
+          <li><span class="mono">04</span><h3>Chapters</h3><p>Previous and next jump between chapters. Without chapters they skip 10 seconds.</p></li>
+          <li><span class="mono">05</span><h3>Stop and frame step</h3><p>Stop returns to the start. Frame step moves one frame at a time, forward or back.</p></li>
+          <li><span class="mono">06</span><h3>A-B loop</h3><p>Mark a start and an end and that part plays on repeat, shown as a band of tinted glass on the track.</p></li>
+          <li><span class="mono">07</span><h3>Your own video</h3><p>Drop in a file or paste a link. If it has no preview stills, the skin makes them from the video.</p></li>
+          <li><span class="mono">08</span><h3>Calm by default</h3><p>The glass rests, sinks and rises. Nothing flashes or fades for show.</p></li>
+        </ol>
+      </section>
+
+      <section class="sc-section wrap" aria-labelledby="small">
+        <div class="sc-cols">
+          <h2 id="small" class="sc-h2">On a phone</h2>
+          <div class="sc-text">
+            <p>On a small screen the track island moves to the top and the buttons sit under it, each at least 44 px for a thumb. Tap to show the controls, double-tap a side to skip 10 seconds.</p>
+            <div id="player-small" class="sc-player sc-player-small"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sc-section wrap" aria-labelledby="access">
+        <div class="sc-cols">
+          <h2 id="access" class="sc-h2">For everyone</h2>
+          <div class="sc-text">
+            <p>Every control is a real Video.js component or a labelled button, reachable by keyboard and announced to screen readers. Focus is always visible. With reduced transparency or higher contrast the glass turns solid; with reduced motion it stops moving; forced colors are supported. The skin follows the public Video.js properties such as <code>--media-accent-color</code> and <code>--media-font-family</code>.</p>
+            <dl class="sc-keys mono">
+              <div><dt>Space / K</dt><dd>Play, pause</dd></div>
+              <div><dt>P / N</dt><dd>Previous, next chapter</dd></div>
+              <div><dt>S</dt><dd>Stop</dd></div>
+              <div><dt>, / .</dt><dd>One frame back, forward</dd></div>
+              <div><dt>A / B</dt><dd>Loop start, loop end</dd></div>
+              <div><dt>← →</dt><dd>5 seconds</dd></div>
+              <div><dt>J / L</dt><dd>10 seconds</dd></div>
+              <div><dt>↑ ↓</dt><dd>Volume</dd></div>
+              <div><dt>M</dt><dd>Mute</dd></div>
+              <div><dt>C</dt><dd>Subtitles</dd></div>
+              <div><dt>F</dt><dd>Fullscreen</dd></div>
+              <div><dt>I</dt><dd>Picture in picture</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="sc-foot wrap mono">
+      <p>Caustic by <a href="https://omnium.tools" target="_blank" rel="noopener">Omnium Labs</a>. Apache 2.0.</p>
+      <p>Film: Sintel (2010) by the Blender Foundation, <a href="https://durian.blender.org" target="_blank" rel="noopener">durian.blender.org</a>, CC BY 3.0.</p>
+    </footer>
+
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"52898117de614430a08c586e09fbb6f1","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+body {
+  background: #0f1117;
+  color: #fff;
+  font-family: sans-serif;
+  padding: 40px;
+}
+.row {
+  margin-bottom: 30px;
+}
+.label {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-bottom: 8px;
+}
+.track-wrap {
+  width: 700px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0 10px;
+  border-radius: 6px;
+}
+.waveform {
+  width: 100%;
+  position: relative;
+}
+.fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 45%;
+  background: linear-gradient(90deg, #d97706 0%, #f59e0b 50%, #fbbf24 100%);
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
+}
+.unfilled {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+.playhead {
+  position: absolute;
+  left: 45%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 14px;
+  background: #fff;
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.9);
+  border-radius: 1px;
+  z-index: 5;
+}
+</style>
+</head>
+<body>
+<h2>Waveform Comparisons</h2>
+<div id="container"></div>
+<script>
+// Relative heights extracted directly from Image 1 (50 bars)
+const H50 = [0.302, 0.605, 0.302, 0.209, 0.395, 0.767, 0.465, 0.209, 0.209, 0.209, 1.0, 0.535, 0.209, 0.721, 0.535, 0.302, 0.163, 0.163, 0.442, 1.0, 0.791, 0.14, 0.256, 0.581, 0.209, 0.163, 1.0, 0.674, 0.907, 0.163, 0.395, 0.442, 0.163, 0.163, 1.0, 0.907, 0.535, 0.837, 0.163, 0.279, 0.163, 0.628, 0.349, 0.814, 0.14, 0.279, 0.163, 0.488, 0.163, 0.163];
+
+function makeSvg(step, barW, totalH, roundCap = false) {
+  const totalW = step * H50.length;
+  let rects = '';
+  for (let i = 0; i < H50.length; i++) {
+    const rel = H50[i];
+    // height between min 1.5px and totalH
+    const bh = Math.max(1.5, Math.round(rel * totalH * 10) / 10);
+    const by = Math.round(((totalH - bh) / 2) * 10) / 10;
+    const bx = Math.round((i * step + (step - barW) / 2) * 10) / 10;
+    const rx = roundCap ? (barW / 2).toFixed(2) : 0;
+    rects += `<rect x='${bx}' y='${by}' width='${barW}' height='${bh}' rx='${rx}' fill='white'/>`;
+  }
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${totalW} ${totalH}' width='${totalW}' height='${totalH}'>${rects}</svg>`;
+  return { svg, totalW, totalH };
+}
+
+const configs = [
+  { name: 'Config A: step=6px, barW=1.2px, height=9px, round=true', step: 6, barW: 1.2, h: 9, round: true },
+  { name: 'Config B: step=6px, barW=1.5px, height=8px, round=false', step: 6, barW: 1.5, h: 8, round: false },
+  { name: 'Config C: step=7px, barW=1.5px, height=9px, round=true', step: 7, barW: 1.5, h: 9, round: true },
+  { name: 'Config D: step=8px, barW=1.5px, height=10px, round=true', step: 8, barW: 1.5, h: 10, round: true },
+  { name: 'Config E: step=5px, barW=1.2px, height=8px, round=true', step: 5, barW: 1.2, h: 8, round: true },
+];
+
+const container = document.getElementById('container');
+configs.forEach(cfg => {
+  const { svg, totalW, totalH } = makeSvg(cfg.step, cfg.barW, cfg.h, cfg.round);
+  const encoded = encodeURIComponent(svg);
+  const row = document.createElement('div');
+  row.className = 'row';
+  row.innerHTML = `
+    <div class="label">${cfg.name} (Repeat width: ${totalW}px)</div>
+    <div class="track-wrap">
+      <div class="waveform" style="height: ${cfg.h}px; -webkit-mask-image: url('data:image/svg+xml,${encoded}'); -webkit-mask-size: ${totalW}px ${cfg.h}px; -webkit-mask-repeat: repeat-x;">
+        <div class="unfilled"></div>
+        <div class="fill"></div>
+      </div>
+      <div class="playhead" style="height: ${cfg.h + 4}px;"></div>
+    </div>
+  `;
+  container.appendChild(row);
+});
+</script>
+</body>
+</html>

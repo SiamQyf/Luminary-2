@@ -40,9 +40,9 @@ export function VideoControlsContent({
         seekBackward={seekBackward}
         seekForward={seekForward}
         top={
-          <div className="flex w-full items-start justify-between pointer-events-none">
+          <div className="flex w-full items-start justify-between gap-2 sm:gap-3 pointer-events-none">
             <Title title={title} subtitle={subtitle} />
-            <div className="flex items-center gap-[12px] pointer-events-auto group-not-data-visible/controls:opacity-0 group-not-data-visible/controls:pointer-events-none transition-opacity duration-300">
+            <div className="flex items-center gap-1.5 sm:gap-[12px] shrink-0 pointer-events-auto group-not-data-visible/controls:opacity-0 group-not-data-visible/controls:pointer-events-none transition-opacity duration-300">
               <CastButton />
               <PiPButton />
             </div>

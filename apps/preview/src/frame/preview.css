@@ -252,6 +252,7 @@ live-audio-player {
    -------------------------------------------------------------------------- */
 .preview-player .media-skin {
   isolation: isolate;
+  overflow: hidden !important;
   transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
 }
 

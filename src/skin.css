@@ -369,6 +369,10 @@
    Suppress native browser ::cue quirks to let CaptionsDisplay handle synchronized rendering
    ========================================================================== */
 
+:where(.media-skin) {
+  overflow: hidden !important;
+}
+
 :where(.media-skin) video::cue {
   display: none !important;
   opacity: 0 !important;

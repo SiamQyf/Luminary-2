@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Caustic Icon BG Animations Test</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #06080d;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    align-items: center;
+  }
+  h1 {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    color: #f8fafc;
+  }
+  .test-row {
+    width: 860px;
+    background: #0e121a;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 24px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .row-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .theme-name {
+    font-size: 17px;
+    font-weight: 600;
+  }
+  .theme-desc {
+    font-size: 13px;
+    color: #94a3b8;
+  }
+  .button-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 14px;
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+
+  /* Universal button reset */
+  .demo-btn {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+    user-select: none;
+  }
+  .demo-btn.play-btn {
+    width: 50px;
+    height: 50px;
+  }
+  .demo-btn svg {
+    position: relative;
+    z-index: 2;
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+
+  /* =========================================================================
+     1. WATER DROPLET: Smooth Aquatic Sunlit Caustic Light Network
+     ========================================================================= */
+  :root {
+    --water-caustic-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='w' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.034' numOctaves='2' seed='5' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.85 0 0 0 0 1 1 0 0 0 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0 0 0 0 0.1 0.7 1 0.4 0 0 0 0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E");
+
+    --crystal-caustic-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='c' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.048' numOctaves='3' seed='19' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.9 0 0 0 0 0.95 0 0 0 0 1 1 0 0 0 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0 0 0 0 0 0 0.3 1 0.7 0 0 0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)'/%3E%3C/svg%3E");
+
+    --cosmic-caustic-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.024' numOctaves='2' seed='42' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.85 0 0 0 0 0.45 0 0 0 0 1 1 0 0 0 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0 0 0.05 0.3 0.8 1 0.7 0.2 0 0 0 0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* WATER DROPLET BUTTONS */
+  .btn-water {
+    border-radius: 9999px;
+    background:
+      radial-gradient(ellipse 38% 22% at 35% 16%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.04) 45%, transparent 75%),
+      radial-gradient(ellipse 32% 16% at 65% 84%, rgba(255, 255, 255, 0.12) 0%, rgba(186, 230, 253, 0.06) 40%, transparent 75%),
+      linear-gradient(180deg, rgba(56, 189, 248, 0.12) 0%, rgba(14, 165, 233, 0.12) 60%, rgba(2, 132, 199, 0.14) 100%),
+      rgba(7, 24, 40, 0.45);
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    box-shadow:
+      inset 0 1px 1.5px rgba(255, 255, 255, 0.35),
+      inset 0 -1px 1.5px rgba(2, 132, 199, 0.25),
+      0 0 10px rgba(56, 189, 248, 0.25),
+      0 4px 12px rgba(0, 0, 0, 0.4);
+    color: #e0f2fe;
+    border: 1px solid rgba(186, 230, 253, 0.25);
+  }
+  .btn-water::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background-image: var(--water-caustic-svg), var(--water-caustic-svg);
+    background-size: 220px 220px, 340px 340px;
+    mix-blend-mode: plus-lighter;
+    opacity: 0.65;
+    animation: 13s linear infinite water-caustic-drift;
+    -webkit-mask: radial-gradient(circle at 40% 40%, #000 0%, #000 55%, transparent 95%);
+    mask: radial-gradient(circle at 40% 40%, #000 0%, #000 55%, transparent 95%);
+  }
+  @keyframes water-caustic-drift {
+    from { background-position: 0 0, 0 0; }
+    to { background-position: 220px 110px, -340px -170px; }
+  }
+
+  /* CRYSTAL BUTTONS */
+  .btn-crystal {
+    border-radius: 12px;
+    background:
+      radial-gradient(ellipse 50% 30% at 30% 15%, rgba(255, 255, 255, 0.3) 0%, transparent 60%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.02) 50%, rgba(186, 230, 253, 0.08) 100%),
+      rgba(10, 15, 24, 0.55);
+    backdrop-filter: blur(16px) saturate(170%);
+    -webkit-backdrop-filter: blur(16px) saturate(170%);
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.5),
+      inset 0 -1px 1px rgba(186, 230, 253, 0.2),
+      0 0 12px rgba(186, 230, 253, 0.2),
+      0 6px 18px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  .btn-crystal::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background-image: var(--crystal-caustic-svg), var(--crystal-caustic-svg);
+    background-size: 190px 190px, 280px 280px;
+    mix-blend-mode: plus-lighter;
+    opacity: 0.7;
+    animation: 17s linear infinite crystal-prismatic-drift;
+    -webkit-mask: linear-gradient(135deg, #000 0%, #000 65%, transparent 100%);
+    mask: linear-gradient(135deg, #000 0%, #000 65%, transparent 100%);
+  }
+  @keyframes crystal-prismatic-drift {
+    from { background-position: 0 0, 0 0; }
+    to { background-position: -190px 95px, 280px -140px; }
+  }
+
+  /* COSMIC NEBULA BUTTONS */
+  .btn-cosmic {
+    border-radius: 14px;
+    background:
+      radial-gradient(circle at 30% 25%, rgba(216, 180, 254, 0.22) 0%, transparent 55%),
+      radial-gradient(circle at 75% 80%, rgba(236, 72, 153, 0.18) 0%, transparent 60%),
+      linear-gradient(145deg, rgba(88, 28, 135, 0.35) 0%, rgba(30, 10, 60, 0.6) 100%),
+      rgba(15, 6, 32, 0.6);
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    box-shadow:
+      inset 0 1px 1.5px rgba(233, 213, 255, 0.4),
+      inset 0 -1px 1.5px rgba(168, 85, 247, 0.25),
+      0 0 14px rgba(168, 85, 247, 0.35),
+      0 6px 20px rgba(0, 0, 0, 0.6);
+    color: #f3e8ff;
+    border: 1px solid rgba(192, 132, 252, 0.35);
+  }
+  .btn-cosmic::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background-image: var(--cosmic-caustic-svg), var(--cosmic-caustic-svg);
+    background-size: 240px 240px, 360px 360px;
+    mix-blend-mode: plus-lighter;
+    opacity: 0.65;
+    animation: 20s linear infinite cosmic-nebula-drift;
+    -webkit-mask: radial-gradient(circle at 50% 50%, #000 20%, #000000bb 60%, transparent 95%);
+    mask: radial-gradient(circle at 50% 50%, #000 20%, #000000bb 60%, transparent 95%);
+  }
+  @keyframes cosmic-nebula-drift {
+    0% { background-position: 0 0, 0 0; }
+    50% { background-position: 120px -80px, -180px 120px; }
+    100% { background-position: 240px -160px, -360px 240px; }
+  }
+</style>
+</head>
+<body>
+  <h1>Caustic Icon Background Animations</h1>
+
+  <!-- 1. WATER DROPLET -->
+  <div class="test-row">
+    <div class="row-header">
+      <div class="theme-name" style="color: #38bdf8;">1. Water Droplet (Aquatic Sunlight Caustic Net)</div>
+      <div class="theme-desc">Smooth liquid water ripple network · Cyan/Azure dispersion · 13s fluid flow</div>
+    </div>
+    <div class="button-bar">
+      <div class="demo-btn btn-water play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <div class="demo-btn btn-water">
+        <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+      </div>
+      <div class="demo-btn btn-water">
+        <svg viewBox="0 0 24 24"><path d="M19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm-8 7H9.5v-.5h-2v3h2V13H11v1a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v1zm7 0h-1.5v-.5h-2v3h2V13H18v1a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v1z"/></svg>
+      </div>
+      <div class="demo-btn btn-water">
+        <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+      </div>
+      <div class="demo-btn btn-water">
+        <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. CRYSTAL -->
+  <div class="test-row">
+    <div class="row-header">
+      <div class="theme-name" style="color: #bae6fd;">2. Crystal (Prismatic Scintillation Lattice)</div>
+      <div class="theme-desc">Sharp diamond lattice facets · Pure white/quartz glints · 17s counter-drift</div>
+    </div>
+    <div class="button-bar">
+      <div class="demo-btn btn-crystal play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <div class="demo-btn btn-crystal">
+        <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+      </div>
+      <div class="demo-btn btn-crystal">
+        <svg viewBox="0 0 24 24"><path d="M19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm-8 7H9.5v-.5h-2v3h2V13H11v1a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v1zm7 0h-1.5v-.5h-2v3h2V13H18v1a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v1z"/></svg>
+      </div>
+      <div class="demo-btn btn-crystal">
+        <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+      </div>
+      <div class="demo-btn btn-crystal">
+        <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. COSMIC NEBULA -->
+  <div class="test-row">
+    <div class="row-header">
+      <div class="theme-name" style="color: #c084fc;">3. Cosmic Nebula (Interstellar Stardust Aurora)</div>
+      <div class="theme-desc">Billowing cosmic gas clouds · Amethyst/Magenta/Ultraviolet stardust · 20s celestial wave</div>
+    </div>
+    <div class="button-bar">
+      <div class="demo-btn btn-cosmic play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <div class="demo-btn btn-cosmic">
+        <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+      </div>
+      <div class="demo-btn btn-cosmic">
+        <svg viewBox="0 0 24 24"><path d="M19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm-8 7H9.5v-.5h-2v3h2V13H11v1a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v1zm7 0h-1.5v-.5h-2v3h2V13H18v1a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v1z"/></svg>
+      </div>
+      <div class="demo-btn btn-cosmic">
+        <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+      </div>
+      <div class="demo-btn btn-cosmic">
+        <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

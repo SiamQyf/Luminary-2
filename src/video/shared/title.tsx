@@ -82,9 +82,9 @@ export function Title({ title, subtitle, className }: TitleProps = {}) {
       onPointerEnter={() => setIsHovered(true)}
       onPointerLeave={() => setIsHovered(false)}
       className={cn(
-        'group/title relative flex flex-col gap-0.5 select-none pointer-events-auto cursor-default max-w-[70%]',
-        // Generous top-left hover zone
-        'min-w-[280px] min-h-[56px] pr-10 pb-8 -mr-10 -mb-8',
+        'group/title relative flex flex-col gap-0.5 select-none pointer-events-auto cursor-default flex-1 min-w-0 max-w-[65%] sm:max-w-[75%]',
+        // Generous top-left hover zone on desktop, fully contained on mobile
+        'min-w-0 sm:min-w-[200px] min-h-[40px] sm:min-h-[56px] pr-2 sm:pr-8 pb-3 sm:pb-8',
         'transition-opacity ease-out',
         shouldShow ? 'opacity-100 duration-300' : 'opacity-0 duration-700 pointer-events-auto',
         className
