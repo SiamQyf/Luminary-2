@@ -1,40 +1,74 @@
-# custom-skin
+# Luminary — Liquid Glass Video.js v10 Skin
 
-A Video.js video skin for React, styled with Tailwind CSS. It started from the Scaffold skin.
+An advanced, production-grade video skin built natively on **Video.js v10** (`@videojs/react` 10.3.0 & `@videojs/core` 10.3.0), **React 19**, and **Tailwind CSS v4**.
 
-## Develop
+Featuring physical optical glass refraction via SVG displacement lenses, dual-rim specular reflections, and **50 bespoke live themes** (including *Water Droplet*, *Glacial Permafrost*, *Crystal*, *Deep Abyss*, and *Cosmic Nebula*).
 
-```sh
+---
+
+## Quick Start & Integration
+
+For full integration examples, code snippets, props reference, and theme switching, see the **[Video.js v10 Integration Guide](file:///INTEGRATION_GUIDE.md)** (`INTEGRATION_GUIDE.md`).
+
+```bash
+# Install dependencies
+npm install @videojs/react @videojs/core react react-dom
+npm install @videojs/mux-video cn class-variance-authority
+
+# Start development workbench
 npm run dev
+
+# Production build
+npm run build
 ```
 
-The workbench opens your skin in a slimmed-down version of the Video.js sandbox. It plays NASA's Cosmic Dawn trailer from Mux, with chapters; change the media in `apps/preview/src/frame/player`. The options panel sets the player's width and aspect ratio, the color scheme, text direction, and language, and playback options such as autoplay, muted, loop, and preload. The arrow button opens the preview on its own. The settings live in the URL, so a link such as `/?width=384&ratio=9:16&dir=rtl&locale=ar` opens the workbench in that state, and `/preview.html#width=384&ratio=9:16` opens the preview alone.
+---
+
+## Basic Usage
+
+```tsx
+import '@/skin.css';
+import { VideoPlayer } from '@videojs/react/video';
+import { MuxVideo } from '@videojs/react/media/mux-video';
+import { VideoSkin } from '@/video/skin';
+
+export function Player() {
+  return (
+    <div className="preview-player" data-theme="water-droplet">
+      <VideoPlayer title="Demo Stream">
+        <VideoSkin title="Cosmic Dawn" subtitle="Official Teaser • 1080p HLS">
+          <MuxVideo
+            src="https://stream.mux.com/VcmKA6aqzIzlg3MayLJDnbF55kX00mds028Z65QxvBYaA.m3u8"
+            playsInline
+          />
+        </VideoSkin>
+      </VideoPlayer>
+    </div>
+  );
+}
+```
+
+---
+
+## Live Themes
+
+Switch between any of the **50 themes** dynamically by setting `data-theme="<theme-id>"` on the container or via the built-in **Settings ($\mathbf{\ge}$) $\rightarrow$ Styles** menu.
+
+Popular themes include:
+- `translucent`: Optical Frosted Glass with dual-rim specular highlights
+- `water-droplet`: Fluid water caustics, wave sway, liquid blue track & refraction droplet knob
+- `glacial-permafrost`: Deep sub-zero crystalline frost needle seekbar
+- `crystal`: Scintillating optical quartz with prismatic chromatic aberration
+- `deep-abyss`: Deep-sea bioluminescent mesh animation
+- `cyber-neon`: High-contrast electric cyan and magenta glows
+- `synthwave-80s`: Retro sunset grid aesthetic
+
+---
 
 ## Deploy
 
-```sh
-npm run deploy
+```bash
+npm run deploy vercel     # Deploy to Vercel
+npm run deploy netlify    # Deploy to Netlify
 ```
-
-It asks where to deploy the workbench: Vercel, Netlify, or Cloudflare Pages. Name one to skip the question, such as `npm run deploy vercel`. The first time, the host's CLI signs you in and creates the project, then every run prints the URL. Vercel and Netlify deploy to a preview URL you can share; to deploy to production instead, add `--prod` to the `deploy:netlify` script, or to both commands in `deploy:vercel`.
-
-To deploy on every push instead, put the project on GitHub and import it on Vercel or Netlify; `vercel.json` and `netlify.toml` already describe the build. The build uses relative URLs, so `dist/` also works on any static host, including in a subfolder.
-
-## Where things live
-
-- `src/`: your skin, and only your skin. Keep, rewrite, or delete any of it.
-  - `src/video/`: the skin component and its parts.
-  - `src/styles/`: theme tokens and shared styles the skin imports, when it started from a packaged skin.
-  - `src/skin.css`: global styles for the skin.
-- `apps/preview/`: the workbench that previews the skin. You don't need to change it.
-  - `src/shell/`: the Shadcn shell.
-  - `src/frame/`: the page the shell frames. `player` mounts your skin in a player and sets the media it plays.
-  - `public/`: files the preview serves, such as the chapters track.
-- `vercel.json`, `netlify.toml`: how those hosts build the workbench.
-- `skin.json`: what this skin is built from. Keep it; it records the Video.js version the skin was created with.
-
-## Learn more
-
-- [Build your own skin](https://videojs.org/docs/framework/react/guides/build-your-own-skin)
-- [Customize skins](https://videojs.org/docs/framework/react/guides/customize-skins)
-- [UI components](https://videojs.org/docs/framework/react/guides/ui-components)
+Or drag and drop `lol.zip` / `luminary-netlify.zip` onto [app.netlify.com/drop](https://app.netlify.com/drop).

@@ -121,7 +121,7 @@ export function UsageGuide() {
           How to Use This Skin in Your Video.js Player
         </h2>
         <p className="usage-muted text-[13.5px] leading-relaxed max-w-2xl">
-          Follow these steps to add the Luminary optical Liquid Glass skin and its 13 live themes to any React 19 + Tailwind CSS v4 + Video.js v10 project.
+          Follow these steps to add the Luminary optical Liquid Glass skin and its 50 bespoke live themes to any React 19 + Tailwind CSS v4 + Video.js v10 project.
         </p>
       </div>
 
@@ -145,7 +145,7 @@ export function UsageGuide() {
             <h3 className="usage-subheading text-[15px] font-semibold">Copy the Skin Files & Optional Preset Themes</h3>
           </div>
           <p className="usage-muted text-[13px] leading-relaxed">
-            Copy <code className="usage-inline-code">src/</code> from this repository into your app. Import <code className="usage-inline-code">src/skin.css</code> globally for the liquid glass tokens and drop-shadow rules. To use all 13 theme presets, also copy the <code className="usage-inline-code">.preview-player[data-theme="..."]</code> CSS rules from <code className="usage-inline-code">apps/preview/src/frame/preview.css</code>.
+            Copy <code className="usage-inline-code">src/</code> from this repository into your app. Import <code className="usage-inline-code">src/skin.css</code> globally for the liquid glass tokens and drop-shadow rules. To use any of the 50 theme presets, also copy the <code className="usage-inline-code">.preview-player[data-theme="..."]</code> CSS rules from <code className="usage-inline-code">apps/preview/src/frame/preview.css</code>.
           </p>
           <CodeBlock title="Project Structure" code={FOLDER_TREE} />
         </div>
@@ -167,7 +167,7 @@ export function UsageGuide() {
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-2.5">
             <span className="usage-step-num">4</span>
-            <h3 className="usage-subheading text-[15px] font-semibold">Choose or Switch Any of the 13 Themes</h3>
+            <h3 className="usage-subheading text-[15px] font-semibold">Choose or Switch Any of the 50 Themes</h3>
           </div>
           <p className="usage-muted text-[13px] leading-relaxed">
             Set <code className="usage-inline-code">data-theme="&lt;id&gt;"</code> on your <code className="usage-inline-code">.preview-player</code> wrapper (or let viewers switch styles live from the player&apos;s <strong>Settings → Styles</strong> menu without interrupting playback):
