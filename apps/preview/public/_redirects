@@ -1,4 +1,2 @@
 # Netlify Redirects
 /preview        /preview.html   200
-/*              /index.html     200
-
