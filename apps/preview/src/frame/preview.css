@@ -866,6 +866,24 @@ live-audio-player {
   -webkit-filter: none !important;
 }
 
+/* ==========================================================================
+   Volume Icon Optical Center: -0.25px left shift for all except water droplet
+   ========================================================================== */
+.preview-player .group\/mute svg,
+:where(.media-skin) .group\/mute svg,
+.group\/mute svg {
+  position: relative;
+  left: -0.25px;
+}
+
+[data-theme="water-droplet"] .group\/mute svg,
+.preview-player[data-theme="water-droplet"] .group\/mute svg,
+:root[data-theme="water-droplet"] .group\/mute svg,
+:where(.media-skin)[data-theme="water-droplet"] .group\/mute svg {
+  position: relative;
+  left: 0;
+}
+
 
 
 .preview-player .player-icon-scale svg,

@@ -410,6 +410,24 @@
 }
 
 /* ==========================================================================
+   Volume Icon Optical Center: -0.25px left shift for all except water droplet
+   ========================================================================== */
+.preview-player .group\/mute svg,
+:where(.media-skin) .group\/mute svg,
+.group\/mute svg {
+  position: relative;
+  left: -0.25px;
+}
+
+[data-theme="water-droplet"] .group\/mute svg,
+.preview-player[data-theme="water-droplet"] .group\/mute svg,
+:root[data-theme="water-droplet"] .group\/mute svg,
+:where(.media-skin)[data-theme="water-droplet"] .group\/mute svg {
+  position: relative;
+  left: 0;
+}
+
+/* ==========================================================================
    Video Title & Subtitle Across All Themes
    Title top is white (#ffffff), secondary text is 80% white (rgba(255, 255, 255, 0.8))
    ========================================================================== */
