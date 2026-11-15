@@ -1699,14 +1699,22 @@
   background-size: 200px 200px, 320px 320px !important;
   mix-blend-mode: plus-lighter !important;
   opacity: 0.45 !important;
-  animation: 13s linear infinite water-caustic-drift !important;
+  animation: 28s ease-in-out infinite water-caustic-sway !important;
   -webkit-mask: radial-gradient(circle at 40% 40%, #000 0%, #000 50%, transparent 95%) !important;
   mask: radial-gradient(circle at 40% 40%, #000 0%, #000 50%, transparent 95%) !important;
 }
 
-@keyframes water-caustic-drift {
-  from { background-position: 0 0, 0 0; }
-  to { background-position: 220px 110px, -340px -170px; }
+/* Water Caustic Reversing Sway (Decelerates smoothly near edge, then reverses without ending/restarting) */
+@keyframes water-caustic-sway {
+  0% {
+    background-position: 0px 0px, 0px 0px;
+  }
+  50% {
+    background-position: 180px 45px, -220px -50px;
+  }
+  100% {
+    background-position: 0px 0px, 0px 0px;
+  }
 }
 
 
@@ -1755,7 +1763,7 @@
   background-size: 160px 40px, 240px 60px !important;
   mix-blend-mode: plus-lighter !important;
   opacity: 0.55 !important;
-  animation: 10s linear infinite water-caustic-drift !important;
+  animation: 26s ease-in-out infinite water-caustic-sway !important;
 }
 
 .preview-player[data-theme="water-droplet"] .group\/slider:hover div[class*="media-slider-smooth"][class*="isolate"],
@@ -1810,25 +1818,30 @@
   background-size: 160px 40px, 240px 60px !important;
   mix-blend-mode: plus-lighter !important;
   opacity: 0.85 !important;
-  animation: 8s linear infinite water-caustic-drift !important;
+  animation: 20s ease-in-out infinite water-caustic-sway !important;
 }
 
+/* Water Droplet Knob: Exactly styled like the Volume Knob */
 .preview-player[data-theme="water-droplet"] .group\/slider .media-thumb-smooth,
 :root[data-theme="water-droplet"] .group\/slider .media-thumb-smooth,
 :where(.media-skin)[data-theme="water-droplet"] .group\/slider .media-thumb-smooth {
-  width: 15px !important;
-  height: 15px !important;
+  width: 10px !important;
+  height: 10px !important;
   top: 50% !important;
   border-radius: 50% !important;
-  border: 1.5px solid #ffffff !important;
+  border: none !important;
   outline: none !important;
   background:
-    radial-gradient(circle at 35% 25%, #ffffff 0%, rgba(255, 255, 255, 0.65) 30%, rgba(186, 230, 253, 0.4) 70%, rgba(14, 165, 233, 0.5) 100%) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
+    radial-gradient(ellipse 42% 18% at 35% 16%, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.18) 45%, transparent 75%),
+    radial-gradient(ellipse 38% 16% at 65% 84%, rgba(255, 255, 255, 0.3) 0%, rgba(186, 230, 253, 0.1) 40%, transparent 75%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04) 0%, rgba(56, 189, 248, 0.08) 60%, rgba(14, 165, 233, 0.18) 85%, rgba(2, 44, 75, 0.22) 100%) !important;
+  backdrop-filter: blur(2px) contrast(115%) brightness(118%) saturate(135%) !important;
+  -webkit-backdrop-filter: blur(2px) contrast(115%) brightness(118%) saturate(135%) !important;
   box-shadow:
-    0 0 14px rgba(56, 189, 248, 0.8),
-    0 2px 6px rgba(0, 0, 0, 0.5) !important;
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.45),
+    inset 0 -0.5px 1px rgba(255, 255, 255, 0.2),
+    0 0 8px rgba(56, 189, 248, 0.4),
+    0 1px 3px rgba(56, 189, 248, 0.2) !important;
   opacity: 1 !important;
   display: block !important;
   overflow: visible !important;
@@ -1841,8 +1854,10 @@
 :root[data-theme="water-droplet"] .group\/slider[data-dragging] .media-thumb-smooth {
   scale: 1.25 !important;
   box-shadow:
-    0 0 20px rgba(56, 189, 248, 1),
-    0 2px 8px rgba(0, 0, 0, 0.6) !important;
+    inset 0 1.25px 2px rgba(255, 255, 255, 0.6),
+    inset 0 -0.75px 1.5px rgba(255, 255, 255, 0.3),
+    0 0 14px rgba(56, 189, 248, 0.6),
+    0 1px 5px rgba(56, 189, 248, 0.25) !important;
 }
 
 
@@ -1908,14 +1923,15 @@
   background-size: 190px 190px, 280px 280px !important;
   mix-blend-mode: plus-lighter !important;
   opacity: 0.45 !important;
-  animation: 17s linear infinite crystal-prismatic-drift !important;
+  animation: 26s ease-in-out infinite crystal-prismatic-drift !important;
   -webkit-mask: linear-gradient(135deg, #000 0%, #000 60%, transparent 100%) !important;
   mask: linear-gradient(135deg, #000 0%, #000 60%, transparent 100%) !important;
 }
 
 @keyframes crystal-prismatic-drift {
-  from { background-position: 0 0, 0 0; }
-  to { background-position: -190px 95px, 280px -140px; }
+  0% { background-position: 0 0, 0 0; }
+  50% { background-position: -160px 80px, 220px -110px; }
+  100% { background-position: 0 0, 0 0; }
 }
 
 /* --------------------------------------------------------------------------
@@ -1994,15 +2010,15 @@
   background-size: 220px 220px, 340px 340px !important;
   mix-blend-mode: plus-lighter !important;
   opacity: 0.38 !important;
-  animation: 20s linear infinite cosmic-nebula-drift !important;
+  animation: 30s ease-in-out infinite cosmic-nebula-drift !important;
   -webkit-mask: radial-gradient(circle at 50% 50%, #000 15%, #000000aa 55%, transparent 95%) !important;
   mask: radial-gradient(circle at 50% 50%, #000 15%, #000000aa 55%, transparent 95%) !important;
 }
 
 @keyframes cosmic-nebula-drift {
   0% { background-position: 0 0, 0 0; }
-  50% { background-position: 120px -80px, -180px 120px; }
-  100% { background-position: 240px -160px, -360px 240px; }
+  50% { background-position: 180px -110px, -240px 160px; }
+  100% { background-position: 0 0, 0 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
