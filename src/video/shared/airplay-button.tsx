@@ -17,11 +17,11 @@ export function AirPlayButton({ popupClassName }: { popupClassName?: ClassValue 
     <ButtonTooltip popupClassName={popupClassName}>
       <AirPlayButtonPrimitive render={<Button />} className={'group/airplay'}>
         <AirPlayEnterIconPrimitive
-          className={cn('col-start-1 row-start-1 size-[16.1px]', 'group-data-[airplay-state=connected]/airplay:hidden')}
+          className={cn('col-start-1 row-start-1 size-[16.6px]', 'group-data-[airplay-state=connected]/airplay:hidden')}
         />
         <AirPlayExitIconPrimitive
           className={cn(
-            'col-start-1 row-start-1 size-[16.1px]',
+            'col-start-1 row-start-1 size-[16.6px]',
             'hidden group-data-[airplay-state=connected]/airplay:block'
           )}
         />
