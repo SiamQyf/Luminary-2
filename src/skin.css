@@ -410,21 +410,28 @@
 }
 
 /* ==========================================================================
-   Volume Icon Optical Center: -0.25px left shift for all except water droplet
+   Universal Icon Perfect Centering across all styles & buttons
    ========================================================================== */
 .preview-player .group\/mute svg,
 :where(.media-skin) .group\/mute svg,
 .group\/mute svg {
-  position: relative;
-  left: -0.25px;
+  position: static;
+  left: 0;
+  transform: none;
 }
 
-[data-theme="water-droplet"] .group\/mute svg,
-.preview-player[data-theme="water-droplet"] .group\/mute svg,
-:root[data-theme="water-droplet"] .group\/mute svg,
-:where(.media-skin)[data-theme="water-droplet"] .group\/mute svg {
-  position: relative;
-  left: 0;
+.preview-player .group\/vol-pill > button,
+:where(.media-skin) .group\/vol-pill > button,
+.group\/vol-pill > button {
+  height: 100% !important;
+  width: auto !important;
+  aspect-ratio: 1 / 1 !important;
+}
+
+.preview-player .group\/play svg,
+:where(.media-skin) .group\/play svg,
+.group\/play svg {
+  transform: none;
 }
 
 /* ==========================================================================

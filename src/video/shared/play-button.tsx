@@ -64,7 +64,7 @@ export function PlayButton({
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
           className={cn(
-            'col-start-1 row-start-1 hidden w-[13px] h-[15.6px] max-sm:w-[15px] max-sm:h-[18px] text-white translate-x-[0.6px]',
+            'col-start-1 row-start-1 hidden w-[13px] h-[15.6px] max-sm:w-[15px] max-sm:h-[18px] text-white',
             'group-not-data-ended/play:group-data-paused/play:block',
             'group-not-data-ended/play:group-not-data-started/play:block',
             iconClassName

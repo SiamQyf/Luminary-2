@@ -391,7 +391,7 @@ export function VolumePill({ className }: { className?: ClassValue }) {
         )}
         data-name="Volume Pill"
       >
-        {/* Mute button trigger: exact 31.4px circular geometry matching Button, perfectly centering the animated horn */}
+        {/* Mute button trigger: exact circular geometry matching Button, perfectly centering the animated horn */}
         <MuteButtonPrimitive
           onClick={() => {
             if (isMobilePortrait) {
@@ -400,7 +400,7 @@ export function VolumePill({ className }: { className?: ClassValue }) {
               armActiveTimer();
             }
           }}
-          className="relative z-10 size-[31.4px] shrink-0 grid place-items-center p-0 m-0 border-none bg-transparent cursor-pointer text-white group/mute outline-none"
+          className="relative z-10 h-full aspect-square shrink-0 grid place-items-center p-0 m-0 border-none bg-transparent cursor-pointer text-white group/mute outline-none"
         >
           <span
             className={cn(
