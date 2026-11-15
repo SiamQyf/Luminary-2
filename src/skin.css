@@ -432,6 +432,12 @@
    Every theme has a bespoke, harmonized subtitle design matching its identity
    ========================================================================== */
 
+/* Universal Caption Text: Shift by -1px in Y direction */
+[data-part="caption-pill"] > [data-part="caption-text"],
+[data-part="caption-text"] {
+  transform: translateY(-1px) !important;
+}
+
 /* Translucent Glass (translucent) */
 .preview-player[data-theme="translucent"] [data-part="caption-pill"],
 :root[data-theme="translucent"] [data-part="caption-pill"],

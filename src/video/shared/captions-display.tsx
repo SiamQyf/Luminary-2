@@ -445,7 +445,13 @@ export function CaptionsDisplay() {
           filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85))',
         }}
       >
-        {formatCueContent(activeText)}
+        <span
+          data-part="caption-text"
+          className="inline-flex flex-col items-center justify-center -translate-y-px"
+          style={{ transform: 'translateY(-1px)' }}
+        >
+          {formatCueContent(activeText)}
+        </span>
       </div>
     </div>
   );
