@@ -10384,3 +10384,342 @@ div[role="menu"]:not([data-child-open]) {
   color: #f0f9ff !important;
   text-shadow: 0 0 8px rgba(186, 230, 253, 0.8), 0 1px 2px rgba(0, 0, 0, 0.95) !important;
 }
+
+
+/* ==========================================================================
+   50. HI-FI REMOTE (Anodized Aluminum Audio-Visual Remote & Click-Wheel Aesthetic)
+   Precision bead-blasted silver aluminum casing, recessed piano-black glossy screen,
+   tactile matte off-white pill keycaps, laser-etched charcoal icons, and precision seek groove.
+   ========================================================================== */
+
+/* Outer Shell & Chassis: Anodized Bead-Blasted Aluminum */
+.preview-player[data-theme="hi-fi-remote"],
+.preview-player[data-theme="hi-fi-remote"] .media-skin,
+:root[data-theme="hi-fi-remote"] .media-skin,
+:where(.media-skin)[data-theme="hi-fi-remote"] {
+  border-radius: 14px !important;
+}
+
+.preview-player[data-theme="hi-fi-remote"] .media-skin,
+:root[data-theme="hi-fi-remote"] .media-skin,
+:where(.media-skin)[data-theme="hi-fi-remote"] {
+  border: 2.5px solid rgba(197, 201, 210, 0.3333) !important;
+  box-shadow:
+    0 0 0 1px #8e939e,
+    0 0 0 4px #d8dbe0,
+    0 0 0 5.5px #717682,
+    0 24px 54px rgba(0, 0, 0, 0.75),
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.9) !important;
+  background:
+    radial-gradient(circle at 18% 10%, rgba(255, 255, 255, 0.35) 0%, transparent 45%),
+    linear-gradient(145deg, #e6e9ee 0%, #d4d8e0 40%, #c4c8d2 100%) !important;
+}
+
+.preview-player[data-theme="hi-fi-remote"],
+:root[data-theme="hi-fi-remote"] {
+  --media-primary: #18181b;
+}
+
+/* Recessed Control Panel Deck (Bottom Controls Bar) */
+.preview-player[data-theme="hi-fi-remote"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before,
+:root[data-theme="hi-fi-remote"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before,
+:where(.media-skin)[data-theme="hi-fi-remote"] [data-part="bottom-controls-bar"]:not(.static\!)::before {
+  background: linear-gradient(180deg, rgba(220, 224, 232, 0.82) 0%, rgba(205, 210, 219, 0.94) 35%, #ccd1da 100%) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.85) !important;
+  box-shadow:
+    inset 0 1.5px 3px rgba(0, 0, 0, 0.16),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.8),
+    0 -1px 0 rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Tactile Off-White Raised Button Keycaps */
+.preview-player[data-theme="hi-fi-remote"] .group\/liquid-btn,
+.preview-player[data-theme="hi-fi-remote"] .group\/center-buffering button,
+.preview-player[data-theme="hi-fi-remote"] [data-slot="control"],
+.preview-player[data-theme="hi-fi-remote"] .media-fullscreen-button,
+:root[data-theme="hi-fi-remote"] .group\/liquid-btn,
+:root[data-theme="hi-fi-remote"] .group\/center-buffering button,
+:root[data-theme="hi-fi-remote"] [data-slot="control"],
+:root[data-theme="hi-fi-remote"] .media-fullscreen-button,
+:where(.media-skin)[data-theme="hi-fi-remote"] .group\/liquid-btn,
+:where(.media-skin)[data-theme="hi-fi-remote"] .group\/center-buffering button,
+:where(.media-skin)[data-theme="hi-fi-remote"] [data-slot="control"],
+:where(.media-skin)[data-theme="hi-fi-remote"] .media-fullscreen-button {
+  border-radius: 9999px !important;
+  background-color: #f4f5f7 !important;
+  background-image: linear-gradient(180deg, #ffffff 0%, #ebeef3 70%, #dfe2e8 100%) !important;
+  border: 1px solid #b2b7c2 !important;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.16),
+    0 1px 1px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0.5px rgba(255, 255, 255, 0.95),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.08) !important;
+  color: #18181b !important;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.preview-player[data-theme="hi-fi-remote"] .group\/liquid-btn:hover,
+.preview-player[data-theme="hi-fi-remote"] .group\/center-buffering button:hover,
+.preview-player[data-theme="hi-fi-remote"] [data-slot="control"]:hover,
+.preview-player[data-theme="hi-fi-remote"] .media-fullscreen-button:hover,
+:root[data-theme="hi-fi-remote"] .group\/liquid-btn:hover,
+:root[data-theme="hi-fi-remote"] .group\/center-buffering button:hover,
+:root[data-theme="hi-fi-remote"] [data-slot="control"]:hover,
+:root[data-theme="hi-fi-remote"] .media-fullscreen-button:hover {
+  border-color: #717682 !important;
+  background-image: linear-gradient(180deg, #ffffff 0%, #e2e5eb 100%) !important;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0.5px #ffffff !important;
+  transform: translateY(0.5px) !important;
+}
+
+.preview-player[data-theme="hi-fi-remote"] .group\/liquid-btn:active,
+.preview-player[data-theme="hi-fi-remote"] .group\/center-buffering button:active,
+:root[data-theme="hi-fi-remote"] .group\/liquid-btn:active,
+:root[data-theme="hi-fi-remote"] .group\/center-buffering button:active {
+  box-shadow: inset 0 1.5px 3px rgba(0, 0, 0, 0.25) !important;
+  transform: translateY(1px) !important;
+}
+
+/* Center Dominant Action Keycap ("Enter" Click-Wheel Center Button Aesthetic) */
+.preview-player[data-theme="hi-fi-remote"] .media-md\:flex > .group\/liquid-btn:nth-child(3),
+.preview-player[data-theme="hi-fi-remote"] .group\/liquid-btn.group\/play,
+.preview-player[data-theme="hi-fi-remote"] .group\/center-buffering button:nth-child(2),
+:root[data-theme="hi-fi-remote"] .media-md\:flex > .group\/liquid-btn:nth-child(3),
+:root[data-theme="hi-fi-remote"] .group\/liquid-btn.group\/play,
+:root[data-theme="hi-fi-remote"] .group\/center-buffering button:nth-child(2) {
+  border-radius: 9999px !important;
+  background-color: #fcfdfe !important;
+  background-image: radial-gradient(circle at 38% 30%, #ffffff 0%, #f1f3f6 65%, #d8dbe2 100%) !important;
+  border: 1.5px solid #9499a6 !important;
+  box-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.22),
+    0 1px 2px rgba(0, 0, 0, 0.12),
+    inset 0 1.5px 1px #ffffff,
+    inset 0 -1.5px 2px rgba(0, 0, 0, 0.12) !important;
+  color: #18181b !important;
+}
+
+/* Razor-Sharp Laser-Etched Charcoal/Black Icons */
+.preview-player[data-theme="hi-fi-remote"] .player-icon-scale,
+.preview-player[data-theme="hi-fi-remote"] .group\/mute svg,
+.preview-player[data-theme="hi-fi-remote"] .group\/liquid-btn svg,
+.preview-player[data-theme="hi-fi-remote"] .group\/center-buffering svg,
+.preview-player[data-theme="hi-fi-remote"] [data-slot="control"] svg,
+.preview-player[data-theme="hi-fi-remote"] .media-fullscreen-button svg,
+:root[data-theme="hi-fi-remote"] .player-icon-scale,
+:root[data-theme="hi-fi-remote"] .group\/mute svg,
+:root[data-theme="hi-fi-remote"] .group\/liquid-btn svg,
+:root[data-theme="hi-fi-remote"] .group\/center-buffering svg,
+:root[data-theme="hi-fi-remote"] [data-slot="control"] svg,
+:root[data-theme="hi-fi-remote"] .media-fullscreen-button svg,
+:where(.media-skin)[data-theme="hi-fi-remote"] svg {
+  color: #18181b !important;
+  fill: #18181b !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
+.preview-player[data-theme="hi-fi-remote"] .media-md\:flex > .group\/liquid-btn:nth-child(3) svg,
+.preview-player[data-theme="hi-fi-remote"] .group\/liquid-btn.group\/play svg,
+.preview-player[data-theme="hi-fi-remote"] .group\/center-buffering button:nth-child(2) svg,
+.preview-player[data-theme="hi-fi-remote"] .media-md\:flex > .group\/liquid-btn:nth-child(3) .player-icon-scale,
+.preview-player[data-theme="hi-fi-remote"] .group\/liquid-btn.group\/play .player-icon-scale {
+  color: #18181b !important;
+  fill: #18181b !important;
+}
+
+/* Volume Pill: Anodized Aluminum with Recessed Dark Groove */
+.preview-player[data-theme="hi-fi-remote"] .group\/vol-pill,
+:root[data-theme="hi-fi-remote"] .group\/vol-pill,
+:where(.media-skin)[data-theme="hi-fi-remote"] .group\/vol-pill {
+  border-radius: 9999px !important;
+  background-color: #f4f5f7 !important;
+  background-image: linear-gradient(180deg, #ffffff 0%, #ebeef3 70%, #dfe2e8 100%) !important;
+  border: 1px solid #b2b7c2 !important;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0.5px rgba(255, 255, 255, 0.95),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.08) !important;
+}
+
+.preview-player[data-theme="hi-fi-remote"] .group\/vol-pill div[class*="bg-white/20"],
+:root[data-theme="hi-fi-remote"] .group\/vol-pill div[class*="bg-white/20"],
+:where(.media-skin)[data-theme="hi-fi-remote"] .group\/vol-pill div[class*="bg-white/20"] {
+  height: 3px !important;
+  border-radius: 9999px !important;
+  background: #27272a !important;
+  border: 1px solid #18181b !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+.preview-player[data-theme="hi-fi-remote"] .group\/vol-pill div[class*="bg-white/90"],
+:root[data-theme="hi-fi-remote"] .group\/vol-pill div[class*="bg-white/90"],
+:where(.media-skin)[data-theme="hi-fi-remote"] .group\/vol-pill div[class*="bg-white/90"] {
+  border-radius: 9999px !important;
+  background: linear-gradient(90deg, #a1a1aa 0%, #ffffff 100%) !important;
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.8) !important;
+}
+
+.preview-player[data-theme="hi-fi-remote"] .volume-slider-thumb,
+:root[data-theme="hi-fi-remote"] .volume-slider-thumb,
+:where(.media-skin)[data-theme="hi-fi-remote"] .volume-slider-thumb {
+  width: 9.5px !important;
+  height: 9.5px !important;
+  border-radius: 9999px !important;
+  background: radial-gradient(circle at 35% 30%, #ffffff 0%, #f4f5f7 60%, #cbd0d8 100%) !important;
+  border: 1px solid #717682 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Recessed Seekbar Track & Precision Slider Thumb */
+.preview-player[data-theme="hi-fi-remote"] div[class*="media-slider-smooth"][class*="isolate"],
+:root[data-theme="hi-fi-remote"] div[class*="media-slider-smooth"][class*="isolate"],
+:where(.media-skin)[data-theme="hi-fi-remote"] div[class*="media-slider-smooth"][class*="isolate"] {
+  height: 4.5px !important;
+  border-radius: 9999px !important;
+  background: #27272a !important;
+  border: 1px solid #18181b !important;
+  box-shadow:
+    inset 0 1.5px 3px rgba(0, 0, 0, 0.7),
+    0 1px 0 rgba(255, 255, 255, 0.6) !important;
+}
+
+.preview-player[data-theme="hi-fi-remote"] .group\/slider:hover div[class*="media-slider-smooth"][class*="isolate"] {
+  height: 5.5px !important;
+}
+
+.preview-player[data-theme="hi-fi-remote"] div[class*="clip-media-x-[--media-slider-buffer]"],
+:root[data-theme="hi-fi-remote"] div[class*="clip-media-x-[--media-slider-buffer]"],
+:where(.media-skin)[data-theme="hi-fi-remote"] div[class*="clip-media-x-[--media-slider-buffer]"] {
+  border-radius: 9999px !important;
+  background: #52525b !important;
+}
+
+.preview-player[data-theme="hi-fi-remote"] div[class*="clip-media-x-[--media-slider-fill]"],
+:root[data-theme="hi-fi-remote"] div[class*="clip-media-x-[--media-slider-fill]"],
+:where(.media-skin)[data-theme="hi-fi-remote"] div[class*="clip-media-x-[--media-slider-fill]"] {
+  border-radius: 9999px !important;
+  background: linear-gradient(90deg, #a1a1aa 0%, #ffffff 100%) !important;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.7) !important;
+  opacity: 1 !important;
+}
+
+.preview-player[data-theme="hi-fi-remote"] .group\/slider .media-thumb-smooth,
+:root[data-theme="hi-fi-remote"] .group\/slider .media-thumb-smooth,
+:where(.media-skin)[data-theme="hi-fi-remote"] .group\/slider .media-thumb-smooth {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 9999px !important;
+  background: radial-gradient(circle at 35% 30%, #ffffff 0%, #f4f5f7 60%, #cbd0d8 100%) !important;
+  border: 1.25px solid #717682 !important;
+  box-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0.5px #ffffff !important;
+}
+
+/* Laser-Etched Digital Timestamp Readout */
+.preview-player[data-theme="hi-fi-remote"] time-value,
+.preview-player[data-theme="hi-fi-remote"] div[class*="tabular-nums"],
+:root[data-theme="hi-fi-remote"] time-value,
+:root[data-theme="hi-fi-remote"] div[class*="tabular-nums"] {
+  color: #18181b !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.03em !important;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+}
+
+.preview-player[data-theme="hi-fi-remote"] span:first-child > time,
+.preview-player[data-theme="hi-fi-remote"] span:first-child > time-value,
+:root[data-theme="hi-fi-remote"] span:first-child > time,
+:root[data-theme="hi-fi-remote"] span:first-child > time-value {
+  color: #18181b !important;
+}
+
+/* Video Title & Subtitle: Recessed Piano-Black Screen Aesthetic */
+.preview-player[data-theme="hi-fi-remote"] .video-title {
+  color: #ffffff !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+}
+
+.preview-player[data-theme="hi-fi-remote"] .video-subtitle {
+  color: rgba(255, 255, 255, 0.75) !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  font-size: 11px !important;
+}
+
+/* Settings Menu: High-End Aluminum Card */
+.preview-player[data-theme="hi-fi-remote"] [role="menu"],
+:root[data-theme="hi-fi-remote"] [role="menu"] {
+  border-radius: 12px !important;
+  padding: 8px !important;
+  background: linear-gradient(180deg, #f4f5f8 0%, #e5e8ee 100%) !important;
+  border: 1.5px solid #a8adb8 !important;
+  box-shadow:
+    0 18px 46px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 #ffffff !important;
+  color: #18181b !important;
+}
+
+.preview-player[data-theme="hi-fi-remote"] [role="menu"] span,
+:root[data-theme="hi-fi-remote"] [role="menu"] span {
+  color: #18181b !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+.preview-player[data-theme="hi-fi-remote"] [role="menu"] [class*="text-white/50"],
+:root[data-theme="hi-fi-remote"] [role="menu"] [class*="text-white/50"] {
+  color: #52525b !important;
+}
+
+.preview-player[data-theme="hi-fi-remote"] .group\/menu-btn:hover,
+.preview-player[data-theme="hi-fi-remote"] .group\/menu-radio:hover,
+:root[data-theme="hi-fi-remote"] [role="menuitem"]:hover,
+:root[data-theme="hi-fi-remote"] [role="menuitemradio"]:hover {
+  background: rgba(0, 0, 0, 0.08) !important;
+  border-radius: 6px !important;
+}
+
+.preview-player[data-theme="hi-fi-remote"] [role="separator"],
+:root[data-theme="hi-fi-remote"] [role="separator"] {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+.preview-player[data-theme="hi-fi-remote"] [role="menu"] svg {
+  color: #18181b !important;
+}
+
+/* Caption Pill: Glossy Piano-Black Display Window */
+.preview-player[data-theme="hi-fi-remote"] [data-part="caption-pill"],
+:root[data-theme="hi-fi-remote"] [data-part="caption-pill"],
+:where(.media-skin)[data-theme="hi-fi-remote"] [data-part="caption-pill"] {
+  background: linear-gradient(180deg, rgba(28, 30, 36, 0.95) 0%, rgba(10, 11, 14, 0.98) 100%) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.22) !important;
+  border-radius: 10px !important;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.75),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3) !important;
+  color: #f8fafc !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif !important;
+  font-weight: 600 !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.95) !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
+}
+
+.preview-player[data-theme="hi-fi-remote"] [data-part="caption-pill"] *,
+:root[data-theme="hi-fi-remote"] [data-part="caption-pill"] *,
+:where(.media-skin)[data-theme="hi-fi-remote"] [data-part="caption-pill"] * {
+  color: #f8fafc !important;
+  fill: #f8fafc !important;
+}
