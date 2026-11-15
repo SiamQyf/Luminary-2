@@ -194,7 +194,7 @@ function formatCueContent(text: string) {
   const isSoundEffect = /^\s*\[(.*?)\]\s*$/.test(text) || /^\s*\((.*?)\)\s*$/.test(text);
   if (isSoundEffect) {
     return (
-      <span className="inline-flex items-center justify-center italic tracking-wide text-white/95 leading-none">
+      <span className="inline-flex items-center justify-center italic tracking-wide opacity-90 leading-none">
         {text}
       </span>
     );
@@ -430,7 +430,7 @@ export function CaptionsDisplay() {
           'px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2',
           'rounded-[var(--media-caption-radius,10px)]',
           'backdrop-blur-[12px] backdrop-saturate-[160%] backdrop-contrast-[105%]',
-          'text-white text-center font-sans font-medium',
+          'text-current text-center font-sans font-medium',
           'text-[11.5px] sm:text-[13px] md:text-[14.5px] lg:text-[16px] tracking-[0.01em]',
           'leading-none select-none transition-all duration-120 animate-in fade-in zoom-in-[0.98]'
         )}
