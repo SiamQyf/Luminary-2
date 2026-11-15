@@ -9674,6 +9674,8 @@ div[role="menu"]:not([data-child-open]) {
 .horizontal-volume-slider {
   display: flex !important;
   align-items: center !important;
+  position: relative !important;
+  left: -2px !important;
 }
 .horizontal-volume-slider div[class*="bg-white/20"] {
   align-self: center !important;
