@@ -9769,6 +9769,93 @@ div[role="menu"]:not([data-child-open]) {
   100% { background-position: 0 0, 0 0; }
 }
 
+/* --------------------------------------------------------------------------
+   4. DEEP ABYSS: Bioluminescent Weaving Threads & Oceanic Trench Drift
+   -------------------------------------------------------------------------- */
+.preview-player[data-theme="deep-abyss"] .group\/liquid-btn,
+.preview-player[data-theme="deep-abyss"] .group\/center-buffering button,
+.preview-player[data-theme="deep-abyss"] [data-slot="control"],
+.preview-player[data-theme="deep-abyss"] .media-fullscreen-button,
+.preview-player[data-theme="deep-abyss"] .group\/vol-pill,
+:root[data-theme="deep-abyss"] .group\/liquid-btn,
+:root[data-theme="deep-abyss"] .group\/center-buffering button,
+:root[data-theme="deep-abyss"] [data-slot="control"],
+:root[data-theme="deep-abyss"] .media-fullscreen-button,
+:root[data-theme="deep-abyss"] .group\/vol-pill,
+:where(.media-skin)[data-theme="deep-abyss"] .group\/liquid-btn,
+:where(.media-skin)[data-theme="deep-abyss"] .group\/center-buffering button,
+:where(.media-skin)[data-theme="deep-abyss"] [data-slot="control"],
+:where(.media-skin)[data-theme="deep-abyss"] .media-fullscreen-button,
+:where(.media-skin)[data-theme="deep-abyss"] .group\/vol-pill {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.preview-player[data-theme="deep-abyss"] .group\/liquid-btn::after,
+.preview-player[data-theme="deep-abyss"] .group\/center-buffering button::after,
+.preview-player[data-theme="deep-abyss"] [data-slot="control"]::after,
+.preview-player[data-theme="deep-abyss"] .media-fullscreen-button::after,
+.preview-player[data-theme="deep-abyss"] .group\/vol-pill::after,
+:root[data-theme="deep-abyss"] .group\/liquid-btn::after,
+:root[data-theme="deep-abyss"] .group\/center-buffering button::after,
+:root[data-theme="deep-abyss"] [data-slot="control"]::after,
+:root[data-theme="deep-abyss"] .media-fullscreen-button::after,
+:root[data-theme="deep-abyss"] .group\/vol-pill::after,
+:where(.media-skin)[data-theme="deep-abyss"] .group\/liquid-btn::after,
+:where(.media-skin)[data-theme="deep-abyss"] .group\/center-buffering button::after,
+:where(.media-skin)[data-theme="deep-abyss"] [data-slot="control"]::after,
+:where(.media-skin)[data-theme="deep-abyss"] .media-fullscreen-button::after,
+:where(.media-skin)[data-theme="deep-abyss"] .group\/vol-pill::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  border-radius: inherit !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='warp' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.038 0.012' numOctaves='3' seed='88' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.13 0 0 0 0 0.83 0 0 0 0 0.93 1 0 0 0 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0 0 0 0 0 0.8 1 0.2 0 0 0 0 0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23warp)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='weft' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.014 0.042' numOctaves='3' seed='142' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.05 0 0 0 0 0.6 0 0 0 0 0.8 1 0 0 0 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0 0 0 0 0 0 0.9 1 0.3 0 0 0 0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23weft)'/%3E%3C/svg%3E") !important;
+  background-size: 180px 180px, 220px 220px !important;
+  mix-blend-mode: plus-lighter !important;
+  opacity: 0.6 !important;
+  animation: 32s ease-in-out infinite deep-abyss-threads-weave !important;
+  -webkit-mask: radial-gradient(circle at 45% 45%, #000 0%, #000 65%, transparent 100%) !important;
+  mask: radial-gradient(circle at 45% 45%, #000 0%, #000 65%, transparent 100%) !important;
+}
+
+/* Bottom dock bar subtle ambient thread weave */
+.preview-player[data-theme="deep-abyss"] .media-skin [data-part="bottom-controls-bar"]::after,
+:root[data-theme="deep-abyss"] [data-part="bottom-controls-bar"]::after,
+:where(.media-skin)[data-theme="deep-abyss"] [data-part="bottom-controls-bar"]::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  border-radius: inherit !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='warp' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.038 0.012' numOctaves='3' seed='88' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.13 0 0 0 0 0.83 0 0 0 0 0.93 1 0 0 0 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0 0 0 0 0 0.8 1 0.2 0 0 0 0 0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23warp)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='weft' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.014 0.042' numOctaves='3' seed='142' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.05 0 0 0 0 0.6 0 0 0 0 0.8 1 0 0 0 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0 0 0 0 0 0 0.9 1 0.3 0 0 0 0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23weft)'/%3E%3C/svg%3E") !important;
+  background-size: 360px 120px, 480px 140px !important;
+  mix-blend-mode: plus-lighter !important;
+  opacity: 0.18 !important;
+  animation: 38s ease-in-out infinite deep-abyss-dock-weave !important;
+  -webkit-mask: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.5) 40%, #000 100%) !important;
+  mask: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.5) 40%, #000 100%) !important;
+}
+
+@keyframes deep-abyss-threads-weave {
+  0% { background-position: 0px 0px, 0px 0px; }
+  50% { background-position: 140px -70px, -120px 90px; }
+  100% { background-position: 0px 0px, 0px 0px; }
+}
+
+@keyframes deep-abyss-dock-weave {
+  0% { background-position: 0px 0px, 0px 0px; }
+  50% { background-position: 240px -40px, -200px 50px; }
+  100% { background-position: 0px 0px, 0px 0px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .preview-player[data-theme="water-droplet"] .group\/liquid-btn::after,
   .preview-player[data-theme="water-droplet"] .group\/vol-pill::after,
@@ -9778,9 +9865,14 @@ div[role="menu"]:not([data-child-open]) {
   .preview-player[data-theme="crystal"] .group\/vol-pill::after,
   .preview-player[data-theme="cosmic-nebula"] .group\/liquid-btn::after,
   .preview-player[data-theme="cosmic-nebula"] .group\/vol-pill::after,
+  .preview-player[data-theme="deep-abyss"] .group\/liquid-btn::after,
+  .preview-player[data-theme="deep-abyss"] .group\/vol-pill::after,
+  .preview-player[data-theme="deep-abyss"] [data-part="bottom-controls-bar"]::after,
   :root[data-theme="water-droplet"] .group\/liquid-btn::after,
   :root[data-theme="crystal"] .group\/liquid-btn::after,
-  :root[data-theme="cosmic-nebula"] .group\/liquid-btn::after {
+  :root[data-theme="cosmic-nebula"] .group\/liquid-btn::after,
+  :root[data-theme="deep-abyss"] .group\/liquid-btn::after,
+  :root[data-theme="deep-abyss"] [data-part="bottom-controls-bar"]::after {
     animation: none !important;
   }
 }
