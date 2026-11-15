@@ -892,24 +892,6 @@ export const THEME_PALETTES: Record<string, { dark: ThemePalette; light: ThemePa
       iconGlow: 'rgba(3, 105, 161, 0.22)',
     },
   },
-  'hi-fi-remote': {
-    dark: {
-      primary: '#e5e7eb',
-      secondary: '#9ca3af',
-      accent: '#18181b',
-      gradient: 'linear-gradient(135deg, #ffffff 10%, #d1d5db 60%, #4b5563 100%)',
-      glow: 'rgba(229, 231, 235, 0.45)',
-      iconGlow: 'rgba(209, 213, 219, 0.35)',
-    },
-    light: {
-      primary: '#374151',
-      secondary: '#4b5563',
-      accent: '#111827',
-      gradient: 'linear-gradient(135deg, #4b5563 10%, #374151 55%, #111827 100%)',
-      glow: 'rgba(75, 85, 99, 0.25)',
-      iconGlow: 'rgba(55, 65, 81, 0.20)',
-    },
-  },
 };
 
 export function getThemePalette(themeName: string, isDark = true): ThemePalette {

@@ -72,7 +72,6 @@ export const THEME_STYLES = [
   { id: 'velvet-opera', label: 'Velvet Opera' },
   { id: 'water-droplet', label: 'Water Droplet' },
   { id: 'glacial-permafrost', label: 'Glacial Permafrost' },
-  { id: 'hi-fi-remote', label: 'Hi-Fi Remote' },
 ] as const;
 
 /** Settings Menu Content styling: matching rounded player aesthetic (18px) with comfortable padding (8px) */

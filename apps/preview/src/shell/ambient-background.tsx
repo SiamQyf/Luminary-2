@@ -557,17 +557,6 @@ const THEME_PALETTES: Record<string, ThemePalette> = {
     bit2: '#ffffff',
     bitGlow: 'rgba(125, 211, 252, 0.75)',
   },
-  'hi-fi-remote': {
-    bleed1: 'rgba(210, 214, 222, 0.24)',
-    bleed2: 'rgba(160, 165, 175, 0.18)',
-    bleed3: 'rgba(240, 242, 246, 0.15)',
-    bleed4: 'rgba(90, 95, 105, 0.14)',
-    strip1: '#d1d5db',
-    strip2: '#9ca3af',
-    bit1: '#f3f4f6',
-    bit2: '#374151',
-    bitGlow: 'rgba(209, 213, 219, 0.60)',
-  },
 };
 
 /**
