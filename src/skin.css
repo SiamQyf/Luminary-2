@@ -1181,7 +1181,7 @@
   display: flex !important;
   align-items: center !important;
   position: relative !important;
-  left: 0 !important;
+  left: -2px !important;
   margin-left: 4px !important;
 }
 
