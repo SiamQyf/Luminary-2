@@ -10797,3 +10797,70 @@ div[role="menu"]:not([data-child-open]) {
   color: #ffffff !important;
   fill: #ffffff !important;
 }
+
+
+/* ==========================================================================
+   Universal Silky-Smooth Progress Knob & Fill Advancement across ALL Themes
+   ========================================================================== */
+.group\/slider[data-playing] .media-thumb-smooth,
+.group-data-playing\/slider .media-thumb-smooth,
+:where(.media-skin) .group\/slider[data-playing] .media-thumb-smooth,
+.preview-player .group\/slider[data-playing] .media-thumb-smooth {
+  transition: left 260ms linear, scale 150ms cubic-bezier(0.16, 1, 0.3, 1), filter 150ms ease-out, box-shadow 150ms ease-out, height 150ms ease-out !important;
+  will-change: left !important;
+}
+
+.group\/slider[data-playing] div[class*="clip-media-x-[--media-slider-fill]"],
+.group-data-playing\/slider div[class*="clip-media-x-[--media-slider-fill]"],
+:where(.media-skin) .group\/slider[data-playing] div[class*="clip-media-x-[--media-slider-fill]"],
+.preview-player .group\/slider[data-playing] div[class*="clip-media-x-[--media-slider-fill]"] {
+  transition: right 260ms linear !important;
+  will-change: right !important;
+}
+
+/* Smooth Springy Snap when Seeking / Jumping While Paused */
+.group\/slider:not([data-playing]):not([data-dragging]) .media-thumb-smooth,
+:where(.media-skin) .group\/slider:not([data-playing]):not([data-dragging]) .media-thumb-smooth,
+.preview-player .group\/slider:not([data-playing]):not([data-dragging]) .media-thumb-smooth {
+  transition: left 140ms cubic-bezier(0.2, 0.8, 0.2, 1), scale 150ms cubic-bezier(0.16, 1, 0.3, 1), filter 150ms ease-out, box-shadow 150ms ease-out !important;
+}
+
+.group\/slider:not([data-playing]):not([data-dragging]) div[class*="clip-media-x-[--media-slider-fill]"],
+:where(.media-skin) .group\/slider:not([data-playing]):not([data-dragging]) div[class*="clip-media-x-[--media-slider-fill]"],
+.preview-player .group\/slider:not([data-playing]):not([data-dragging]) div[class*="clip-media-x-[--media-slider-fill]"] {
+  transition: right 140ms cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+
+/* Instantaneous Zero-Lag Tracking when Scrubbing / Dragging */
+[data-dragging] .media-thumb-smooth,
+[data-pointing] .media-thumb-smooth,
+.group\/slider[data-dragging] .media-thumb-smooth,
+.group\/slider[data-pointing] .media-thumb-smooth,
+.group-data-dragging\/slider .media-thumb-smooth,
+.group-data-pointing\/slider .media-thumb-smooth,
+:where(.media-skin) [data-dragging] .media-thumb-smooth,
+.preview-player [data-dragging] .media-thumb-smooth {
+  transition: none !important;
+  will-change: auto !important;
+}
+
+[data-dragging] div[class*="clip-media-x-[--media-slider-fill]"],
+[data-pointing] div[class*="clip-media-x-[--media-slider-fill]"],
+.group\/slider[data-dragging] div[class*="clip-media-x-[--media-slider-fill]"],
+.group\/slider[data-pointing] div[class*="clip-media-x-[--media-slider-fill]"],
+.group-data-dragging\/slider div[class*="clip-media-x-[--media-slider-fill]"],
+.group-data-pointing\/slider div[class*="clip-media-x-[--media-slider-fill]"],
+:where(.media-skin) [data-dragging] div[class*="clip-media-x-[--media-slider-fill]"],
+.preview-player [data-dragging] div[class*="clip-media-x-[--media-slider-fill]"] {
+  transition: none !important;
+  will-change: auto !important;
+}
+
+/* Accessible Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .media-thumb-smooth,
+  div[class*="clip-media-x-[--media-slider-fill]"] {
+    transition: none !important;
+    will-change: auto !important;
+  }
+}

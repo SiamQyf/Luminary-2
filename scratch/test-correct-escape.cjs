@@ -1,0 +1,164 @@
+const fs = require('fs');
+const { spawn } = require('child_process');
+
+async function main() {
+  const chromePath = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
+  const profileDir = 'C:\\Users\\Siam\\.gemini\\antigravity\\brain\\06e192c4-a4cc-45e6-b8bd-a398f6f48bd4\\chrome-live-prof-synth-real';
+  
+  const proc = spawn(chromePath, [
+    '--headless=new',
+    '--remote-debugging-port=9495',
+    `--user-data-dir=${profileDir}`,
+    '--disable-gpu',
+    '--window-size=1280,900',
+    'http://localhost:5173/preview.html?theme=synthwave-80s'
+  ]);
+
+  await new Promise(r => setTimeout(r, 2000));
+
+  try {
+    const listRes = await fetch('http://127.0.0.1:9495/json/list', {
+      headers: { Host: '127.0.0.1:9495' }
+    });
+    const list = await listRes.json();
+    const tab = list.find(t => t.type === 'page');
+    if (!tab) return;
+
+    const ws = new WebSocket(tab.webSocketDebuggerUrl);
+    await new Promise((resolve, reject) => {
+      ws.onopen = resolve;
+      ws.onerror = reject;
+    });
+
+    let id = 1;
+    function send(method, params = {}) {
+      return new Promise((resolve) => {
+        const msgId = id++;
+        const handler = (evt) => {
+          const data = JSON.parse(evt.data);
+          if (data.id === msgId) {
+            ws.removeEventListener('message', handler);
+            resolve(data.result);
+          }
+        };
+        ws.addEventListener('message', handler);
+        ws.send(JSON.stringify({ id: msgId, method, params }));
+      });
+    }
+
+    await send('Page.enable');
+    await send('Runtime.enable');
+
+    await new Promise(r => setTimeout(r, 2000));
+
+    // Move mouse over player to reveal controls
+    await send('Input.dispatchMouseEvent', {
+      type: 'mouseMoved',
+      x: 640,
+      y: 600
+    });
+    await new Promise(r => setTimeout(r, 500));
+
+    // What is the seekbar gradient?
+    // Seekbar fill: linear-gradient(90deg, #7209b7 0%, #f72585 58%, #ffd166 100%)
+    // Seekbar thumb: linear-gradient(180deg, #fde68a 0%, #f72585 58%, #7209b7 100%), border 1.5px solid #f72585, box-shadow 0 0 10px #f72585
+    // Seekbar track: #110524 with border 1px solid rgba(157, 78, 221, 0.45)
+    
+    // Let's test Variant A: Button backgrounds match the seekbar fill & thumb gradient!
+    // With 180deg: sunset yellow #fde68a / #ffd166 -> hot magenta #f72585 -> deep violet #7209b7!
+    const cssA = `
+      .preview-player[data-theme="synthwave-80s"] button[class*="group/liquid-btn"],
+      .preview-player[data-theme="synthwave-80s"] .group\\/center-buffering button,
+      .preview-player[data-theme="synthwave-80s"] [data-slot="control"],
+      .preview-player[data-theme="synthwave-80s"] .media-fullscreen-button,
+      .preview-player[data-theme="synthwave-80s"] .group\\/vol-pill {
+        background-color: #f72585 !important;
+        background-image: linear-gradient(180deg, #fde68a 0%, #f72585 50%, #7209b7 100%) !important;
+        border: 1.5px solid #f72585 !important;
+        box-shadow: 0 0 10px rgba(247, 37, 133, 0.65), 0 2px 6px rgba(0, 0, 0, 0.8) !important;
+        color: #ffffff !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+      .preview-player[data-theme="synthwave-80s"] button[class*="group/liquid-btn"]:hover,
+      .preview-player[data-theme="synthwave-80s"] .group\\/center-buffering button:hover,
+      .preview-player[data-theme="synthwave-80s"] [data-slot="control"]:hover,
+      .preview-player[data-theme="synthwave-80s"] .media-fullscreen-button:hover,
+      .preview-player[data-theme="synthwave-80s"] .group\\/vol-pill:hover {
+        filter: brightness(1.15) !important;
+        box-shadow: 0 0 16px #f72585, 0 0 8px #ffd166 !important;
+      }
+      .preview-player[data-theme="synthwave-80s"] .player-icon-scale svg,
+      .preview-player[data-theme="synthwave-80s"] .group\\/mute svg {
+        color: #ffffff !important;
+      }
+    `;
+
+    // Variant B: 135deg Synthwave seekbar fill gradient (#7209b7 -> #f72585 -> #ffd166)
+    const cssB = `
+      .preview-player[data-theme="synthwave-80s"] button[class*="group/liquid-btn"],
+      .preview-player[data-theme="synthwave-80s"] .group\\/center-buffering button,
+      .preview-player[data-theme="synthwave-80s"] [data-slot="control"],
+      .preview-player[data-theme="synthwave-80s"] .media-fullscreen-button,
+      .preview-player[data-theme="synthwave-80s"] .group\\/vol-pill {
+        background-color: #f72585 !important;
+        background-image: linear-gradient(135deg, #7209b7 0%, #f72585 58%, #ffd166 100%) !important;
+        border: 1.5px solid rgba(255, 255, 255, 0.4) !important;
+        box-shadow: 0 0 10px rgba(247, 37, 133, 0.65), 0 2px 6px rgba(0, 0, 0, 0.8) !important;
+        color: #ffffff !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+    `;
+
+    // Variant C: Dark retrogrid seekbar track base (#110524) with neon magenta glow border (#f72585) & seekbar-colored icon accents
+    const cssC = `
+      .preview-player[data-theme="synthwave-80s"] button[class*="group/liquid-btn"],
+      .preview-player[data-theme="synthwave-80s"] .group\\/center-buffering button,
+      .preview-player[data-theme="synthwave-80s"] [data-slot="control"],
+      .preview-player[data-theme="synthwave-80s"] .media-fullscreen-button,
+      .preview-player[data-theme="synthwave-80s"] .group\\/vol-pill {
+        background-color: #110524 !important;
+        background-image:
+          radial-gradient(circle at 50% 20%, rgba(247, 37, 133, 0.28) 0%, rgba(114, 9, 183, 0.45) 50%, rgba(17, 5, 36, 0.98) 100%) !important;
+        border: 1.5px solid #f72585 !important;
+        box-shadow: 0 0 10px rgba(247, 37, 133, 0.5), inset 0 1px 1px rgba(253, 230, 138, 0.3) !important;
+        color: #fdf4ff !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+    `;
+
+    const captureCss = async (label, css) => {
+      await send('Runtime.evaluate', {
+        expression: `
+          (() => {
+            let el = document.getElementById('synth-real-style');
+            if (!el) {
+              el = document.createElement('style');
+              el.id = 'synth-real-style';
+              document.head.appendChild(el);
+            }
+            el.innerHTML = \`${css}\`;
+          })()
+        `
+      });
+      await new Promise(r => setTimeout(r, 400));
+      const shot = await send('Page.captureScreenshot', { format: 'png' });
+      fs.writeFileSync(`C:\\Users\\Siam\\.gemini\\antigravity\\brain\\06e192c4-a4cc-45e6-b8bd-a398f6f48bd4\\real_${label}.png`, Buffer.from(shot.data, 'base64'));
+      console.log(`Saved real_${label}.png`);
+    };
+
+    await captureCss('A_sunset_gradient', cssA);
+    await captureCss('B_fill_gradient', cssB);
+    await captureCss('C_dark_track_neon', cssC);
+
+    ws.close();
+  } catch (e) {
+    console.error(e);
+  } finally {
+    proc.kill();
+  }
+}
+
+main();

@@ -1,0 +1,106 @@
+const fs = require('fs');
+const { spawn } = require('child_process');
+
+async function main() {
+  const chromePath = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe';
+  const profileDir = 'C:\\Users\\Siam\\.gemini\\antigravity\\brain\\06e192c4-a4cc-45e6-b8bd-a398f6f48bd4\\chrome-live-prof-dot';
+  
+  const proc = spawn(chromePath, [
+    '--headless=new',
+    '--remote-debugging-port=9445',
+    `--user-data-dir=${profileDir}`,
+    '--disable-gpu',
+    '--window-size=1280,900',
+    'http://localhost:5173/preview.html?theme=dot-matrix'
+  ]);
+
+  await new Promise(r => setTimeout(r, 2000));
+
+  try {
+    const listRes = await fetch('http://127.0.0.1:9445/json/list', {
+      headers: { Host: '127.0.0.1:9445' }
+    });
+    const list = await listRes.json();
+    const tab = list.find(t => t.type === 'page');
+    if (!tab) {
+      console.log('No page tab found');
+      return;
+    }
+
+    const ws = new WebSocket(tab.webSocketDebuggerUrl);
+    await new Promise((resolve, reject) => {
+      ws.onopen = resolve;
+      ws.onerror = reject;
+    });
+
+    let id = 1;
+    function send(method, params = {}) {
+      return new Promise((resolve) => {
+        const msgId = id++;
+        const handler = (evt) => {
+          const data = JSON.parse(evt.data);
+          if (data.id === msgId) {
+            ws.removeEventListener('message', handler);
+            resolve(data.result);
+          }
+        };
+        ws.addEventListener('message', handler);
+        ws.send(JSON.stringify({ id: msgId, method, params }));
+      });
+    }
+
+    await send('Page.enable');
+    await send('Runtime.enable');
+
+    await new Promise(r => setTimeout(r, 2000));
+
+    // Seek the video to 45 seconds so fill is ~35%
+    await send('Runtime.evaluate', {
+      expression: `
+        const video = document.querySelector('video');
+        if (video) {
+          video.currentTime = 45;
+        }
+      `
+    });
+
+    await new Promise(r => setTimeout(r, 500));
+
+    // Hover over the slider to see hover state & controls
+    await send('Runtime.evaluate', {
+      expression: `
+        const slider = document.querySelector('.group\\\\/slider');
+        const rect = slider ? slider.getBoundingClientRect() : null;
+        window.__sliderRect = rect;
+      `
+    });
+
+    const res = await send('Runtime.evaluate', { expression: 'JSON.stringify(window.__sliderRect)', returnByValue: true });
+    const rect = JSON.parse(res.result.value);
+    console.log('Slider rect:', rect);
+
+    if (rect) {
+      await send('Input.dispatchMouseEvent', {
+        type: 'mouseMoved',
+        x: Math.round(rect.x + rect.width * 0.4),
+        y: Math.round(rect.y + rect.height * 0.5)
+      });
+    }
+
+    await new Promise(r => setTimeout(r, 600));
+
+    const shot = await send('Page.captureScreenshot', { format: 'png' });
+    const buffer = Buffer.from(shot.data, 'base64');
+    const outPath = 'C:\\Users\\Siam\\.gemini\\antigravity\\brain\\06e192c4-a4cc-45e6-b8bd-a398f6f48bd4\\dotmatrix_seeked.png';
+    fs.writeFileSync(outPath, buffer);
+    console.log('Saved screenshot to dotmatrix_seeked.png');
+
+    ws.close();
+  } catch (err) {
+    console.error('Error:', err);
+  } finally {
+    proc.kill();
+  }
+}
+
+main();

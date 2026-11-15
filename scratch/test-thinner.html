@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background: #0b0f19;
+      padding: 40px;
+      font-family: sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .sample {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 500px;
+    }
+    .track-wrapper {
+      position: relative;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    /* Original (6px) */
+    .orig-track {
+      position: relative;
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background-color: rgba(3, 7, 18, 0.75);
+      border: 1px dotted rgba(0, 240, 255, 0.28);
+      background-image: radial-gradient(circle 1.2px, rgba(0, 240, 255, 0.2) 1.2px, transparent 1.3px);
+      background-size: 6px 6px;
+      background-repeat: repeat-x;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+    }
+    .orig-fill {
+      width: 45%;
+      height: 6px;
+      border-radius: 3px;
+      background-color: transparent;
+      background-image: radial-gradient(circle 1.5px, #00f0ff 1.5px, transparent 1.6px);
+      background-size: 6px 6px;
+      background-repeat: repeat-x;
+      filter: drop-shadow(0 0 5px rgba(0, 240, 255, 0.9));
+    }
+
+    /* Option A: 3px height, crisp pinpoint dots (3.5px pitch) */
+    .opt-a-track {
+      position: relative;
+      width: 100%;
+      height: 3px;
+      border-radius: 2px;
+      background-color: rgba(3, 7, 18, 0.85);
+      background-image: radial-gradient(circle 0.9px at center, rgba(0, 240, 255, 0.22) 0.9px, transparent 1px);
+      background-size: 4px 3px;
+      background-repeat: repeat-x;
+      background-position: center;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+      overflow: hidden;
+      border: none;
+    }
+    .opt-a-fill {
+      width: 45%;
+      height: 3px;
+      border-radius: 2px;
+      background-image: radial-gradient(circle 1.1px at center, #00f0ff 1.1px, transparent 1.2px);
+      background-size: 4px 3px;
+      background-repeat: repeat-x;
+      background-position: center;
+      filter: drop-shadow(0 0 4px rgba(0, 240, 255, 0.9));
+    }
+
+    /* Option B: 3.5px height, expand to 5px on hover, 4.5px pitch */
+    .opt-b-track {
+      position: relative;
+      width: 100%;
+      height: 3.5px;
+      border-radius: 2px;
+      background-color: rgba(3, 7, 18, 0.85);
+      background-image: radial-gradient(circle 1px at center, rgba(0, 240, 255, 0.24) 1px, transparent 1.1px);
+      background-size: 4.5px 3.5px;
+      background-repeat: repeat-x;
+      background-position: center;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+      overflow: hidden;
+      border: none;
+      transition: height 0.15s ease;
+    }
+    .sample:hover .opt-b-track {
+      height: 5px;
+      background-size: 4.5px 5px;
+    }
+    .opt-b-fill {
+      width: 45%;
+      height: 100%;
+      border-radius: 2px;
+      background-image: radial-gradient(circle 1.2px at center, #00f0ff 1.2px, transparent 1.3px);
+      background-size: 4.5px 100%;
+      background-repeat: repeat-x;
+      background-position: center;
+      filter: drop-shadow(0 0 4px rgba(0, 240, 255, 0.95));
+    }
+
+    /* Option C: 2.5px ultra-thin hairline LED matrix */
+    .opt-c-track {
+      position: relative;
+      width: 100%;
+      height: 2.5px;
+      border-radius: 1.5px;
+      background-color: rgba(3, 7, 18, 0.85);
+      background-image: radial-gradient(circle 0.8px at center, rgba(0, 240, 255, 0.25) 0.8px, transparent 0.9px);
+      background-size: 3.5px 2.5px;
+      background-repeat: repeat-x;
+      background-position: center;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+      overflow: hidden;
+      border: none;
+    }
+    .opt-c-fill {
+      width: 45%;
+      height: 100%;
+      border-radius: 1.5px;
+      background-image: radial-gradient(circle 1px at center, #00f0ff 1px, transparent 1.1px);
+      background-size: 3.5px 100%;
+      background-repeat: repeat-x;
+      background-position: center;
+      filter: drop-shadow(0 0 3px rgba(0, 240, 255, 0.95));
+    }
+  </style>
+</head>
+<body>
+  <div class="sample">
+    <div>Original Dot Matrix Seekbar (6px - Thicker)</div>
+    <div class="track-wrapper">
+      <div class="orig-track"><div class="orig-fill"></div></div>
+    </div>
+  </div>
+  <div class="sample">
+    <div>Option A: Thinner 3px Track (Micro-LED dots)</div>
+    <div class="track-wrapper">
+      <div class="opt-a-track"><div class="opt-a-fill"></div></div>
+    </div>
+  </div>
+  <div class="sample">
+    <div>Option B: Thinner 3.5px Track (expands on hover)</div>
+    <div class="track-wrapper">
+      <div class="opt-b-track"><div class="opt-b-fill"></div></div>
+    </div>
+  </div>
+  <div class="sample">
+    <div>Option C: Ultra-Thin 2.5px Hairline LED Track</div>
+    <div class="track-wrapper">
+      <div class="opt-c-track"><div class="opt-c-fill"></div></div>
+    </div>
+  </div>
+</body>
+</html>

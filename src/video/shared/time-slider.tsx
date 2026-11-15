@@ -56,7 +56,7 @@ export function TimeSlider({
         <TimeSliderPrimitive.Thumb
           className={cn(
             'media-thumb-smooth absolute top-1/2 -translate-x-1/2 -translate-y-1/2 left-[var(--media-slider-fill,0%)] size-[7px] rounded-full bg-white shadow-[0_0_8px_rgba(56,189,248,0.9),0_1px_3px_rgba(0,0,0,0.5)]',
-            'transition-transform duration-150 ease-out group-hover/slider:scale-125 group-data-dragging/slider:scale-125',
+            'transition-[left,transform] duration-250 linear group-hover/slider:scale-125 group-data-dragging/slider:scale-125',
             'group-data-dragging/slider:left-(--media-slider-pointer)',
             'outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white',
             'forced-colors:bg-[Highlight] forced-colors:forced-color-adjust-none'
