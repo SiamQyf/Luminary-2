@@ -866,10 +866,7 @@ live-audio-player {
   -webkit-filter: none !important;
 }
 
-.preview-player .group\/mute svg {
-  position: relative;
-  left: -1px;
-}
+
 
 .preview-player .player-icon-scale svg,
 .preview-player .group\/mute svg,
