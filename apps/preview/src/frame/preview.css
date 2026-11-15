@@ -9880,78 +9880,33 @@ div[role="menu"]:not([data-child-open]) {
 /* ==========================================================================
    GLACIAL PERMAFROST: Arctic Crystalline Ice Columns & Ice-Gem Prism Thumb
    ========================================================================== */
-/* Seekbar: Icy Mountain Range Silhouette */
 .preview-player[data-theme="glacial-permafrost"] .group\/slider,
 :root[data-theme="glacial-permafrost"] .group\/slider,
 :where(.media-skin)[data-theme="glacial-permafrost"] .group\/slider {
-  height: 30px !important;
-  position: relative !important;
-  overflow: visible !important;
+  height: 20px !important;
 }
 
-/* Subtle ice horizon base line under the mountain range */
-.preview-player[data-theme="glacial-permafrost"] .group\/slider::before,
-:root[data-theme="glacial-permafrost"] .group\/slider::before,
-:where(.media-skin)[data-theme="glacial-permafrost"] .group\/slider::before {
-  content: '' !important;
-  position: absolute !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 2px !important;
-  height: 1.5px !important;
-  background: linear-gradient(90deg, rgba(125, 211, 252, 0.2) 0%, rgba(186, 230, 253, 0.6) 50%, rgba(125, 211, 252, 0.2) 100%) !important;
-  box-shadow: 0 0 6px rgba(56, 189, 248, 0.6) !important;
-  pointer-events: none !important;
-  z-index: 1 !important;
-}
-
-/* Snowcap crest stroke along mountain ridges */
-.preview-player[data-theme="glacial-permafrost"] .group\/slider::after,
-:root[data-theme="glacial-permafrost"] .group\/slider::after,
-:where(.media-skin)[data-theme="glacial-permafrost"] .group\/slider::after {
-  content: '' !important;
-  position: absolute !important;
-  left: 0 !important;
-  right: 0 !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  height: 24px !important;
-  pointer-events: none !important;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 36' preserveAspectRatio='none'%3E%3Cpath d='M 0 32 L 20 26 L 45 14 L 75 22 L 110 8 L 145 18 L 180 5 L 220 16 L 260 26 L 295 12 L 335 4 L 375 17 L 415 9 L 455 22 L 495 3 L 540 16 L 580 7 L 620 24 L 660 11 L 700 5 L 745 18 L 785 8 L 825 23 L 865 12 L 905 5 L 940 17 L 975 26 L 1000 32' fill='none' stroke='rgba(255, 255, 255, 0.92)' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' filter='drop-shadow(0 0 3px %2338bdf8)'/%3E%3C/svg%3E") !important;
-  background-size: 100% 100% !important;
-  background-repeat: no-repeat !important;
-  z-index: 2 !important;
-  transition: height 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.preview-player[data-theme="glacial-permafrost"] .group\/slider:hover::after,
-.preview-player[data-theme="glacial-permafrost"] .group\/slider[data-dragging]::after,
-:root[data-theme="glacial-permafrost"] .group\/slider:hover::after,
-:root[data-theme="glacial-permafrost"] .group\/slider[data-dragging]::after,
-:where(.media-skin)[data-theme="glacial-permafrost"] .group\/slider:hover::after,
-:where(.media-skin)[data-theme="glacial-permafrost"] .group\/slider[data-dragging]::after {
-  height: 27px !important;
-}
-
-/* Seekbar track: Icy Mountain Range Silhouette */
+/* Seekbar track: Carved Icy Crest and Trough Path */
 .preview-player[data-theme="glacial-permafrost"] div[class*="media-slider-smooth"][class*="isolate"],
 :root[data-theme="glacial-permafrost"] div[class*="media-slider-smooth"][class*="isolate"],
 :where(.media-skin)[data-theme="glacial-permafrost"] div[class*="media-slider-smooth"][class*="isolate"] {
-  height: 24px !important;
+  height: 8px !important;
   top: 50% !important;
   transform: translateY(-50%) !important;
-  border-radius: 0 !important;
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 36' preserveAspectRatio='none'%3E%3Cpath d='M 0 36 L 0 32 L 20 26 L 45 14 L 75 22 L 110 8 L 145 18 L 180 5 L 220 16 L 260 26 L 295 12 L 335 4 L 375 17 L 415 9 L 455 22 L 495 3 L 540 16 L 580 7 L 620 24 L 660 11 L 700 5 L 745 18 L 785 8 L 825 23 L 865 12 L 905 5 L 940 17 L 975 26 L 1000 32 L 1000 36 Z' fill='white'/%3E%3C/svg%3E") !important;
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 36' preserveAspectRatio='none'%3E%3Cpath d='M 0 36 L 0 32 L 20 26 L 45 14 L 75 22 L 110 8 L 145 18 L 180 5 L 220 16 L 260 26 L 295 12 L 335 4 L 375 17 L 415 9 L 455 22 L 495 3 L 540 16 L 580 7 L 620 24 L 660 11 L 700 5 L 745 18 L 785 8 L 825 23 L 865 12 L 905 5 L 940 17 L 975 26 L 1000 32 L 1000 36 Z' fill='white'/%3E%3C/svg%3E") !important;
-  -webkit-mask-size: 100% 100% !important;
-  mask-size: 100% 100% !important;
-  -webkit-mask-repeat: no-repeat !important;
-  mask-repeat: no-repeat !important;
-  background: linear-gradient(180deg, rgba(186, 230, 253, 0.45) 0%, rgba(14, 30, 52, 0.85) 50%, rgba(3, 8, 16, 0.95) 100%) !important;
-  border: none !important;
-  box-shadow: none !important;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.75)) !important;
-  transition: height 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s ease-out !important;
+  border-radius: 4px !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(186, 230, 253, 0.18) 35%, transparent 65%),
+    linear-gradient(180deg, #020710 0%, #061322 100%) !important;
+  border: 1px solid rgba(186, 230, 253, 0.45) !important;
+  box-shadow:
+    inset 0 1.5px 3px rgba(0, 0, 0, 0.95),
+    inset 0 -1px 2px rgba(125, 211, 252, 0.2),
+    0 0 10px rgba(56, 189, 248, 0.25),
+    0 1px 0 rgba(255, 255, 255, 0.15) !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  overflow: hidden !important;
+  transition: height 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease-out, box-shadow 0.2s ease-out !important;
 }
 
 .preview-player[data-theme="glacial-permafrost"] .group\/slider:hover div[class*="media-slider-smooth"][class*="isolate"],
@@ -9960,28 +9915,37 @@ div[role="menu"]:not([data-child-open]) {
 :root[data-theme="glacial-permafrost"] .group\/slider[data-dragging] div[class*="media-slider-smooth"][class*="isolate"],
 :where(.media-skin)[data-theme="glacial-permafrost"] .group\/slider:hover div[class*="media-slider-smooth"][class*="isolate"],
 :where(.media-skin)[data-theme="glacial-permafrost"] .group\/slider[data-dragging] div[class*="media-slider-smooth"][class*="isolate"] {
-  height: 27px !important;
-  filter: drop-shadow(0 0 8px rgba(125, 211, 252, 0.45)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.9)) !important;
+  height: 11px !important;
+  border-color: rgba(224, 242, 254, 0.75) !important;
+  box-shadow:
+    inset 0 1.5px 3px rgba(0, 0, 0, 0.95),
+    inset 0 -1px 2px rgba(125, 211, 252, 0.35),
+    0 0 18px rgba(125, 211, 252, 0.5),
+    0 1px 0 rgba(255, 255, 255, 0.25) !important;
 }
 
 /* Buffer: Frosted pack ice */
 .preview-player[data-theme="glacial-permafrost"] div[class*="clip-media-x-[--media-slider-buffer]"],
 :root[data-theme="glacial-permafrost"] div[class*="clip-media-x-[--media-slider-buffer]"],
 :where(.media-skin)[data-theme="glacial-permafrost"] div[class*="clip-media-x-[--media-slider-buffer]"] {
-  border-radius: 0 !important;
+  border-radius: 3px !important;
   background-color: transparent !important;
-  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(125, 211, 252, 0.3) 40%, rgba(15, 35, 60, 0.85) 100%) !important;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(125, 211, 252, 0.25) 50%, rgba(56, 189, 248, 0.15) 100%) !important;
 }
 
-/* Fill: Radiant Glacial Melt Stream illuminating the mountains */
+/* Fill: Glacial melt stream with radiant icy crest */
 .preview-player[data-theme="glacial-permafrost"] div[class*="clip-media-x-[--media-slider-fill]"],
 :root[data-theme="glacial-permafrost"] div[class*="clip-media-x-[--media-slider-fill]"],
 :where(.media-skin)[data-theme="glacial-permafrost"] div[class*="clip-media-x-[--media-slider-fill]"] {
-  border-radius: 0 !important;
+  border-radius: 3px !important;
   background-color: transparent !important;
   background-image:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(186, 230, 253, 0.75) 20%, #38bdf8 55%, #0284c7 90%, #034f78 100%) !important;
-  box-shadow: 0 0 16px rgba(56, 189, 248, 0.95) !important;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(186, 230, 253, 0.7) 25%, transparent 60%),
+    linear-gradient(90deg, #0284c7 0%, #0ea5e9 40%, #38bdf8 75%, #ffffff 100%) !important;
+  box-shadow:
+    0 0 14px rgba(56, 189, 248, 0.9),
+    0 0 4px #ffffff,
+    inset 0 1px 1px #ffffff !important;
   filter: none !important;
   opacity: 1 !important;
 }
@@ -9991,7 +9955,7 @@ div[role="menu"]:not([data-child-open]) {
 :root[data-theme="glacial-permafrost"] .group\/slider .media-thumb-smooth,
 :where(.media-skin)[data-theme="glacial-permafrost"] .group\/slider .media-thumb-smooth {
   width: 3px !important;
-  height: 28px !important;
+  height: 20px !important;
   top: 50% !important;
   transform: none !important;
   rotate: 0deg !important;
@@ -10000,14 +9964,13 @@ div[role="menu"]:not([data-child-open]) {
   border: none !important;
   box-shadow:
     0 0 12px rgba(125, 211, 252, 1),
-    0 0 4px #ffffff,
-    0 0 20px rgba(56, 189, 248, 0.9),
+    0 0 3px #ffffff,
+    0 0 20px rgba(56, 189, 248, 0.85),
     0 2px 6px rgba(0, 0, 0, 0.95) !important;
   opacity: 1 !important;
   display: block !important;
   overflow: visible !important;
-  z-index: 10 !important;
-  transition: height 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease-out !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .preview-player[data-theme="glacial-permafrost"] .group\/slider .media-thumb-smooth::before,
@@ -10026,11 +9989,11 @@ div[role="menu"]:not([data-child-open]) {
 :root[data-theme="glacial-permafrost"] .group\/slider[data-dragging] .media-thumb-smooth,
 :where(.media-skin)[data-theme="glacial-permafrost"] .group\/slider:hover .media-thumb-smooth,
 :where(.media-skin)[data-theme="glacial-permafrost"] .group\/slider[data-dragging] .media-thumb-smooth {
-  height: 32px !important;
+  height: 24px !important;
   scale: 1 !important;
   box-shadow:
     0 0 16px rgba(125, 211, 252, 1),
-    0 0 6px #ffffff,
+    0 0 5px #ffffff,
     0 0 26px rgba(56, 189, 248, 1),
     0 2px 8px rgba(0, 0, 0, 0.95) !important;
 }
