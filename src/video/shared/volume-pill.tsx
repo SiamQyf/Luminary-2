@@ -408,7 +408,7 @@ export function VolumePill({ className }: { className?: ClassValue }) {
               setIsDragging(true);
             }}
             className={cn(
-              'horizontal-volume-slider relative ml-[5px] z-10 flex h-full flex-1 items-center cursor-pointer outline-none transition-[width,opacity] duration-300 ease-out',
+              'horizontal-volume-slider relative ml-[4px] z-10 flex h-full flex-1 items-center cursor-pointer outline-none transition-[width,opacity] duration-300 ease-out',
               'w-0 max-w-0 opacity-0 pointer-events-none flex-none overflow-hidden',
               'group-hover/vol-pill:w-full group-hover/vol-pill:max-w-full group-hover/vol-pill:opacity-100 group-hover/vol-pill:pointer-events-auto group-hover/vol-pill:flex-1 group-hover/vol-pill:overflow-visible',
               'group-focus-within/vol-pill:w-full group-focus-within/vol-pill:max-w-full group-focus-within/vol-pill:opacity-100 group-focus-within/vol-pill:pointer-events-auto group-focus-within/vol-pill:flex-1 group-focus-within/vol-pill:overflow-visible',
