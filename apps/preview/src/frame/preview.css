@@ -10386,3 +10386,338 @@ div[role="menu"]:not([data-child-open]) {
   color: #f0f9ff !important;
   text-shadow: 0 0 8px rgba(186, 230, 253, 0.8), 0 1px 2px rgba(0, 0, 0, 0.95) !important;
 }
+
+
+﻿/* ==========================================================================
+   50. PODCAST STUDIO (Video Podcast & Broadcast Audio-Visual Aesthetic)
+   Acoustic broadcast console styling, studio amber/copper accents, On-Air play
+   button, precision scrubbing track, broadcast timecode, and studio teleprompter captions.
+   ========================================================================== */
+
+/* Outer Shell & Chassis: Studio Acoustic Console */
+.preview-player[data-theme="podcast-studio"],
+.preview-player[data-theme="podcast-studio"] .media-skin,
+:root[data-theme="podcast-studio"] .media-skin,
+:where(.media-skin)[data-theme="podcast-studio"] {
+  border-radius: 16px !important;
+}
+
+.preview-player[data-theme="podcast-studio"] .media-skin,
+:root[data-theme="podcast-studio"] .media-skin,
+:where(.media-skin)[data-theme="podcast-studio"] {
+  border: 2px solid rgba(245, 158, 11, 0.3333) !important;
+  box-shadow:
+    0 0 0 1px rgba(245, 158, 11, 0.2),
+    0 20px 54px rgba(0, 0, 0, 0.85),
+    0 0 28px rgba(245, 158, 11, 0.12),
+    inset 0 1px 1px rgba(251, 191, 36, 0.3) !important;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.08) 0%, transparent 60%),
+    linear-gradient(145deg, #181a22 0%, #111318 60%, #0a0b0e 100%) !important;
+}
+
+.preview-player[data-theme="podcast-studio"],
+:root[data-theme="podcast-studio"] {
+  --media-primary: #f59e0b;
+}
+
+/* Recessed Studio Control Deck (Bottom Controls Bar) */
+.preview-player[data-theme="podcast-studio"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before,
+:root[data-theme="podcast-studio"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before,
+:where(.media-skin)[data-theme="podcast-studio"] [data-part="bottom-controls-bar"]:not(.static\!)::before {
+  background-image:
+    linear-gradient(180deg, rgba(16, 18, 24, 0) 0%, rgba(16, 18, 24, 0.72) 32%, rgba(11, 12, 16, 0.95) 75%, #08090c 100%);
+  background-size: 100% 100%;
+  box-shadow:
+    inset 0 1px 0 rgba(245, 158, 11, 0.18),
+    inset 0 -1px 0 rgba(245, 158, 11, 0.28);
+}
+
+/* Broadcast Console Control Buttons */
+.preview-player[data-theme="podcast-studio"] .group\/liquid-btn,
+.preview-player[data-theme="podcast-studio"] .group\/center-buffering button,
+.preview-player[data-theme="podcast-studio"] [data-slot="control"],
+.preview-player[data-theme="podcast-studio"] .media-fullscreen-button,
+:root[data-theme="podcast-studio"] .group\/liquid-btn,
+:root[data-theme="podcast-studio"] .group\/center-buffering button,
+:root[data-theme="podcast-studio"] [data-slot="control"],
+:root[data-theme="podcast-studio"] .media-fullscreen-button,
+:where(.media-skin)[data-theme="podcast-studio"] .group\/liquid-btn,
+:where(.media-skin)[data-theme="podcast-studio"] .group\/center-buffering button,
+:where(.media-skin)[data-theme="podcast-studio"] [data-slot="control"],
+:where(.media-skin)[data-theme="podcast-studio"] .media-fullscreen-button {
+  border-radius: 9999px !important;
+  background: linear-gradient(180deg, rgba(32, 36, 46, 0.88) 0%, rgba(18, 20, 26, 0.95) 100%) !important;
+  border: 1px solid rgba(245, 158, 11, 0.28) !important;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0.5px rgba(255, 255, 255, 0.14),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.35) !important;
+  color: #ffffff !important;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.preview-player[data-theme="podcast-studio"] .group\/liquid-btn:hover,
+.preview-player[data-theme="podcast-studio"] .group\/center-buffering button:hover,
+.preview-player[data-theme="podcast-studio"] [data-slot="control"]:hover,
+.preview-player[data-theme="podcast-studio"] .media-fullscreen-button:hover,
+:root[data-theme="podcast-studio"] .group\/liquid-btn:hover,
+:root[data-theme="podcast-studio"] .group\/center-buffering button:hover,
+:root[data-theme="podcast-studio"] [data-slot="control"]:hover,
+:root[data-theme="podcast-studio"] .media-fullscreen-button:hover {
+  border-color: rgba(245, 158, 11, 0.65) !important;
+  background: linear-gradient(180deg, rgba(42, 47, 60, 0.92) 0%, rgba(24, 27, 35, 0.98) 100%) !important;
+  box-shadow:
+    0 0 12px rgba(245, 158, 11, 0.3),
+    0 2px 8px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0.5px rgba(251, 191, 36, 0.35) !important;
+  transform: translateY(-0.5px) !important;
+}
+
+.preview-player[data-theme="podcast-studio"] .group\/liquid-btn:active,
+.preview-player[data-theme="podcast-studio"] .group\/center-buffering button:active,
+:root[data-theme="podcast-studio"] .group\/liquid-btn:active,
+:root[data-theme="podcast-studio"] .group\/center-buffering button:active {
+  box-shadow: inset 0 1.5px 3px rgba(0, 0, 0, 0.45) !important;
+  transform: translateY(1px) !important;
+}
+
+/* Center Dominant Action: Broadcast On-Air / Mic Active Play Button */
+.preview-player[data-theme="podcast-studio"] .media-md\:flex > .group\/liquid-btn:nth-child(3),
+.preview-player[data-theme="podcast-studio"] .group\/liquid-btn.group\/play,
+.preview-player[data-theme="podcast-studio"] .group\/center-buffering button:nth-child(2),
+:root[data-theme="podcast-studio"] .media-md\:flex > .group\/liquid-btn:nth-child(3),
+:root[data-theme="podcast-studio"] .group\/liquid-btn.group\/play,
+:root[data-theme="podcast-studio"] .group\/center-buffering button:nth-child(2) {
+  border-radius: 9999px !important;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 55%, #b45309 100%) !important;
+  border: 1.5px solid #fbbf24 !important;
+  box-shadow:
+    0 0 16px rgba(245, 158, 11, 0.45),
+    0 4px 12px rgba(0, 0, 0, 0.6),
+    inset 0 1px 1px rgba(255, 255, 255, 0.45),
+    inset 0 -1.5px 2px rgba(0, 0, 0, 0.3) !important;
+  color: #0b0c10 !important;
+}
+
+.preview-player[data-theme="podcast-studio"] .media-md\:flex > .group\/liquid-btn:nth-child(3) svg,
+.preview-player[data-theme="podcast-studio"] .group\/liquid-btn.group\/play svg,
+.preview-player[data-theme="podcast-studio"] .group\/center-buffering button:nth-child(2) svg,
+.preview-player[data-theme="podcast-studio"] .media-md\:flex > .group\/liquid-btn:nth-child(3) .player-icon-scale,
+.preview-player[data-theme="podcast-studio"] .group\/liquid-btn.group\/play .player-icon-scale {
+  color: #0b0c10 !important;
+  fill: #0b0c10 !important;
+  filter: none !important;
+}
+
+/* Uniform Standard Icon Drop Shadow (Dark Studio Theme per GEMINI.md) */
+.preview-player[data-theme="podcast-studio"] .player-icon-scale,
+.preview-player[data-theme="podcast-studio"] .group\/mute svg,
+.preview-player[data-theme="podcast-studio"] .group\/liquid-btn:not(.group\/play) svg,
+.preview-player[data-theme="podcast-studio"] [data-slot="control"] svg,
+.preview-player[data-theme="podcast-studio"] .media-fullscreen-button svg,
+:root[data-theme="podcast-studio"] .player-icon-scale,
+:root[data-theme="podcast-studio"] .group\/mute svg,
+:root[data-theme="podcast-studio"] .group\/liquid-btn:not(.group\/play) svg,
+:root[data-theme="podcast-studio"] [data-slot="control"] svg,
+:root[data-theme="podcast-studio"] .media-fullscreen-button svg,
+:where(.media-skin)[data-theme="podcast-studio"] svg {
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
+  -webkit-filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
+}
+
+/* Volume Pill: Studio Mixing Fader Capsule */
+.preview-player[data-theme="podcast-studio"] .group\/vol-pill,
+:root[data-theme="podcast-studio"] .group\/vol-pill,
+:where(.media-skin)[data-theme="podcast-studio"] .group\/vol-pill {
+  border-radius: 9999px !important;
+  background: linear-gradient(180deg, rgba(30, 34, 44, 0.9) 0%, rgba(18, 20, 26, 0.95) 100%) !important;
+  border: 1px solid rgba(245, 158, 11, 0.28) !important;
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0.5px rgba(255, 255, 255, 0.12) !important;
+}
+
+.preview-player[data-theme="podcast-studio"] .group\/vol-pill div[class*="bg-white/20"],
+:root[data-theme="podcast-studio"] .group\/vol-pill div[class*="bg-white/20"],
+:where(.media-skin)[data-theme="podcast-studio"] .group\/vol-pill div[class*="bg-white/20"] {
+  height: 2.5px !important;
+  border-radius: 9999px !important;
+  background: rgba(255, 255, 255, 0.16) !important;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+.preview-player[data-theme="podcast-studio"] .group\/vol-pill div[class*="bg-white/90"],
+:root[data-theme="podcast-studio"] .group\/vol-pill div[class*="bg-white/90"],
+:where(.media-skin)[data-theme="podcast-studio"] .group\/vol-pill div[class*="bg-white/90"] {
+  border-radius: 9999px !important;
+  background: linear-gradient(90deg, #d97706 0%, #f59e0b 60%, #fbbf24 100%) !important;
+  box-shadow: 0 0 5px rgba(245, 158, 11, 0.6) !important;
+}
+
+.preview-player[data-theme="podcast-studio"] .volume-slider-thumb,
+:root[data-theme="podcast-studio"] .volume-slider-thumb,
+:where(.media-skin)[data-theme="podcast-studio"] .volume-slider-thumb {
+  width: 9px !important;
+  height: 9px !important;
+  border-radius: 9999px !important;
+  background: radial-gradient(circle at 35% 30%, #fffbeb 0%, #f59e0b 60%, #b45309 100%) !important;
+  border: 1px solid #fef3c7 !important;
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.6), 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Audio Scrubbing Seekbar Track & Brass Fader Thumb */
+.preview-player[data-theme="podcast-studio"] div[class*="media-slider-smooth"][class*="isolate"],
+:root[data-theme="podcast-studio"] div[class*="media-slider-smooth"][class*="isolate"],
+:where(.media-skin)[data-theme="podcast-studio"] div[class*="media-slider-smooth"][class*="isolate"] {
+  height: 4px !important;
+  border-radius: 9999px !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+  border: 1px solid rgba(0, 0, 0, 0.4) !important;
+  box-shadow:
+    inset 0 1.5px 3px rgba(0, 0, 0, 0.6),
+    0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+.preview-player[data-theme="podcast-studio"] .group\/slider:hover div[class*="media-slider-smooth"][class*="isolate"] {
+  height: 5px !important;
+}
+
+.preview-player[data-theme="podcast-studio"] div[class*="clip-media-x-[--media-slider-buffer]"],
+:root[data-theme="podcast-studio"] div[class*="clip-media-x-[--media-slider-buffer]"],
+:where(.media-skin)[data-theme="podcast-studio"] div[class*="clip-media-x-[--media-slider-buffer]"] {
+  border-radius: 9999px !important;
+  background: rgba(245, 158, 11, 0.28) !important;
+}
+
+.preview-player[data-theme="podcast-studio"] div[class*="clip-media-x-[--media-slider-fill]"],
+:root[data-theme="podcast-studio"] div[class*="clip-media-x-[--media-slider-fill]"],
+:where(.media-skin)[data-theme="podcast-studio"] div[class*="clip-media-x-[--media-slider-fill]"] {
+  border-radius: 9999px !important;
+  background: linear-gradient(90deg, #d97706 0%, #f59e0b 55%, #fbbf24 100%) !important;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.6) !important;
+  opacity: 1 !important;
+}
+
+.preview-player[data-theme="podcast-studio"] .group\/slider .media-thumb-smooth,
+:root[data-theme="podcast-studio"] .group\/slider .media-thumb-smooth,
+:where(.media-skin)[data-theme="podcast-studio"] .group\/slider .media-thumb-smooth {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 9999px !important;
+  background: radial-gradient(circle at 35% 30%, #fffbeb 0%, #f59e0b 60%, #b45309 100%) !important;
+  border: 1.5px solid #fef3c7 !important;
+  box-shadow:
+    0 0 10px rgba(245, 158, 11, 0.6),
+    0 2px 5px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Broadcast Studio Timecode Readout */
+.preview-player[data-theme="podcast-studio"] time-value,
+.preview-player[data-theme="podcast-studio"] div[class*="tabular-nums"],
+:root[data-theme="podcast-studio"] time-value,
+:root[data-theme="podcast-studio"] div[class*="tabular-nums"] {
+  color: #ffffff !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.85) !important;
+}
+
+.preview-player[data-theme="podcast-studio"] span:first-child > time,
+.preview-player[data-theme="podcast-studio"] span:first-child > time-value,
+:root[data-theme="podcast-studio"] span:first-child > time,
+:root[data-theme="podcast-studio"] span:first-child > time-value {
+  color: #fbbf24 !important;
+}
+
+/* Video Title & Subtitle: Broadcast Episode Metadata */
+.preview-player[data-theme="podcast-studio"] .video-title {
+  color: #ffffff !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em !important;
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.95),
+    0 0 14px rgba(245, 158, 11, 0.3) !important;
+}
+
+.preview-player[data-theme="podcast-studio"] .video-subtitle {
+  color: #fbbf24 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  font-size: 11px !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85) !important;
+}
+
+/* Settings Menu: Studio Mixing Board Card */
+.preview-player[data-theme="podcast-studio"] [role="menu"],
+:root[data-theme="podcast-studio"] [role="menu"] {
+  border-radius: 12px !important;
+  padding: 8px !important;
+  background: linear-gradient(180deg, #181b24 0%, #101217 100%) !important;
+  border: 1px solid rgba(245, 158, 11, 0.32) !important;
+  box-shadow:
+    0 18px 46px rgba(0, 0, 0, 0.7),
+    0 0 24px rgba(245, 158, 11, 0.12),
+    inset 0 1px 0 rgba(251, 191, 36, 0.22) !important;
+  color: #ffffff !important;
+}
+
+.preview-player[data-theme="podcast-studio"] [role="menu"] span,
+:root[data-theme="podcast-studio"] [role="menu"] span {
+  color: #ffffff !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif !important;
+}
+
+.preview-player[data-theme="podcast-studio"] [role="menu"] [class*="text-white/50"],
+:root[data-theme="podcast-studio"] [role="menu"] [class*="text-white/50"] {
+  color: #fbbf24 !important;
+}
+
+.preview-player[data-theme="podcast-studio"] .group\/menu-btn:hover,
+.preview-player[data-theme="podcast-studio"] .group\/menu-radio:hover,
+:root[data-theme="podcast-studio"] [role="menuitem"]:hover,
+:root[data-theme="podcast-studio"] [role="menuitemradio"]:hover {
+  background: rgba(245, 158, 11, 0.14) !important;
+  border-radius: 6px !important;
+  color: #fbbf24 !important;
+}
+
+.preview-player[data-theme="podcast-studio"] [role="separator"],
+:root[data-theme="podcast-studio"] [role="separator"] {
+  border-color: rgba(245, 158, 11, 0.2) !important;
+}
+
+.preview-player[data-theme="podcast-studio"] [role="menu"] svg {
+  color: #fbbf24 !important;
+}
+
+/* Caption Pill: Studio Broadcast Teleprompter */
+.preview-player[data-theme="podcast-studio"] [data-part="caption-pill"],
+:root[data-theme="podcast-studio"] [data-part="caption-pill"],
+:where(.media-skin)[data-theme="podcast-studio"] [data-part="caption-pill"] {
+  background: linear-gradient(180deg, rgba(22, 25, 34, 0.95) 0%, rgba(12, 14, 18, 0.98) 100%) !important;
+  border: 1.5px solid rgba(245, 158, 11, 0.35) !important;
+  border-radius: 9px !important;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.8),
+    0 0 16px rgba(245, 158, 11, 0.15),
+    inset 0 1px 1px rgba(251, 191, 36, 0.3) !important;
+  color: #ffffff !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 600 !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.95) !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85)) !important;
+}
+
+.preview-player[data-theme="podcast-studio"] [data-part="caption-pill"] *,
+:root[data-theme="podcast-studio"] [data-part="caption-pill"] *,
+:where(.media-skin)[data-theme="podcast-studio"] [data-part="caption-pill"] * {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}

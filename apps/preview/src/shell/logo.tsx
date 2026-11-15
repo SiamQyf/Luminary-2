@@ -892,6 +892,24 @@ export const THEME_PALETTES: Record<string, { dark: ThemePalette; light: ThemePa
       iconGlow: 'rgba(3, 105, 161, 0.22)',
     },
   },
+  'podcast-studio': {
+    dark: {
+      primary: '#f59e0b',
+      secondary: '#d97706',
+      accent: '#fbbf24',
+      gradient: 'linear-gradient(135deg, #fbbf24 15%, #f59e0b 55%, #b45309 100%)',
+      glow: 'rgba(245, 158, 11, 0.65)',
+      iconGlow: 'rgba(245, 158, 11, 0.45)',
+    },
+    light: {
+      primary: '#b45309',
+      secondary: '#d97706',
+      accent: '#78350f',
+      gradient: 'linear-gradient(135deg, #d97706 15%, #b45309 60%, #78350f 100%)',
+      glow: 'rgba(217, 119, 6, 0.28)',
+      iconGlow: 'rgba(180, 83, 9, 0.22)',
+    },
+  },
 };
 
 export function getThemePalette(themeName: string, isDark = true): ThemePalette {

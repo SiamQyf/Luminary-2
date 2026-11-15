@@ -557,6 +557,17 @@ const THEME_PALETTES: Record<string, ThemePalette> = {
     bit2: '#ffffff',
     bitGlow: 'rgba(125, 211, 252, 0.75)',
   },
+  'podcast-studio': {
+    bleed1: 'rgba(245, 158, 11, 0.22)',
+    bleed2: 'rgba(217, 119, 6, 0.18)',
+    bleed3: 'rgba(251, 191, 36, 0.14)',
+    bleed4: 'rgba(24, 26, 32, 0.25)',
+    strip1: '#f59e0b',
+    strip2: '#fbbf24',
+    bit1: '#f59e0b',
+    bit2: '#fffbeb',
+    bitGlow: 'rgba(245, 158, 11, 0.75)',
+  },
 };
 
 /**

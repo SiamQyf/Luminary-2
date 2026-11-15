@@ -174,6 +174,7 @@ export const STYLE_OPTIONS = [
   { id: 'velvet-opera', label: 'Velvet Opera' },
   { id: 'water-droplet', label: 'Water Droplet' },
   { id: 'glacial-permafrost', label: 'Glacial Permafrost' },
+  { id: 'podcast-studio', label: 'Podcast Studio' },
 ] as const;
 
 interface FlatOption<T extends string> {
