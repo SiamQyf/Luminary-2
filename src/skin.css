@@ -1715,7 +1715,7 @@
 }
 
 
-/* --- Water Droplet Animated Caustic Seekbar & Timeline Channel --- */
+/* --- Water Droplet Animated Caustic Seekbar (Thinner & Styled Like Icon BG) --- */
 .preview-player[data-theme="water-droplet"] .group\/slider,
 :root[data-theme="water-droplet"] .group\/slider,
 :where(.media-skin)[data-theme="water-droplet"] .group\/slider {
@@ -1725,7 +1725,7 @@
 .preview-player[data-theme="water-droplet"] div[class*="media-slider-smooth"][class*="isolate"],
 :root[data-theme="water-droplet"] div[class*="media-slider-smooth"][class*="isolate"],
 :where(.media-skin)[data-theme="water-droplet"] div[class*="media-slider-smooth"][class*="isolate"] {
-  height: 6px !important;
+  height: 3.5px !important;
   position: absolute !important;
   left: 0 !important;
   right: 0 !important;
@@ -1733,15 +1733,17 @@
   border-radius: 9999px !important;
   overflow: hidden !important;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.03) 50%, transparent 100%),
-    rgba(4, 18, 30, 0.45) !important;
-  backdrop-filter: blur(12px) saturate(160%) !important;
-  -webkit-backdrop-filter: blur(12px) saturate(160%) !important;
-  border: 1px solid rgba(186, 230, 253, 0.3) !important;
+    radial-gradient(ellipse 40% 50% at 35% 15%, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.03) 50%, transparent 80%),
+    radial-gradient(ellipse 35% 50% at 65% 85%, rgba(186, 230, 253, 0.1) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(56, 189, 248, 0.06) 0%, rgba(14, 165, 233, 0.08) 100%),
+    rgba(4, 18, 30, 0.25) !important;
+  backdrop-filter: blur(14px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
+  border: 1px solid rgba(186, 230, 253, 0.22) !important;
   box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.35),
-    inset 0 -1px 1px rgba(2, 132, 199, 0.15),
-    0 0 10px rgba(56, 189, 248, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.4),
+    inset 0 -1px 1px rgba(2, 132, 199, 0.18),
+    0 0 8px rgba(56, 189, 248, 0.18),
     0 2px 6px rgba(0, 0, 0, 0.4) !important;
   transition: height 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease-out !important;
 }
@@ -1759,18 +1761,18 @@
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='w' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.034' numOctaves='2' seed='5' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.85 0 0 0 0 1 1 0 0 0 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0 0 0 0 0.1 0.7 1 0.4 0 0 0 0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E") !important;
   background-size: 160px 40px, 240px 60px !important;
   mix-blend-mode: plus-lighter !important;
-  opacity: 0.55 !important;
+  opacity: 0.45 !important;
   animation: 26s ease-in-out infinite water-caustic-sway !important;
 }
 
 .preview-player[data-theme="water-droplet"] .group\/slider:hover div[class*="media-slider-smooth"][class*="isolate"],
 :root[data-theme="water-droplet"] .group\/slider:hover div[class*="media-slider-smooth"][class*="isolate"],
 :where(.media-skin)[data-theme="water-droplet"] .group\/slider:hover div[class*="media-slider-smooth"][class*="isolate"] {
-  height: 9px !important;
+  height: 5.5px !important;
   box-shadow:
     inset 0 1px 1.5px rgba(255, 255, 255, 0.5),
     inset 0 -1px 1.5px rgba(2, 132, 199, 0.3),
-    0 0 16px rgba(56, 189, 248, 0.45),
+    0 0 12px rgba(56, 189, 248, 0.35),
     0 3px 8px rgba(0, 0, 0, 0.5) !important;
 }
 
@@ -1782,7 +1784,7 @@
   bottom: 0 !important;
   left: 0 !important;
   right: 0 !important;
-  background: rgba(186, 230, 253, 0.28) !important;
+  background: rgba(186, 230, 253, 0.18) !important;
   border-radius: 9999px !important;
   border: none !important;
 }
@@ -1796,8 +1798,10 @@
   left: 0 !important;
   right: 0 !important;
   border-radius: 9999px !important;
-  background: linear-gradient(90deg, rgba(14, 165, 233, 0.78) 0%, rgba(56, 189, 248, 0.88) 75%, rgba(186, 230, 253, 0.95) 100%) !important;
-  box-shadow: 0 0 14px rgba(56, 189, 248, 0.65) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0.08) 50%, transparent 100%),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.65) 0%, rgba(56, 189, 248, 0.8) 75%, rgba(186, 230, 253, 0.9) 100%) !important;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.5) !important;
   overflow: hidden !important;
   border: none !important;
 }
@@ -1814,7 +1818,7 @@
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='w' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.034' numOctaves='2' seed='5' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.85 0 0 0 0 1 1 0 0 0 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0 0 0 0 0.1 0.7 1 0.4 0 0 0 0'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E") !important;
   background-size: 160px 40px, 240px 60px !important;
   mix-blend-mode: plus-lighter !important;
-  opacity: 0.85 !important;
+  opacity: 0.75 !important;
   animation: 20s ease-in-out infinite water-caustic-sway !important;
 }
 
@@ -1822,8 +1826,8 @@
 .preview-player[data-theme="water-droplet"] .group\/slider .media-thumb-smooth,
 :root[data-theme="water-droplet"] .group\/slider .media-thumb-smooth,
 :where(.media-skin)[data-theme="water-droplet"] .group\/slider .media-thumb-smooth {
-  width: 10px !important;
-  height: 10px !important;
+  width: 9.5px !important;
+  height: 9.5px !important;
   top: 50% !important;
   border-radius: 50% !important;
   border: none !important;
@@ -1853,7 +1857,7 @@
   box-shadow:
     inset 0 1.25px 2px rgba(255, 255, 255, 0.6),
     inset 0 -0.75px 1.5px rgba(255, 255, 255, 0.3),
-    0 0 14px rgba(56, 189, 248, 0.6),
+    0 0 12px rgba(56, 189, 248, 0.55),
     0 1px 5px rgba(56, 189, 248, 0.25) !important;
 }
 
