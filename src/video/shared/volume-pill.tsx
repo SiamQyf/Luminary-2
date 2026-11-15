@@ -334,7 +334,7 @@ export function VolumePill({ className }: { className?: ClassValue }) {
           data-part="vertical-volume-popup"
           className={cn(
             'vertical-volume-popup absolute bottom-[calc(100%+8px)] left-1/2 -translate-x-1/2 z-40',
-            'flex flex-col items-center justify-between w-[32px] h-[114px] py-3 px-1 rounded-full select-none isolate',
+            'flex flex-col items-center justify-between w-[32px] h-[113px] py-3 px-1 rounded-full select-none isolate',
             // Liquid Frosted Glass surface matching player buttons
             'bg-black/55 backdrop-blur-[16px] backdrop-saturate-[150%] backdrop-brightness-[105%]',
             'bg-gradient-to-b from-white/[0.16] via-white/[0.04] to-transparent',
@@ -374,8 +374,8 @@ export function VolumePill({ className }: { className?: ClassValue }) {
         className={cn(
           'relative group/vol-pill flex h-[31.4px] shrink-0 items-center justify-start rounded-full overflow-hidden select-none isolate border-none outline-none',
           'w-[31.4px]',
-          !isMobilePortrait && 'hover:w-[111px] hover:pr-3 focus-within:w-[111px] focus-within:pr-3 has-[[data-dragging]]:w-[111px] has-[[data-dragging]]:pr-3',
-          !isMobilePortrait && isActive && 'w-[111px]! pr-3!',
+          !isMobilePortrait && 'hover:w-[110px] hover:pr-3 focus-within:w-[110px] focus-within:pr-3 has-[[data-dragging]]:w-[110px] has-[[data-dragging]]:pr-3',
+          !isMobilePortrait && isActive && 'w-[110px]! pr-3!',
           // Static high-translucency dark liquid glass base
           'bg-black/20',
           // Luminous transparent liquid glass (lets video colors shine through with refraction)
