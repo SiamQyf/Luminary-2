@@ -1367,6 +1367,39 @@
 
 
 
+/* ==========================================================================
+   PODCAST STUDIO LIVE AUDIO WAVEFORM & VU-METER ANIMATIONS
+   Streaming DAW timeline equalizer with warm broadcast audio-level glow
+   ========================================================================== */
+@keyframes podcast-waveform-stream {
+  0% {
+    mask-position: 0px 0px;
+    -webkit-mask-position: 0px 0px;
+  }
+  100% {
+    mask-position: -300px 0px;
+    -webkit-mask-position: -300px 0px;
+  }
+}
+
+@keyframes podcast-fill-glow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.75), inset 0 0 3px rgba(251, 191, 36, 0.3) !important;
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.98), 0 0 6px rgba(251, 191, 36, 0.85), inset 0 0 5px rgba(255, 255, 255, 0.45) !important;
+  }
+}
+
+@keyframes podcast-thumb-pulse {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.95), 0 1px 3px rgba(0, 0, 0, 0.7) !important;
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(251, 191, 36, 1), 0 0 4px #ffffff, 0 1px 4px rgba(0, 0, 0, 0.8) !important;
+  }
+}
+
 /* Audio Scrubbing Waveform Seekbar Track & Precision DAW Playhead Needle (Clean Sleek Aesthetic) */
 .preview-player[data-theme="podcast-studio"] .group\/slider,
 :root[data-theme="podcast-studio"] .group\/slider,
@@ -1404,6 +1437,8 @@
   -webkit-mask-repeat: repeat-x !important;
   mask-size: 300.0px 9.0px !important;
   -webkit-mask-size: 300.0px 9.0px !important;
+  
+  animation: podcast-waveform-stream 10s linear infinite !important;
   transition: background 0.15s ease-out !important;
 }
 
@@ -1419,6 +1454,18 @@
   background: rgba(245, 158, 11, 0.45) !important;
 }
 
+
+.preview-player[data-theme="podcast-studio"] [data-playing] div[class*="media-slider-smooth"][class*="isolate"],
+:root[data-theme="podcast-studio"] [data-playing] div[class*="media-slider-smooth"][class*="isolate"],
+:where(.media-skin)[data-theme="podcast-studio"] [data-playing] div[class*="media-slider-smooth"][class*="isolate"],
+.preview-player[data-theme="podcast-studio"].vjs-playing div[class*="media-slider-smooth"][class*="isolate"],
+:root[data-theme="podcast-studio"] .vjs-playing div[class*="media-slider-smooth"][class*="isolate"],
+:where(.media-skin)[data-theme="podcast-studio"] .vjs-playing div[class*="media-slider-smooth"][class*="isolate"],
+.preview-player[data-theme="podcast-studio"][data-playing] div[class*="media-slider-smooth"][class*="isolate"],
+:root[data-theme="podcast-studio"][data-playing] div[class*="media-slider-smooth"][class*="isolate"] {
+  animation: podcast-waveform-stream 6s linear infinite !important;
+}
+
 .preview-player[data-theme="podcast-studio"] div[class*="clip-media-x-[--media-slider-fill]"],
 :root[data-theme="podcast-studio"] div[class*="clip-media-x-[--media-slider-fill]"],
 :where(.media-skin)[data-theme="podcast-studio"] div[class*="clip-media-x-[--media-slider-fill]"] {
@@ -1426,6 +1473,7 @@
   background: linear-gradient(90deg, #d97706 0%, #f59e0b 50%, #fbbf24 100%) !important;
   box-shadow: 0 0 8px rgba(245, 158, 11, 0.85) !important;
   opacity: 1 !important;
+  animation: podcast-fill-glow 2.4s ease-in-out infinite !important;
 }
 
 .preview-player[data-theme="podcast-studio"] .group\/slider .media-thumb-smooth,
@@ -1441,11 +1489,13 @@
   box-shadow:
     0 0 8px rgba(245, 158, 11, 0.95),
     0 1px 3px rgba(0, 0, 0, 0.7) !important;
+  animation: podcast-thumb-pulse 2.2s ease-in-out infinite !important;
   transition: height 0.15s ease-out, box-shadow 0.15s ease-out !important;
 }
 
 .preview-player[data-theme="podcast-studio"] .group\/slider:hover .media-thumb-smooth,
 .preview-player[data-theme="podcast-studio"] .group\/slider[data-dragging] .media-thumb-smooth {
+  animation: none !important;
   height: 17px !important;
   box-shadow:
     0 0 12px rgba(245, 158, 11, 1),
@@ -1488,6 +1538,7 @@
   border-radius: 0 !important;
   background: linear-gradient(90deg, #d97706 0%, #f59e0b 60%, #fbbf24 100%) !important;
   box-shadow: 0 0 6px rgba(245, 158, 11, 0.8) !important;
+  animation: podcast-fill-glow 2.4s ease-in-out infinite !important;
 }
 
 .preview-player[data-theme="podcast-studio"] .volume-slider-thumb,
