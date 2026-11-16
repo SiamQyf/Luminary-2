@@ -13,8 +13,6 @@ import { DEVICE_OPTIONS, type DeviceType, VideoBar } from './video-input';
 import { ControlsGuide } from './controls-guide';
 import { UsageGuide } from './usage-guide';
 import { AmbientBackground } from '../shell/ambient-background';
-import { Navbar } from '../shell/navbar';
-import type { ColorScheme } from '../shell/params';
 
 function Preview() {
   const [params, setParams] = useState(initialParams);
@@ -95,15 +93,6 @@ function Preview() {
       ? 'calc(768px * 0.98)'
       : 'calc(896px * 0.98)';
 
-  const handleSchemeChange = (scheme: ColorScheme) => {
-    setParams((prev) => ({ ...prev, scheme }));
-    if (scheme === 'auto') {
-      delete document.documentElement.dataset.colorScheme;
-    } else {
-      document.documentElement.dataset.colorScheme = scheme;
-    }
-  };
-
   const isStandalone = typeof window !== 'undefined' && window.self === window.top;
   const isDark =
     params.scheme === 'dark' ||
@@ -111,20 +100,8 @@ function Preview() {
 
   return (
     <I18nProvider locale={params.locale}>
-      <AmbientBackground theme={currentTheme} isDark={isDark} />
+      {isStandalone && <AmbientBackground theme={currentTheme} isDark={isDark} />}
       <div className="preview-stage w-full flex flex-col items-center">
-        {/* Top Navbar Header with Luminary Branding & Light/Dark Scheme Toggle */}
-        <div className="w-full flex justify-center" style={{ maxWidth: '1140px' }}>
-          <div className="w-full px-2 sm:px-4 py-2">
-            <Navbar
-              scheme={params.scheme}
-              theme={currentTheme}
-              onSchemeChange={handleSchemeChange}
-              isDark={isDark}
-            />
-          </div>
-        </div>
-
         {/* 3 Simple Controls: Video Link Input, Themes dropdown, Device dropdown (standard size) */}
         <div className="w-full flex justify-center" style={{ maxWidth: '1140px' }}>
           <VideoBar
