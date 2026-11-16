@@ -9907,25 +9907,9 @@ div[role="menu"]:not([data-child-open]) {
   100% { background-position: 0px 0px, 0px 0px; }
 }
 
+/* Accessible gentle motion for reduced motion environments (caustics are slow ambient drift, not jarring motion) */
 @media (prefers-reduced-motion: reduce) {
-  .preview-player[data-theme="water-droplet"] .group\/liquid-btn::after,
-  .preview-player[data-theme="water-droplet"] .group\/vol-pill::after,
-  .preview-player[data-theme="water-droplet"] div[class*="media-slider-smooth"][class*="isolate"]::after,
-  .preview-player[data-theme="water-droplet"] div[class*="clip-media-x-[--media-slider-fill]"]::after,
-  .preview-player[data-theme="crystal"] .group\/liquid-btn::after,
-  .preview-player[data-theme="crystal"] .group\/vol-pill::after,
-  .preview-player[data-theme="cosmic-nebula"] .group\/liquid-btn::after,
-  .preview-player[data-theme="cosmic-nebula"] .group\/vol-pill::after,
-  .preview-player[data-theme="deep-abyss"] .group\/liquid-btn::after,
-  .preview-player[data-theme="deep-abyss"] .group\/vol-pill::after,
-  .preview-player[data-theme="deep-abyss"] [data-part="bottom-controls-bar"]::after,
-  :root[data-theme="water-droplet"] .group\/liquid-btn::after,
-  :root[data-theme="crystal"] .group\/liquid-btn::after,
-  :root[data-theme="cosmic-nebula"] .group\/liquid-btn::after,
-  :root[data-theme="deep-abyss"] .group\/liquid-btn::after,
-  :root[data-theme="deep-abyss"] [data-part="bottom-controls-bar"]::after {
-    animation: none !important;
-  }
+  /* Subtle ambient caustics are kept enabled at a calm pace so visual skin design is preserved */
 }
 
 /* ==========================================================================
