@@ -3,7 +3,7 @@
 'use client';
 
 import '../styles/video/scaffold.css';
-import { Container as ContainerPrimitive, Poster as PosterPrimitive, Slider as SliderPrimitive } from '@videojs/react';
+import { Container as ContainerPrimitive, Poster as PosterPrimitive, Slider as SliderPrimitive, usePlayer } from '@videojs/react';
 import { GoogleCast } from '@videojs/react/extensions/google-cast';
 import type { MouseEvent as ReactMouseEvent, ReactNode } from 'react';
 
@@ -182,8 +182,13 @@ export function VideoSkin({
   subtitle,
   ...props
 }: VideoSkinProps = {}) {
+  const isPaused = usePlayer((state: any) => state?.paused ?? true);
+  const isPlaying = !isPaused;
+
   return (
     <ContainerPrimitive
+      data-playing={isPlaying ? '' : undefined}
+      data-paused={isPaused ? '' : undefined}
       className={cn(
         'media-skin',
         'relative block h-full w-full overflow-hidden rounded-[24px] sm:rounded-[28.8px] shadow-2xl [--spacing:var(--media-spacing)] [font-family:var(--media-font-family,inherit)] text-media text-media-foreground @container/media-root',

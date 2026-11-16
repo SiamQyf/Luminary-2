@@ -1438,7 +1438,8 @@
   mask-size: 300.0px 9.0px !important;
   -webkit-mask-size: 300.0px 9.0px !important;
   
-  animation: podcast-waveform-stream 10s linear infinite !important;
+  animation: podcast-waveform-stream 28s linear infinite !important;
+  animation-play-state: paused !important;
   transition: background 0.15s ease-out !important;
 }
 
@@ -1463,7 +1464,8 @@
 :where(.media-skin)[data-theme="podcast-studio"] .vjs-playing div[class*="media-slider-smooth"][class*="isolate"],
 .preview-player[data-theme="podcast-studio"][data-playing] div[class*="media-slider-smooth"][class*="isolate"],
 :root[data-theme="podcast-studio"][data-playing] div[class*="media-slider-smooth"][class*="isolate"] {
-  animation: podcast-waveform-stream 6s linear infinite !important;
+  animation: podcast-waveform-stream 28s linear infinite !important;
+  animation-play-state: running !important;
 }
 
 .preview-player[data-theme="podcast-studio"] div[class*="clip-media-x-[--media-slider-fill]"],
@@ -1473,7 +1475,8 @@
   background: linear-gradient(90deg, #d97706 0%, #f59e0b 50%, #fbbf24 100%) !important;
   box-shadow: 0 0 8px rgba(245, 158, 11, 0.85) !important;
   opacity: 1 !important;
-  animation: podcast-fill-glow 2.4s ease-in-out infinite !important;
+  animation: podcast-fill-glow 3.6s ease-in-out infinite !important;
+  animation-play-state: paused !important;
 }
 
 .preview-player[data-theme="podcast-studio"] .group\/slider .media-thumb-smooth,
@@ -1489,8 +1492,36 @@
   box-shadow:
     0 0 8px rgba(245, 158, 11, 0.95),
     0 1px 3px rgba(0, 0, 0, 0.7) !important;
-  animation: podcast-thumb-pulse 2.2s ease-in-out infinite !important;
+  animation: podcast-thumb-pulse 3.2s ease-in-out infinite !important;
+  animation-play-state: paused !important;
   transition: height 0.15s ease-out, box-shadow 0.15s ease-out !important;
+}
+
+
+.preview-player[data-theme="podcast-studio"][data-playing] div[class*="clip-media-x-[--media-slider-fill]"],
+.preview-player[data-theme="podcast-studio"] [data-playing] div[class*="clip-media-x-[--media-slider-fill]"],
+:root[data-theme="podcast-studio"][data-playing] div[class*="clip-media-x-[--media-slider-fill]"],
+:root[data-theme="podcast-studio"] [data-playing] div[class*="clip-media-x-[--media-slider-fill]"],
+:where(.media-skin)[data-theme="podcast-studio"][data-playing] div[class*="clip-media-x-[--media-slider-fill]"],
+:where(.media-skin)[data-theme="podcast-studio"] [data-playing] div[class*="clip-media-x-[--media-slider-fill]"],
+.preview-player[data-theme="podcast-studio"].vjs-playing div[class*="clip-media-x-[--media-slider-fill]"],
+:root[data-theme="podcast-studio"].vjs-playing div[class*="clip-media-x-[--media-slider-fill]"],
+:where(.media-skin)[data-theme="podcast-studio"].vjs-playing div[class*="clip-media-x-[--media-slider-fill]"],
+.preview-player[data-theme="podcast-studio"] div[class*="clip-media-x-[--media-slider-fill]"][data-playing] {
+  animation-play-state: running !important;
+}
+
+.preview-player[data-theme="podcast-studio"][data-playing] .group\/slider .media-thumb-smooth,
+.preview-player[data-theme="podcast-studio"] [data-playing] .group\/slider .media-thumb-smooth,
+:root[data-theme="podcast-studio"][data-playing] .group\/slider .media-thumb-smooth,
+:root[data-theme="podcast-studio"] [data-playing] .group\/slider .media-thumb-smooth,
+:where(.media-skin)[data-theme="podcast-studio"][data-playing] .group\/slider .media-thumb-smooth,
+:where(.media-skin)[data-theme="podcast-studio"] [data-playing] .group\/slider .media-thumb-smooth,
+.preview-player[data-theme="podcast-studio"].vjs-playing .group\/slider .media-thumb-smooth,
+:root[data-theme="podcast-studio"].vjs-playing .group\/slider .media-thumb-smooth,
+:where(.media-skin)[data-theme="podcast-studio"].vjs-playing .group\/slider .media-thumb-smooth,
+.preview-player[data-theme="podcast-studio"] .group\/slider[data-playing] .media-thumb-smooth {
+  animation-play-state: running !important;
 }
 
 .preview-player[data-theme="podcast-studio"] .group\/slider:hover .media-thumb-smooth,

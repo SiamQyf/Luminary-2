@@ -80,6 +80,35 @@ function Preview() {
     return () => window.removeEventListener('luminescence-theme-change', handleThemeEvent);
   }, []);
 
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    const handlePlay = () => setIsPlaying(true);
+    const handlePause = () => setIsPlaying(false);
+    
+    const attachListeners = () => {
+      const video = document.querySelector('video');
+      if (video) {
+        setIsPlaying(!video.paused);
+        video.addEventListener('play', handlePlay);
+        video.addEventListener('pause', handlePause);
+        video.addEventListener('ended', handlePause);
+      }
+    };
+
+    attachListeners();
+    const interval = setInterval(attachListeners, 800);
+    return () => {
+      clearInterval(interval);
+      const video = document.querySelector('video');
+      if (video) {
+        video.removeEventListener('play', handlePlay);
+        video.removeEventListener('pause', handlePause);
+        video.removeEventListener('ended', handlePause);
+      }
+    };
+  }, [customSrc]);
+
   useEffect(() => {
     document.documentElement.dataset.theme = currentTheme;
     document.documentElement.dataset.layout = currentLayout;
@@ -122,6 +151,8 @@ function Preview() {
           data-theme={currentTheme}
           data-layout={currentLayout}
           data-device={currentDevice}
+          data-playing={isPlaying ? '' : undefined}
+          data-paused={!isPlaying ? '' : undefined}
           onPointerEnter={() => {
             if (!isEditableElement(document.activeElement) && !document.querySelector('.flat-select-menu, [role="menu"][data-open]')) {
               try {

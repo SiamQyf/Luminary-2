@@ -1,7 +1,6 @@
 /** @jsxImportSource react */
 
-import { Slider as SliderPrimitive } from '@videojs/react';
-import { TimeSlider as TimeSliderPrimitive } from '@videojs/react';
+import { Slider as SliderPrimitive, TimeSlider as TimeSliderPrimitive, usePlayer } from '@videojs/react';
 
 import { cn } from '@/lib/resolve-class-name';
 
@@ -10,9 +9,14 @@ export function TimeSlider({
   className,
   renderThumbnail,
 }: ThumbnailSlot & { audio?: boolean; className?: string } = {}) {
+  const isPaused = usePlayer((state: any) => state?.paused ?? true);
+  const isPlaying = !isPaused;
+
   return (
     <div className={cn('w-full', className)}>
       <TimeSliderPrimitive.Root
+        data-playing={isPlaying ? '' : undefined}
+        data-paused={isPaused ? '' : undefined}
         className={cn(
           'media-slider-smooth group/slider relative flex h-2.5 min-w-12 flex-1 cursor-pointer items-center',
           'data-disabled:cursor-not-allowed data-disabled:opacity-40 forced-colors:data-disabled:text-[GrayText] forced-colors:data-disabled:opacity-100'
@@ -21,6 +25,8 @@ export function TimeSlider({
       >
         {/* Continuous undivided progress bar track (no divisions) matching button background color and animation */}
         <TimeSliderPrimitive.Track
+          data-playing={isPlaying ? '' : undefined}
+          data-paused={isPaused ? '' : undefined}
           className={cn(
             'media-slider-smooth absolute inset-x-0 isolate h-[2px] rounded-full overflow-hidden transition-[height] duration-250 ease-out group-hover/slider:h-[3.5px]',
             // Base background track matches button static color and liquid glass translucency
