@@ -24,10 +24,10 @@ export function App() {
       return (
         sessionStorage.getItem('luminescence-theme') ||
         sessionStorage.getItem('inescence-theme') ||
-        'translucent'
+        'basic'
       );
     }
-    return 'translucent';
+    return 'basic';
   });
   // The frame loads once with the first settings; later changes are posted to it, so playback is never interrupted.
   const [frameUrl] = useState(() => `/preview.html#${writeParams(params)}`);

@@ -3439,10 +3439,11 @@
   color: #ffffff !important;
 }
 
-/* Basic: Bottom Bar Backing */
+/* Basic: Bottom Bar Backing (100% Transparent, No Gradient or Vignette) */
 .preview-player[data-theme="basic"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before,
 .preview-player[data-theme="material-ui"] .media-skin [data-part="bottom-controls-bar"]:not(.static\!)::before,
 :where(.media-skin)[data-theme="basic"] [data-part="bottom-controls-bar"]:not(.static\!)::before,
 :where(.media-skin)[data-theme="material-ui"] [data-part="bottom-controls-bar"]:not(.static\!)::before {
-  background: linear-gradient(180deg, rgba(10, 15, 26, 0) 0%, rgba(10, 15, 26, 0.55) 40%, rgba(10, 15, 26, 0.92) 100%) !important;
+  background: transparent !important;
+  display: none !important;
 }
