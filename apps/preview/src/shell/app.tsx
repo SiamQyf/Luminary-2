@@ -30,7 +30,7 @@ export function App() {
     return 'translucent';
   });
   // The frame loads once with the first settings; later changes are posted to it, so playback is never interrupted.
-  const [frameUrl] = useState(() => `./preview.html#${writeParams(params)}`);
+  const [frameUrl] = useState(() => `/preview.html#${writeParams(params)}`);
   const preferences = usePreferences();
   const query = writeParams(params);
 
@@ -111,7 +111,7 @@ export function App() {
     <div className="relative text-foreground flex h-screen min-h-0 flex-col overflow-hidden bg-black transition-colors duration-300">
       <AmbientBackground theme={currentTheme} isDark={isDark} />
       <Navbar
-        previewUrl={`./preview.html#${query}`}
+        previewUrl={`/preview.html#${query}`}
         scheme={params.scheme}
         theme={currentTheme}
         onSchemeChange={(scheme) => update({ scheme })}

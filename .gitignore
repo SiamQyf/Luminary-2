@@ -9,3 +9,5 @@ dist
 .wrangler
 *.zip
 
+
+scratch/

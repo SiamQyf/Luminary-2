@@ -163,8 +163,8 @@ export function CaptionsButton({ className, iconClassName, hasTracks: hasTracksP
         {...(props as any)}
       >
         <RoundedCaptionsOffIcon
-          className={cn('col-start-1 row-start-1 w-[16.5px] h-[14.1px] text-white/70', iconClassName)}
-          style={{ filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85))' }}
+          className={cn('col-start-1 row-start-1 w-[17.33px] h-[14.81px] text-white/70', iconClassName)}
+          style={{ filter: 'none' }}
         />
       </Button>
     );
@@ -183,19 +183,19 @@ export function CaptionsButton({ className, iconClassName, hasTracks: hasTracksP
     >
       <RoundedCaptionsOffIcon
         className={cn(
-          'col-start-1 row-start-1 w-[16.5px] h-[14.1px] text-white transition-transform duration-200 group-hover/captions:scale-105',
+          'col-start-1 row-start-1 w-[17.33px] h-[14.81px] text-white transition-transform duration-200 group-hover/captions:scale-105',
           'group-data-active/captions:hidden',
           iconClassName
         )}
-        style={{ filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85))' }}
+        style={{ filter: 'none' }}
       />
       <RoundedCaptionsOnIcon
         className={cn(
-          'col-start-1 row-start-1 hidden w-[16.5px] h-[14.1px] text-white transition-transform duration-200 group-hover/captions:scale-105',
+          'col-start-1 row-start-1 hidden w-[17.33px] h-[14.81px] text-white transition-transform duration-200 group-hover/captions:scale-105',
           'group-data-active/captions:block',
           iconClassName
         )}
-        style={{ filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85))' }}
+        style={{ filter: 'none' }}
       />
     </CaptionsButtonPrimitive>
   );

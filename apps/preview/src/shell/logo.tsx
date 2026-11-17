@@ -262,6 +262,78 @@ export const THEME_PALETTES: Record<string, { dark: ThemePalette; light: ThemePa
       iconGlow: 'rgba(185, 28, 28, 0.2)',
     },
   },
+  'classic-white': {
+    dark: {
+      primary: '#ffffff',
+      secondary: '#e4e4e7',
+      accent: '#d4d4d8',
+      gradient: 'linear-gradient(135deg, #ffffff 40%, #e4e4e7 75%, #a1a1aa 100%)',
+      glow: 'rgba(255, 255, 255, 0.3)',
+      iconGlow: 'rgba(255, 255, 255, 0.2)',
+    },
+    light: {
+      primary: '#09090b',
+      secondary: '#27272a',
+      accent: '#52525b',
+      gradient: 'linear-gradient(135deg, #09090b 40%, #27272a 75%, #52525b 100%)',
+      glow: 'rgba(9, 9, 11, 0.2)',
+      iconGlow: 'rgba(9, 9, 11, 0.15)',
+    },
+  },
+  'basic': {
+    dark: {
+      primary: '#2196f3',
+      secondary: '#ffffff',
+      accent: '#64b5f6',
+      gradient: 'linear-gradient(135deg, #2196f3 15%, #1976d2 60%, #0d47a1 100%)',
+      glow: 'rgba(33, 150, 243, 0.45)',
+      iconGlow: 'rgba(33, 150, 243, 0.35)',
+    },
+    light: {
+      primary: '#1976d2',
+      secondary: '#ffffff',
+      accent: '#0d47a1',
+      gradient: 'linear-gradient(135deg, #1976d2 15%, #1565c0 60%, #0d47a1 100%)',
+      glow: 'rgba(25, 118, 210, 0.35)',
+      iconGlow: 'rgba(25, 118, 210, 0.25)',
+    },
+  },
+  'material-ui': {
+    dark: {
+      primary: '#1976d2',
+      secondary: '#ffffff',
+      accent: '#64b5f6',
+      gradient: 'linear-gradient(135deg, #1976d2 15%, #1565c0 60%, #0d47a1 100%)',
+      glow: 'rgba(25, 118, 210, 0.45)',
+      iconGlow: 'rgba(25, 118, 210, 0.35)',
+    },
+    light: {
+      primary: '#1976d2',
+      secondary: '#ffffff',
+      accent: '#0d47a1',
+      gradient: 'linear-gradient(135deg, #1976d2 15%, #1565c0 60%, #0d47a1 100%)',
+      glow: 'rgba(25, 118, 210, 0.35)',
+      iconGlow: 'rgba(25, 118, 210, 0.25)',
+    },
+  },
+  'classic-dark': {
+    dark: {
+      primary: '#ffffff',
+      secondary: '#a1a1aa',
+      accent: '#71717a',
+      gradient: 'linear-gradient(135deg, #ffffff 40%, #a1a1aa 75%, #52525b 100%)',
+      glow: 'rgba(255, 255, 255, 0.3)',
+      iconGlow: 'rgba(255, 255, 255, 0.2)',
+    },
+    light: {
+      primary: '#09090b',
+      secondary: '#27272a',
+      accent: '#52525b',
+      gradient: 'linear-gradient(135deg, #09090b 40%, #27272a 75%, #52525b 100%)',
+      glow: 'rgba(9, 9, 11, 0.2)',
+      iconGlow: 'rgba(9, 9, 11, 0.15)',
+    },
+  },
   plain: {
     dark: {
       primary: '#ffffff',

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Soundstage Sessions • Studio Deep Dives</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0d0a08;
+      color: #faf5ee;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      position: relative;
+    }
+    .amber-glow {
+      position: absolute; width: 850px; height: 450px;
+      background: radial-gradient(circle, rgba(245,158,11,0.16) 0%, rgba(217,119,6,0.06) 55%, transparent 70%);
+      top: -80px; left: 50%; transform: translateX(-50%); filter: blur(75px); pointer-events: none;
+    }
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 72px; border-bottom: 1px solid rgba(245,158,11,0.18);
+      background: rgba(13,10,8,0.88); backdrop-filter: blur(14px); position: relative; z-index: 10;
+    }
+    .logo { display: flex; align-items: center; gap: 12px; font-size: 21px; font-weight: 800; color: #f59e0b; }
+    .mic-icon { width: 34px; height: 34px; border-radius: 9px; background: linear-gradient(135deg, #f59e0b, #b45309); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 16px rgba(245,158,11,0.4); }
+    .mic-icon svg { width: 18px; height: 18px; fill: white; }
+    nav { display: flex; gap: 36px; }
+    nav a { color: #a8a29e; text-decoration: none; font-size: 15px; font-weight: 600; }
+    nav a.active { color: #f59e0b; }
+    .listen-pills { display: flex; gap: 10px; }
+    .pill-btn { padding: 8px 16px; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: #e7e5e4; font-size: 13px; font-weight: 600; text-decoration: none; }
+    main { text-align: center; padding: 32px 40px 0; position: relative; z-index: 10; }
+    .ep-tag { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 999px; background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); font-size: 13px; font-weight: 700; color: #f59e0b; margin-bottom: 14px; }
+    h1 { font-size: 44px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 10px; background: linear-gradient(180deg, #faf5ee 40%, #d6d3d1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    p.sub { font-size: 16.5px; color: #a8a29e; max-width: 720px; margin: 0 auto 26px; }
+    .studio-frame {
+      width: 1020px; margin: 0 auto; padding: 8px; border-radius: 18px;
+      background: linear-gradient(135deg, rgba(245,158,11,0.2), rgba(255,255,255,0.03));
+      border: 1px solid rgba(245,158,11,0.28);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 35px rgba(245,158,11,0.12);
+    }
+    .studio-topbar { display: flex; justify-content: space-between; padding: 6px 14px 10px; font-size: 12px; font-weight: 600; color: #f59e0b; }
+    iframe { width: 100%; height: 574px; border: none; border-radius: 12px; display: block; background: #000; }
+  </style>
+</head>
+<body>
+  <div class="amber-glow"></div>
+  <header>
+    <div class="logo"><div class="mic-icon"><svg viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg></div>SOUNDSTAGE SESSIONS</div>
+    <nav><a href="#" class="active">Episodes</a><a href="#">Hosts & Guests</a><a href="#">Audio Gear</a><a href="#">Community</a></nav>
+    <div class="listen-pills"><a href="#" class="pill-btn">Spotify</a><a href="#" class="pill-btn">Apple Podcasts</a></div>
+  </header>
+  <main>
+    <div class="ep-tag">🎙️ EPISODE 104 • STUDIO LIVE CUT</div>
+    <h1>The Architecture of Sound: Waveform Dynamics & Modern Mixing</h1>
+    <p class="sub">Host Marcus Vance sits down with master audio engineers to dissect harmonic distortion, spatial Dolby Atmos, and analog warmth.</p>
+    <div class="studio-frame">
+      <div class="studio-topbar">
+        <span>AUDIO FORMAT: 48KHZ 24-BIT LOSSLESS STEREO</span>
+        <span>EQUALIZER WAVEFORM: ACTIVE</span>
+      </div>
+      <iframe id="player-frame" src="/preview.html#scheme=dark&autoplay=1&muted=1&loop=1"></iframe>
+    </div>
+  </main>
+</body>
+</html>

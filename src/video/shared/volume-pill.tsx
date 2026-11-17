@@ -410,7 +410,7 @@ export function VolumePill({ className }: { className?: ClassValue }) {
           >
             <VolumeHornAnimatedIcon
               isDancing={isActive || isDragging || isVerticalOpen}
-              className="size-[17.1px] text-white"
+              className="size-[17.96px] text-white"
             />
           </span>
         </MuteButtonPrimitive>
@@ -419,13 +419,13 @@ export function VolumePill({ className }: { className?: ClassValue }) {
         {!isMobilePortrait && (
           <VolumeSlider.Root
             orientation="horizontal"
-            thumbAlignment="center"
+            thumbAlignment="edge"
             onPointerDown={() => {
               isDraggingRef.current = true;
               setIsDragging(true);
             }}
             className={cn(
-              'horizontal-volume-slider relative -left-[2px] ml-[4px] z-10 flex h-full flex-1 items-center cursor-pointer outline-none transition-[width,opacity] duration-300 ease-out',
+              'horizontal-volume-slider relative -left-[3.5px] ml-0 z-10 flex h-full flex-1 items-center cursor-pointer outline-none transition-[width,opacity] duration-300 ease-out',
               'w-0 max-w-0 opacity-0 pointer-events-none flex-none overflow-hidden',
               'group-hover/vol-pill:w-full group-hover/vol-pill:max-w-full group-hover/vol-pill:opacity-100 group-hover/vol-pill:pointer-events-auto group-hover/vol-pill:flex-1 group-hover/vol-pill:overflow-visible',
               'group-focus-within/vol-pill:w-full group-focus-within/vol-pill:max-w-full group-focus-within/vol-pill:opacity-100 group-focus-within/vol-pill:pointer-events-auto group-focus-within/vol-pill:flex-1 group-focus-within/vol-pill:overflow-visible',
@@ -438,8 +438,8 @@ export function VolumePill({ className }: { className?: ClassValue }) {
             </VolumeSlider.Track>
             <VolumeSlider.Thumb
               className={cn(
-                'volume-slider-thumb absolute top-1/2 left-[var(--media-slider-fill,100%)] size-[7px] rounded-full pointer-events-none',
-                'group-has-[[data-dragging]]/vol-pill:left-[var(--media-slider-pointer)]',
+                'volume-slider-thumb absolute top-1/2 left-[clamp(calc(var(--volume-thumb-size,8px)/2),var(--media-slider-fill,100%),calc(100%-var(--volume-thumb-size,8px)/2))] size-[7px] rounded-full pointer-events-none',
+                'group-has-[[data-dragging]]/vol-pill:left-[clamp(calc(var(--volume-thumb-size,8px)/2),var(--media-slider-pointer),calc(100%-var(--volume-thumb-size,8px)/2))]',
                 'outline-none'
               )}
             />

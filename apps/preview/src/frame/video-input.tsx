@@ -125,6 +125,9 @@ export const SANDBOX_VIDEOS: readonly SandboxVideo[] = [
 ] as const;
 
 export const STYLE_OPTIONS = [
+  { id: 'classic-white', label: 'Classic White' },
+  { id: 'classic-dark', label: 'Classic Dark' },
+  { id: 'basic', label: 'Basic' },
   { id: 'translucent', label: 'Translucent Glass' },
   { id: 'linear-ticks', label: 'Linear Ticks' },
   { id: 'crystal', label: 'Crystal' },
@@ -159,7 +162,6 @@ export const STYLE_OPTIONS = [
   { id: 'nordic-frost', label: 'Nordic Frost' },
   { id: 'crimson-cinema', label: 'Criterion Cinema' },
   { id: 'pixel-8bit', label: '8-Bit Pixel' },
-  { id: 'plain', label: 'Plain White' },
   { id: 'liquid-mercury', label: 'Liquid Mercury' },
   { id: 'aurora-borealis', label: 'Aurora Borealis' },
   { id: 'solar-flare', label: 'Solar Flare' },

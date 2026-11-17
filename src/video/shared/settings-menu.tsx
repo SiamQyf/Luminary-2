@@ -23,6 +23,9 @@ import { RadioItem } from './menu-item';
 import { ButtonTooltip } from './tooltip';
 
 export const THEME_STYLES = [
+  { id: 'classic-white', label: 'Classic White' },
+  { id: 'classic-dark', label: 'Classic Dark' },
+  { id: 'basic', label: 'Basic' },
   { id: 'translucent', label: 'Translucent Glass' },
   { id: 'linear-ticks', label: 'Linear Ticks' },
   { id: 'crystal', label: 'Crystal' },
@@ -57,7 +60,6 @@ export const THEME_STYLES = [
   { id: 'nordic-frost', label: 'Nordic Frost' },
   { id: 'crimson-cinema', label: 'Criterion Cinema' },
   { id: 'pixel-8bit', label: '8-Bit Pixel' },
-  { id: 'plain', label: 'Plain White' },
   { id: 'liquid-mercury', label: 'Liquid Mercury' },
   { id: 'aurora-borealis', label: 'Aurora Borealis' },
   { id: 'solar-flare', label: 'Solar Flare' },
@@ -411,7 +413,7 @@ function CaptionsMenu() {
       <CaptionsRadioGroup.Root>
         <Menu.Trigger className={menuItemBtnClass}>
           <span className="flex size-[20px] shrink-0 items-center justify-center text-white/75 group-hover/menu-btn:text-white group-focus-visible/menu-btn:text-white transition-colors">
-            <RoundedCaptionsOffIcon className="size-[15px]" style={{ filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85))' }} />
+            <RoundedCaptionsOffIcon className="size-[15px]" style={{ filter: 'none' }} />
           </span>
           <TextPrimitive className="text-[13.5px] font-medium tracking-tight text-white/95" token={captionsText.key}>
             {captionsText.text}
@@ -440,6 +442,7 @@ function CaptionsMenu() {
     </Menu.Root>
   );
 }
+
 
 function GearIcon({ className }: { className?: string }) {
   return (

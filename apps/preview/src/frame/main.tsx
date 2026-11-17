@@ -24,7 +24,11 @@ function Preview() {
     }
     return DEFAULT_SRC;
   });
-  const [currentTheme, setCurrentTheme] = useState<string>(() => searchParams?.get('theme') || sessionStorage.getItem('luminescence-theme') || sessionStorage.getItem('inescence-theme') || 'translucent');
+  const [currentTheme, setCurrentTheme] = useState<string>(() => {
+    let t = searchParams?.get('theme') || sessionStorage.getItem('luminescence-theme') || sessionStorage.getItem('inescence-theme') || 'translucent';
+    if (t === 'plain') t = 'classic-white';
+    return t;
+  });
   const [currentLayout, setCurrentLayout] = useLayoutMode();
   const [currentDevice, setCurrentDevice] = useState<DeviceType>(() => {
     const raw = searchParams?.get('device') || sessionStorage.getItem('luminescence-device');

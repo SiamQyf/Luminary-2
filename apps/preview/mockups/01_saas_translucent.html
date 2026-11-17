@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CloudScale AI • Realtime Video Infrastructure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #080c15;
+      color: #f8fafc;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      position: relative;
+    }
+    .glow-1 {
+      position: absolute; width: 900px; height: 500px;
+      background: radial-gradient(circle, rgba(56,189,248,0.18) 0%, rgba(99,102,241,0.08) 50%, transparent 70%);
+      top: -80px; left: 50%; transform: translateX(-50%); filter: blur(70px); pointer-events: none;
+    }
+    .grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 54px 54px; pointer-events: none;
+    }
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 72px; border-bottom: 1px solid rgba(255,255,255,0.07);
+      backdrop-filter: blur(16px); position: relative; z-index: 10;
+    }
+    .logo { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 21px; letter-spacing: -0.02em; }
+    .logo-box { width: 34px; height: 34px; border-radius: 9px; background: linear-gradient(135deg, #38bdf8, #6366f1); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 18px rgba(56,189,248,0.45); }
+    .logo-box svg { width: 20px; height: 20px; fill: white; }
+    nav { display: flex; gap: 36px; }
+    nav a { color: #94a3b8; text-decoration: none; font-size: 14.5px; font-weight: 600; }
+    nav a.active { color: #38bdf8; }
+    .header-btns { display: flex; align-items: center; gap: 16px; }
+    .btn-ghost { color: #cbd5e1; font-size: 14px; font-weight: 600; text-decoration: none; padding: 8px 16px; }
+    .btn-cta { background: linear-gradient(135deg, #38bdf8, #2563eb); color: white; padding: 10px 22px; border-radius: 9px; font-size: 14px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 18px rgba(37,99,235,0.38); }
+    main { text-align: center; padding: 34px 40px 0; position: relative; z-index: 10; }
+    .pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 999px; background: rgba(56,189,248,0.08); border: 1px solid rgba(56,189,248,0.25); font-size: 12.5px; font-weight: 600; color: #38bdf8; margin-bottom: 16px; }
+    .pill span { width: 6px; height: 6px; border-radius: 50%; background: #38bdf8; box-shadow: 0 0 8px #38bdf8; }
+    h1 { font-size: 46px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 12px; background: linear-gradient(180deg, #ffffff 40%, #94a3b8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    p.sub { font-size: 16px; color: #94a3b8; max-width: 680px; margin: 0 auto 28px; line-height: 1.5; }
+    .player-window {
+      width: 1020px; margin: 0 auto; padding: 8px; border-radius: 18px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.65), 0 0 40px rgba(56,189,248,0.14);
+    }
+    .win-bar { display: flex; align-items: center; justify-content: space-between; padding: 6px 14px 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #64748b; }
+    .dots { display: flex; gap: 6px; }
+    .dots span { width: 10px; height: 10px; border-radius: 50%; }
+    .d-red { background: #ef4444; } .d-yel { background: #f59e0b; } .d-grn { background: #10b981; }
+    .live-tag { display: flex; align-items: center; gap: 6px; color: #10b981; font-weight: 600; }
+    .live-tag span { width: 6px; height: 6px; border-radius: 50%; background: #10b981; box-shadow: 0 0 6px #10b981; }
+    iframe { width: 100%; height: 574px; border: none; border-radius: 12px; display: block; background: #000; }
+  </style>
+</head>
+<body>
+  <div class="glow-1"></div>
+  <div class="grid"></div>
+  <header>
+    <div class="logo"><div class="logo-box"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>CloudScale AI</div>
+    <nav><a href="#" class="active">Platform</a><a href="#">Edge Network</a><a href="#">Solutions</a><a href="#">Pricing</a><a href="#">Docs</a></nav>
+    <div class="header-btns"><a href="#" class="btn-ghost">Sign In</a><a href="#" class="btn-cta">Start Free Trial</a></div>
+  </header>
+  <main>
+    <div class="pill"><span></span> Real-Time Adaptive Video Processing</div>
+    <h1>Global Video Delivery at Sub-Millisecond Scale</h1>
+    <p class="sub">Deploy adaptive multi-bitrate streams, AI neural upscaling, and real-time telemetry across 140+ edge regions.</p>
+    <div class="player-window">
+      <div class="win-bar">
+        <div class="dots"><span class="d-red"></span><span class="d-yel"></span><span class="d-grn"></span></div>
+        <div>cloudscale.live/stream/edge-node-01</div>
+        <div class="live-tag"><span></span> 4K 60FPS • HLS</div>
+      </div>
+      <iframe id="player-frame" src="/preview.html#scheme=dark&autoplay=1&muted=1&loop=1"></iframe>
+    </div>
+  </main>
+</body>
+</html>

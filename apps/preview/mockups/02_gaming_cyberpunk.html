@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NEON VEIL: CHRONICLES • Official Gameplay Reveal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #06070a;
+      color: #fff;
+      font-family: 'Rajdhani', sans-serif;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      position: relative;
+    }
+    .hazard-stripe {
+      position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: repeating-linear-gradient(45deg, #fcee0a, #fcee0a 14px, #000 14px, #000 28px);
+    }
+    .neon-glow {
+      position: absolute; width: 1000px; height: 500px;
+      background: radial-gradient(circle, rgba(252,238,10,0.12) 0%, rgba(0,240,255,0.08) 50%, transparent 70%);
+      top: -120px; left: 50%; transform: translateX(-50%); filter: blur(80px); pointer-events: none;
+    }
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 72px; border-bottom: 1px solid rgba(252,238,10,0.22);
+      background: rgba(6,7,10,0.85); backdrop-filter: blur(16px); position: relative; z-index: 10;
+    }
+    .logo { font-family: 'Orbitron', sans-serif; font-size: 22px; font-weight: 900; letter-spacing: 0.16em; color: #fcee0a; text-shadow: 0 0 12px rgba(252,238,10,0.5); }
+    nav { display: flex; gap: 40px; }
+    nav a { font-family: 'Orbitron', sans-serif; color: #94a3b8; text-decoration: none; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+    nav a.active { color: #00f0ff; text-shadow: 0 0 8px #00f0ff; }
+    .header-badges { display: flex; align-items: center; gap: 14px; }
+    .tag-mature { padding: 4px 10px; border: 1px solid #fcee0a; font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: 800; color: #fcee0a; }
+    .btn-preorder { background: #fcee0a; color: #000; font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 13px; letter-spacing: 0.1em; padding: 10px 24px; text-decoration: none; clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%); }
+    main { text-align: center; padding: 28px 40px 0; position: relative; z-index: 10; }
+    .hero-top { display: inline-flex; align-items: center; gap: 10px; font-family: 'Orbitron', sans-serif; font-size: 13px; letter-spacing: 0.18em; color: #00f0ff; text-transform: uppercase; margin-bottom: 12px; }
+    h1 { font-family: 'Orbitron', sans-serif; font-size: 46px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; color: #ffffff; text-shadow: 0 0 24px rgba(255,255,255,0.3); }
+    p.sub { font-size: 17px; color: #94a3b8; max-width: 720px; margin: 0 auto 24px; font-weight: 600; letter-spacing: 0.04em; }
+    .gaming-frame {
+      width: 1024px; margin: 0 auto; padding: 6px; border-radius: 14px;
+      background: linear-gradient(135deg, rgba(252,238,10,0.3), rgba(0,240,255,0.2));
+      border: 1px solid rgba(252,238,10,0.4);
+      box-shadow: 0 0 35px rgba(252,238,10,0.18), 0 20px 50px rgba(0,0,0,0.9);
+      position: relative;
+    }
+    .hud-header { display: flex; justify-content: space-between; padding: 6px 14px 8px; font-family: 'Orbitron', sans-serif; font-size: 11px; letter-spacing: 0.12em; color: #fcee0a; }
+    iframe { width: 100%; height: 574px; border: none; border-radius: 10px; display: block; background: #000; }
+  </style>
+</head>
+<body>
+  <div class="hazard-stripe"></div>
+  <div class="neon-glow"></div>
+  <header>
+    <div class="logo">NEON VEIL // 2077</div>
+    <nav><a href="#" class="active">Watch Reveal</a><a href="#">Factions</a><a href="#">Cyberware</a><a href="#">Battlepass</a></nav>
+    <div class="header-badges">
+      <span class="tag-mature">ESRB: M 17+</span>
+      <a href="#" class="btn-preorder">PRE-ORDER NOW</a>
+    </div>
+  </header>
+  <main>
+    <div class="hero-top">▶ WORLD PREMIERE GAMEPLAY TRAILER • 4K 60FPS</div>
+    <h1>SURVIVE THE GRID. EMBRACE THE AUGMENTATION.</h1>
+    <p class="sub">Next-generation hyper-dynamic action RPG powered by neural raytracing. Available on Steam, PS5, Xbox Series X.</p>
+    <div class="gaming-frame">
+      <div class="hud-header">
+        <span>HUD: ENGAGED // RAYTRACING ACTIVE</span>
+        <span>LATENCY: 1.2MS • FRAME RATE: 60FPS</span>
+      </div>
+      <iframe id="player-frame" src="/preview.html#scheme=dark&autoplay=1&muted=1&loop=1"></iframe>
+    </div>
+  </main>
+</body>
+</html>

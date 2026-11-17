@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ToonSpark Studios • The Ultimate Fun Club</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #180b28;
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      position: relative;
+    }
+    .candy-glow {
+      position: absolute; width: 900px; height: 500px;
+      background: radial-gradient(circle, rgba(236,72,153,0.2) 0%, rgba(168,85,247,0.12) 50%, transparent 70%);
+      top: -80px; left: 50%; transform: translateX(-50%); filter: blur(75px); pointer-events: none;
+    }
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 72px; border-bottom: 2px solid rgba(236,72,153,0.3);
+      background: rgba(24,11,40,0.85); backdrop-filter: blur(14px); position: relative; z-index: 10;
+    }
+    .logo { font-size: 24px; font-weight: 900; background: linear-gradient(90deg, #ec4899, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    nav { display: flex; gap: 36px; }
+    nav a { color: #f472b6; text-decoration: none; font-size: 15px; font-weight: 800; }
+    nav a.active { color: #fde047; }
+    .btn-sub { background: linear-gradient(135deg, #ec4899, #a855f7); color: #fff; padding: 10px 24px; border-radius: 999px; font-size: 14px; font-weight: 800; text-decoration: none; box-shadow: 0 4px 18px rgba(236,72,153,0.4); }
+    main { text-align: center; padding: 32px 40px 0; position: relative; z-index: 10; }
+    .star-pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 18px; border-radius: 999px; background: rgba(236,72,153,0.15); border: 2px solid #ec4899; font-size: 13px; font-weight: 800; color: #fde047; margin-bottom: 12px; }
+    h1 { font-size: 46px; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 8px; background: linear-gradient(180deg, #ffffff 30%, #fbcfe8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    p.sub { font-size: 17px; color: #f472b6; max-width: 700px; margin: 0 auto 24px; font-weight: 700; }
+    .candy-frame {
+      width: 1020px; margin: 0 auto; padding: 8px; border-radius: 24px;
+      background: linear-gradient(135deg, rgba(236,72,153,0.3), rgba(168,85,247,0.2));
+      border: 2px solid rgba(236,72,153,0.4);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 40px rgba(236,72,153,0.25);
+    }
+    .candy-topbar { display: flex; justify-content: space-between; padding: 6px 16px 10px; font-size: 13px; font-weight: 800; color: #fde047; }
+    iframe { width: 100%; height: 574px; border: none; border-radius: 18px; display: block; background: #000; }
+  </style>
+</head>
+<body>
+  <div class="candy-glow"></div>
+  <header>
+    <div class="logo">TOONSPARK STUDIOS 🌟</div>
+    <nav><a href="#" class="active">Watch Episodes</a><a href="#">Characters</a><a href="#">Games</a><a href="#">Fan Club</a></nav>
+    <a href="#" class="btn-sub">JOIN THE CLUB (FREE)</a>
+  </header>
+  <main>
+    <div class="star-pill">✨ BRAND NEW ANIMATION SPECIAL • FULL HD 60FPS</div>
+    <h1>The Cosmic Explorer: Journey Across Candy Star Galaxy</h1>
+    <p class="sub">Hop aboard the galactic rocket with Sparky & Friends for colorful adventures and happy laughter!</p>
+    <div class="candy-frame">
+      <div class="candy-topbar">
+        <span>KIDS SAFE & VERIFIED • NO ADS</span>
+        <span>POP COLORWAYS & VIBRANT BUTTONS</span>
+      </div>
+      <iframe id="player-frame" src="/preview.html#scheme=dark&autoplay=1&muted=1&loop=1"></iframe>
+    </div>
+  </main>
+</body>
+</html>
