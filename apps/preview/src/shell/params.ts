@@ -50,7 +50,7 @@ export function readParams(query: string): WorkbenchParams {
     dir: oneOf(TEXT_DIRECTIONS, params.get('dir'), 'auto'),
     locale: oneOf(locales, params.get('locale'), 'en'),
     autoplay: flag('autoplay', true),
-    muted: flag('muted', false),
+    muted: flag('muted', true),
     loop: flag('loop'),
     preload: oneOf(PRELOAD_VALUES, params.get('preload'), 'auto'),
   };

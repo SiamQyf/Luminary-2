@@ -1,5 +1,7 @@
 /** @jsxImportSource react */
 
+'use client';
+
 import { Controls } from '@videojs/react';
 
 import { cn } from '@/lib/resolve-class-name';
