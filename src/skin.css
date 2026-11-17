@@ -3091,6 +3091,11 @@
 .preview-player[data-theme="material-ui"] [data-slot="control"],
 .preview-player[data-theme="material-ui"] .media-fullscreen-button,
 .preview-player[data-theme="material-ui"] .group\/vol-pill,
+:root[data-theme="basic"] .group\/liquid-btn,
+:root[data-theme="basic"] .group\/center-buffering button,
+:root[data-theme="basic"] [data-slot="control"],
+:root[data-theme="basic"] .media-fullscreen-button,
+:root[data-theme="basic"] .group\/vol-pill,
 :where(.media-skin)[data-theme="basic"] .group\/liquid-btn,
 :where(.media-skin)[data-theme="basic"] .group\/center-buffering button,
 :where(.media-skin)[data-theme="basic"] [data-slot="control"],
@@ -3108,8 +3113,12 @@
   box-shadow: none !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
+  --tw-backdrop-blur: none !important;
+  --tw-backdrop-brightness: none !important;
+  --tw-backdrop-saturate: none !important;
+  --tw-backdrop-contrast: none !important;
   filter: none !important;
-  border-radius: 2px !important;
+  border-radius: 9999px !important;
   transition: transform 0.12s ease !important;
 }
 
@@ -3123,6 +3132,11 @@
 .preview-player[data-theme="material-ui"] [data-slot="control"]:hover,
 .preview-player[data-theme="material-ui"] .media-fullscreen-button:hover,
 .preview-player[data-theme="material-ui"] .group\/vol-pill:hover,
+:root[data-theme="basic"] .group\/liquid-btn:hover,
+:root[data-theme="basic"] .group\/center-buffering button:hover,
+:root[data-theme="basic"] [data-slot="control"]:hover,
+:root[data-theme="basic"] .media-fullscreen-button:hover,
+:root[data-theme="basic"] .group\/vol-pill:hover,
 :where(.media-skin)[data-theme="basic"] .group\/liquid-btn:hover,
 :where(.media-skin)[data-theme="basic"] .group\/center-buffering button:hover,
 :where(.media-skin)[data-theme="basic"] [data-slot="control"]:hover,
@@ -3135,21 +3149,38 @@
 :where(.media-skin)[data-theme="material-ui"] .group\/vol-pill:hover {
   background: transparent !important;
   background-color: transparent !important;
+  background-image: none !important;
   border: none !important;
   box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  --tw-backdrop-blur: none !important;
+  --tw-backdrop-brightness: none !important;
+  --tw-backdrop-saturate: none !important;
+  --tw-backdrop-contrast: none !important;
 }
 
 .preview-player[data-theme="basic"] .group\/liquid-btn:active,
 .preview-player[data-theme="basic"] .group\/center-buffering button:active,
 .preview-player[data-theme="material-ui"] .group\/liquid-btn:active,
 .preview-player[data-theme="material-ui"] .group\/center-buffering button:active,
+:root[data-theme="basic"] .group\/liquid-btn:active,
+:root[data-theme="basic"] .group\/center-buffering button:active,
 :where(.media-skin)[data-theme="basic"] .group\/liquid-btn:active,
 :where(.media-skin)[data-theme="basic"] .group\/center-buffering button:active,
 :where(.media-skin)[data-theme="material-ui"] .group\/liquid-btn:active,
 :where(.media-skin)[data-theme="material-ui"] .group\/center-buffering button:active {
   background: transparent !important;
   background-color: transparent !important;
+  background-image: none !important;
+  border: none !important;
   box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  --tw-backdrop-blur: none !important;
+  --tw-backdrop-brightness: none !important;
+  --tw-backdrop-saturate: none !important;
+  --tw-backdrop-contrast: none !important;
 }
 
 /* Basic: Crisp Pure White Icons (Hover Primary Blue #2196f3, ZERO drop shadow) */
@@ -3211,6 +3242,7 @@
 /* Basic: Center Play/Buffering (No BG, Crisp White Icon) */
 .preview-player[data-theme="basic"] .center-play-capsule,
 .preview-player[data-theme="material-ui"] .center-play-capsule,
+:root[data-theme="basic"] .center-play-capsule,
 :where(.media-skin)[data-theme="basic"] .center-play-capsule,
 :where(.media-skin)[data-theme="material-ui"] .center-play-capsule {
   background: transparent !important;
@@ -3218,6 +3250,10 @@
   box-shadow: none !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
+  --tw-backdrop-blur: none !important;
+  --tw-backdrop-brightness: none !important;
+  --tw-backdrop-saturate: none !important;
+  --tw-backdrop-contrast: none !important;
 }
 
 /* Basic: Progress Slider / Seekbar (Primary Blue Fill, Secondary White Buffer, Squared 2px Thumb) */
