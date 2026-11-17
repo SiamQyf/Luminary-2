@@ -2531,24 +2531,27 @@
    ========================================================================== */
 .horizontal-volume-slider .volume-slider-thumb {
   --volume-thumb-size: 8px;
+  top: 50% !important;
   left: clamp(
     calc(var(--volume-thumb-size, 8px) / 2),
     var(--media-slider-fill, 0%),
     calc(100% - var(--volume-thumb-size, 8px) / 2)
   ) !important;
-  translate: -50% -50% !important;
-  transform: none !important;
+  transform: translate(-50%, -50%) !important;
   transform-origin: center center !important;
 }
 
 [data-dragging] .horizontal-volume-slider .volume-slider-thumb,
 .group\/vol-pill:has([data-dragging]) .horizontal-volume-slider .volume-slider-thumb,
 .group\/vol-pill[data-dragging] .horizontal-volume-slider .volume-slider-thumb {
+  top: 50% !important;
   left: clamp(
     calc(var(--volume-thumb-size, 8px) / 2),
     var(--media-slider-pointer, var(--media-slider-fill, 0%)),
     calc(100% - var(--volume-thumb-size, 8px) / 2)
   ) !important;
+  transform: translate(-50%, -50%) !important;
+  transform-origin: center center !important;
 }
 
 /* Specific theme thumb size overrides for edge clamping */
@@ -3343,6 +3346,7 @@
 }
 .preview-player[data-theme="basic"] .volume-slider-thumb,
 .preview-player[data-theme="material-ui"] .volume-slider-thumb,
+:root[data-theme="basic"] .volume-slider-thumb,
 :where(.media-skin)[data-theme="basic"] .volume-slider-thumb,
 :where(.media-skin)[data-theme="material-ui"] .volume-slider-thumb {
   --volume-thumb-size: 8px;
@@ -3352,7 +3356,9 @@
   box-shadow: none !important;
   filter: none !important;
   drop-shadow: none !important;
+  top: 50% !important;
   left: clamp(calc(var(--volume-thumb-size, 8px) / 2), var(--media-slider-fill, 0%), calc(100% - var(--volume-thumb-size, 8px) / 2)) !important;
+  transform: translate(-50%, -50%) !important;
 }
 
 /* Basic: Timestamps (Secondary White) */
