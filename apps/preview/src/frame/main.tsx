@@ -2,8 +2,8 @@ import { I18nProvider } from '@videojs/react/i18n';
 import { type CSSProperties, StrictMode, useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import '@/skin.css';
 import './preview.css';
+import '@/skin.css';
 import { playbackProps, playerStyles } from '../shell/params';
 import { initialParams, onParamsChange } from './frame';
 import { DEFAULT_SRC, Player } from './player';

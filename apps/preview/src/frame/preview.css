@@ -11659,24 +11659,27 @@ div[role="menu"]:not([data-child-open]) {
    ========================================================================== */
 .horizontal-volume-slider .volume-slider-thumb {
   --volume-thumb-size: 8px;
+  top: 50% !important;
   left: clamp(
     calc(var(--volume-thumb-size, 8px) / 2),
     var(--media-slider-fill, 0%),
     calc(100% - var(--volume-thumb-size, 8px) / 2)
   ) !important;
-  translate: -50% -50% !important;
-  transform: none !important;
+  transform: translate(-50%, -50%) !important;
   transform-origin: center center !important;
 }
 
 [data-dragging] .horizontal-volume-slider .volume-slider-thumb,
 .group\/vol-pill:has([data-dragging]) .horizontal-volume-slider .volume-slider-thumb,
 .group\/vol-pill[data-dragging] .horizontal-volume-slider .volume-slider-thumb {
+  top: 50% !important;
   left: clamp(
     calc(var(--volume-thumb-size, 8px) / 2),
     var(--media-slider-pointer, var(--media-slider-fill, 0%)),
     calc(100% - var(--volume-thumb-size, 8px) / 2)
   ) !important;
+  transform: translate(-50%, -50%) !important;
+  transform-origin: center center !important;
 }
 
 /* Specific theme thumb size overrides for edge clamping */
