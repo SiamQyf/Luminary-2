@@ -29,13 +29,14 @@ export function VideoControlsContent({
   return (
     <>
       <VideoBufferingIndicator />
-      <CaptionsDisplay />
+      {/* CaptionsDisplay preserved for later re-enabling */}
+      {/* <CaptionsDisplay /> */}
       <ControlsContent
-        captions={!live && <CaptionsToggle />}
         center={center}
         fullscreen={<FullscreenButton />}
         live={live}
         menu={menu}
+        pip={!live && <PiPButton />}
         renderThumbnail={renderThumbnail}
         seekBackward={seekBackward}
         seekForward={seekForward}
@@ -44,7 +45,6 @@ export function VideoControlsContent({
             <Title title={title} subtitle={subtitle} />
             <div className="flex items-center gap-1.5 sm:gap-[12px] shrink-0 pointer-events-auto group-not-data-visible/controls:opacity-0 group-not-data-visible/controls:pointer-events-none transition-opacity duration-300">
               <CastButton />
-              <PiPButton />
             </div>
           </div>
         }

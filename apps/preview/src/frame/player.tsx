@@ -126,7 +126,7 @@ export function Player({ media, customSrc, version }: { media?: PlaybackProps; c
       <VideoSkin title={title} subtitle={subtitle}>
         <MuxVideo {...media} muted={false} src={src} playsInline crossOrigin="">
           {subtitleTrackSrc && (
-            <track kind="subtitles" label="English" srcLang="en" src={subtitleTrackSrc} default />
+            <track kind="subtitles" label="English" srcLang="en" src={subtitleTrackSrc} />
           )}
           {hasChapters && <track kind="chapters" label="English" srcLang="en" src={COSMIC_DAWN_CHAPTERS} default />}
         </MuxVideo>

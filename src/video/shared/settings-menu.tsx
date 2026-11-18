@@ -501,7 +501,8 @@ export function SettingsMenu() {
           <QualityMenu />
           <AudioTrackMenu />
           <PlaybackRateMenu />
-          <CaptionsMenu />
+          {/* CaptionsMenu preserved for later re-enabling */}
+          {/* <CaptionsMenu /> */}
         </Menu.Content>
       </Menu.Popup>
     </Menu.Root>

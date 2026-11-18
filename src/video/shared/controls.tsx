@@ -101,6 +101,7 @@ function BottomControlsContainer({ className, children, ...props }: HTMLAttribut
 export function ControlsRow({
   audio = false,
   captions,
+  pip,
   className,
   fullscreen,
   live = false,
@@ -120,12 +121,12 @@ export function ControlsRow({
         {live && <LiveButton />}
       </Controls.Group>
 
-      {/* Right controls: Captions/Rate (if any), Settings, Fullscreen */}
+      {/* Right controls: Settings, PiP, Fullscreen */}
       <Controls.Group className={'flex items-center rtl:flex-row-reverse gap-[12px]'}>
         {audio && <VolumePopover />}
-        {captions}
         {rate}
         {menu}
+        {pip ?? captions}
         {fullscreen}
       </Controls.Group>
     </Controls.Group>
@@ -133,8 +134,10 @@ export function ControlsRow({
 }
 
 export interface ControlsSlots extends ThumbnailSlot {
-  /** The captions toggle, supplied by the video presets because the audio presets have no text track feature. */
+  /** The captions toggle, preserved for later re-enabling. */
   captions?: ReactNode;
+  /** Picture-in-Picture button on the bottom controls bar in place of captions. */
+  pip?: ReactNode;
   /** Fullscreen button on the bottom controls bar. */
   fullscreen?: ReactNode;
   /** The playback-rate control, supplied by the on-demand audio preset. */
@@ -148,6 +151,7 @@ export interface ControlsSlots extends ThumbnailSlot {
 export function ControlsContent({
   audio = false,
   captions,
+  pip,
   center = false,
   fullscreen,
   layout,
@@ -257,9 +261,9 @@ export function ControlsContent({
               {/* Simple Right: Remains identical to Expanded right side */}
               <Controls.Group className={'flex items-center rtl:flex-row-reverse gap-2 sm:gap-[12px] shrink-0 ms-auto'}>
                 {audio && <VolumePopover />}
-                {captions}
                 {rate}
                 {menu}
+                {pip ?? captions}
                 {fullscreen}
               </Controls.Group>
             </>
@@ -277,6 +281,7 @@ export function ControlsContent({
               <ControlsRow
                 audio={audio}
                 captions={captions}
+                pip={pip}
                 fullscreen={fullscreen}
                 live={live}
                 menu={menu}
