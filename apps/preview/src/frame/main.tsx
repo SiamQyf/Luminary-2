@@ -33,6 +33,8 @@ function Preview() {
   const [currentDevice, setCurrentDevice] = useState<DeviceType>(() => {
     const raw = searchParams?.get('device') || sessionStorage.getItem('luminescence-device');
     if (raw === 'tablet' || raw === 'mobile' || raw === 'desktop') return raw;
+    if (typeof window !== 'undefined' && window.innerWidth < 640) return 'mobile';
+    if (typeof window !== 'undefined' && window.innerWidth < 1024) return 'tablet';
     return 'desktop';
   });
 

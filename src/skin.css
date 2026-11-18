@@ -3489,3 +3489,70 @@
   background: transparent !important;
   display: none !important;
 }
+
+
+/* Screencast Button: Hidden on Desktop and Tablet, only visible on small screen like phone */
+.cast-wrapper,
+.group\/cast {
+  display: none !important;
+}
+
+@container media-root (width < 560px) {
+  .cast-wrapper {
+    display: flex !important;
+  }
+  .group\/cast {
+    display: inline-flex !important;
+  }
+}
+
+@media (max-width: 639.98px) {
+  .cast-wrapper {
+    display: flex !important;
+  }
+  .group\/cast {
+    display: inline-flex !important;
+  }
+}
+
+
+/* Ensure Top Controls Bar horizontal padding strictly matches Bottom Controls Bar */
+[data-part="top-controls-bar"][data-layout="simple"],
+:root [data-part="top-controls-bar"][data-layout="simple"],
+.preview-player [data-part="top-controls-bar"][data-layout="simple"],
+:where(.media-skin) [data-part="top-controls-bar"][data-layout="simple"],
+[data-part="bottom-controls-bar"][data-layout="simple"],
+:root [data-part="bottom-controls-bar"][data-layout="simple"],
+.preview-player [data-part="bottom-controls-bar"][data-layout="simple"],
+:where(.media-skin) [data-part="bottom-controls-bar"][data-layout="simple"] {
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+@container media-root (width >= 24rem) {
+  [data-part="top-controls-bar"][data-layout="simple"],
+  :root [data-part="top-controls-bar"][data-layout="simple"],
+  .preview-player [data-part="top-controls-bar"][data-layout="simple"],
+  :where(.media-skin) [data-part="top-controls-bar"][data-layout="simple"],
+  [data-part="bottom-controls-bar"][data-layout="simple"],
+  :root [data-part="bottom-controls-bar"][data-layout="simple"],
+  .preview-player [data-part="bottom-controls-bar"][data-layout="simple"],
+  :where(.media-skin) [data-part="bottom-controls-bar"][data-layout="simple"] {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+}
+
+@media (min-width: 640px) {
+  [data-part="top-controls-bar"][data-layout="simple"],
+  :root [data-part="top-controls-bar"][data-layout="simple"],
+  .preview-player [data-part="top-controls-bar"][data-layout="simple"],
+  :where(.media-skin) [data-part="top-controls-bar"][data-layout="simple"],
+  [data-part="bottom-controls-bar"][data-layout="simple"],
+  :root [data-part="bottom-controls-bar"][data-layout="simple"],
+  .preview-player [data-part="bottom-controls-bar"][data-layout="simple"],
+  :where(.media-skin) [data-part="bottom-controls-bar"][data-layout="simple"] {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+}

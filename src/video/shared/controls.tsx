@@ -175,9 +175,11 @@ export function ControlsContent({
         {top && (
           <div
             data-part="top-controls-bar"
+            data-layout={activeLayout}
             className={cn(
-              'pointer-events-none absolute inset-x-0 top-0 px-3.5 sm:px-6 md:px-10 pt-3.5 sm:pt-6 pb-14 flex items-start justify-between z-20',
-              'bg-transparent! bg-none!'
+              'pointer-events-none absolute inset-x-0 top-0 flex items-start justify-between z-20',
+              isSimple ? 'px-4 sm:px-6 pt-3.5 sm:pt-4' : 'px-6 sm:px-10 pt-4 sm:pt-6',
+              'pb-14 bg-transparent! bg-none!'
             )}
           >
             {top}

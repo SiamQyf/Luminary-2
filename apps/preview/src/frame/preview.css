@@ -12180,3 +12180,107 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.65) !important;
   color: #ffffff !important;
 }
+
+
+/* Screencast Button: Hidden on Desktop and Tablet, only visible on small screen like phone */
+.cast-wrapper,
+.preview-player .group\/cast,
+:root .group\/cast {
+  display: none !important;
+}
+
+@container media-root (width < 560px) {
+  .cast-wrapper {
+    display: flex !important;
+  }
+  .preview-player .group\/cast,
+  :root .group\/cast {
+    display: inline-flex !important;
+  }
+}
+
+@media (max-width: 639.98px) {
+  .cast-wrapper,
+  :root[data-device="desktop"] .cast-wrapper,
+  .preview-player[data-device="desktop"] .cast-wrapper,
+  :root[data-device="tablet"] .cast-wrapper,
+  .preview-player[data-device="tablet"] .cast-wrapper {
+    display: flex !important;
+  }
+  .preview-player .group\/cast,
+  :root .group\/cast,
+  :root[data-device="desktop"] .group\/cast,
+  .preview-player[data-device="desktop"] .group\/cast,
+  :root[data-device="tablet"] .group\/cast,
+  .preview-player[data-device="tablet"] .group\/cast {
+    display: inline-flex !important;
+  }
+}
+
+@media (min-width: 640px) {
+  :root[data-device="desktop"] .cast-wrapper,
+  :root[data-device="desktop"] .group\/cast,
+  .preview-player[data-device="desktop"] .cast-wrapper,
+  .preview-player[data-device="desktop"] .group\/cast {
+    display: none !important;
+  }
+
+  :root[data-device="tablet"] .cast-wrapper,
+  :root[data-device="tablet"] .group\/cast,
+  .preview-player[data-device="tablet"] .cast-wrapper,
+  .preview-player[data-device="tablet"] .group\/cast {
+    display: none !important;
+  }
+}
+
+:root[data-device="mobile"] .cast-wrapper,
+.preview-player[data-device="mobile"] .cast-wrapper {
+  display: flex !important;
+}
+
+:root[data-device="mobile"] .group\/cast,
+.preview-player[data-device="mobile"] .group\/cast {
+  display: inline-flex !important;
+}
+
+
+/* Ensure Top Controls Bar horizontal padding strictly matches Bottom Controls Bar */
+[data-part="top-controls-bar"][data-layout="simple"],
+:root [data-part="top-controls-bar"][data-layout="simple"],
+.preview-player [data-part="top-controls-bar"][data-layout="simple"],
+:where(.media-skin) [data-part="top-controls-bar"][data-layout="simple"],
+[data-part="bottom-controls-bar"][data-layout="simple"],
+:root [data-part="bottom-controls-bar"][data-layout="simple"],
+.preview-player [data-part="bottom-controls-bar"][data-layout="simple"],
+:where(.media-skin) [data-part="bottom-controls-bar"][data-layout="simple"] {
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+@container media-root (width >= 24rem) {
+  [data-part="top-controls-bar"][data-layout="simple"],
+  :root [data-part="top-controls-bar"][data-layout="simple"],
+  .preview-player [data-part="top-controls-bar"][data-layout="simple"],
+  :where(.media-skin) [data-part="top-controls-bar"][data-layout="simple"],
+  [data-part="bottom-controls-bar"][data-layout="simple"],
+  :root [data-part="bottom-controls-bar"][data-layout="simple"],
+  .preview-player [data-part="bottom-controls-bar"][data-layout="simple"],
+  :where(.media-skin) [data-part="bottom-controls-bar"][data-layout="simple"] {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+}
+
+@media (min-width: 640px) {
+  [data-part="top-controls-bar"][data-layout="simple"],
+  :root [data-part="top-controls-bar"][data-layout="simple"],
+  .preview-player [data-part="top-controls-bar"][data-layout="simple"],
+  :where(.media-skin) [data-part="top-controls-bar"][data-layout="simple"],
+  [data-part="bottom-controls-bar"][data-layout="simple"],
+  :root [data-part="bottom-controls-bar"][data-layout="simple"],
+  .preview-player [data-part="bottom-controls-bar"][data-layout="simple"],
+  :where(.media-skin) [data-part="bottom-controls-bar"][data-layout="simple"] {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+}
