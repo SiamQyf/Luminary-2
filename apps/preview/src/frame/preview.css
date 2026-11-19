@@ -8699,21 +8699,112 @@ div[role="menu"]:not([data-child-open]) {
     linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.45) 35%, rgba(10, 18, 38, 0.88) 100%);
   box-shadow: inset 0 -1px 0 rgba(30, 64, 175, 0.3);
 }
+/* Porcelain & Cobalt: Settings Menu Card & Items */
 .preview-player[data-theme="porcelain-cobalt"] [role="menu"],
-:root[data-theme="porcelain-cobalt"] [role="menu"] {
+:root[data-theme="porcelain-cobalt"] [role="menu"],
+:where(.media-skin)[data-theme="porcelain-cobalt"] [role="menu"] {
   background: rgba(255, 255, 255, 0.98) !important;
   border: 1.5px solid rgba(30, 64, 175, 0.4) !important;
   border-radius: 18px !important;
+  padding: 8px !important;
   box-shadow: 0 24px 50px rgba(15, 23, 42, 0.25), inset 0 1px 0 #ffffff !important;
-  color: #1e3a8a !important;
-}
-.preview-player[data-theme="porcelain-cobalt"] .group\/menu-btn:hover,
-.preview-player[data-theme="porcelain-cobalt"] .group\/menu-radio:hover,
-:root[data-theme="porcelain-cobalt"] [role="menuitem"]:hover,
-:root[data-theme="porcelain-cobalt"] [role="menuitemradio"]:hover {
-  background: rgba(30, 64, 175, 0.1) !important;
-  border-radius: 10px !important;
   color: #1d4ed8 !important;
+}
+
+.preview-player[data-theme="porcelain-cobalt"] .group\/menu-btn,
+.preview-player[data-theme="porcelain-cobalt"] .group\/menu-back,
+.preview-player[data-theme="porcelain-cobalt"] .group\/menu-radio,
+.preview-player[data-theme="porcelain-cobalt"] [role="menu"] span,
+:root[data-theme="porcelain-cobalt"] [role="menu"] span,
+:root[data-theme="porcelain-cobalt"] [role="menuitem"],
+:root[data-theme="porcelain-cobalt"] [role="menuitemradio"],
+:where(.media-skin)[data-theme="porcelain-cobalt"] .group\/menu-btn,
+:where(.media-skin)[data-theme="porcelain-cobalt"] .group\/menu-back,
+:where(.media-skin)[data-theme="porcelain-cobalt"] .group\/menu-radio,
+:where(.media-skin)[data-theme="porcelain-cobalt"] [role="menu"] span,
+:where(.media-skin)[data-theme="porcelain-cobalt"] [role="menuitem"],
+:where(.media-skin)[data-theme="porcelain-cobalt"] [role="menuitemradio"] {
+  color: #1d4ed8 !important;
+}
+
+.preview-player[data-theme="porcelain-cobalt"] [role="menu"] [class*="text-white/50"],
+.preview-player[data-theme="porcelain-cobalt"] [role="menu"] [class*="text-white/70"],
+:root[data-theme="porcelain-cobalt"] [role="menu"] [class*="text-white/50"],
+:root[data-theme="porcelain-cobalt"] [role="menu"] [class*="text-white/70"],
+:where(.media-skin)[data-theme="porcelain-cobalt"] [role="menu"] [class*="text-white/50"],
+:where(.media-skin)[data-theme="porcelain-cobalt"] [role="menu"] [class*="text-white/70"] {
+  color: #2563eb !important;
+}
+
+.preview-player[data-theme="porcelain-cobalt"] [role="menu"] [class*="bg-white/10"],
+:root[data-theme="porcelain-cobalt"] [role="menu"] [class*="bg-white/10"],
+:where(.media-skin)[data-theme="porcelain-cobalt"] [role="menu"] [class*="bg-white/10"] {
+  background-color: rgba(30, 64, 175, 0.08) !important;
+}
+
+.preview-player[data-theme="porcelain-cobalt"] [role="menuitemradio"][aria-checked="true"],
+:root[data-theme="porcelain-cobalt"] [role="menuitemradio"][aria-checked="true"],
+:where(.media-skin)[data-theme="porcelain-cobalt"] [role="menuitemradio"][aria-checked="true"] {
+  background: rgba(30, 64, 175, 0.12) !important;
+  color: #1d4ed8 !important;
+}
+
+.preview-player[data-theme="porcelain-cobalt"] .group\/menu-btn:hover,
+.preview-player[data-theme="porcelain-cobalt"] .group\/menu-btn[data-focus-visible],
+.preview-player[data-theme="porcelain-cobalt"] .group\/menu-back:hover,
+.preview-player[data-theme="porcelain-cobalt"] .group\/menu-back[data-focus-visible],
+.preview-player[data-theme="porcelain-cobalt"] .group\/menu-radio:hover,
+.preview-player[data-theme="porcelain-cobalt"] .group\/menu-radio[data-focus-visible],
+:root[data-theme="porcelain-cobalt"] [role="menuitem"]:hover,
+:root[data-theme="porcelain-cobalt"] [role="menuitem"][data-focus-visible],
+:root[data-theme="porcelain-cobalt"] [role="menuitemradio"]:hover,
+:root[data-theme="porcelain-cobalt"] [role="menuitemradio"][data-focus-visible],
+:where(.media-skin)[data-theme="porcelain-cobalt"] .group\/menu-btn:hover,
+:where(.media-skin)[data-theme="porcelain-cobalt"] .group\/menu-back:hover,
+:where(.media-skin)[data-theme="porcelain-cobalt"] .group\/menu-radio:hover,
+:where(.media-skin)[data-theme="porcelain-cobalt"] [role="menuitem"]:hover,
+:where(.media-skin)[data-theme="porcelain-cobalt"] [role="menuitemradio"]:hover {
+  background: rgba(30, 64, 175, 0.08) !important;
+  border-radius: 10px !important;
+  color: #1e40af !important;
+}
+
+.preview-player[data-theme="porcelain-cobalt"] .group\/menu-btn:hover span,
+:root[data-theme="porcelain-cobalt"] [role="menuitem"]:hover span,
+:where(.media-skin)[data-theme="porcelain-cobalt"] [role="menuitem"]:hover span {
+  color: #1e40af !important;
+}
+
+.preview-player[data-theme="porcelain-cobalt"] .group\/menu-btn:active,
+.preview-player[data-theme="porcelain-cobalt"] .group\/menu-radio:active,
+:root[data-theme="porcelain-cobalt"] .group\/menu-btn:active,
+:root[data-theme="porcelain-cobalt"] .group\/menu-radio:active,
+:where(.media-skin)[data-theme="porcelain-cobalt"] .group\/menu-btn:active,
+:where(.media-skin)[data-theme="porcelain-cobalt"] .group\/menu-radio:active {
+  background: rgba(30, 64, 175, 0.14) !important;
+}
+
+.preview-player[data-theme="porcelain-cobalt"] [role="separator"],
+.preview-player[data-theme="porcelain-cobalt"] div[class*="border-t"],
+:root[data-theme="porcelain-cobalt"] [role="separator"],
+:where(.media-skin)[data-theme="porcelain-cobalt"] [role="separator"] {
+  border-color: rgba(30, 64, 175, 0.15) !important;
+}
+
+.preview-player[data-theme="porcelain-cobalt"] [data-part="popup"] svg,
+.preview-player[data-theme="porcelain-cobalt"] [role="menu"] svg,
+:root[data-theme="porcelain-cobalt"] [role="menu"] svg,
+:where(.media-skin)[data-theme="porcelain-cobalt"] [role="menu"] svg {
+  color: #1d4ed8 !important;
+  fill: currentColor !important;
+  filter: none !important;
+  drop-shadow: none !important;
+}
+
+.preview-player[data-theme="porcelain-cobalt"] [role="menu"] sup,
+:root[data-theme="porcelain-cobalt"] [role="menu"] sup,
+:where(.media-skin)[data-theme="porcelain-cobalt"] [role="menu"] sup {
+  color: #2563eb !important;
 }
 
 /* ==========================================================================
