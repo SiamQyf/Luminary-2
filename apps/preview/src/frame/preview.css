@@ -8013,8 +8013,9 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: inset 0 2px 4px #ffffff, 0 6px 20px rgba(226, 232, 240, 0.4) !important;
   transform: translateY(-1.5px) !important;
 }
-.preview-player[data-theme="liquid-mercury"] .group\/play,
-.preview-player[data-theme="liquid-mercury"] .group\/center-buffering button:nth-child(2) {
+.preview-player[data-theme="liquid-mercury"] [data-part="bottom-controls-bar"] .group\/play,
+.preview-player[data-theme="liquid-mercury"] .bottom-play-portrait-simple .group\/play,
+.preview-player[data-theme="liquid-mercury"] .desktop-screen-controls .group\/play {
   background: radial-gradient(circle at 35% 25%, #ffffff 0%, #cbd5e1 45%, #64748b 100%) !important;
   color: #0f172a !important;
   border: 1.5px solid #ffffff !important;
@@ -8023,12 +8024,18 @@ div[role="menu"]:not([data-child-open]) {
 .preview-player[data-theme="liquid-mercury"] .player-icon-scale svg,
 .preview-player[data-theme="liquid-mercury"] .group\/mute svg,
 .preview-player[data-theme="liquid-mercury"] .group\/liquid-btn svg,
-.preview-player[data-theme="liquid-mercury"] [data-slot="control"] svg {
+.preview-player[data-theme="liquid-mercury"] [data-slot="control"] svg,
+.preview-player[data-theme="liquid-mercury"] .center-play-portrait-simple .group\/play svg,
+.preview-player[data-theme="liquid-mercury"] .mobile-play-btn-wrapper .group\/play svg {
   color: #e2e8f0 !important;
+  fill: #e2e8f0 !important;
   filter: none !important;
 }
-.preview-player[data-theme="liquid-mercury"] .group\/play svg {
+.preview-player[data-theme="liquid-mercury"] [data-part="bottom-controls-bar"] .group\/play svg,
+.preview-player[data-theme="liquid-mercury"] .bottom-play-portrait-simple .group\/play svg,
+.preview-player[data-theme="liquid-mercury"] .desktop-screen-controls .group\/play svg {
   color: #0f172a !important;
+  fill: #0f172a !important;
   filter: none !important;
 }
 .preview-player[data-theme="liquid-mercury"] .group\/vol-pill {
@@ -8490,8 +8497,9 @@ div[role="menu"]:not([data-child-open]) {
   box-shadow: 0 0 14px rgba(250, 204, 21, 0.6), inset 0 1px 0 #fde047 !important;
   transform: translateY(-1px) !important;
 }
-.preview-player[data-theme="cyber-deck"] .group\/play,
-.preview-player[data-theme="cyber-deck"] .group\/center-buffering button:nth-child(2) {
+.preview-player[data-theme="cyber-deck"] [data-part="bottom-controls-bar"] .group\/play,
+.preview-player[data-theme="cyber-deck"] .bottom-play-portrait-simple .group\/play,
+.preview-player[data-theme="cyber-deck"] .desktop-screen-controls .group\/play {
   background: linear-gradient(180deg, #eab308 0%, #ca8a04 100%) !important;
   color: #000000 !important;
   border: 1px solid #fde047 !important;
@@ -8500,12 +8508,18 @@ div[role="menu"]:not([data-child-open]) {
 .preview-player[data-theme="cyber-deck"] .player-icon-scale svg,
 .preview-player[data-theme="cyber-deck"] .group\/mute svg,
 .preview-player[data-theme="cyber-deck"] .group\/liquid-btn svg,
-.preview-player[data-theme="cyber-deck"] [data-slot="control"] svg {
+.preview-player[data-theme="cyber-deck"] [data-slot="control"] svg,
+.preview-player[data-theme="cyber-deck"] .center-play-portrait-simple .group\/play svg,
+.preview-player[data-theme="cyber-deck"] .mobile-play-btn-wrapper .group\/play svg {
   color: #fde047 !important;
+  fill: #fde047 !important;
   filter: none !important;
 }
-.preview-player[data-theme="cyber-deck"] .group\/play svg {
+.preview-player[data-theme="cyber-deck"] [data-part="bottom-controls-bar"] .group\/play svg,
+.preview-player[data-theme="cyber-deck"] .bottom-play-portrait-simple .group\/play svg,
+.preview-player[data-theme="cyber-deck"] .desktop-screen-controls .group\/play svg {
   color: #000000 !important;
+  fill: #000000 !important;
   filter: none !important;
 }
 .preview-player[data-theme="cyber-deck"] .group\/vol-pill {
@@ -12407,4 +12421,58 @@ div[role="menu"]:not([data-child-open]) {
 .preview-player[data-device="mobile"] [data-part="bottom-controls-bar"] {
   padding-left: 16px !important;
   padding-right: 16px !important;
+}
+
+
+/* ==========================================================================
+   Mobile & Universal Click Color-Shift Stabilization
+   Prevents jarring color flashes, tap highlight tinting, and icon color shifts
+   ========================================================================== */
+.preview-player button,
+:root button,
+:where(.media-skin) button,
+.group\/liquid-btn {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Ensure mobile center play button icons remain crisp, consistent, and never shift color */
+.center-play-portrait-simple .group\/play svg,
+.mobile-play-btn-wrapper .group\/play svg {
+  filter: none !important;
+  transition: transform 150ms ease-out !important;
+}
+
+/* Cyber Deck Mobile Center Play Button Color Fix */
+.preview-player[data-theme="cyber-deck"] .center-play-portrait-simple .group\/play svg,
+.preview-player[data-theme="cyber-deck"] .mobile-play-btn-wrapper .group\/play svg,
+:root[data-theme="cyber-deck"] .center-play-portrait-simple .group\/play svg,
+:root[data-theme="cyber-deck"] .mobile-play-btn-wrapper .group\/play svg,
+:where(.media-skin)[data-theme="cyber-deck"] .center-play-portrait-simple .group\/play svg,
+:where(.media-skin)[data-theme="cyber-deck"] .mobile-play-btn-wrapper .group\/play svg {
+  color: #fde047 !important;
+  fill: #fde047 !important;
+  filter: none !important;
+}
+
+.preview-player[data-theme="cyber-deck"] .center-play-portrait-simple .group\/play,
+.preview-player[data-theme="cyber-deck"] .mobile-play-btn-wrapper .group\/play,
+:root[data-theme="cyber-deck"] .center-play-portrait-simple .group\/play,
+:root[data-theme="cyber-deck"] .mobile-play-btn-wrapper .group\/play,
+:where(.media-skin)[data-theme="cyber-deck"] .center-play-portrait-simple .group\/play,
+:where(.media-skin)[data-theme="cyber-deck"] .mobile-play-btn-wrapper .group\/play {
+  background: linear-gradient(180deg, #27272a 0%, #18181b 100%) !important;
+  border: 1px solid rgba(250, 204, 21, 0.45) !important;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(250, 204, 21, 0.3) !important;
+}
+
+.preview-player[data-theme="cyber-deck"] .center-play-portrait-simple .group\/play:hover,
+.preview-player[data-theme="cyber-deck"] .mobile-play-btn-wrapper .group\/play:hover,
+.preview-player[data-theme="cyber-deck"] .center-play-portrait-simple .group\/play:active,
+.preview-player[data-theme="cyber-deck"] .mobile-play-btn-wrapper .group\/play:active,
+:root[data-theme="cyber-deck"] .center-play-portrait-simple .group\/play:hover,
+:root[data-theme="cyber-deck"] .mobile-play-btn-wrapper .group\/play:hover,
+:root[data-theme="cyber-deck"] .center-play-portrait-simple .group\/play:active,
+:root[data-theme="cyber-deck"] .mobile-play-btn-wrapper .group\/play:active {
+  border-color: #fde047 !important;
+  box-shadow: 0 0 14px rgba(250, 204, 21, 0.6), inset 0 1px 0 #fde047 !important;
 }

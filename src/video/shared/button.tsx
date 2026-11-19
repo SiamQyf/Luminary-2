@@ -45,8 +45,7 @@ export function Button({ className, children, ...props }: ButtonProps) {
         'bg-black/20',
         // Luminous transparent liquid glass sheen (refined for high translucency)
         'bg-gradient-to-b from-white/[0.14] via-white/[0.04] to-transparent',
-        'hover:from-white/[0.22] hover:via-white/[0.08] hover:to-transparent',
-        'active:from-white/[0.28] active:via-white/[0.12] active:to-transparent',
+        'hover:from-white/[0.20] hover:via-white/[0.06] hover:to-transparent',
         // Outer elevation shadow (no border shine)
         'shadow-[0_2.5px_10px_0_rgba(0,0,0,0.3)]',
         // Optical backdrop refraction & clarity

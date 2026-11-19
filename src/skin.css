@@ -3601,3 +3601,57 @@
     display: none !important;
   }
 }
+
+
+/* ==========================================================================
+   Mobile & Universal Click Color-Shift Stabilization
+   Prevents jarring color flashes, tap highlight tinting, and icon color shifts
+   ========================================================================== */
+.preview-player button,
+:root button,
+:where(.media-skin) button,
+.group\/liquid-btn {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Ensure mobile center play button icons remain crisp, consistent, and never shift color */
+.center-play-portrait-simple .group\/play svg,
+.mobile-play-btn-wrapper .group\/play svg {
+  filter: none !important;
+  transition: transform 150ms ease-out !important;
+}
+
+/* Cyber Deck Mobile Center Play Button Color Fix */
+.preview-player[data-theme="cyber-deck"] .center-play-portrait-simple .group\/play svg,
+.preview-player[data-theme="cyber-deck"] .mobile-play-btn-wrapper .group\/play svg,
+:root[data-theme="cyber-deck"] .center-play-portrait-simple .group\/play svg,
+:root[data-theme="cyber-deck"] .mobile-play-btn-wrapper .group\/play svg,
+:where(.media-skin)[data-theme="cyber-deck"] .center-play-portrait-simple .group\/play svg,
+:where(.media-skin)[data-theme="cyber-deck"] .mobile-play-btn-wrapper .group\/play svg {
+  color: #fde047 !important;
+  fill: #fde047 !important;
+  filter: none !important;
+}
+
+.preview-player[data-theme="cyber-deck"] .center-play-portrait-simple .group\/play,
+.preview-player[data-theme="cyber-deck"] .mobile-play-btn-wrapper .group\/play,
+:root[data-theme="cyber-deck"] .center-play-portrait-simple .group\/play,
+:root[data-theme="cyber-deck"] .mobile-play-btn-wrapper .group\/play,
+:where(.media-skin)[data-theme="cyber-deck"] .center-play-portrait-simple .group\/play,
+:where(.media-skin)[data-theme="cyber-deck"] .mobile-play-btn-wrapper .group\/play {
+  background: linear-gradient(180deg, #27272a 0%, #18181b 100%) !important;
+  border: 1px solid rgba(250, 204, 21, 0.45) !important;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(250, 204, 21, 0.3) !important;
+}
+
+.preview-player[data-theme="cyber-deck"] .center-play-portrait-simple .group\/play:hover,
+.preview-player[data-theme="cyber-deck"] .mobile-play-btn-wrapper .group\/play:hover,
+.preview-player[data-theme="cyber-deck"] .center-play-portrait-simple .group\/play:active,
+.preview-player[data-theme="cyber-deck"] .mobile-play-btn-wrapper .group\/play:active,
+:root[data-theme="cyber-deck"] .center-play-portrait-simple .group\/play:hover,
+:root[data-theme="cyber-deck"] .mobile-play-btn-wrapper .group\/play:hover,
+:root[data-theme="cyber-deck"] .center-play-portrait-simple .group\/play:active,
+:root[data-theme="cyber-deck"] .mobile-play-btn-wrapper .group\/play:active {
+  border-color: #fde047 !important;
+  box-shadow: 0 0 14px rgba(250, 204, 21, 0.6), inset 0 1px 0 #fde047 !important;
+}
