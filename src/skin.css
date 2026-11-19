@@ -3556,3 +3556,48 @@
     padding-right: 24px !important;
   }
 }
+
+
+/* Mobile-Only: Shift PiP and Fullscreen to Top-Right Header, Introduce Time Stamps */
+.mobile-top-screen-controls,
+.mobile-time-display {
+  display: none !important;
+}
+
+.desktop-screen-controls {
+  display: flex !important;
+}
+
+.desktop-time-display {
+  display: inline-flex !important;
+}
+
+@container media-root (width < 560px) {
+  .mobile-top-screen-controls {
+    display: flex !important;
+  }
+  .desktop-screen-controls {
+    display: none !important;
+  }
+  .mobile-time-display {
+    display: flex !important;
+  }
+  .desktop-time-display {
+    display: none !important;
+  }
+}
+
+@media (max-width: 639.98px) {
+  .mobile-top-screen-controls {
+    display: flex !important;
+  }
+  .desktop-screen-controls {
+    display: none !important;
+  }
+  .mobile-time-display {
+    display: flex !important;
+  }
+  .desktop-time-display {
+    display: none !important;
+  }
+}

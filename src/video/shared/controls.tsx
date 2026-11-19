@@ -126,8 +126,10 @@ export function ControlsRow({
         {audio && <VolumePopover />}
         {rate}
         {menu}
-        {pip ?? captions}
-        {fullscreen}
+        <div className="desktop-screen-controls flex items-center gap-[12px]">
+          {pip ?? captions}
+          {fullscreen}
+        </div>
       </Controls.Group>
     </Controls.Group>
   );
@@ -245,13 +247,20 @@ export function ControlsContent({
                 {!audio && <VolumePill />}
                 {live && <LiveButton />}
                 {!live && (
-                  <div className="hidden media-sm:inline-flex items-center gap-1 text-[11.5px] font-normal leading-none text-white opacity-80 hover:opacity-100 transition-opacity duration-200 tabular-nums whitespace-nowrap drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] select-none">
+                  <div className="desktop-time-display hidden media-sm:inline-flex items-center gap-1 text-[11.5px] font-normal leading-none text-white opacity-80 hover:opacity-100 transition-opacity duration-200 tabular-nums whitespace-nowrap drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] select-none">
                     <span className="cursor-default"><Time.Value type="current" /></span>
                     <span aria-hidden="true" className="opacity-55">/</span>
                     <span className="cursor-default"><Time.Value type="duration" /></span>
                   </div>
                 )}
               </Controls.Group>
+
+              {/* Mobile Current Time (left of progress bar) */}
+              {!live && (
+                <div className="mobile-time-display flex media-sm:hidden items-center text-[11px] font-normal leading-none text-white/90 tabular-nums whitespace-nowrap select-none px-0.5 shrink-0">
+                  <span className="cursor-default"><Time.Value type="current" /></span>
+                </div>
+              )}
 
               {/* Simple Middle: Progress Bar */}
               {!live && (
@@ -260,13 +269,22 @@ export function ControlsContent({
                 </div>
               )}
 
+              {/* Mobile Duration Time (right of progress bar) */}
+              {!live && (
+                <div className="mobile-time-display flex media-sm:hidden items-center text-[11px] font-normal leading-none text-white/90 tabular-nums whitespace-nowrap select-none px-0.5 shrink-0">
+                  <span className="cursor-default"><Time.Value type="duration" /></span>
+                </div>
+              )}
+
               {/* Simple Right: Remains identical to Expanded right side */}
               <Controls.Group className={'flex items-center rtl:flex-row-reverse gap-2 sm:gap-[12px] shrink-0 ms-auto'}>
                 {audio && <VolumePopover />}
                 {rate}
                 {menu}
-                {pip ?? captions}
-                {fullscreen}
+                <div className="desktop-screen-controls flex items-center gap-2 sm:gap-[12px]">
+                  {pip ?? captions}
+                  {fullscreen}
+                </div>
               </Controls.Group>
             </>
           ) : (

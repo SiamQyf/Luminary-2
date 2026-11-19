@@ -45,6 +45,10 @@ export function VideoControlsContent({
             <Title title={title} subtitle={subtitle} />
             <div className="cast-wrapper flex items-center gap-1.5 sm:gap-[12px] shrink-0 pointer-events-auto group-not-data-visible/controls:opacity-0 group-not-data-visible/controls:pointer-events-none transition-opacity duration-300">
               <CastButton />
+              <div className="mobile-top-screen-controls flex items-center gap-1.5 sm:gap-[12px]">
+                {!live && <PiPButton />}
+                <FullscreenButton />
+              </div>
             </div>
           </div>
         }

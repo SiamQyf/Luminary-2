@@ -12284,3 +12284,127 @@ div[role="menu"]:not([data-child-open]) {
     padding-right: 24px !important;
   }
 }
+
+
+/* Mobile-Only: Shift PiP and Fullscreen to Top-Right Header, Introduce Time Stamps */
+.mobile-top-screen-controls,
+.preview-player .mobile-top-screen-controls,
+:root .mobile-top-screen-controls,
+.mobile-time-display,
+.preview-player .mobile-time-display,
+:root .mobile-time-display {
+  display: none !important;
+}
+
+.desktop-screen-controls,
+.preview-player .desktop-screen-controls,
+:root .desktop-screen-controls {
+  display: flex !important;
+}
+
+.desktop-time-display,
+.preview-player .desktop-time-display,
+:root .desktop-time-display {
+  display: inline-flex !important;
+}
+
+@container media-root (width < 560px) {
+  .mobile-top-screen-controls,
+  .preview-player .mobile-top-screen-controls,
+  :root .mobile-top-screen-controls {
+    display: flex !important;
+  }
+  .desktop-screen-controls,
+  .preview-player .desktop-screen-controls,
+  :root .desktop-screen-controls {
+    display: none !important;
+  }
+  .mobile-time-display,
+  .preview-player .mobile-time-display,
+  :root .mobile-time-display {
+    display: flex !important;
+  }
+  .desktop-time-display,
+  .preview-player .desktop-time-display,
+  :root .desktop-time-display {
+    display: none !important;
+  }
+}
+
+@media (max-width: 639.98px) {
+  .mobile-top-screen-controls,
+  .preview-player .mobile-top-screen-controls,
+  :root .mobile-top-screen-controls {
+    display: flex !important;
+  }
+  .desktop-screen-controls,
+  .preview-player .desktop-screen-controls,
+  :root .desktop-screen-controls {
+    display: none !important;
+  }
+  .mobile-time-display,
+  .preview-player .mobile-time-display,
+  :root .mobile-time-display {
+    display: flex !important;
+  }
+  .desktop-time-display,
+  .preview-player .desktop-time-display,
+  :root .desktop-time-display {
+    display: none !important;
+  }
+}
+
+:root[data-device="mobile"] .mobile-top-screen-controls,
+.preview-player[data-device="mobile"] .mobile-top-screen-controls {
+  display: flex !important;
+}
+
+:root[data-device="mobile"] .desktop-screen-controls,
+.preview-player[data-device="mobile"] .desktop-screen-controls {
+  display: none !important;
+}
+
+:root[data-device="mobile"] .mobile-time-display,
+.preview-player[data-device="mobile"] .mobile-time-display {
+  display: flex !important;
+}
+
+:root[data-device="mobile"] .desktop-time-display,
+.preview-player[data-device="mobile"] .desktop-time-display {
+  display: none !important;
+}
+
+@media (min-width: 640px) {
+  :root[data-device="desktop"] .mobile-top-screen-controls,
+  .preview-player[data-device="desktop"] .mobile-top-screen-controls,
+  :root[data-device="tablet"] .mobile-top-screen-controls,
+  .preview-player[data-device="tablet"] .mobile-top-screen-controls,
+  :root[data-device="desktop"] .mobile-time-display,
+  .preview-player[data-device="desktop"] .mobile-time-display,
+  :root[data-device="tablet"] .mobile-time-display,
+  .preview-player[data-device="tablet"] .mobile-time-display {
+    display: none !important;
+  }
+
+  :root[data-device="desktop"] .desktop-screen-controls,
+  .preview-player[data-device="desktop"] .desktop-screen-controls,
+  :root[data-device="tablet"] .desktop-screen-controls,
+  .preview-player[data-device="tablet"] .desktop-screen-controls {
+    display: flex !important;
+  }
+
+  :root[data-device="desktop"] .desktop-time-display,
+  .preview-player[data-device="desktop"] .desktop-time-display,
+  :root[data-device="tablet"] .desktop-time-display,
+  .preview-player[data-device="tablet"] .desktop-time-display {
+    display: inline-flex !important;
+  }
+}
+
+:root[data-device="mobile"] [data-part="top-controls-bar"],
+.preview-player[data-device="mobile"] [data-part="top-controls-bar"],
+:root[data-device="mobile"] [data-part="bottom-controls-bar"],
+.preview-player[data-device="mobile"] [data-part="bottom-controls-bar"] {
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
