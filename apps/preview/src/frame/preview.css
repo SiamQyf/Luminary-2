@@ -914,10 +914,6 @@ live-audio-player {
     height: auto !important;
     max-height: 18.5px !important;
   }
-  .preview-player .group\/play .player-icon-scale,
-  .preview-player .group\/seek-btn .player-icon-scale {
-    transform: scale(1) !important;
-  }
 }
 
 :root[data-device="mobile"] .preview-player .group\/play svg,
@@ -927,13 +923,6 @@ live-audio-player {
   width: 15px !important;
   height: auto !important;
   max-height: 18.5px !important;
-}
-
-:root[data-device="mobile"] .preview-player .group\/play .player-icon-scale,
-:root[data-device="mobile"] .preview-player .group\/seek-btn .player-icon-scale,
-.preview-player[data-device="mobile"] .group\/play .player-icon-scale,
-.preview-player[data-device="mobile"] .group\/seek-btn .player-icon-scale {
-  transform: scale(1) !important;
 }
 
 
@@ -11007,6 +10996,16 @@ div[role="menu"]:not([data-child-open]) {
   background: linear-gradient(135deg, rgba(6, 28, 24, 0.90) 0%, rgba(18, 12, 38, 0.92) 100%) !important;
   border: 1.25px solid rgba(52, 211, 153, 0.45) !important;
   border-radius: 14px !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.95), 0 0 8px rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Aurora Borealis (aurora-borealis) */
+.preview-player[data-theme="aurora-borealis"] [data-part="caption-pill"],
+:root[data-theme="aurora-borealis"] [data-part="caption-pill"],
+:where(.media-skin)[data-theme="aurora-borealis"] [data-part="caption-pill"] {
+  background: linear-gradient(135deg, rgba(6, 28, 24, 0.90) 0%, rgba(18, 12, 38, 0.92) 100%) !important;
+  border: 1.25px solid rgba(52, 211, 153, 0.45) !important;
+  border-radius: 14px !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.75), 0 0 16px rgba(52, 211, 153, 0.35) !important;
   color: #d1fae5 !important;
   text-shadow: 0 0 8px rgba(52, 211, 153, 0.8), 0 1px 2px rgba(0, 0, 0, 0.95) !important;
@@ -12567,3 +12566,277 @@ div[role="menu"]:not([data-child-open]) {
   border-color: #fde047 !important;
   box-shadow: 0 0 14px rgba(250, 204, 21, 0.6), inset 0 1px 0 #fde047 !important;
 }
+
+/* ==========================================================================
+   Responsive Control Button & Icon Scaling Across Devices
+   - Mobile:  Icons & buttons 1.05× bigger (scale(1.05))
+   - Tablet:  Icons & buttons 1.10× bigger (scale(1.10))
+   - Desktop: Icons & buttons 1.15× bigger (scale(1.15))
+   - Strict Exception: Settings icons remain strictly 1.0× in all cases
+   ========================================================================== */
+
+/* 1. Desktop (1.15×) */
+:root[data-device="desktop"] .group\/liquid-btn:not(.group\/settings),
+.preview-player[data-device="desktop"] .group\/liquid-btn:not(.group\/settings),
+:root[data-device="desktop"] .group\/play:not(.group\/settings),
+.preview-player[data-device="desktop"] .group\/play:not(.group\/settings),
+:root[data-device="desktop"] .group\/seek-btn,
+.preview-player[data-device="desktop"] .group\/seek-btn,
+:root[data-device="desktop"] .group\/cast,
+.preview-player[data-device="desktop"] .group\/cast,
+:root[data-device="desktop"] .group\/pip,
+.preview-player[data-device="desktop"] .group\/pip,
+:root[data-device="desktop"] .group\/fullscreen,
+.preview-player[data-device="desktop"] .group\/fullscreen,
+:root[data-device="desktop"] .media-fullscreen-button,
+.preview-player[data-device="desktop"] .media-fullscreen-button,
+:root[data-device="desktop"] [data-slot="control"]:not(.group\/settings),
+.preview-player[data-device="desktop"] [data-slot="control"]:not(.group\/settings) {
+  transform: scale(1.15) !important;
+  transform-origin: center center !important;
+}
+
+:root[data-device="desktop"] .group\/liquid-btn:not(.group\/settings):hover,
+.preview-player[data-device="desktop"] .group\/liquid-btn:not(.group\/settings):hover {
+  transform: scale(calc(1.15 * 1.05)) !important;
+}
+
+:root[data-device="desktop"] .group\/liquid-btn:not(.group\/settings):active,
+.preview-player[data-device="desktop"] .group\/liquid-btn:not(.group\/settings):active {
+  transform: scale(calc(1.15 * 0.95)) !important;
+}
+
+:root[data-device="desktop"] .group\/vol-pill,
+.preview-player[data-device="desktop"] .group\/vol-pill {
+  transform: scale(1.15) !important;
+  transform-origin: left center !important;
+}
+
+:root[data-device="desktop"][dir="rtl"] .group\/vol-pill,
+.preview-player[data-device="desktop"][dir="rtl"] .group\/vol-pill {
+  transform-origin: right center !important;
+}
+
+/* 2. Tablet (1.10×) */
+:root[data-device="tablet"] .group\/liquid-btn:not(.group\/settings),
+.preview-player[data-device="tablet"] .group\/liquid-btn:not(.group\/settings),
+:root[data-device="tablet"] .group\/play:not(.group\/settings),
+.preview-player[data-device="tablet"] .group\/play:not(.group\/settings),
+:root[data-device="tablet"] .group\/seek-btn,
+.preview-player[data-device="tablet"] .group\/seek-btn,
+:root[data-device="tablet"] .group\/cast,
+.preview-player[data-device="tablet"] .group\/cast,
+:root[data-device="tablet"] .group\/pip,
+.preview-player[data-device="tablet"] .group\/pip,
+:root[data-device="tablet"] .group\/fullscreen,
+.preview-player[data-device="tablet"] .group\/fullscreen,
+:root[data-device="tablet"] .media-fullscreen-button,
+.preview-player[data-device="tablet"] .media-fullscreen-button,
+:root[data-device="tablet"] [data-slot="control"]:not(.group\/settings),
+.preview-player[data-device="tablet"] [data-slot="control"]:not(.group\/settings) {
+  transform: scale(1.10) !important;
+  transform-origin: center center !important;
+}
+
+:root[data-device="tablet"] .group\/liquid-btn:not(.group\/settings):hover,
+.preview-player[data-device="tablet"] .group\/liquid-btn:not(.group\/settings):hover {
+  transform: scale(calc(1.10 * 1.05)) !important;
+}
+
+:root[data-device="tablet"] .group\/liquid-btn:not(.group\/settings):active,
+.preview-player[data-device="tablet"] .group\/liquid-btn:not(.group\/settings):active {
+  transform: scale(calc(1.10 * 0.95)) !important;
+}
+
+:root[data-device="tablet"] .group\/vol-pill,
+.preview-player[data-device="tablet"] .group\/vol-pill {
+  transform: scale(1.10) !important;
+  transform-origin: left center !important;
+}
+
+:root[data-device="tablet"][dir="rtl"] .group\/vol-pill,
+.preview-player[data-device="tablet"][dir="rtl"] .group\/vol-pill {
+  transform-origin: right center !important;
+}
+
+/* 3. Mobile (1.05×) */
+:root[data-device="mobile"] .group\/liquid-btn:not(.group\/settings),
+.preview-player[data-device="mobile"] .group\/liquid-btn:not(.group\/settings),
+:root[data-device="mobile"] .group\/play:not(.group\/settings),
+.preview-player[data-device="mobile"] .group\/play:not(.group\/settings),
+:root[data-device="mobile"] .group\/seek-btn,
+.preview-player[data-device="mobile"] .group\/seek-btn,
+:root[data-device="mobile"] .group\/cast,
+.preview-player[data-device="mobile"] .group\/cast,
+:root[data-device="mobile"] .group\/pip,
+.preview-player[data-device="mobile"] .group\/pip,
+:root[data-device="mobile"] .group\/fullscreen,
+.preview-player[data-device="mobile"] .group\/fullscreen,
+:root[data-device="mobile"] .media-fullscreen-button,
+.preview-player[data-device="mobile"] .media-fullscreen-button,
+:root[data-device="mobile"] [data-slot="control"]:not(.group\/settings),
+.preview-player[data-device="mobile"] [data-slot="control"]:not(.group\/settings) {
+  transform: scale(1.05) !important;
+  transform-origin: center center !important;
+}
+
+:root[data-device="mobile"] .group\/liquid-btn:not(.group\/settings):hover,
+.preview-player[data-device="mobile"] .group\/liquid-btn:not(.group\/settings):hover {
+  transform: scale(calc(1.05 * 1.05)) !important;
+}
+
+:root[data-device="mobile"] .group\/liquid-btn:not(.group\/settings):active,
+.preview-player[data-device="mobile"] .group\/liquid-btn:not(.group\/settings):active {
+  transform: scale(calc(1.05 * 0.95)) !important;
+}
+
+:root[data-device="mobile"] .group\/vol-pill,
+.preview-player[data-device="mobile"] .group\/vol-pill {
+  transform: scale(1.05) !important;
+  transform-origin: left center !important;
+}
+
+:root[data-device="mobile"][dir="rtl"] .group\/vol-pill,
+.preview-player[data-device="mobile"][dir="rtl"] .group\/vol-pill {
+  transform-origin: right center !important;
+}
+
+/* 4. Standalone & Embedded Media Queries Fallbacks */
+@media (min-width: 1024px) {
+  :root:not([data-device="mobile"]):not([data-device="tablet"]) .group\/liquid-btn:not(.group\/settings),
+  .preview-player:not([data-device="mobile"]):not([data-device="tablet"]) .group\/liquid-btn:not(.group\/settings),
+  :where(.media-skin):not([data-device="mobile"]):not([data-device="tablet"]) .group\/liquid-btn:not(.group\/settings),
+  :root:not([data-device="mobile"]):not([data-device="tablet"]) .group\/play:not(.group\/settings),
+  .preview-player:not([data-device="mobile"]):not([data-device="tablet"]) .group\/play:not(.group\/settings),
+  :where(.media-skin):not([data-device="mobile"]):not([data-device="tablet"]) .group\/play:not(.group\/settings),
+  :root:not([data-device="mobile"]):not([data-device="tablet"]) .group\/seek-btn,
+  .preview-player:not([data-device="mobile"]):not([data-device="tablet"]) .group\/seek-btn,
+  :where(.media-skin):not([data-device="mobile"]):not([data-device="tablet"]) .group\/seek-btn,
+  :root:not([data-device="mobile"]):not([data-device="tablet"]) .group\/cast,
+  .preview-player:not([data-device="mobile"]):not([data-device="tablet"]) .group\/cast,
+  :where(.media-skin):not([data-device="mobile"]):not([data-device="tablet"]) .group\/cast,
+  :root:not([data-device="mobile"]):not([data-device="tablet"]) .group\/pip,
+  .preview-player:not([data-device="mobile"]):not([data-device="tablet"]) .group\/pip,
+  :where(.media-skin):not([data-device="mobile"]):not([data-device="tablet"]) .group\/pip,
+  :root:not([data-device="mobile"]):not([data-device="tablet"]) .group\/fullscreen,
+  .preview-player:not([data-device="mobile"]):not([data-device="tablet"]) .group\/fullscreen,
+  :where(.media-skin):not([data-device="mobile"]):not([data-device="tablet"]) .group\/fullscreen,
+  :root:not([data-device="mobile"]):not([data-device="tablet"]) .media-fullscreen-button,
+  .preview-player:not([data-device="mobile"]):not([data-device="tablet"]) .media-fullscreen-button,
+  :where(.media-skin):not([data-device="mobile"]):not([data-device="tablet"]) .media-fullscreen-button {
+    transform: scale(1.15) !important;
+    transform-origin: center center !important;
+  }
+  :root:not([data-device="mobile"]):not([data-device="tablet"]) .group\/vol-pill,
+  .preview-player:not([data-device="mobile"]):not([data-device="tablet"]) .group\/vol-pill,
+  :where(.media-skin):not([data-device="mobile"]):not([data-device="tablet"]) .group\/vol-pill {
+    transform: scale(1.15) !important;
+    transform-origin: left center !important;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023.98px) {
+  :root:not([data-device="mobile"]):not([data-device="desktop"]) .group\/liquid-btn:not(.group\/settings),
+  .preview-player:not([data-device="mobile"]):not([data-device="desktop"]) .group\/liquid-btn:not(.group\/settings),
+  :where(.media-skin):not([data-device="mobile"]):not([data-device="desktop"]) .group\/liquid-btn:not(.group\/settings),
+  :root:not([data-device="mobile"]):not([data-device="desktop"]) .group\/play:not(.group\/settings),
+  .preview-player:not([data-device="mobile"]):not([data-device="desktop"]) .group\/play:not(.group\/settings),
+  :where(.media-skin):not([data-device="mobile"]):not([data-device="desktop"]) .group\/play:not(.group\/settings),
+  :root:not([data-device="mobile"]):not([data-device="desktop"]) .group\/seek-btn,
+  .preview-player:not([data-device="mobile"]):not([data-device="desktop"]) .group\/seek-btn,
+  :where(.media-skin):not([data-device="mobile"]):not([data-device="desktop"]) .group\/seek-btn,
+  :root:not([data-device="mobile"]):not([data-device="desktop"]) .group\/cast,
+  .preview-player:not([data-device="mobile"]):not([data-device="desktop"]) .group\/cast,
+  :where(.media-skin):not([data-device="mobile"]):not([data-device="desktop"]) .group\/cast,
+  :root:not([data-device="mobile"]):not([data-device="desktop"]) .group\/pip,
+  .preview-player:not([data-device="mobile"]):not([data-device="desktop"]) .group\/pip,
+  :where(.media-skin):not([data-device="mobile"]):not([data-device="desktop"]) .group\/pip,
+  :root:not([data-device="mobile"]):not([data-device="desktop"]) .group\/fullscreen,
+  .preview-player:not([data-device="mobile"]):not([data-device="desktop"]) .group\/fullscreen,
+  :where(.media-skin):not([data-device="mobile"]):not([data-device="desktop"]) .group\/fullscreen,
+  :root:not([data-device="mobile"]):not([data-device="desktop"]) .media-fullscreen-button,
+  .preview-player:not([data-device="mobile"]):not([data-device="desktop"]) .media-fullscreen-button,
+  :where(.media-skin):not([data-device="mobile"]):not([data-device="desktop"]) .media-fullscreen-button {
+    transform: scale(1.10) !important;
+    transform-origin: center center !important;
+  }
+  :root:not([data-device="mobile"]):not([data-device="desktop"]) .group\/vol-pill,
+  .preview-player:not([data-device="mobile"]):not([data-device="desktop"]) .group\/vol-pill,
+  :where(.media-skin):not([data-device="mobile"]):not([data-device="desktop"]) .group\/vol-pill {
+    transform: scale(1.10) !important;
+    transform-origin: left center !important;
+  }
+}
+
+@media (max-width: 639.98px) {
+  :root:not([data-device="desktop"]):not([data-device="tablet"]) .group\/liquid-btn:not(.group\/settings),
+  .preview-player:not([data-device="desktop"]):not([data-device="tablet"]) .group\/liquid-btn:not(.group\/settings),
+  :where(.media-skin):not([data-device="desktop"]):not([data-device="tablet"]) .group\/liquid-btn:not(.group\/settings),
+  :root:not([data-device="desktop"]):not([data-device="tablet"]) .group\/play:not(.group\/settings),
+  .preview-player:not([data-device="desktop"]):not([data-device="tablet"]) .group\/play:not(.group\/settings),
+  :where(.media-skin):not([data-device="desktop"]):not([data-device="tablet"]) .group\/play:not(.group\/settings),
+  :root:not([data-device="desktop"]):not([data-device="tablet"]) .group\/seek-btn,
+  .preview-player:not([data-device="desktop"]):not([data-device="tablet"]) .group\/seek-btn,
+  :where(.media-skin):not([data-device="desktop"]):not([data-device="tablet"]) .group\/seek-btn,
+  :root:not([data-device="desktop"]):not([data-device="tablet"]) .group\/cast,
+  .preview-player:not([data-device="desktop"]):not([data-device="tablet"]) .group\/cast,
+  :where(.media-skin):not([data-device="desktop"]):not([data-device="tablet"]) .group\/cast,
+  :root:not([data-device="desktop"]):not([data-device="tablet"]) .group\/pip,
+  .preview-player:not([data-device="desktop"]):not([data-device="tablet"]) .group\/pip,
+  :where(.media-skin):not([data-device="desktop"]):not([data-device="tablet"]) .group\/pip,
+  :root:not([data-device="desktop"]):not([data-device="tablet"]) .group\/fullscreen,
+  .preview-player:not([data-device="desktop"]):not([data-device="tablet"]) .group\/fullscreen,
+  :where(.media-skin):not([data-device="desktop"]):not([data-device="tablet"]) .group\/fullscreen,
+  :root:not([data-device="desktop"]):not([data-device="tablet"]) .media-fullscreen-button,
+  .preview-player:not([data-device="desktop"]):not([data-device="tablet"]) .media-fullscreen-button,
+  :where(.media-skin):not([data-device="desktop"]):not([data-device="tablet"]) .media-fullscreen-button {
+    transform: scale(1.05) !important;
+    transform-origin: center center !important;
+  }
+  :root:not([data-device="desktop"]):not([data-device="tablet"]) .group\/vol-pill,
+  .preview-player:not([data-device="desktop"]):not([data-device="tablet"]) .group\/vol-pill,
+  :where(.media-skin):not([data-device="desktop"]):not([data-device="tablet"]) .group\/vol-pill {
+    transform: scale(1.05) !important;
+    transform-origin: left center !important;
+  }
+}
+
+/* 5. STRICT EXCEPTION: In all cases, settings icons and settings button remain strictly at 1.0× */
+.group\/settings,
+.group\/settings:hover,
+.group\/settings:active,
+.group\/settings svg,
+.group\/settings .player-icon-scale,
+:root .group\/settings,
+:root .group\/settings svg,
+:root .group\/settings .player-icon-scale,
+:root[data-device="desktop"] .group\/settings,
+:root[data-device="desktop"] .group\/settings svg,
+:root[data-device="desktop"] .group\/settings .player-icon-scale,
+:root[data-device="tablet"] .group\/settings,
+:root[data-device="tablet"] .group\/settings svg,
+:root[data-device="tablet"] .group\/settings .player-icon-scale,
+:root[data-device="mobile"] .group\/settings,
+:root[data-device="mobile"] .group\/settings svg,
+:root[data-device="mobile"] .group\/settings .player-icon-scale,
+.preview-player .group\/settings,
+.preview-player .group\/settings svg,
+.preview-player .group\/settings .player-icon-scale,
+.preview-player[data-device="desktop"] .group\/settings,
+.preview-player[data-device="desktop"] .group\/settings svg,
+.preview-player[data-device="desktop"] .group\/settings .player-icon-scale,
+.preview-player[data-device="tablet"] .group\/settings,
+.preview-player[data-device="tablet"] .group\/settings svg,
+.preview-player[data-device="tablet"] .group\/settings .player-icon-scale,
+.preview-player[data-device="mobile"] .group\/settings,
+.preview-player[data-device="mobile"] .group\/settings svg,
+.preview-player[data-device="mobile"] .group\/settings .player-icon-scale,
+:where(.media-skin) .group\/settings,
+:where(.media-skin) .group\/settings svg,
+:where(.media-skin) .group\/settings .player-icon-scale,
+[data-part="popup"] svg,
+[role="menu"] svg,
+.group\/menu-btn svg {
+  transform: scale(1) !important;
+}
+

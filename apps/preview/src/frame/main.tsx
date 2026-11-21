@@ -25,7 +25,7 @@ function Preview() {
     return DEFAULT_SRC;
   });
   const [currentTheme, setCurrentTheme] = useState<string>(() => {
-    let t = searchParams?.get('theme') || sessionStorage.getItem('luminescence-theme') || sessionStorage.getItem('inescence-theme') || 'basic';
+    let t = searchParams?.get('theme') || sessionStorage.getItem('luminescence-theme') || sessionStorage.getItem('inescence-theme') || 'obsidian-gold';
     if (t === 'plain') t = 'classic-white';
     return t;
   });

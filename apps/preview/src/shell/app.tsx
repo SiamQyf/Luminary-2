@@ -24,10 +24,10 @@ export function App() {
       return (
         sessionStorage.getItem('luminescence-theme') ||
         sessionStorage.getItem('inescence-theme') ||
-        'basic'
+        'obsidian-gold'
       );
     }
-    return 'basic';
+    return 'obsidian-gold';
   });
   // The frame loads once with the first settings; later changes are posted to it, so playback is never interrupted.
   const [frameUrl] = useState(() => `/preview.html#${writeParams(params)}`);
