@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 
-const COUNTER_KEY = 'luminary_prod_videojs_challenge_v10';
+// Fresh production key for the contest launch
+const COUNTER_KEY = 'luminary_videojs_live_contest_views';
 const API_BASE = 'https://countapi.mileshilliard.com/api/v1';
 
 /**
  * Production Visitor Counter:
- * - HARD LOCKED: Only runs on live deployed domains (e.g. *.netlify.app, *.vercel.app).
- * - Under NO CIRCUMSTANCES will localhost, 127.0.0.1, or local ports ever hit the counter.
- * - On local development, it strictly shows 0 visits (read-only).
- * - Visiting with `?owner`, `?admin`, or `?no-count` on live production permanently exempts the browser.
+ * - HARD LOCKED: On ANY local server or dev port, strictly displays 0 and never touches the API.
+ * - On live production, only real external visitors increment the counter (1x per browser session).
+ * - Visiting with `?owner`, `?admin`, or `?no-count` on production permanently exempts the browser from counting.
  */
 export function VisitorCounter() {
   const [count, setCount] = useState<number | null>(null);
@@ -18,72 +18,57 @@ export function VisitorCounter() {
       if (typeof window === 'undefined') return;
 
       const hostname = window.location.hostname;
-      const protocol = window.location.protocol;
+      const port = window.location.port;
 
-      // Hard check: Is this a live deployed HTTPS domain?
-      const isLiveProduction =
-        protocol === 'https:' &&
-        (hostname.endsWith('.netlify.app') ||
-          hostname.endsWith('.vercel.app') ||
-          hostname.endsWith('.pages.dev') ||
-          (!hostname.includes('localhost') &&
-            !hostname.includes('127.0.0.1') &&
-            !hostname.startsWith('192.168.') &&
-            !hostname.startsWith('10.') &&
-            window.location.port === ''));
+      // 1. If running on ANY local server or dev port -> strictly display 0 visits, NEVER touch API
+      const isLocalServer =
+        hostname === 'localhost' ||
+        hostname === '127.0.0.1' ||
+        hostname.startsWith('192.168.') ||
+        hostname.startsWith('10.') ||
+        hostname.endsWith('.local') ||
+        port !== '';
 
-      // Check owner flag
-      let isOwnerQuery = false;
+      if (isLocalServer) {
+        setCount(0);
+        return;
+      }
+
+      // 2. Check if owner flag is present in URL or localStorage
+      const urlParams = new URLSearchParams(window.location.search);
+      let isOwner = localStorage.getItem('luminary_is_owner') === 'true';
+
+      if (urlParams.has('owner') || urlParams.has('admin') || urlParams.has('no-count')) {
+        localStorage.setItem('luminary_is_owner', 'true');
+        isOwner = true;
+      }
+
       try {
-        const searchParams = new URLSearchParams(window.location.search);
-        isOwnerQuery =
-          searchParams.has('owner') || searchParams.has('admin') || searchParams.has('no-count');
-
         if (window.parent && window.parent !== window) {
-          const parentSearch = new URLSearchParams(window.parent.location.search);
-          if (
-            parentSearch.has('owner') ||
-            parentSearch.has('admin') ||
-            parentSearch.has('no-count')
-          ) {
-            isOwnerQuery = true;
+          const parentParams = new URLSearchParams(window.parent.location.search);
+          if (parentParams.has('owner') || parentParams.has('admin') || parentParams.has('no-count')) {
+            localStorage.setItem('luminary_is_owner', 'true');
+            isOwner = true;
           }
         }
       } catch {
         // Cross-origin fallback
       }
 
-      if (isOwnerQuery) {
-        localStorage.setItem('luminary_is_owner', 'true');
-        try {
-          window.parent?.localStorage?.setItem('luminary_is_owner', 'true');
-        } catch {
-          // ignore
-        }
-      }
-
-      const isOwner = localStorage.getItem('luminary_is_owner') === 'true';
-
-      // IF NOT LIVE PRODUCTION OR IS OWNER -> READ-ONLY (NEVER HIT)
-      if (!isLiveProduction || isOwner) {
+      // 3. If owner on live site -> Read-only check, NEVER increment
+      if (isOwner) {
         fetch(`${API_BASE}/get/${COUNTER_KEY}`)
           .then((res) => (res.ok ? res.json() : null))
           .then((data) => {
-            if (data && typeof data.value === 'number') {
-              setCount(data.value);
-            } else {
-              setCount(0);
-            }
+            setCount(data?.value ?? 0);
           })
-          .catch(() => {
-            setCount(0);
-          });
+          .catch(() => setCount(0));
         return;
       }
 
-      // ONLY REACHED ON REAL LIVE PRODUCTION BY EXTERNAL VISITORS
-      const alreadyCountedSession = sessionStorage.getItem('luminary_counted_session');
-      const endpoint = alreadyCountedSession
+      // 4. Real visitor on live site -> Increment 1 time per browser session
+      const counted = sessionStorage.getItem('luminary_v10_counted');
+      const endpoint = counted
         ? `${API_BASE}/get/${COUNTER_KEY}`
         : `${API_BASE}/hit/${COUNTER_KEY}`;
 
@@ -92,14 +77,12 @@ export function VisitorCounter() {
         .then((data) => {
           if (data && typeof data.value === 'number') {
             setCount(data.value);
-            if (!alreadyCountedSession) {
-              sessionStorage.setItem('luminary_counted_session', 'true');
-            }
+            sessionStorage.setItem('luminary_v10_counted', 'true');
+          } else {
+            setCount(0);
           }
         })
-        .catch(() => {
-          setCount(0);
-        });
+        .catch(() => setCount(0));
     } catch {
       setCount(0);
     }
