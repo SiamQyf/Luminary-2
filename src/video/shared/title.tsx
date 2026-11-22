@@ -28,7 +28,7 @@ function checkIsMobile(): boolean {
  * Disappearing Video Title:
  * - Appears when video starts / loads, remains for 4 seconds (desktop) or 5 seconds (mobile), then disappears.
  * - On desktop: stays hidden during normal playback, reappears smoothly when hovered.
- * - On mobile: on click / tap, the title appears and stays for 5 seconds before fading out.
+ * - On mobile: on click / tap, the title appears and stays for 3 seconds before fading out.
  */
 export function Title({ title, subtitle, className }: TitleProps = {}) {
   const container = useContainer();
@@ -46,7 +46,7 @@ export function Title({ title, subtitle, className }: TitleProps = {}) {
     if (timerRef.current) {
       clearTimeout(timerRef.current);
     }
-    const duration = checkIsMobile() ? 5000 : 4000;
+    const duration = checkIsMobile() ? 3000 : 4000;
     timerRef.current = setTimeout(() => {
       setInitialVisible(false);
     }, duration);
@@ -59,7 +59,7 @@ export function Title({ title, subtitle, className }: TitleProps = {}) {
     }
     mobileTimerRef.current = setTimeout(() => {
       setMobileClickVisible(false);
-    }, 5000);
+    }, 3000);
   };
 
   // 1. Initial mount
