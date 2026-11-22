@@ -1,91 +1,96 @@
 import { useEffect, useState } from 'react';
 
-const COUNTER_KEY = 'luminary_videojs_v10_skin_official';
+const COUNTER_KEY = 'luminary_skin_prod_v10_views';
 const API_BASE = 'https://countapi.mileshilliard.com/api/v1';
 
 /**
- * Visitor Counter with strict Owner filtering:
- * - Localhost / 127.0.0.1 is automatically recognized as owner (never increments).
- * - Visiting with `?owner`, `?admin`, or `?no-count` permanently marks browser as owner via localStorage.
- * - For regular visitors, counts 1 visit per session (sessionStorage deduplication) so refreshes don't inflate counts.
- * - Fails silently and unobtrusively if network/API is unavailable.
+ * Production Visitor Counter:
+ * - Local development (localhost, 127.0.0.1, http, custom ports) is strictly READ-ONLY and will NEVER increment.
+ * - Visiting with `?owner`, `?admin`, or `?no-count` on production permanently marks the browser as owner via localStorage (never increments).
+ * - Only real visitors on live production (HTTPS, no owner flag) trigger a hit (deduplicated per browser session).
  */
 export function VisitorCounter() {
   const [count, setCount] = useState<number | null>(null);
-  const [isOwner, setIsOwner] = useState(false);
 
   useEffect(() => {
     try {
-      const isLocal =
-        typeof window !== 'undefined' &&
-        (window.location.hostname === 'localhost' ||
-          window.location.hostname === '127.0.0.1' ||
-          window.location.hostname.endsWith('.local'));
+      if (typeof window === 'undefined') return;
 
-      // Check URL parameters for owner flag
-      const searchParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
-      const hashParams =
-        typeof window !== 'undefined' ? new URLSearchParams(window.location.hash.replace(/^#/, '')) : null;
+      // 1. Detect any local or dev environment strictly
+      const isLocalOrDev =
+        window.location.protocol !== 'https:' ||
+        window.location.hostname === 'localhost' ||
+        window.location.hostname === '127.0.0.1' ||
+        window.location.hostname.startsWith('192.168.') ||
+        window.location.hostname.startsWith('10.') ||
+        window.location.hostname.endsWith('.local') ||
+        window.location.port !== '';
 
-      const hasOwnerFlag =
-        searchParams?.has('owner') ||
-        searchParams?.has('admin') ||
-        searchParams?.has('no-count') ||
-        hashParams?.has('owner') ||
-        hashParams?.has('admin');
+      // 2. Detect owner flag in URL or parent window
+      const searchParams = new URLSearchParams(window.location.search);
+      let isOwnerQuery =
+        searchParams.has('owner') || searchParams.has('admin') || searchParams.has('no-count');
 
-      if (hasOwnerFlag && typeof window !== 'undefined') {
-        localStorage.setItem('luminary_is_owner', 'true');
-      }
-
-      // Check parent window for owner flag if running in iframe
       try {
-        if (typeof window !== 'undefined' && window.parent && window.parent !== window) {
+        if (window.parent && window.parent !== window) {
           const parentSearch = new URLSearchParams(window.parent.location.search);
-          if (parentSearch.has('owner') || parentSearch.has('admin') || parentSearch.has('no-count')) {
-            localStorage.setItem('luminary_is_owner', 'true');
-            window.parent.localStorage?.setItem('luminary_is_owner', 'true');
+          if (
+            parentSearch.has('owner') ||
+            parentSearch.has('admin') ||
+            parentSearch.has('no-count')
+          ) {
+            isOwnerQuery = true;
           }
         }
       } catch {
-        // Cross-origin iframe fallback
+        // Cross-origin fallback
       }
 
-      const ownerStatus =
-        isLocal ||
-        (typeof window !== 'undefined' && localStorage.getItem('luminary_is_owner') === 'true');
+      if (isOwnerQuery) {
+        localStorage.setItem('luminary_is_owner', 'true');
+        try {
+          window.parent?.localStorage?.setItem('luminary_is_owner', 'true');
+        } catch {
+          // ignore
+        }
+      }
 
-      setIsOwner(ownerStatus);
+      const isOwner = localStorage.getItem('luminary_is_owner') === 'true';
 
-      if (ownerStatus) {
-        // OWNER: Read-only check, NEVER increment
+      // 3. If local/dev OR owner: strictly READ-ONLY (never hit)
+      if (isLocalOrDev || isOwner) {
         fetch(`${API_BASE}/get/${COUNTER_KEY}`)
           .then((res) => (res.ok ? res.json() : null))
           .then((data) => {
             if (data && typeof data.value === 'number') {
               setCount(data.value);
+            } else if (data?.error === 'Key not found') {
+              setCount(0);
             }
           })
-          .catch(() => {});
-      } else {
-        // VISITOR: Increment once per session to avoid duplicate counts on refresh
-        const alreadyCountedSession = sessionStorage.getItem('luminary_counted_session');
-        const endpoint = alreadyCountedSession
-          ? `${API_BASE}/get/${COUNTER_KEY}`
-          : `${API_BASE}/hit/${COUNTER_KEY}`;
-
-        fetch(endpoint)
-          .then((res) => (res.ok ? res.json() : null))
-          .then((data) => {
-            if (data && typeof data.value === 'number') {
-              setCount(data.value);
-              if (!alreadyCountedSession) {
-                sessionStorage.setItem('luminary_counted_session', 'true');
-              }
-            }
-          })
-          .catch(() => {});
+          .catch(() => {
+            setCount(0);
+          });
+        return;
       }
+
+      // 4. Real visitor on live production site
+      const alreadyCountedSession = sessionStorage.getItem('luminary_counted_session');
+      const endpoint = alreadyCountedSession
+        ? `${API_BASE}/get/${COUNTER_KEY}`
+        : `${API_BASE}/hit/${COUNTER_KEY}`;
+
+      fetch(endpoint)
+        .then((res) => (res.ok ? res.json() : null))
+        .then((data) => {
+          if (data && typeof data.value === 'number') {
+            setCount(data.value);
+            if (!alreadyCountedSession) {
+              sessionStorage.setItem('luminary_counted_session', 'true');
+            }
+          }
+        })
+        .catch(() => {});
     } catch {
       // Graceful fallback
     }
