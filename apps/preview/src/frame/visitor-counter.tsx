@@ -94,17 +94,9 @@ export function VisitorCounter() {
   if (count === null) return null;
 
   return (
-    <div
-      className="inline-flex items-center gap-1.5 text-[11px] font-mono tracking-tight text-white/40 hover:text-white/70 transition-colors select-none"
-      title={isOwner ? "Owner Mode: Your visits do not increment this counter" : "Public Visitor Counter"}
-    >
+    <div className="inline-flex items-center gap-1.5 text-[11px] font-mono tracking-tight text-white/40 hover:text-white/70 transition-colors select-none">
       <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400/80 animate-pulse" />
       <span>{count.toLocaleString()} visits</span>
-      {isOwner && (
-        <span className="text-[9.5px] uppercase font-sans font-semibold tracking-wider px-1.5 py-0.2 rounded bg-amber-500/15 text-amber-400/90 border border-amber-500/25">
-          Owner (Not Counted)
-        </span>
-      )}
     </div>
   );
 }
