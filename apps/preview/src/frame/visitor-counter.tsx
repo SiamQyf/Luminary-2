@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 
-const COUNTER_KEY = 'luminary_skin_prod_v10_views';
+const COUNTER_KEY = 'luminary_prod_videojs_challenge_v10';
 const API_BASE = 'https://countapi.mileshilliard.com/api/v1';
 
 /**
  * Production Visitor Counter:
- * - Local development (localhost, 127.0.0.1, http, custom ports) is strictly READ-ONLY and will NEVER increment.
- * - Visiting with `?owner`, `?admin`, or `?no-count` on production permanently marks the browser as owner via localStorage (never increments).
- * - Only real visitors on live production (HTTPS, no owner flag) trigger a hit (deduplicated per browser session).
+ * - HARD LOCKED: Only runs on live deployed domains (e.g. *.netlify.app, *.vercel.app).
+ * - Under NO CIRCUMSTANCES will localhost, 127.0.0.1, or local ports ever hit the counter.
+ * - On local development, it strictly shows 0 visits (read-only).
+ * - Visiting with `?owner`, `?admin`, or `?no-count` on live production permanently exempts the browser.
  */
 export function VisitorCounter() {
   const [count, setCount] = useState<number | null>(null);
@@ -16,22 +17,28 @@ export function VisitorCounter() {
     try {
       if (typeof window === 'undefined') return;
 
-      // 1. Detect any local or dev environment strictly
-      const isLocalOrDev =
-        window.location.protocol !== 'https:' ||
-        window.location.hostname === 'localhost' ||
-        window.location.hostname === '127.0.0.1' ||
-        window.location.hostname.startsWith('192.168.') ||
-        window.location.hostname.startsWith('10.') ||
-        window.location.hostname.endsWith('.local') ||
-        window.location.port !== '';
+      const hostname = window.location.hostname;
+      const protocol = window.location.protocol;
 
-      // 2. Detect owner flag in URL or parent window
-      const searchParams = new URLSearchParams(window.location.search);
-      let isOwnerQuery =
-        searchParams.has('owner') || searchParams.has('admin') || searchParams.has('no-count');
+      // Hard check: Is this a live deployed HTTPS domain?
+      const isLiveProduction =
+        protocol === 'https:' &&
+        (hostname.endsWith('.netlify.app') ||
+          hostname.endsWith('.vercel.app') ||
+          hostname.endsWith('.pages.dev') ||
+          (!hostname.includes('localhost') &&
+            !hostname.includes('127.0.0.1') &&
+            !hostname.startsWith('192.168.') &&
+            !hostname.startsWith('10.') &&
+            window.location.port === ''));
 
+      // Check owner flag
+      let isOwnerQuery = false;
       try {
+        const searchParams = new URLSearchParams(window.location.search);
+        isOwnerQuery =
+          searchParams.has('owner') || searchParams.has('admin') || searchParams.has('no-count');
+
         if (window.parent && window.parent !== window) {
           const parentSearch = new URLSearchParams(window.parent.location.search);
           if (
@@ -57,14 +64,14 @@ export function VisitorCounter() {
 
       const isOwner = localStorage.getItem('luminary_is_owner') === 'true';
 
-      // 3. If local/dev OR owner: strictly READ-ONLY (never hit)
-      if (isLocalOrDev || isOwner) {
+      // IF NOT LIVE PRODUCTION OR IS OWNER -> READ-ONLY (NEVER HIT)
+      if (!isLiveProduction || isOwner) {
         fetch(`${API_BASE}/get/${COUNTER_KEY}`)
           .then((res) => (res.ok ? res.json() : null))
           .then((data) => {
             if (data && typeof data.value === 'number') {
               setCount(data.value);
-            } else if (data?.error === 'Key not found') {
+            } else {
               setCount(0);
             }
           })
@@ -74,7 +81,7 @@ export function VisitorCounter() {
         return;
       }
 
-      // 4. Real visitor on live production site
+      // ONLY REACHED ON REAL LIVE PRODUCTION BY EXTERNAL VISITORS
       const alreadyCountedSession = sessionStorage.getItem('luminary_counted_session');
       const endpoint = alreadyCountedSession
         ? `${API_BASE}/get/${COUNTER_KEY}`
@@ -90,9 +97,11 @@ export function VisitorCounter() {
             }
           }
         })
-        .catch(() => {});
+        .catch(() => {
+          setCount(0);
+        });
     } catch {
-      // Graceful fallback
+      setCount(0);
     }
   }, []);
 
