@@ -12,6 +12,7 @@ import { useLayoutMode } from '@/video/shared/layout-mode';
 import { DEVICE_OPTIONS, type DeviceType, VideoBar } from './video-input';
 import { ControlsGuide } from './controls-guide';
 import { UsageGuide } from './usage-guide';
+import { VisitorCounter } from './visitor-counter';
 import { AmbientBackground } from '../shell/ambient-background';
 
 function Preview() {
@@ -181,6 +182,16 @@ function Preview() {
 
         {/* Video.js v10 Integration & Usage Guide */}
         <UsageGuide />
+
+        {/* Footer with subtle visitor counter */}
+        <footer className="w-full max-w-[1140px] flex flex-col sm:flex-row items-center justify-between gap-3 py-8 px-4 text-xs text-white/35 border-t border-white/5 mt-10">
+          <div className="flex items-center gap-2">
+            <span>Luminary</span>
+            <span>•</span>
+            <span>Video.js v10 Skin Architecture</span>
+          </div>
+          <VisitorCounter />
+        </footer>
       </div>
     </I18nProvider>
   );
